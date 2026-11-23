@@ -45,13 +45,13 @@ function renderResults(el) {
   const notes = `
     ${needsAssess ? `<div class="panel info"><h2>好多資助服務要先做評估</h2>
       <p>資助長期護理服務要先做「安老服務統一評估」。未做過唔緊要，先搵長者中心或綜合家庭服務中心社工幫你申請。</p>
-      <p><a href="services.html#assessment">評估點樣做</a></p></div>` : ""}
-    ${fund === "self" ? `<p>本網站暫時未收錄自費上門照顧機構。想比較自費上門照顧，可以先問長者中心社工。</p>` : ""}`;
+      <p><a href="services.html#assessment">評估點樣做</a></p></div>` : ""}`;
 
   el.innerHTML = `
     <p class="lead">你揀咗：${needs.map((n) => NEEDS[n].label).join("、")}${fundText ? `；${fundText}` : ""}。
       <a href="need.html${location.search}">改答案</a></p>
     <p>以下係<strong>可能相關</strong>嘅服務，唔係資格判斷，要由社工或服務單位核實。</p>
+    ${fund === "self" ? `<p>本網站暫時未收錄自費上門照顧機構。想比較自費上門照顧，可以先問長者中心社工。</p>` : ""}
     ${hits.map(({ s, why }, i) => `
       <section class="result" aria-labelledby="r-${s.id}">
         <h2 id="r-${s.id}">${esc(s.name)}</h2>
@@ -66,10 +66,9 @@ function renderResults(el) {
         ${contactsHtml(s.contacts.length ? s : fallback)}
       </section>${i === 0 ? notes : ""}`).join("")}
     <div class="panel alert">
-      <h2>撐唔住或者有危險？</h2>
+      <h2>有即時危險？</h2>
       <ul class="calls">
-        <li><span>照顧者支援專線，24 小時社工接聽</span>${telLink("182183")}</li>
-        <li><span>有即時危險</span>${telLink("999")}</li>
+        <li><span>報警或召救護車</span>${telLink("999")}</li>
       </ul>
     </div>`;
 }

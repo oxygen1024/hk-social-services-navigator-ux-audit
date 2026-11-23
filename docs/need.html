@@ -14,9 +14,9 @@
 <main id="main" class="wrap">
 <p><a href="index.html">返回首頁</a></p>
 <form action="results.html" method="get">
-  <fieldset>
+  <fieldset aria-describedby="need-hint">
     <legend><h1>長者需要咩幫手？</h1></legend>
-    <p class="muted">可以揀多過一樣。</p>
+    <p id="need-hint" class="muted">可以揀多過一樣。</p>
     <div class="choice"><input type="checkbox" id="n-personal" name="need" value="personal"><label for="n-personal">個人照顧<span class="hint">沖涼、着衫、如廁</span></label></div>
     <div class="choice"><input type="checkbox" id="n-meals" name="need" value="meals"><label for="n-meals">膳食<span class="hint">煮飯、送飯</span></label></div>
     <div class="choice"><input type="checkbox" id="n-home" name="need" value="home"><label for="n-home">家務及外出<span class="hint">清潔、陪診、護送</span></label></div>

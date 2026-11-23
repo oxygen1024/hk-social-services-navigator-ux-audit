@@ -29,6 +29,8 @@ const shots = process.argv[2];
   assert.ok(t.includes("家居支援服務") && t.includes("體弱長者家居照顧服務"), t.join());
   assert.strictEqual(t.at(-1), "長者地區中心／長者鄰舍中心");
   assert.ok(await p.getByText("暫時未收錄自費上門照顧").isVisible());
+  assert.ok(await p.evaluate(() => document.querySelector("#results > p:nth-of-type(3)")?.textContent.includes("自費")), "自費提示要喺第一張卡之前");
+  assert.strictEqual(await p.locator('.panel.alert a[href="tel:182183"]').count(), 0, "結尾急事框唔應該再重複 182 183");
   await noOverflow("results.html");
   if (shots) await p.screenshot({ path: `${shots}/320-results.png`, fullPage: true });
 
