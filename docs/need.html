@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>你需要邊方面幫手？｜香港社福導航</title>
+<meta name="description" content="由生活需要出發，搵香港長者服務同下一個可以聯絡嘅人。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+<header class="site"><div class="wrap"><a href="index.html">香港社福導航</a></div></header>
+<main id="main" class="wrap">
+<p><a href="index.html">返回首頁</a></p>
+<h1>你需要邊方面幫手？</h1>
+<form action="results.html" method="get">
+  <fieldset>
+    <legend>長者需要咩幫手？可以揀多過一樣。</legend>
+    <div class="choice"><input type="checkbox" id="n-personal" name="need" value="personal"><label for="n-personal">個人照顧<span class="hint">沖涼、着衫、如廁</span></label></div>
+    <div class="choice"><input type="checkbox" id="n-meals" name="need" value="meals"><label for="n-meals">膳食<span class="hint">煮飯、送飯</span></label></div>
+    <div class="choice"><input type="checkbox" id="n-home" name="need" value="home"><label for="n-home">家務及外出<span class="hint">清潔、陪診、護送</span></label></div>
+    <div class="choice"><input type="checkbox" id="n-nursing" name="need" value="nursing"><label for="n-nursing">護理及復康<span class="hint">護理、做運動、記性差</span></label></div>
+    <div class="choice"><input type="checkbox" id="n-day" name="need" value="day"><label for="n-day">日間有人照顧<span class="hint">屋企人返工時</span></label></div>
+    <div class="choice"><input type="checkbox" id="n-break" name="need" value="break"><label for="n-break">照顧者想抖一抖<span class="hint">好攰、要出門幾日</span></label></div>
+    <div class="choice"><input type="checkbox" id="n-residential" name="need" value="residential"><label for="n-residential">考慮住院舍<span class="hint">屋企照顧唔到</span></label></div>
+    <div class="choice"><input type="checkbox" id="n-money" name="need" value="money"><label for="n-money">生活費及津貼<span class="hint">高齡津貼、照顧者津貼</span></label></div>
+    <div class="choice"><input type="checkbox" id="n-alone" name="need" value="alone"><label for="n-alone">獨居或少人關心<span class="hint">想有人探吓</span></label></div>
+    <div class="choice"><input type="checkbox" id="n-unsure" name="need" value="unsure"><label for="n-unsure">未清楚<span class="hint">唔知點講</span></label></div>
+  </fieldset>
+  <fieldset>
+    <legend>想睇資助定自費服務？</legend>
+    <div class="choice"><input type="radio" id="f-both" name="fund" value="both" checked><label for="f-both">兩樣都想睇</label></div>
+    <div class="choice"><input type="radio" id="f-sub" name="fund" value="sub"><label for="f-sub">資助</label></div>
+    <div class="choice"><input type="radio" id="f-self" name="fund" value="self"><label for="f-self">自費</label></div>
+    <div class="choice"><input type="radio" id="f-unsure" name="fund" value="unsure"><label for="f-unsure">未清楚</label></div>
+  </fieldset>
+  <button class="button" type="submit">睇結果</button>
+</form>
+<p class="small muted">唔使填姓名、身份證或病歷。答案只用嚟揀顯示邊啲服務。</p>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>prefillNeed();</script>
+</main>
+<footer class="site"><div class="wrap">
+<p>服務資料來自<a href="https://www.swd.gov.hk/tc/pubsvc/elderly/">社會福利署網頁</a>，核實日期 2026-11-23。本網站唔屬於社署，亦唔會判斷資格；最終以社署及服務單位為準。</p>
+</div></footer>
+</body>
+</html>
