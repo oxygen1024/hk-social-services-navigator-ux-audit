@@ -37,18 +37,22 @@ function renderResults(el) {
 
   const fundText = { both: "資助同自費都想睇", sub: "資助", self: "自費", unsure: "未清楚" }[fund] || "";
   const needsAssess = hits.some((h) => ["assess", "light", "invite"].includes(h.s.route));
+  const back = document.getElementById("back");
+  if (back) back.href = "need.html" + location.search;
+
+  // 冇專屬電話嘅服務，用 182 183 做最後一步（社署頁面：提供資訊、諮詢同轉介）
+  const fallback = { contacts: [["唔知打俾邊個？照顧者支援專線，24 小時社工接聽", "182183", ""]] };
+  const notes = `
+    ${needsAssess ? `<div class="panel info"><h2>好多資助服務要先做評估</h2>
+      <p>資助長期護理服務要先做「安老服務統一評估」。未做過唔緊要，先搵長者中心或綜合家庭服務中心社工幫你申請。</p>
+      <p><a href="services.html#assessment">評估點樣做</a></p></div>` : ""}
+    ${fund === "self" ? `<p>本網站暫時未收錄自費上門照顧機構。想比較自費上門照顧，可以先問長者中心社工。</p>` : ""}`;
 
   el.innerHTML = `
     <p class="lead">你揀咗：${needs.map((n) => NEEDS[n].label).join("、")}${fundText ? `；${fundText}` : ""}。
       <a href="need.html${location.search}">改答案</a></p>
-    <div class="panel">
-      <p>以下只係<strong>可能相關</strong>嘅服務，唔係資格判斷。每項都要由社工或服務單位核實。</p>
-    </div>
-    ${needsAssess ? `<div class="panel info"><h2>好多資助服務要先做評估</h2>
-      <p>資助長期護理服務要先做「安老服務統一評估」。未做過唔緊要，先搵長者中心或綜合家庭服務中心社工幫你申請。</p>
-      <p><a href="services.html#assessment">評估點樣做</a></p></div>` : ""}
-    ${fund === "self" ? `<p>本網站暫時未收錄自費上門照顧機構。想比較自費上門照顧，可以先問長者中心社工。</p>` : ""}
-    ${hits.map(({ s, why }) => `
+    <p>以下係<strong>可能相關</strong>嘅服務，唔係資格判斷，要由社工或服務單位核實。</p>
+    ${hits.map(({ s, why }, i) => `
       <section class="result" aria-labelledby="r-${s.id}">
         <h2 id="r-${s.id}">${esc(s.name)}</h2>
         ${tagsHtml(s)}
@@ -58,9 +62,9 @@ function renderResults(el) {
         <ul>${s.who.map((w) => `<li>${esc(w)}</li>`).join("")}</ul>
         <h3>下一步</h3>
         <p>${esc(s.how)}</p>
-        ${contactsHtml(s)}
         <p>${s.id === "centres" ? `<a href="${CENTRE_LIST}">搵就近中心電話（PDF）</a><br>` : ""}<a href="services.html#${s.id}">睇${esc(s.name)}詳細資料</a></p>
-      </section>`).join("")}
+        ${contactsHtml(s.contacts.length ? s : fallback)}
+      </section>${i === 0 ? notes : ""}`).join("")}
     <div class="panel alert">
       <h2>撐唔住或者有危險？</h2>
       <ul class="calls">
@@ -88,6 +92,7 @@ function renderServices(el) {
         </dl>
         ${s.note ? `<p class="small">${esc(s.note)}</p>` : ""}
         <p class="source">來源：<a href="${s.source}">社署網頁</a>，核實日期 ${CHECKED}</p>
-      </article>`).join("")}`).join("");
+      </article>`).join("")}
+    <p class="top"><a href="#main">返回頁頂</a></p>`).join("");
   if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
 }

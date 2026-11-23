@@ -32,7 +32,14 @@ const shots = process.argv[2];
   await noOverflow("results.html");
   if (shots) await p.screenshot({ path: `${shots}/320-results.png`, fullPage: true });
 
-  // 改答案要保留之前揀過嘅嘢
+  // 每張結果卡最尾都有可以撳嘅電話
+  const lastIsTel = await p.$$eval(".result", (rs) => rs.map((r) => !!r.lastElementChild.querySelector('a[href^="tel:"]')));
+  assert.ok(lastIsTel.every(Boolean), "有結果卡最尾冇電話");
+
+  // 返回問題同改答案都要保留之前揀過嘅嘢
+  await p.click("#back");
+  assert.ok(await p.isChecked("#n-personal"));
+  await p.goBack();
   await p.click("text=改答案");
   assert.ok(await p.isChecked("#n-personal"));
   assert.ok(await p.isChecked("#f-self"));
