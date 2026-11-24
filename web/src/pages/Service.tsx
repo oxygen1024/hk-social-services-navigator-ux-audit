@@ -9,6 +9,7 @@ import {ProgressBar} from '@astryxdesign/core/ProgressBar';
 import {Icon} from '@astryxdesign/core/Icon';
 import {CheckIcon} from '@heroicons/react/24/outline';
 import {Page, Calls, Tags, DataTable, useTerms, termsIn} from '../ui';
+import {SaveButton, useDistrict, DistrictSelector, UnitList} from '../features';
 import {CATEGORIES, SERVICES, CHECKED, FIELD_BY_ID} from '../catalog.js';
 
 const FALLBACK = [['不知道應聯絡誰？照顧者支援專線，24 小時由社工接聽', '182183', '']];
@@ -24,6 +25,19 @@ function CopayChart() {
         {key: 'bar', header: '比例', renderCell: (r: any) => <ProgressBar label={`長者支付 ${r.p}%`} isLabelHidden value={r.p} />},
         {key: 'gov', header: '政府支付', width: 90, align: 'end', renderCell: (r: any) => <Text hasTabularNumbers>{100 - r.p}%</Text>},
       ]} />
+    </VStack>
+  );
+}
+
+// 有地區單位名單的服務：按區顯示中心
+const UNIT_KINDS: Record<string, string[]> = {centres: ['長者地區中心', '長者鄰舍中心'], ste: ['長者地區中心'], assessment: ['長者地區中心', '長者鄰舍中心']};
+function NearbyUnits({kinds}: {kinds: string[]}) {
+  const [district, setDistrict] = useDistrict();
+  return (
+    <VStack gap={2}>
+      <Heading level={2}>尋找就近中心</Heading>
+      <DistrictSelector value={district} onChange={setDistrict} />
+      <UnitList district={district} kinds={kinds} />
     </VStack>
   );
 }
@@ -65,6 +79,7 @@ export default function Service() {
         <Text color="secondary" lang="en">{s.en}</Text>
         <Tags s={s} />
         <Text type="large">{rich(s.what)}</Text>
+        <HStack gap={2}><SaveButton id={s.id} name={s.name} /></HStack>
       </VStack>
 
       <Card padding={5} variant="green">
@@ -111,6 +126,8 @@ export default function Service() {
         </Block>
       )}
       {s.hoursTable && <Block title="服務時間"><DataTable rows={s.hoursTable} rich={rich} /></Block>}
+
+      {UNIT_KINDS[s.id] && <NearbyUnits kinds={UNIT_KINDS[s.id]} />}
 
       <Block title="聯絡">
         <Calls items={s.contacts.length ? s.contacts : FALLBACK} />

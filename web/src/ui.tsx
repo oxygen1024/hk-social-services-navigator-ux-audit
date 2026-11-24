@@ -9,6 +9,7 @@ import {Button} from '@astryxdesign/core/Button';
 import {List, ListItem} from '@astryxdesign/core/List';
 import {Table} from '@astryxdesign/core/Table';
 import {CATEGORIES, ROUTES, TERMS} from './catalog.js';
+import {ListCount, Feedback} from './features';
 
 const GROUPS = [
   {label: '尋找服務', links: [['need.html','按需要尋找'], ['services.html','所有服務']]},
@@ -142,6 +143,7 @@ function SiteNav() {
           <button key={label} type="button" aria-pressed={i === index} onClick={() => choose(i)}>{label}</button>
         )}</section>
       </details>
+      <a href="list.html" aria-current={active === 'list.html' ? 'page' : undefined}><ListCount /></a>
       <a className="care-help" href="index.html#urgent">急事求助</a>
     </section>
 
@@ -160,6 +162,7 @@ export function Page({current, title, children}: {current: string; title?: strin
             {children}
             <Section variant="muted" padding={4} dividers={['top']}>
               <VStack gap={2}>
+                <Feedback />
                 <Text type="supporting" color="secondary"><Text type="supporting" weight="bold">測試版</Text>：資料於 2026 年 11 月 23 至 24 日核實，尚未進行用家測試。</Text>
                 <Text type="supporting" color="secondary">
                   服務資料來自<Link href="https://www.swd.gov.hk/tc/pubsvc/elderly/" hasUnderline>社會福利署 (Social Welfare Department, SWD) 網頁</Link>，核實日期見各服務頁。本網站不屬於社署，亦不會判斷資格；最終以社署及服務單位為準。

@@ -119,6 +119,35 @@ const shots = process.argv[2];
   await open("results.html?field=socsec&need=socsec-living");
   assert.ok((await h2s()).includes("高齡津貼／長者生活津貼"), "社會保障結果包括高齡津貼");
 
+  // 地區篩選：選深水埗區只顯示該區中心
+  await open("services.html");
+  await p.getByRole("combobox", { name: /地區/ }).click();
+  await p.getByRole("option", { name: "深水埗區" }).click();
+  assert.ok(await p.getByText(/深水埗區：\d+ 間中心/).isVisible(), "地區中心名單");
+  assert.ok((await p.locator('[role=main] a[href^="tel:2"]').count()) >= 10, "中心電話可撳");
+  // 篩選：自費只顯示自費服務
+  await p.getByRole("radio", { name: "自費" }).click();
+  const selfIds = await p.$$eval('[role=main] a[href^="service.html?id="]', (as) => [...new Set(as.map((a) => new URL(a.href).searchParams.get("id")))]);
+  assert.ok(selfIds.includes("private-rc") && !selfIds.includes("ccsv"), selfIds.join());
+  // 我的清單：收藏兩項 → 計數 → 比較
+  await open("services.html");
+  await p.evaluate(() => localStorage.removeItem("hkcare-my-list"));
+  await open("services.html");
+  const saves = p.getByRole("button", { name: /收藏至我的清單/ });
+  await saves.nth(0).click(); await saves.nth(1).click();
+  assert.ok((await p.locator('.care-header a[href="list.html"]').first().textContent()).includes("(2)"), "清單計數");
+  await open("list.html");
+  await p.getByRole("checkbox").nth(0).check(); await p.getByRole("checkbox").nth(1).check();
+  await p.getByRole("link", { name: "比較所選服務" }).click();
+  await p.waitForSelector("table");
+  assert.strictEqual((await p.$$eval("thead th", (t) => t.length)), 3, "比較表兩項服務");
+  await open("list.html");
+  p.once("dialog", (d) => d.accept());
+  await p.getByRole("button", { name: "清除全部" }).click();
+  assert.ok(await p.getByText("清單暫時沒有服務").isVisible(), "清除全部");
+  // 意見回饋連結
+  assert.ok((await p.getByRole("link", { name: "有幫助", exact: true }).getAttribute("href")).startsWith("https://github.com/"), "意見連結");
+
   assert.deepStrictEqual(errors, []);
   await b.close();
   console.log("site-check: all passed");

@@ -12,6 +12,8 @@ import Need from './pages/Need';
 import Results from './pages/Results';
 import Services from './pages/Services';
 import Service from './pages/Service';
+import MyList from './pages/MyList';
+import Compare from './pages/Compare';
 
 class Fallback extends Component<{children: ReactNode}, {failed: boolean}> {
   state = {failed: false};
@@ -27,7 +29,7 @@ class Fallback extends Component<{children: ReactNode}, {failed: boolean}> {
   }
 }
 
-const PAGES: Record<string, () => JSX.Element> = {home: Home, need: Need, results: Results, services: Services, service: Service};
+const PAGES: Record<string, () => JSX.Element> = {home: Home, need: Need, results: Results, services: Services, service: Service, list: MyList, compare: Compare};
 const Current = PAGES[document.body.dataset.page || 'home'];
 
 createRoot(document.getElementById('root')!).render(

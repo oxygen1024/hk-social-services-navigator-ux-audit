@@ -5,6 +5,7 @@ import {Link} from '@astryxdesign/core/Link';
 import {Banner} from '@astryxdesign/core/Banner';
 import {List, ListItem} from '@astryxdesign/core/List';
 import {Page, Calls, Tags, useTerms} from '../ui';
+import {SaveButton} from '../features';
 import {CATEGORIES, NEEDS, NEEDS_BY_FIELD, SERVICES, CENTRE_LIST, ENTRY, FIELD_BY_ID} from '../catalog.js';
 
 // 沒有專屬電話的服務，以 182 183 作最後一步（社署頁面：提供資訊、諮詢及轉介）
@@ -58,6 +59,7 @@ export default function Results() {
               <Text>{rich(s.how)}</Text>
               <HStack gap={2}>
                 <Button label="了解這項服務" variant="secondary" href={detail(s.id)} />
+                <SaveButton id={s.id} name={s.name} />
                 {s.id === 'centres' && <Button label="就近中心電話（PDF）" variant="ghost" href={CENTRE_LIST} />}
               </HStack>
               <Calls items={s.contacts.length ? s.contacts : FALLBACK} />
