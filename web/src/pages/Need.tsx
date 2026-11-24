@@ -28,15 +28,15 @@ export default function Need() {
       <Link href="index.html">返回首頁</Link>
       <Heading level={1}>需要哪方面的協助？</Heading>
       <VStack gap={6}>
-        <RadioList label="為誰尋找服務？" value={field} onChange={setField}>
+        <section className="question-panel"><RadioList label="為誰尋找服務？" value={field} onChange={setField}>
           {FIELDS.map((f: any) => <RadioListItem key={f.id} value={f.id} label={f.label} description={f.intro} />)}
-        </RadioList>
-        <CheckboxList label="需要的協助" description="可選擇多於一項。" value={chosen} onChange={setNeeds} hasDividers>
+        </RadioList></section>
+        <section className="question-panel"><CheckboxList label="需要的協助" description="可選擇多於一項。" value={chosen} onChange={setNeeds} hasDividers>
           {Object.entries(needsHere).map(([k, v]: any) => <CheckboxListItem key={k} value={k} label={v.label} description={v.eg} />)}
-        </CheckboxList>
-        <RadioList label="想查看資助還是自費服務？" value={fund} onChange={setFund}>
+        </CheckboxList></section>
+        <section className="question-panel"><RadioList label="想查看資助還是自費服務？" value={fund} onChange={setFund}>
           {FUNDS.map(([v, l]) => <RadioListItem key={v} value={v} label={l} />)}
-        </RadioList>
+        </RadioList></section>
         <Button label="查看結果" variant="primary" size="lg" onClick={go} />
         <Text type="supporting" color="secondary">毋須填寫姓名、身份證或病歷。答案只用作篩選顯示的服務。</Text>
       </VStack>
