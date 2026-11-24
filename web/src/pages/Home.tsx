@@ -16,10 +16,6 @@ export default function Home() {
         <Button label="由需要開始" variant="primary" size="lg" href="need.html" />
       </VStack>
 
-      <Banner status="error" title={<Text id="urgent" weight="bold">緊急求助</Text>} collapsible={false}>
-        <Calls items={[['有即時危險', '999', ''], ['照顧者難以支撐（24 小時社工接聽）', '182183', ''], ['懷疑長者受虐：社署 (SWD) 熱線', '23432255', '']]} />
-      </Banner>
-
       <Text>亦可<Link href="services.html" hasUnderline>直接查看所有長者服務</Link>。</Text>
 
       <VStack gap={2}>
@@ -40,6 +36,10 @@ export default function Home() {
           </List>
         </VStack>
       </VStack>
+
+      <Banner status="error" title={<Text id="urgent" weight="bold">緊急求助</Text>} collapsible={false}>
+        <Calls items={[['有即時危險', '999', ''], ['照顧者難以支撐（24 小時社工接聽）', '182183', ''], ['懷疑長者受虐：社署 (SWD) 熱線', '23432255', '']]} />
+      </Banner>
     </Page>
   );
 }
