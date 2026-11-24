@@ -9,7 +9,7 @@ import {ProgressBar} from '@astryxdesign/core/ProgressBar';
 import {Icon} from '@astryxdesign/core/Icon';
 import {CheckIcon} from '@heroicons/react/24/outline';
 import {Page, Calls, Tags, DataTable, useTerms, termsIn} from '../ui';
-import {CATEGORIES, SERVICES, CHECKED} from '../data.js';
+import {CATEGORIES, SERVICES, CHECKED, FIELD_BY_ID} from '../catalog.js';
 
 const FALLBACK = [['不知道應聯絡誰？照顧者支援專線，24 小時由社工接聽', '182183', '']];
 
@@ -58,6 +58,7 @@ export default function Service() {
         <Breadcrumbs variant="supporting" label="目前位置">
           <BreadcrumbItem href="index.html">首頁</BreadcrumbItem>
           <BreadcrumbItem href="services.html">所有服務</BreadcrumbItem>
+          <BreadcrumbItem href={`services.html#field-${s.field}`}>{FIELD_BY_ID[s.field].label}</BreadcrumbItem>
           <BreadcrumbItem href={`services.html#cat-${s.cat}`}>{cat}</BreadcrumbItem>
         </Breadcrumbs>
         <Heading level={1}>{s.name}</Heading>
@@ -86,7 +87,7 @@ export default function Service() {
       </Block>
 
       <Block title="服務如何提供幫助？">
-        <Heading level={3}>對長者</Heading>
+        <Heading level={3}>{FIELD_BY_ID[s.field].userLabel}</Heading>
         <Text>{rich(s.elder)}</Text>
         <Heading level={3}>對家人／照顧者</Heading>
         <Text>{rich(s.carer)}</Text>

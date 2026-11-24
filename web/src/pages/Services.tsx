@@ -6,7 +6,7 @@ import {TextInput} from '@astryxdesign/core/TextInput';
 import {List, ListItem} from '@astryxdesign/core/List';
 import {Banner} from '@astryxdesign/core/Banner';
 import {Page, Calls, Tags} from '../ui';
-import {CATEGORIES, SERVICES} from '../data.js';
+import {CATEGORIES, SERVICES, FIELDS} from '../catalog.js';
 
 const norm = (v: string) => v.normalize('NFKC').trim().toLowerCase();
 
@@ -17,21 +17,33 @@ export default function Services() {
   const match = (s: any) => !q || [s.name, s.en, ...(s.alias || []), cats[s.cat]].some((v: string) => norm(v || '').includes(q));
   const shown = SERVICES.filter(match);
   return (
-    <Page current="services.html" title="所有長者服務">
+    <Page current="services.html" title="所有服務">
       <VStack gap={2}>
-        <Heading level={1}>所有長者服務</Heading>
-        <Text type="large">按類別列出社署長者服務。按服務名稱即可查看門檻、申請步驟、收費及聯絡方法。</Text>
-        <Text>不少資助服務均須先接受<Link href="service.html?id=assessment" hasUnderline>安老服務統一評估</Link> (SCNAMES)。</Text>
+        <Heading level={1}>所有服務</Heading>
+        <Text type="large">按服務範疇及類別列出社署服務。按服務名稱即可查看門檻、申請步驟、收費及聯絡方法。</Text>
+        <List listStyle="disc">
+          {FIELDS.map((f: any) => <ListItem key={f.id} label={<Link href={`#field-${f.id}`} hasUnderline>{f.label}</Link>} />)}
+        </List>
       </VStack>
       <TextInput type="search" label="搜尋服務" description="可輸入中文或英文名稱、舊名或類別，例如：社區券、經濟援助" value={query} onChange={setQuery} startIcon="search" hasClear width="100%" />
       {q && <Text role="status">{shown.length ? `找到 ${shown.length} 項服務` : '未找到相關服務。請試用較短的名稱，或瀏覽以下類別。'}</Text>}
-      {CATEGORIES.map(([cat, title]: string[]) => {
-        const items = shown.filter((s: any) => s.cat === cat);
-        if (!items.length) return null;
+      {FIELDS.map((f: any) => {
+        const fieldCats = CATEGORIES.filter(([, , fid]: string[]) => fid === f.id);
+        const inCat = (cat: string) => shown.filter((s: any) => s.cat === cat || (s.extraCats || []).includes(cat));
+        if (!fieldCats.some(([cat]: string[]) => inCat(cat).length)) return null;
         return (
-          <VStack key={cat} gap={2}>
-            <VStack gap={2}>
-              <Heading level={2} id={`cat-${cat}`}>{title}</Heading>
+          <VStack key={f.id} gap={4}>
+            <VStack gap={1}>
+              <Heading level={2} id={`field-${f.id}`}>{f.label}</Heading>
+              <Text color="secondary">{f.intro}</Text>
+              {f.id === 'elderly' && <Text>不少資助長者服務均須先接受<Link href="service.html?id=assessment" hasUnderline>安老服務統一評估</Link> (SCNAMES)。</Text>}
+            </VStack>
+            {fieldCats.map(([cat, title]: string[]) => {
+              const items = inCat(cat);
+              if (!items.length) return null;
+              return (
+            <VStack key={cat} gap={2}>
+              <Heading level={3} id={`cat-${cat}`}>{title}</Heading>
               <List hasDividers edge="flush">
                 {items.map((s: any) => (
                   <ListItem key={s.id} align="start" href={`service.html?id=${s.id}`}
@@ -40,6 +52,8 @@ export default function Services() {
                 ))}
               </List>
             </VStack>
+              );
+            })}
           </VStack>
         );
       })}

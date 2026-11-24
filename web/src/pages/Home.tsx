@@ -5,18 +5,23 @@ import {Link} from '@astryxdesign/core/Link';
 import {Banner} from '@astryxdesign/core/Banner';
 import {List, ListItem} from '@astryxdesign/core/List';
 import {Page, Calls} from '../ui';
-import {CENTRE_LIST} from '../data.js';
+import {CENTRE_LIST, FIELDS} from '../catalog.js';
 
 export default function Home() {
   return (
-    <Page current="index.html" title="為家中長者尋找服務">
+    <Page current="index.html" title="尋找社會福利服務">
       <VStack gap={3}>
-        <Heading level={1}>為家中長者尋找服務</Heading>
-        <Text type="large">選擇長者所需的協助，再選擇資助或自費，即可了解哪些服務可能適合，以及下一步應聯絡誰。</Text>
+        <Heading level={1}>尋找社會福利服務</Heading>
+        <Text type="large">選擇服務對象及所需協助，即可了解哪些社署服務可能適合，以及下一步應聯絡誰。</Text>
         <Button label="由需要開始" variant="primary" size="lg" href="need.html" />
       </VStack>
 
-      <Text>亦可<Link href="services.html" hasUnderline>直接查看所有長者服務</Link>。</Text>
+      <VStack gap={2}>
+        <Heading level={2}>按服務範疇瀏覽</Heading>
+        <List hasDividers edge="flush">
+          {FIELDS.map((f: any) => <ListItem key={f.id} href={`services.html#field-${f.id}`} label={<Text weight="bold">{f.label}</Text>} description={<Text color="secondary">{f.intro}</Text>} />)}
+        </List>
+      </VStack>
 
       <VStack gap={2}>
         <VStack gap={2}>

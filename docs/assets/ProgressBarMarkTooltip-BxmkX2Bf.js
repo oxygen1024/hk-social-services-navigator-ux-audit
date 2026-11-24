@@ -1,0 +1,1 @@
+import{m as e}from"./main-DrRPYScn.js";import{ft as t}from"./scrollView-Cf5nWmnC.js";var n=t();function r({content:t,children:r}){return(0,n.jsx)(e,{content:t,placement:`above`,focusTrigger:`always`,children:r})}export{r as default};

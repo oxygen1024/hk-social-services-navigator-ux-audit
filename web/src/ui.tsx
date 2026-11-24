@@ -8,11 +8,11 @@ import {Badge} from '@astryxdesign/core/Badge';
 import {Button} from '@astryxdesign/core/Button';
 import {List, ListItem} from '@astryxdesign/core/List';
 import {Table} from '@astryxdesign/core/Table';
-import {CATEGORIES, ROUTES, TERMS} from './data.js';
+import {CATEGORIES, ROUTES, TERMS} from './catalog.js';
 
 const GROUPS = [
   {label: '尋找服務', links: [['need.html','按需要尋找'], ['services.html','所有服務']]},
-  {label: '長者照顧', links: [['service.html?id=home-support','家居支援'], ['service.html?id=daycare','日間護理'], ['service.html?id=subsidised-rc','院舍照顧']]},
+  {label: '服務範疇', links: [['services.html#field-elderly','長者服務'], ['services.html#field-rehab','康復服務'], ['services.html#field-youth','青少年福利服務'], ['services.html#field-socsec','社會保障']]},
   {label: '評估及支援', links: [['service.html?id=assessment','統一評估'], ['service.html?id=centres','聯絡長者中心'], ['service.html?id=carer-line','照顧者支援專線']]},
 ];
 

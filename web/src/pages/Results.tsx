@@ -5,7 +5,7 @@ import {Link} from '@astryxdesign/core/Link';
 import {Banner} from '@astryxdesign/core/Banner';
 import {List, ListItem} from '@astryxdesign/core/List';
 import {Page, Calls, Tags, useTerms} from '../ui';
-import {NEEDS, SERVICES, CENTRE_LIST} from '../data.js';
+import {NEEDS, NEEDS_BY_FIELD, SERVICES, CENTRE_LIST, ENTRY, FIELD_BY_ID} from '../catalog.js';
 
 // 沒有專屬電話的服務，以 182 183 作最後一步（社署頁面：提供資訊、諮詢及轉介）
 const FALLBACK = [['不知道應聯絡誰？照顧者支援專線，24 小時由社工接聽', '182183', '']];
@@ -13,16 +13,20 @@ const FUND = {both: '資助和自費都想查看', sub: '資助', self: '自費'
 
 export default function Results() {
   const q = new URLSearchParams(location.search);
-  const picked = q.getAll('need').filter(n => NEEDS[n]);
-  const needs = picked.length ? picked : ['unsure'];
+  const field = FIELD_BY_ID[q.get('field') || ''] ? q.get('field')! : 'elderly';
+  const entry = ENTRY[field];
+  const inField = SERVICES.filter((s: any) => s.field === field);
+  const picked = q.getAll('need').filter(n => NEEDS_BY_FIELD[field]?.[n]);
+  const unsure = field === 'elderly' ? 'unsure' : `${field}-unsure`;
+  const needs = picked.length ? picked : [unsure];
   const fund = q.get('fund') || 'both';
-  const hits = SERVICES.map((s: any) => ({s, n: s.needs.filter((x: string) => needs.includes(x)).length}))
+  const hits = inField.map((s: any) => ({s, n: s.needs.filter((x: string) => needs.includes(x)).length}))
     .filter(h => h.n)
     .sort((a, b) => (fund === 'self' ? +(b.s.fund === '自費') - +(a.s.fund === '自費') : 0) || b.n - a.n)
     .map(h => h.s);
   // 必定保留真人聯絡途徑：長者中心社工
-  if (!hits.some((s: any) => s.id === 'centres')) hits.push(SERVICES.find((s: any) => s.id === 'centres'));
-  const needsAssess = hits.some((s: any) => ['assess', 'light', 'invite'].includes(s.route));
+  if (entry && !hits.some((s: any) => s.id === entry)) hits.push(SERVICES.find((s: any) => s.id === entry));
+  const needsAssess = field === 'elderly' && hits.some((s: any) => ['assess', 'light', 'invite'].includes(s.route));
   const detail = (id: string) => `service.html?id=${id}&from=${encodeURIComponent(location.search)}`;
   const rich = useTerms();
 
@@ -31,10 +35,10 @@ export default function Results() {
       <Link href={`need.html${location.search}`}>返回問題</Link>
       <VStack gap={2}>
         <Heading level={1}>可能相關的服務</Heading>
-        <Text type="large">你選擇了：{needs.map(n => NEEDS[n].label).join('、')}；{FUND[fund] || ''}。<Link href={`need.html${location.search}`} hasUnderline>修改答案</Link></Text>
+        <Text type="large">你選擇了：{FIELD_BY_ID[field].label}；{needs.map(n => NEEDS[n]?.label || '未清楚').join('、')}；{FUND[fund] || ''}。<Link href={`need.html${location.search}`} hasUnderline>修改答案</Link></Text>
         <Text>按服務名稱或「了解這項服務」，即可查看門檻、適合人士、服務內容、申請步驟及收費。</Text>
         <Text type="supporting" color="secondary">以下是可能相關的服務，並非資格判斷，須由社工或服務單位核實。</Text>
-        {fund === 'self' && <Text>本網站暫未收錄自費上門照顧機構。如欲比較自費上門照顧，可先向長者中心社工查詢。</Text>}
+        {field === 'elderly' && fund === 'self' && <Text>本網站暫未收錄自費上門照顧機構。如欲比較自費上門照顧，可先向長者中心社工查詢。</Text>}
       </VStack>
 
       {hits.map((s: any, i: number) => (
