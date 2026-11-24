@@ -17,6 +17,9 @@ colors:
   calls-rule: "#e0c9c5"
   info: "#1458a8"
   info-bg: "#eef4fb"
+  threshold-bg: "#f1f8f5"
+  chart-elder: "#0b8a62"
+  chart-government: "#5b8fd6"
   ink: "#0b0c0c"
   muted: "#484f53"
   paper: "#ffffff"
@@ -54,6 +57,11 @@ typography:
     fontSize: "1.1875rem"
     fontWeight: 700
     lineHeight: 1.3
+  nav:
+    fontFamily: "system-ui, -apple-system, 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif"
+    fontSize: "1.1875rem"
+    fontWeight: 700
+    lineHeight: 1.6
   wordmark:
     fontFamily: "system-ui, -apple-system, 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif"
     fontSize: "1.25rem"
@@ -90,8 +98,17 @@ typography:
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.6
+  data:
+    fontFamily: "system-ui, -apple-system, 'PingFang HK', 'Noto Sans HK', 'Microsoft JhengHei', sans-serif"
+    fontSize: "1rem"
+    fontWeight: 400
+    lineHeight: 1.6
+    fontFeature: "tnum"
 rounded:
   none: "0px"
+  step-marker: "50%"
+  chart-swatch: "2px"
+  chart-bar-end: "4px"
 spacing:
   xxs: ".25rem"
   xs: ".5rem"
@@ -109,6 +126,20 @@ components:
     typography: "{typography.wordmark}"
     height: "3.75rem"
     padding: "0 1rem"
+  topnav:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.link}"
+    typography: "{typography.nav}"
+  topnav-link:
+    textColor: "{colors.link}"
+    typography: "{typography.nav}"
+    height: "2.75rem"
+  topnav-link-current:
+    textColor: "{colors.ink}"
+    typography: "{typography.nav}"
+  crumbs:
+    textColor: "{colors.ink}"
+    typography: "{typography.small}"
   phase-banner:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
@@ -150,6 +181,57 @@ components:
     textColor: "{colors.ink}"
     rounded: "{rounded.none}"
     padding: "1rem 1.25rem"
+  panel-threshold:
+    backgroundColor: "{colors.threshold-bg}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.none}"
+    padding: "1rem 1.25rem"
+  check-item:
+    textColor: "{colors.ink}"
+    typography: "{typography.body}"
+    padding: ".6rem 0 .6rem 2.25rem"
+  key-fact:
+    textColor: "{colors.ink}"
+    typography: "{typography.title-sm}"
+  flow-step:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.none}"
+    padding: ".75rem 1rem .75rem 3.5rem"
+  flow-step-marker:
+    backgroundColor: "{colors.brand}"
+    textColor: "{colors.paper}"
+    typography: "{typography.label}"
+    rounded: "{rounded.step-marker}"
+    size: "2rem"
+  table-data-cell:
+    textColor: "{colors.ink}"
+    typography: "{typography.data}"
+    padding: ".6rem .75rem .6rem 0"
+  table-data-head:
+    textColor: "{colors.ink}"
+    typography: "{typography.label}"
+    padding: ".6rem .75rem .6rem 0"
+  chart-swatch-elder:
+    backgroundColor: "{colors.chart-elder}"
+    rounded: "{rounded.chart-swatch}"
+    size: ".875rem"
+  chart-swatch-government:
+    backgroundColor: "{colors.chart-government}"
+    rounded: "{rounded.chart-swatch}"
+    size: ".875rem"
+  chart-bar-elder:
+    backgroundColor: "{colors.chart-elder}"
+    rounded: "{rounded.none}"
+    height: "1.25rem"
+  chart-bar-government:
+    backgroundColor: "{colors.chart-government}"
+    rounded: "{rounded.chart-bar-end}"
+    height: "1.25rem"
+  svc-list-item:
+    textColor: "{colors.ink}"
+    typography: "{typography.body}"
+    padding: "1rem 0"
   calls-item:
     textColor: "{colors.ink}"
     typography: "{typography.body}"
@@ -177,15 +259,9 @@ components:
     padding: ".1rem .5rem"
   result-section:
     padding: "1rem 0 0"
-  facts-term:
+  source-line:
     textColor: "{colors.muted}"
-    typography: "{typography.label}"
-    width: "8rem"
-    padding: ".6rem 1rem .6rem 0"
-  facts-detail:
-    textColor: "{colors.ink}"
-    typography: "{typography.body}"
-    padding: ".6rem 0"
+    typography: "{typography.small}"
   footer:
     backgroundColor: "{colors.panel}"
     textColor: "{colors.muted}"
