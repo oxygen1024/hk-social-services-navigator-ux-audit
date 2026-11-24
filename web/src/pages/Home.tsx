@@ -26,8 +26,9 @@ export default function Home() {
       <VStack gap={2}>
         <VStack gap={2}>
           <Heading level={2}>不知從何開始？</Heading>
-          <Text>請致電就近的長者地區中心 (DECC) 或長者鄰舍中心 (NEC)，向社工說明長者的居住地區及所需協助。不少資助服務均由中心社工協助申請。</Text>
+          <Text>長者服務：請致電就近的長者地區中心 (DECC) 或長者鄰舍中心 (NEC)，向社工說明長者的居住地區及所需協助。不少資助服務均由中心社工協助申請。</Text>
           <Link href={CENTRE_LIST} hasUnderline>全港長者中心名單及電話（PDF）</Link>
+          <Text>照顧長者或殘疾人士的照顧者，可致電照顧者支援專線 182 183（24 小時）；其他查詢可致電社署熱線 2343 2255。</Text>
         </VStack>
       </VStack>
 

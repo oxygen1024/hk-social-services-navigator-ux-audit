@@ -34,7 +34,7 @@ Starts from the need, not the service name. Joins the three parts other sites ea
 
 ## Capabilities and Constraints
 
-- Scope v1: all elderly services (community support, home and day care, vouchers, residential care, carer support, financial allowances), at the level of service types, not every individual unit.
+- Scope: four SWD fields at the level of service types, not individual units: elderly services (16), rehabilitation (10), youth welfare (9) and social security (5), added 2026-11-24. The needs questionnaire asks the field first.
 - Never states "你符合資格". Results say why a service may fit, what still needs confirming, and the next step.
 - Every service fact links to an official source and shows a "last checked" date. Unknown fees or waiting times are shown as "向機構查詢", never blank or $0.
 - Keep old service names searchable (SWD renamed some home care services).

@@ -40,7 +40,7 @@ export default function Service() {
     return (
       <Page current={current} title="找不到這項服務">
         <Heading level={1}>找不到這項服務</Heading>
-        <Text>連結可能有誤，請<Link href="services.html" hasUnderline>查看所有長者服務</Link>。</Text>
+        <Text>連結可能有誤，請<Link href="services.html" hasUnderline>查看所有服務</Link>。</Text>
       </Page>
     );
   }
@@ -138,7 +138,7 @@ export default function Service() {
       )}
       <HStack gap={2}>
         {from !== null && <Link href={`results.html${from}`} hasUnderline>返回你的搜尋結果</Link>}
-        <Link href="services.html" hasUnderline>返回所有長者服務</Link>
+        <Link href="services.html" hasUnderline>返回所有服務</Link>
       </HStack>
     </Page>
   );

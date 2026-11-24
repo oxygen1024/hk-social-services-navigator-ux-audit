@@ -108,6 +108,17 @@ const shots = process.argv[2];
   await p.waitForSelector("[role=main] h1");
   assert.ok(await p.getByRole("checkbox", { name: "個人照顧" }).isChecked(), "修改答案要保留選擇");
 
+  // 其他範疇：揀康復服務只顯示康復服務，並有真人聯絡途徑
+  await open("need.html");
+  await p.getByRole("radio", { name: "康復服務" }).check();
+  await p.getByRole("checkbox", { name: "未清楚" }).check();
+  await p.getByRole("button", { name: "查看結果" }).click();
+  await p.waitForSelector("[role=main] h2");
+  const rehab = await h2s();
+  assert.ok(rehab.includes("康復服務中央轉介系統") && !rehab.includes("家居支援服務"), rehab.join());
+  await open("results.html?field=socsec&need=socsec-living");
+  assert.ok((await h2s()).includes("高齡津貼／長者生活津貼"), "社會保障結果包括高齡津貼");
+
   assert.deepStrictEqual(errors, []);
   await b.close();
   console.log("site-check: all passed");
