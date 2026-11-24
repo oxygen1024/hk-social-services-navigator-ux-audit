@@ -33,7 +33,7 @@ const shots = process.argv[2];
     assert.ok((await p.locator('#service a[href^="tel:"]').count()) >= 1, `${id} 冇電話`);
     assert.strictEqual(await p.getAttribute(".topnav [aria-current=page]", "href"), id === "assessment" ? "service.html?id=assessment" : "services.html");
     await noOverflow(id);
-    if (shots && ["home-support", "ccsv", "ssa"].includes(id)) await p.screenshot({ path: `${shots}/320-service-${id}.png`, fullPage: true });
+    if (shots && ["home-support", "ccsv", "ssa", "rcsv", "carer-allowance"].includes(id)) await p.screenshot({ path: `${shots}/320-service-${id}.png`, fullPage: true });
   }
   await p.goto(`${base}service.html?id=home-support`);
   assert.strictEqual(await p.textContent(".threshold .key"), "60 歲或以上", "年齡要粗體加底線");

@@ -124,7 +124,7 @@ legend { font-weight: 700; font-size: 1.3125rem; margin-bottom: .75rem; padding:
 .topnav a:hover { text-decoration: underline; text-decoration-thickness: 3px; }
 .topnav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--brand); }
 @media (max-width: 40rem) { .topnav ul { gap: 0 1rem; } .topnav a { font-size: 1rem; } }
-@media (max-width: 26rem) { .topnav ul { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; } }
+@media (max-width: 24rem) { .topnav ul { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; } }
 
 /* 麵包屑 */
 .crumbs ol { display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: 0 0 1.25rem; font-size: 1rem; }
@@ -153,6 +153,7 @@ ol.flow > li > strong, ol.flow > li > span { display: block; }
 table.data { width: 100%; border-collapse: collapse; margin: 0 0 1.5rem; font-size: 1rem; }
 table.data th, table.data td { text-align: left; vertical-align: top; padding: .6rem .75rem .6rem 0; border-bottom: 1px solid var(--rule); }
 table.data thead th { border-bottom: 2px solid var(--ink); font-size: 1rem; }
+.threshold table.data thead th { word-break: keep-all; }
 table.data tbody th { font-weight: 400; }
 table.data td { font-variant-numeric: tabular-nums; }
 
