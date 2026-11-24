@@ -36,7 +36,7 @@ header.site .wrap { display: flex; align-items: center; min-height: 3.75rem; }
 header.site a { color: #fff; font-weight: 700; font-size: 1.25rem; text-decoration: none; }
 header.site a:hover { text-decoration: underline; text-underline-offset: .2em; }
 
-.phase { border-bottom: 1px solid var(--rule); padding: .6rem 0; font-size: 1rem; }
+.phase { margin-bottom: .75rem; }
 .phase strong { display: inline-block; margin-right: .5rem; padding: 0 .4rem; background: var(--brand); color: #fff; }
 .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1rem; }
 main.wrap { padding-top: 2rem; padding-bottom: 3rem; }
