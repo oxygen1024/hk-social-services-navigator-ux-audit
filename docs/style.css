@@ -112,28 +112,79 @@ legend { font-weight: 700; font-size: 1.3125rem; margin-bottom: .75rem; padding:
 .result h2 { margin-top: 0; }
 .result .why { font-weight: 700; }
 
-dl.facts { display: grid; grid-template-columns: 8rem 1fr; border-top: 1px solid var(--rule); }
-dl.facts dt, dl.facts dd { margin: 0; padding: .6rem 0; border-bottom: 1px solid var(--rule); }
-dl.facts dt { font-size: 1rem; font-weight: 700; color: var(--muted); padding-right: 1rem; }
-dl.facts dd ul { margin: 0; }
-@media (max-width: 34rem) {
-  dl.facts { grid-template-columns: 1fr; }
-  dl.facts dt { border-bottom: 0; padding-bottom: 0; }
-}
-#services > h2 { font-size: 1.75rem; margin-top: 3rem; padding-top: 1rem; border-top: 3px solid var(--brand); }
-article.service h3 { font-size: 1.375rem; margin-bottom: .5rem; }
-.top { margin-top: 1.5rem; font-size: 1rem; }
-article.service { margin-top: 2rem; scroll-margin-top: 1rem; }
-article.service:target h3 { background: var(--focus); box-shadow: 0 0 0 .25rem var(--focus); }
-.source { font-size: 1rem; color: var(--muted); }
+/* 重要資料：粗體加綠色底線（連結係藍色，分得開） */
+.key { font-weight: 700; text-decoration: underline; text-decoration-color: var(--go); text-decoration-thickness: .15em; text-underline-offset: .22em; text-decoration-skip-ink: none; }
 
-ol.steps { padding-left: 1.5rem; }
+/* 主選單 */
+.topnav { border-bottom: 1px solid var(--rule); background: var(--paper); }
+.topnav ul { display: flex; flex-wrap: wrap; gap: 0 1.5rem; list-style: none; margin: 0; padding: 0; }
+.topnav li { margin: 0; }
+.topnav a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 700; text-decoration: none; border-bottom: 4px solid transparent; }
+.topnav a, .topnav a:visited { color: var(--link); }
+.topnav a:hover { text-decoration: underline; text-decoration-thickness: 3px; }
+.topnav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--brand); }
+@media (max-width: 40rem) { .topnav ul { gap: 0 1rem; } .topnav a { font-size: 1rem; } }
+
+/* 麵包屑 */
+.crumbs ol { display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: 0 0 1.25rem; font-size: 1rem; }
+.crumbs li { display: inline-flex; align-items: center; margin: 0; }
+.crumbs li + li::before { content: ""; width: .4em; height: .4em; margin: 0 .7em 0 .5em; border: solid var(--muted); border-width: 2px 2px 0 0; transform: rotate(45deg); }
+.crumbs a, .crumbs a:visited { color: var(--ink); }
+
+/* 門檻 */
+.panel.threshold { border-color: var(--brand); background: #f1f8f5; }
+.panel.threshold h2 { font-size: 1.5rem; }
+ol.checks { list-style: none; padding: 0; counter-reset: c; }
+ol.checks > li { counter-increment: c; position: relative; margin: 0; padding: .6rem 0 .6rem 2.75rem; }
+ol.checks > li + li { border-top: 1px solid var(--rule); }
+ol.checks > li::before { content: counter(c); position: absolute; left: 0; top: .55rem; width: 2rem; height: 2rem; display: grid; place-items: center; background: var(--brand); color: #fff; font-size: 1rem; font-weight: 700; }
+
+/* 申請流程圖 */
+ol.flow { list-style: none; padding: 0; margin: 0 0 1.5rem; counter-reset: f; }
+ol.flow > li { counter-increment: f; position: relative; margin: 0 0 2rem; padding: .75rem 1rem .75rem 3.5rem; border: 2px solid var(--brand); }
+ol.flow > li:last-child { margin-bottom: 0; }
+ol.flow > li::before { content: counter(f); position: absolute; left: .75rem; top: .75rem; width: 2rem; height: 2rem; display: grid; place-items: center; border-radius: 50%; background: var(--brand); color: #fff; font-size: 1rem; font-weight: 700; }
+ol.flow > li:not(:last-child)::after { content: ""; position: absolute; left: 1.25rem; bottom: calc(-2rem - 2px); width: 1rem; height: 2rem; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 32'%3E%3Cpath d='M8 0v22' stroke='%230b4a3f' stroke-width='2'/%3E%3Cpath d='M2 20l6 9 6-9z' fill='%230b4a3f'/%3E%3C/svg%3E") center / contain no-repeat; }
+ol.flow strong, ol.flow span { display: block; }
+
+/* 表 */
+table.data { width: 100%; border-collapse: collapse; margin: 0 0 1.5rem; font-size: 1rem; }
+table.data th, table.data td { text-align: left; vertical-align: top; padding: .6rem .75rem .6rem 0; border-bottom: 1px solid var(--rule); }
+table.data thead th { border-bottom: 2px solid var(--ink); font-size: 1rem; }
+table.data tbody th { font-weight: 400; }
+table.data td { font-variant-numeric: tabular-nums; }
+
+/* 圖表：社區券共同付款 */
+figure.chart { margin: 1rem 0 1.5rem; }
+figure.chart figcaption { font-weight: 700; margin-bottom: .5rem; }
+.legend { display: flex; gap: 1.25rem; list-style: none; padding: 0; margin: 0 0 .5rem; font-size: 1rem; }
+.legend li { display: inline-flex; align-items: center; gap: .4rem; margin: 0; }
+.sw { width: .875rem; height: .875rem; border-radius: 2px; }
+.sw.me, .bar .me { background: #0b8a62; }
+.sw.gov, .bar .gov { background: #5b8fd6; }
+table.bars { width: 100%; border-collapse: collapse; font-size: 1rem; font-variant-numeric: tabular-nums; }
+table.bars th, table.bars td { padding: .3rem 0; text-align: left; font-weight: 400; }
+table.bars thead th { font-weight: 700; color: var(--muted); }
+table.bars tr > :first-child { width: 4rem; }
+table.bars tr > :last-child { width: 4rem; text-align: right; }
+.bar { display: flex; gap: 2px; height: 1.25rem; }
+.bar span { min-width: 2px; }
+.bar .gov { border-radius: 0 4px 4px 0; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* 服務目錄 */
+#services > h2 { font-size: 1.75rem; margin-top: 3rem; padding-top: 1rem; border-top: 3px solid var(--brand); }
+ul.svc-list { list-style: none; padding: 0; }
+ul.svc-list > li { margin: 0; padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+ul.svc-list h3 { font-size: 1.375rem; margin: 0 0 .5rem; }
+ul.svc-list p { margin: 0; }
+.source { font-size: 1rem; color: var(--muted); }
 nav.toc ul { columns: 2 14rem; }
 
 footer.site { border-top: 1px solid var(--rule); background: var(--panel); padding: 1.5rem 0 2rem; font-size: 1rem; color: var(--muted); }
 footer.site p:last-child { margin: 0; }
 
 @media print {
-  header.site, footer.site, .button, .skip { display: none; }
+  header.site, .topnav, .phase, footer.site, .button, .skip { display: none; }
   a { color: var(--ink); }
 }

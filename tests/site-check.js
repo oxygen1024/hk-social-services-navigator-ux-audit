@@ -18,7 +18,27 @@ const shots = process.argv[2];
     await noOverflow(page);
     if (shots) await p.screenshot({ path: `${shots}/320-${page}.png`, fullPage: true });
   }
-  assert.strictEqual(await p.locator("article.service").count(), 15, "服務頁應列出全部 15 項");
+  const ids = await p.$$eval(".svc-list a", (as) => as.map((a) => new URL(a.href).searchParams.get("id")));
+  assert.strictEqual(ids.length, 16, "服務目錄應列出全部 16 項");
+
+  // 每項服務一頁：門檻係第一個段落、有重點標示同流程圖、手機唔溢出
+  for (const id of ids) {
+    await p.goto(`${base}service.html?id=${id}`);
+    const h2 = await p.$$eval("#service h2", (h) => h.map((x) => x.textContent));
+    assert.strictEqual(h2[0], "門檻：邊個可以用？", `${id} 第一段唔係門檻`);
+    assert.ok((await p.locator(".threshold .checks li").count()) >= 1, `${id} 冇門檻`);
+    assert.ok((await p.locator("ol.flow li").count()) >= 2, `${id} 冇申請流程`);
+    assert.ok((await p.locator('#service a[href^="tel:"]').count()) >= 1, `${id} 冇電話`);
+    assert.strictEqual(await p.getAttribute(".topnav [aria-current=page]", "href"), id === "assessment" ? "service.html?id=assessment" : "services.html");
+    await noOverflow(id);
+    if (shots && ["home-support", "ccsv", "ssa"].includes(id)) await p.screenshot({ path: `${shots}/320-service-${id}.png`, fullPage: true });
+  }
+  await p.goto(`${base}service.html?id=home-support`);
+  assert.strictEqual(await p.textContent(".threshold .key"), "60 歲或以上", "年齡要粗體加底線");
+  await p.goto(`${base}service.html?id=ccsv`);
+  assert.strictEqual(await p.locator("table.bars tbody tr").count(), 6, "社區券應有六級共同付款圖");
+  await p.goto(`${base}service.html?id=nope`);
+  assert.ok(await p.getByText("搵唔到呢項服務").isVisible());
 
   // 揀「個人照顧」+ 自費 → 家居服務會出現，最尾一定有長者中心社工
   await p.goto(base + "need.html");
