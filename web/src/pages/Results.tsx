@@ -14,7 +14,17 @@ const FUND = {both: '資助和自費都想查看', sub: '資助', self: '自費'
 
 export default function Results() {
   const q = new URLSearchParams(location.search);
-  const field = FIELD_BY_ID[q.get('field') || ''] ? q.get('field')! : 'elderly';
+  // 沒有指定範疇時，由所選需要推斷；兩者皆無則請使用者先選擇
+  const needField = Object.keys(NEEDS_BY_FIELD).find(f => q.getAll('need').some(n => NEEDS_BY_FIELD[f][n]));
+  const field = FIELD_BY_ID[q.get('field') || ''] ? q.get('field')! : needField;
+  if (!field) {
+    return (
+      <Page current="need.html" title="可能相關的服務">
+        <Heading level={1}>可能相關的服務</Heading>
+        <Text>請先<Link href="need.html" hasUnderline>選擇服務對象及所需協助</Link>，或<Link href="services.html" hasUnderline>瀏覽所有服務</Link>。</Text>
+      </Page>
+    );
+  }
   const entry = ENTRY[field];
   const fieldCats = CATEGORIES.filter((c: string[]) => c[2] === field).map((c: string[]) => c[0]);
   const inField = SERVICES.filter((s: any) => s.field === field || (s.extraCats || []).some((c: string) => fieldCats.includes(c)));

@@ -9,7 +9,7 @@ const shots = process.argv[2];
   const p = await b.newPage({ viewport: { width: 320, height: 700 } });
   const errors = [];
   p.on("pageerror", (e) => errors.push(e.message));
-  const open = async (u) => { await p.goto(base + u); await p.waitForSelector("[role=main] h1"); };
+  const open = async (u) => { await p.goto(base + u); await p.waitForSelector("[role=main] h1"); await p.waitForTimeout(250); };
   const h2s = () => p.$$eval("[role=main] h2", (h) => h.map((x) => x.textContent.trim()));
   const noOverflow = async (name) =>
     assert.ok((await p.evaluate(() => document.documentElement.scrollWidth)) <= 320, `${name} 320px 橫向溢出`);
@@ -87,6 +87,9 @@ const shots = process.argv[2];
 
   // 問答 → 結果 → 服務頁 → 返回結果 → 修改答案
   await open("need.html");
+  await p.getByRole("button", { name: "查看結果" }).click();
+  assert.ok(await p.getByText("請先選擇服務對象").first().isVisible(), "未選範疇要提示");
+  await p.getByRole("radio", { name: "長者服務" }).check();
   await p.getByRole("checkbox", { name: "個人照顧" }).check();
   await p.getByRole("radio", { name: "自費" }).check();
   await p.getByRole("button", { name: "查看結果" }).click();
@@ -119,6 +122,16 @@ const shots = process.argv[2];
   await open("results.html?field=socsec&need=socsec-living");
   assert.ok((await h2s()).includes("高齡津貼／長者生活津貼"), "社會保障結果包括高齡津貼");
 
+  // 舊連結沒有 field 參數：由需要推斷範疇
+  await open("results.html?need=residential");
+  assert.ok((await h2s()).includes("資助安老宿位"), "由需要推斷長者範疇");
+  // 綜合家庭服務中心：深水埗區
+  await open("services.html");
+  await p.getByRole("combobox", { name: "中心類型" }).click();
+  await p.getByRole("option", { name: "綜合家庭服務中心／綜合服務中心" }).click();
+  await p.getByRole("combobox", { name: /地區/ }).click();
+  await p.getByRole("option", { name: "深水埗區" }).click();
+  assert.ok(await p.getByText(/深水埗區：\d+ 間中心/).isVisible(), "綜合家庭服務中心名單");
   // 地區篩選：選深水埗區只顯示該區中心
   await open("services.html");
   await p.getByRole("combobox", { name: /地區/ }).click();

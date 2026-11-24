@@ -8,7 +8,7 @@ import {SegmentedControl, SegmentedControlItem} from '@astryxdesign/core/Segment
 import {List, ListItem} from '@astryxdesign/core/List';
 import {Banner} from '@astryxdesign/core/Banner';
 import {Page, Calls, Tags} from '../ui';
-import {SaveButton, useDistrict, DistrictSelector, UnitList} from '../features';
+import {SaveButton, useDistrict, DistrictSelector, UnitList, KindSelector} from '../features';
 import {CATEGORIES, SERVICES, FIELDS, ROUTES} from '../catalog.js';
 
 const norm = (v: string) => v.normalize('NFKC').trim().toLowerCase();
@@ -30,6 +30,7 @@ export default function Services() {
   const [route, setRoute] = useState<string | null>(null);
   const [sort, setSort] = useState('category');
   const [district, setDistrict] = useDistrict();
+  const [kind, setKind] = useState('all');
   const q = norm(query);
   const cats = Object.fromEntries(CATEGORIES);
   const shown = SERVICES.filter((s: any) =>
@@ -49,9 +50,11 @@ export default function Services() {
       </VStack>
 
       <VStack gap={3}>
-        <Heading level={2}>尋找就近長者中心</Heading>
+        <Heading level={2}>尋找就近服務中心</Heading>
+        <Text>綜合家庭服務中心為區內任何有需要的個人及家庭提供服務；亦可選擇長者、青少年、殘疾人士或精神健康的地區中心。</Text>
+        <KindSelector value={kind} onChange={setKind} />
         <DistrictSelector value={district} onChange={setDistrict} />
-        <UnitList district={district} />
+        <UnitList district={district} kinds={kind === 'all' ? undefined : [kind]} />
       </VStack>
 
       <VStack gap={3}>
