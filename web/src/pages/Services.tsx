@@ -11,7 +11,7 @@ import {CATEGORIES, SERVICES, FIELDS} from '../catalog.js';
 const norm = (v: string) => v.normalize('NFKC').trim().toLowerCase();
 
 export default function Services() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(() => new URLSearchParams(location.search).get('q') || '');
   const q = norm(query);
   const cats = Object.fromEntries(CATEGORIES);
   const match = (s: any) => !q || [s.name, s.en, ...(s.alias || []), cats[s.cat]].some((v: string) => norm(v || '').includes(q));
@@ -21,12 +21,12 @@ export default function Services() {
       <VStack gap={2}>
         <Heading level={1}>所有服務</Heading>
         <Text type="large">按服務範疇及類別列出社署服務。按服務名稱即可查看門檻、申請步驟、收費及聯絡方法。</Text>
-        <List listStyle="disc">
+        {!q && <List listStyle="disc">
           {FIELDS.map((f: any) => <ListItem key={f.id} label={<Link href={`#field-${f.id}`} hasUnderline>{f.label}</Link>} />)}
-        </List>
+        </List>}
       </VStack>
       <TextInput type="search" label="搜尋服務" description="可輸入中文或英文名稱、舊名或類別，例如：社區券、經濟援助" value={query} onChange={setQuery} startIcon="search" hasClear width="100%" />
-      {q && <Text role="status">{shown.length ? `找到 ${shown.length} 項服務` : '未找到相關服務。請試用較短的名稱，或瀏覽以下類別。'}</Text>}
+      {q && <Text role="status">{shown.length ? `找到 ${shown.length} 項服務` : '未找到相關服務。請試用較短的名稱，或清除搜尋以瀏覽所有服務。'}</Text>}
       {FIELDS.map((f: any) => {
         const fieldCats = CATEGORIES.filter(([, , fid]: string[]) => fid === f.id);
         const inCat = (cat: string) => shown.filter((s: any) => s.cat === cat || (s.extraCats || []).includes(cat));
