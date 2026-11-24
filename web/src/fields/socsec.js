@@ -5,7 +5,7 @@ const ST = "https://www.swd.gov.hk/storage/asset/section";
 export const FIELD = {
   id: "socsec",
   label: "社會保障",
-  intro: "社署推行毋須供款的社會保障制度，以現金援助有經濟困難、嚴重殘疾、因暴力罪行或交通意外傷亡，以及遇上災難的人士。",
+  intro: "社署推行毋須供款的社會保障制度，以經濟或物質援助有經濟困難、嚴重殘疾、因暴力罪行或交通意外傷亡，以及遇上災難的人士。",
 };
 
 export const CATEGORIES = [
@@ -46,7 +46,7 @@ export const SERVICES = [
     ],
     free: [
       "**非香港居民不符合資格**，包括非法在港人士及非以居留目的在港人士（例如輸入勞工及訪客）",
-      "透過各項人才及資本投資者入境計劃在港人士及其受養人，以及持學生、受訓或工作假期簽證在港人士，**一律不具資格**",
+      "透過各項人才及資本投資者入境計劃在港人士及其受養人，以及持學生或受訓簽證在港人士及其受養人、持工作假期簽證在港人士及領事相關人員，**一律不具資格**",
       "在特殊情況下，社署署長可酌情向未符合居港規定的申請人發放援助",
     ],
     helps: [
@@ -95,7 +95,6 @@ export const SERVICES = [
     en: "Disability Allowance (Normal Disability Allowance, Higher Disability Allowance)",
     fund: "毋須供款",
     route: "direct",
-    alias: ["公共福利金"],
     needs: ["socsec-disab", "socsec-care"],
     what: "公共福利金計劃下的每月現金津貼，以應付因嚴重殘疾而引致的特別需要。**毋須接受經濟狀況調查**。",
     rule: "須符合全部條件：",
@@ -234,7 +233,6 @@ export const SERVICES = [
     en: "Emergency Relief",
     fund: "毋須供款",
     route: "direct",
-    alias: ["緊急救援基金"],
     needs: ["socsec-disaster", "socsec-unsure"],
     what: "為天災或其他不幸事故的災民，以及因樓宇成為危樓被封閉而須撤離家園的人士，提供緊急救濟。",
     rule: "適用於下列人士：",
