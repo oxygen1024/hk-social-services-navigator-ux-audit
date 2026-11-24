@@ -12,7 +12,7 @@ export default function Home() {
     <Page current="index.html" title="為家中長者尋找服務">
       <VStack gap={3}>
         <Heading level={1}>為家中長者尋找服務</Heading>
-        <Text type="large">回答兩條問題，即可了解哪些服務可能適合，以及下一步應聯絡誰。</Text>
+        <Text type="large">選擇長者所需的協助，再選擇資助或自費，即可了解哪些服務可能適合，以及下一步應聯絡誰。</Text>
         <Button label="由需要開始" variant="primary" size="lg" href="need.html" />
       </VStack>
 
