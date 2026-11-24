@@ -86,21 +86,18 @@ function SiteNav({current}: {current: string}) {
     catch { return 0; }
   });
   const index = Math.max(0, size);
-  const header = useRef<HTMLElement>(null);
+  const menu = useRef<HTMLDetailsElement>(null);
   const settings = useRef<HTMLDetailsElement>(null);
   useLayoutEffect(() => {
     document.documentElement.style.fontSize = sizes[index][1];
   }, [index]);
   useEffect(() => {
-    const observer = new ResizeObserver(() => {
-      document.documentElement.style.scrollPaddingTop = header.current!.offsetHeight + 8 + 'px';
-    });
-    observer.observe(header.current!);
     const dismiss = (e: PointerEvent) => {
+      if (menu.current && !menu.current.contains(e.target as Node)) menu.current.open = false;
       if (!settings.current?.contains(e.target as Node) && settings.current) settings.current.open = false;
     };
     document.addEventListener('pointerdown', dismiss);
-    return () => {observer.disconnect(); document.removeEventListener('pointerdown', dismiss);};
+    return () => {document.removeEventListener('pointerdown', dismiss);};
   }, []);
   function choose(i: number) {
     setSize(i);
@@ -108,10 +105,18 @@ function SiteNav({current}: {current: string}) {
     settings.current!.open = false;
     settings.current!.querySelector('summary')!.focus();
   }
-  return <header ref={header} className="care-header">
+  return <header className="care-header">
     <section className="care-tools" aria-label="網站工具">
       <a href="index.html" className="care-name">香港社福導航</a>
-      <details ref={settings} className="care-size" onKeyDown={e => {
+      <details className="care-menu" ref={menu} name="header-options" onKeyDown={e => {
+        if (e.key === 'Escape') { e.currentTarget.open = false; e.currentTarget.querySelector('summary')!.focus(); }
+      }}>
+        <summary>選單</summary>
+    <nav className="care-links" aria-label="主選單"><ul>{NAV.map(([href, label]) =>
+      <li key={href}><a href={href} aria-current={href === current ? 'page' : undefined}>{label}</a></li>
+    )}</ul></nav>
+      </details>
+      <details name="header-options" ref={settings} className="care-size" onKeyDown={e => {
         if (e.key === 'Escape') { e.currentTarget.open = false; e.currentTarget.querySelector('summary')!.focus(); }
       }}>
         <summary aria-label={'更改字級，目前' + sizes[index][0]}>字級 ▾</summary>
@@ -121,9 +126,7 @@ function SiteNav({current}: {current: string}) {
       </details>
       <a className="care-help" href="index.html#urgent">急事求助</a>
     </section>
-    <nav className="care-links" aria-label="主選單">{NAV.map(([href, label]) =>
-      <a key={href} href={href} aria-current={href === current ? 'page' : undefined}>{label}</a>
-    )}</nav>
+
   </header>;
 }
 

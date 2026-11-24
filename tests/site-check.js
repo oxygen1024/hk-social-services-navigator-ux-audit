@@ -28,17 +28,21 @@ const shots = process.argv[2];
   for (const width of [320, 390, 1440]) {
     await p.setViewportSize({width, height: 700});
     await open('index.html');
-    assert.ok(await nav.getByRole('link', {name:'所有服務'}).isVisible());
+    const menu = p.locator('.care-menu summary');
+    assert.ok(await nav.isHidden());
+    await menu.focus(); await p.keyboard.press('Enter');
+    assert.strictEqual(await nav.getByRole('link').count(),4);
+    await p.keyboard.press('Escape'); assert.ok(await nav.isHidden());
     const original = await p.locator('h1').evaluate(el => parseFloat(getComputedStyle(el).fontSize));
     await size.click();
     await p.getByRole('button', {name:'特大', exact:true}).click();
     assert.ok(await p.locator('h1').evaluate(el => parseFloat(getComputedStyle(el).fontSize)) > original);
-    await nav.getByRole('link', {name:'所有服務'}).click();
+    await menu.click(); await nav.getByRole('link', {name:'所有服務'}).click();
     await p.waitForSelector('h1');
     assert.ok(await size.getAttribute('aria-label') === '更改字級，目前特大');
     await p.evaluate(() => window.scrollTo(0, 600));
     await p.waitForTimeout(220);
-    assert.ok(await nav.evaluate(el => el.getBoundingClientRect().top >= 0));
+    assert.ok(await p.locator('.care-header').evaluate(el => el.getBoundingClientRect().bottom < 0));
     assert.ok(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     await size.click(); await p.getByRole('button', {name:'標準', exact:true}).click();
   }

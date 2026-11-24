@@ -1,10 +1,10 @@
 /* 重點資料：粗體加底線（用家要求）。底線用 success 色，與連結分開。 */
 .key { text-decoration: underline; text-decoration-color: var(--color-success); text-decoration-thickness: 0.15em; text-underline-offset: 0.22em; }
 
-.care-header { position: sticky; top: 0; z-index: 20; background: var(--color-background-surface); color: var(--color-text-primary); border-bottom: thin solid var(--color-border-emphasized); }
+.care-header { position: relative; z-index: 20; background: var(--color-background-surface); color: var(--color-text-primary); border-bottom: thin solid var(--color-border-emphasized); }
 .care-tools, .care-links { display: flex; align-items: center; flex-wrap: wrap; gap: 0 .5rem; max-width: 48rem; padding: 0 .75rem; margin: auto; }
 .care-tools { border-bottom: thin solid var(--color-border); }
-.care-header a, .care-size summary, .care-size button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.75rem; min-width: 2.75rem; font-size: 1rem; font-weight: 600; text-decoration: none; cursor: pointer; }
+.care-header a, .care-header summary, .care-size button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.75rem; min-width: 2.75rem; font-size: 1rem; font-weight: 600; text-decoration: none; cursor: pointer; }
 .care-tools .care-name { margin-inline-end: auto; color: var(--color-accent); font-weight: 700; font-size: 1.13rem; }
 .care-help { text-decoration: underline !important; }
 .care-size { position: relative; }
@@ -26,5 +26,16 @@
   :is(button,[role=button],.care-links a,.care-help):active { translate: 0 .06rem; }
   @keyframes care-enter { from { opacity: .85; transform: translateY(.2rem); } }
 }
-@media(max-height:22rem) { .care-header { position: relative; } }
+
 @media print { .care-header { display:none; } }
+
+.care-menu { position: relative; }
+.care-menu summary { list-style: none; gap: .35em; }
+.care-menu summary::-webkit-details-marker { display: none; }
+.care-menu summary::after { content: '▾'; font-size: .8em; }
+.care-menu[open] summary::after { transform: rotate(180deg); }
+.care-menu .care-links { position: absolute; right: 0; top: 100%; display: block; width: max-content; padding: .3rem .7rem; background: var(--color-background-popover); border: thin solid var(--color-border-emphasized); }
+.care-menu ul { list-style: none; padding: 0; margin: 0; }
+.care-menu .care-links a { justify-content: flex-start; width: 100%; padding-inline: .4rem; }
+@media (prefers-reduced-motion:no-preference) { .care-menu[open] nav { animation: care-enter 140ms ease-out; } }
+@media (max-width:30rem) { .care-tools { position: relative; } .care-menu { position: static; } .care-menu .care-links { inset-inline: .5rem; width: auto; } }
