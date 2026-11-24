@@ -145,8 +145,9 @@ const shots = process.argv[2];
   p.once("dialog", (d) => d.accept());
   await p.getByRole("button", { name: "清除全部" }).click();
   assert.ok(await p.getByText("清單暫時沒有服務").isVisible(), "清除全部");
-  // 意見回饋連結
-  assert.ok((await p.getByRole("link", { name: "有幫助", exact: true }).getAttribute("href")).startsWith("https://github.com/"), "意見連結");
+  await p.getByRole('button', {name: '提供網站意見'}).click();
+  assert.ok(await p.getByRole('button', {name: '提交意見'}).isDisabled());
+  await p.keyboard.press('Escape');
 
   assert.deepStrictEqual(errors, []);
   await b.close();

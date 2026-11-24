@@ -1,15 +1,14 @@
 // 我的清單（localStorage）、地區單位、意見回饋。
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {VStack, HStack} from '@astryxdesign/core/Layout';
 import {Text} from '@astryxdesign/core/Text';
 import {Link} from '@astryxdesign/core/Link';
 import {Badge} from '@astryxdesign/core/Badge';
-import {Button} from '@astryxdesign/core/Button';
 import {ToggleButton} from '@astryxdesign/core/ToggleButton';
 import {Selector} from '@astryxdesign/core/Selector';
 import {List, ListItem} from '@astryxdesign/core/List';
 import {Icon} from '@astryxdesign/core/Icon';
-import {HeartIcon} from '@heroicons/react/24/outline';
+import {ChatBubbleLeftEllipsisIcon, HeartIcon} from '@heroicons/react/24/outline';
 import {HeartIcon as HeartSolid} from '@heroicons/react/24/solid';
 import {UNITS, DISTRICTS, UNITS_SOURCE, UNITS_AS_OF} from './units.js';
 
@@ -101,22 +100,67 @@ export function UnitList({district, kinds}: {district: string | null; kinds?: st
   );
 }
 
-// ── 意見回饋：公開的 GitHub Issue，不經本網站收集任何資料 ──
-const ISSUES = 'https://github.com/oxygen1024/hk-social-services-navigator-ux-audit/issues/new';
-export function Feedback() {
-  const page = `${location.pathname.split('/').pop() || 'index.html'}${location.search}`;
-  const link = (verdict: string) => `${ISSUES}?${new URLSearchParams({
-    title: `[意見] ${verdict}：${document.title}`,
-    body: `頁面：${page}\n評價：${verdict}\n\n意見（請勿填寫姓名、電話、身份證號碼或病歷等個人資料）：\n`,
-  })}`;
+const FEEDBACK_URL = 'https://tasqqzeyemgqqunmuiyd.supabase.co/rest/v1/website_feedback';
+const FEEDBACK_KEY = 'sb_publishable_nxyZjArz2WI5K--RV8bL8A_k1Sg-zJQ';
+
+export function SuggestionButton() {
+  const dialog = useRef<HTMLDialogElement>(null);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+  const requestId = useRef('');
+  async function submit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!message.trim() || status === 'sending' || status === 'sent') return;
+    setStatus('sending');
+    try {
+      requestId.current ||= crypto.randomUUID();
+      const response = await fetch(FEEDBACK_URL, {
+        method: 'POST',
+        headers: {apikey: FEEDBACK_KEY, 'Content-Type': 'application/json', Prefer: 'return=minimal'},
+        body: JSON.stringify({id: requestId.current, page: document.body.dataset.page, message: message.trim()}),
+        signal: AbortSignal.timeout(15000),
+      });
+      if (!response.ok && !(response.status === 409 && (await response.json()).code === '23505')) throw Error();
+      setMessage('');
+      requestId.current = '';
+      setStatus('sent');
+    } catch {
+      setStatus('error');
+    }
+  }
   return (
-    <VStack gap={2}>
-      <Text weight="bold">這頁對你有幫助嗎？</Text>
-      <HStack gap={2}>
-        <Button label="有幫助" size="sm" href={link('有幫助')} target="_blank" rel="noopener" />
-        <Button label="沒有幫助／資料有誤" size="sm" href={link('沒有幫助')} target="_blank" rel="noopener" />
-      </HStack>
-      <Text type="supporting" color="secondary">意見會以公開形式提交至 GitHub（需要 GitHub 帳戶），本網站不會收集任何個人資料。請勿填寫個人資料。</Text>
-    </VStack>
+    <>
+      <button type="button" className="suggestion-ball" aria-haspopup="dialog"
+        aria-label="提供網站意見" onClick={() => {
+          if (status === 'sent') setStatus('idle');
+          dialog.current?.showModal();
+        }}>
+        <ChatBubbleLeftEllipsisIcon aria-hidden="true" width="22" height="22" />
+        意見
+      </button>
+      <dialog ref={dialog} className="suggestion-dialog" aria-labelledby="suggestion-title">
+        <form onSubmit={submit}>
+          <header>
+            <h2 id="suggestion-title">提供網站意見</h2>
+            <button type="button" onClick={() => dialog.current?.close()}>關閉</button>
+          </header>
+          {status !== 'sent' && <>
+            <label htmlFor="suggestion-body">你希望這個網站怎樣改善？</label>
+            <textarea id="suggestion-body" rows={4} required maxLength={1000} value={message}
+              readOnly={status === 'sending'} aria-describedby="suggestion-note" onChange={event => {
+                setMessage(event.target.value);
+                requestId.current = '';
+                setStatus('idle');
+              }} />
+            <p id="suggestion-note">意見只供網站團隊查看。請勿填寫姓名、電話或個案資料。</p>
+            <button type="submit" disabled={!message.trim() || status === 'sending'}>
+              {status === 'sending' ? '提交中…' : '提交意見'}
+            </button>
+          </>}
+          <p role="status">{status === 'sent' ? '已收到你的意見，多謝你！' :
+            status === 'error' ? '暫時未能確認收件。你的文字已保留，請再試一次。' : ''}</p>
+        </form>
+      </dialog>
+    </>
   );
 }

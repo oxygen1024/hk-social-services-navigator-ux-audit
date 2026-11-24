@@ -85,3 +85,47 @@
   cursor: pointer;
 }
 .home-search :focus-visible { outline: medium solid var(--color-accent); outline-offset: .15rem; }
+
+.suggestion-ball {
+  position: fixed;
+  z-index: 5;
+  right: max(.75rem, env(safe-area-inset-right));
+  bottom: max(.75rem, env(safe-area-inset-bottom));
+  width: 3.5rem;
+  height: 3.5rem;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  border-radius: 50%;
+  border: thin solid var(--color-border);
+  background: var(--color-accent);
+  color: var(--color-background-surface);
+  font-weight: 700;
+  cursor: pointer;
+}
+body:has(.suggestion-ball) { padding-bottom: calc(5rem + env(safe-area-inset-bottom)); }
+.suggestion-dialog {
+  margin: auto;
+  width: min(28rem, calc(100% - 2rem));
+  max-height: 85dvh;
+  overflow: auto;
+  border: thin solid var(--color-border);
+  border-radius: .85rem;
+  background: var(--color-background-surface);
+  color: var(--color-text-primary);
+  padding: 1.25rem;
+}
+.suggestion-dialog::backdrop { background: rgb(0 0 0 / .45); }
+.suggestion-dialog form { display: grid; gap: .75rem; }
+.suggestion-dialog header { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.suggestion-dialog h2 { font-size: 1.25rem; font-weight: 700; }
+.suggestion-dialog textarea { width: 100%; padding: .65rem; font: inherit; border: thin solid currentColor; }
+.suggestion-dialog button { min-height: 2.75rem; padding: .4em .8em; border: thin solid currentColor; border-radius: .4rem; cursor: pointer; }
+.suggestion-dialog button[type=submit] { background: var(--color-accent); color: var(--color-background-surface); font-weight: 700; }
+.suggestion-ball:focus-visible, .suggestion-dialog :focus-visible { outline: medium solid var(--color-accent); outline-offset: .15rem; }
+@media (prefers-reduced-motion:no-preference) {
+  .suggestion-dialog[open] { animation: care-enter 140ms ease-out; }
+  .suggestion-ball { transition: transform 140ms ease-out; }
+  .suggestion-ball:hover { transform: translateY(-.12rem); }
+}
+@media print { .suggestion-ball, .suggestion-dialog { display: none; } }

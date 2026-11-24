@@ -12,7 +12,7 @@ export default function Home() {
     <Page current="index.html" title="尋找社會福利服務">
       <VStack gap={3}>
         <Heading level={1}>尋找社會福利服務</Heading>
-        <Text type="large">社福懶人包是香港社會福利服務指南，幫你為自己或家人尋找支援。你可以輸入關鍵字或按生活需要找服務，再比較申請資格和收費，查閱申請方法。</Text>
+        <Text type="large">社福懶人包是香港社會福利服務指南，方便你為自己或家人尋找支援。社署和機構網站提供官方服務詳情。在這裏，你可以按生活需要搜尋，把不同服務的資格和收費並排比較，再到原網站核實申請方法。</Text>
         <form role="search" action="services.html" className="home-search">
           <label htmlFor="home-query">按名稱或關鍵字搜尋</label>
           <input id="home-query" name="q" type="search" placeholder="例如：社區券、綜援" />
