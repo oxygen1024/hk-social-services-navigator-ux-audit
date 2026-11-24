@@ -63,3 +63,25 @@
   .drop-list a:is(:hover,:focus-visible,[aria-current]) { background:var(--color-accent-muted); }
 }
 @media(prefers-reduced-motion:no-preference) { .care-group summary::after { transition:transform 140ms ease-out; } .care-group[open] .drop-list { animation:care-enter 140ms ease-out; } }
+
+.home-search {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .5rem;
+}
+.home-search label { grid-column: 1 / -1; font-weight: 700; }
+.home-search input, .home-search button {
+  min-height: 2.75rem;
+  border: thin solid currentColor;
+  border-radius: .45rem;
+  padding: .5em .85em;
+  font: inherit;
+}
+.home-search input { width: 100%; background: Canvas; color: CanvasText; }
+.home-search button {
+  background: var(--color-text-primary);
+  color: var(--color-background-surface);
+  font-weight: 700;
+  cursor: pointer;
+}
+.home-search :focus-visible { outline: medium solid var(--color-accent); outline-offset: .15rem; }

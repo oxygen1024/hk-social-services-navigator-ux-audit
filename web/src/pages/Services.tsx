@@ -25,7 +25,7 @@ function ServiceRow({s}: {s: any}) {
 }
 
 export default function Services() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(() => new URLSearchParams(location.search).get('q') || '');
   const [fund, setFund] = useState('all');
   const [route, setRoute] = useState<string | null>(null);
   const [sort, setSort] = useState('category');
@@ -43,9 +43,9 @@ export default function Services() {
       <VStack gap={2}>
         <Heading level={1}>所有服務</Heading>
         <Text type="large">按服務範疇及類別列出社署服務。按服務名稱即可查看門檻、申請步驟、收費及聯絡方法。</Text>
-        <List listStyle="disc">
+        {!q && <List listStyle="disc">
           {FIELDS.map((f: any) => <ListItem key={f.id} label={<Link href={`#field-${f.id}`} hasUnderline>{f.label}</Link>} />)}
-        </List>
+        </List>}
       </VStack>
 
       <VStack gap={3}>
@@ -74,7 +74,7 @@ export default function Services() {
             <SegmentedControlItem value="name" label="按名稱" />
           </SegmentedControl>
         </VStack>
-        {filtered && <Text role="status">{shown.length ? `找到 ${shown.length} 項服務` : '未找到相關服務。請放寬篩選條件，或試用較短的名稱。'}</Text>}
+        {filtered && <Text role="status">{shown.length ? `找到 ${shown.length} 項服務` : '未找到相關服務。請試用較短的名稱，或清除搜尋及篩選以瀏覽所有服務。'}</Text>}
       </VStack>
 
       {sort === 'name' ? (

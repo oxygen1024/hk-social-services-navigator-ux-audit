@@ -5,15 +5,25 @@ import {Link} from '@astryxdesign/core/Link';
 import {Banner} from '@astryxdesign/core/Banner';
 import {List, ListItem} from '@astryxdesign/core/List';
 import {Page, Calls} from '../ui';
-import {CENTRE_LIST, FIELDS} from '../catalog.js';
+import {CENTRE_LIST, FIELDS, SERVICES} from '../catalog.js';
 
 export default function Home() {
   return (
     <Page current="index.html" title="尋找社會福利服務">
       <VStack gap={3}>
         <Heading level={1}>尋找社會福利服務</Heading>
-        <Text type="large">選擇服務對象及所需協助，即可了解哪些社署服務可能適合，以及下一步應聯絡誰。</Text>
-        <Button label="由需要開始" variant="primary" size="lg" href="need.html" />
+        <Text type="large">從 {FIELDS.length} 個範疇、{SERVICES.length} 項服務中，查找服務對象、申請方法、收費及聯絡資料。</Text>
+        <form role="search" action="services.html" className="home-search">
+          <label htmlFor="home-query">按名稱或關鍵字搜尋</label>
+          <input id="home-query" name="q" type="search" placeholder="例如：社區券、綜援" />
+          <button type="submit">搜尋</button>
+        </form>
+      </VStack>
+
+      <VStack gap={2}>
+        <Heading level={2}>未清楚服務名稱？</Heading>
+        <Text>選擇服務對象、所需協助及資助偏好，查看可能適合的服務。</Text>
+        <Button label="按需要找服務" variant="primary" size="lg" href="need.html" />
       </VStack>
 
       <VStack gap={2}>
@@ -32,16 +42,7 @@ export default function Home() {
         </VStack>
       </VStack>
 
-      <VStack gap={2}>
-        <VStack gap={2}>
-          <Heading level={2}>本網站的用途</Heading>
-          <List listStyle="disc">
-            <ListItem label="以日常用語協助你尋找可能相關的社署長者服務。" />
-            <ListItem label="每項服務均列明須核實的條件及可聯絡的單位。" />
-            <ListItem label="不會判斷你是否符合資格，亦不會收集你的個人資料。" />
-          </List>
-        </VStack>
-      </VStack>
+      <Text type="supporting" color="secondary">毋須提供個人資料。正式資格由相關服務機構核實。</Text>
 
       <Banner status="error" title={<Text id="urgent" weight="bold">緊急求助</Text>} collapsible={false}>
         <Calls items={[['有即時危險', '999', ''], ['照顧者難以支撐（24 小時社工接聽）', '182183', ''], ['懷疑長者受虐：社署 (SWD) 熱線', '23432255', '']]} />
