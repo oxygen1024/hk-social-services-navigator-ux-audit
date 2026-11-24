@@ -133,12 +133,22 @@ function renderService(el) {
     <section class="panel threshold" aria-labelledby="h-who">
       <h2 id="h-who">門檻：邊個可以用？</h2>
       <p>${esc(s.rule)}</p>
-      <ol class="checks">${s.who.map((w) => `<li>${fmt(w)}</li>`).join("")}</ol>
+      ${s.compareTable ? `${tableHtml(s.compareTable)}<p>兩種津貼都要符合：</p>` : ""}
+      <ul class="checks">${(s.whoBoth || s.who).map((w) => `<li>${fmt(w)}</li>`).join("")}</ul>
       ${s.free ? `<h3>要留意</h3>${listHtml(s.free)}` : ""}
       <p class="small">以上係社署列明嘅條件，最終由社工或服務單位核實。</p>
     </section>
 
-    <h2>可以幫你啲咩</h2>
+    <h2>呢個服務適合邊啲人？</h2>
+    <p>例如以下情況（只係例子，唔係資格判斷）：</p>
+    ${listHtml(s.forWhom)}
+
+    <h2>點樣幫到你？</h2>
+    <div class="benefit">
+      <h3>對長者</h3><p>${fmt(s.elder)}</p>
+      <h3>對家人／照顧者</h3><p>${fmt(s.carer)}</p>
+    </div>
+    <h3>具體服務內容</h3>
     ${listHtml(s.helps)}
 
     <h2>點樣申請</h2>
@@ -162,7 +172,7 @@ function renderService(el) {
       ${s.note ? `<p>${esc(s.note)}</p>` : ""}
       ${s.alias ? `<p>其他叫法：${s.alias.map(esc).join("、")}</p>` : ""}` : ""}
 
-    <p class="source">來源：<a href="${s.source}">社署網頁</a>，核實日期 ${s.checked || CHECKED}</p>
+    <p class="source">來源：<a href="${s.source}">社署網頁</a>${s.source2 ? `；<a href="${s.source2[0]}">${esc(s.source2[1])}</a>` : ""}，核實日期 ${s.checked || CHECKED}</p>
 
     ${others.length ? `<h2>同類服務</h2>
       <ul class="links">${others.map((o) => `<li><a href="${pageOf(o.id)}">${esc(o.name)}</a></li>`).join("")}</ul>` : ""}

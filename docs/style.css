@@ -124,6 +124,7 @@ legend { font-weight: 700; font-size: 1.3125rem; margin-bottom: .75rem; padding:
 .topnav a:hover { text-decoration: underline; text-decoration-thickness: 3px; }
 .topnav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--brand); }
 @media (max-width: 40rem) { .topnav ul { gap: 0 1rem; } .topnav a { font-size: 1rem; } }
+@media (max-width: 26rem) { .topnav ul { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; } }
 
 /* 麵包屑 */
 .crumbs ol { display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: 0 0 1.25rem; font-size: 1rem; }
@@ -134,10 +135,11 @@ legend { font-weight: 700; font-size: 1.3125rem; margin-bottom: .75rem; padding:
 /* 門檻 */
 .panel.threshold { border-color: var(--brand); background: #f1f8f5; }
 .panel.threshold h2 { font-size: 1.5rem; }
-ol.checks { list-style: none; padding: 0; counter-reset: c; }
-ol.checks > li { counter-increment: c; position: relative; margin: 0; padding: .6rem 0 .6rem 2.75rem; }
-ol.checks > li + li { border-top: 1px solid var(--rule); }
-ol.checks > li::before { content: counter(c); position: absolute; left: 0; top: .55rem; width: 2rem; height: 2rem; display: grid; place-items: center; background: var(--brand); color: #fff; font-size: 1rem; font-weight: 700; }
+ul.checks { list-style: none; padding: 0; }
+ul.checks > li { position: relative; margin: 0; padding: .6rem 0 .6rem 2.25rem; }
+ul.checks > li + li { border-top: 1px solid var(--rule); }
+ul.checks > li::before { content: ""; position: absolute; left: 0; top: .8rem; width: 1.5rem; height: 1.5rem; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b4a3f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5 5L20 6.5'/%3E%3C/svg%3E") center / contain no-repeat; }
+.threshold table.data { background: var(--paper); }
 
 /* 申請流程圖 */
 ol.flow { list-style: none; padding: 0; margin: 0 0 1.5rem; counter-reset: f; }
@@ -145,7 +147,7 @@ ol.flow > li { counter-increment: f; position: relative; margin: 0 0 2rem; paddi
 ol.flow > li:last-child { margin-bottom: 0; }
 ol.flow > li::before { content: counter(f); position: absolute; left: .75rem; top: .75rem; width: 2rem; height: 2rem; display: grid; place-items: center; border-radius: 50%; background: var(--brand); color: #fff; font-size: 1rem; font-weight: 700; }
 ol.flow > li:not(:last-child)::after { content: ""; position: absolute; left: 1.25rem; bottom: calc(-2rem - 2px); width: 1rem; height: 2rem; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 32'%3E%3Cpath d='M8 0v22' stroke='%230b4a3f' stroke-width='2'/%3E%3Cpath d='M2 20l6 9 6-9z' fill='%230b4a3f'/%3E%3C/svg%3E") center / contain no-repeat; }
-ol.flow strong, ol.flow span { display: block; }
+ol.flow > li > strong, ol.flow > li > span { display: block; }
 
 /* 表 */
 table.data { width: 100%; border-collapse: collapse; margin: 0 0 1.5rem; font-size: 1rem; }

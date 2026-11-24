@@ -27,6 +27,8 @@ const shots = process.argv[2];
     const h2 = await p.$$eval("#service h2", (h) => h.map((x) => x.textContent));
     assert.strictEqual(h2[0], "門檻：邊個可以用？", `${id} 第一段唔係門檻`);
     assert.ok((await p.locator(".threshold .checks li").count()) >= 1, `${id} 冇門檻`);
+    assert.deepStrictEqual(h2.slice(1, 3), ["呢個服務適合邊啲人？", "點樣幫到你？"], `${id} 冇服務簡介`);
+    assert.ok(!(await p.textContent("#service")).includes("undefined"), `${id} 有 undefined`);
     assert.ok((await p.locator("ol.flow li").count()) >= 2, `${id} 冇申請流程`);
     assert.ok((await p.locator('#service a[href^="tel:"]').count()) >= 1, `${id} 冇電話`);
     assert.strictEqual(await p.getAttribute(".topnav [aria-current=page]", "href"), id === "assessment" ? "service.html?id=assessment" : "services.html");
