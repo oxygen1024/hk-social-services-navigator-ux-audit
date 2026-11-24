@@ -176,3 +176,13 @@ body[data-page="list"] [role="main"] { min-height: 100svh; }
 .field-grid p { grid-column: 1 / -1; color: var(--color-text-secondary); }
 .field-arrow { grid-column: 3; grid-row: 1; width: 1.2rem; color: var(--color-accent); }
 .field-grid a:is(:hover,:focus-visible) { border-color: var(--color-accent); background: var(--color-accent-muted); }
+
+@media screen {
+  body { padding-top: var(--care-header-height, 0rem); }
+  html { scroll-padding-top: var(--care-header-height, 0rem); }
+  .care-header { position: fixed; inset: 0 0 auto; }
+  .care-header[data-away]:not(:focus-within):not(:has(details[open])) { transform: translateY(calc(-100% - .1rem)); }
+}
+@media screen and (prefers-reduced-motion:no-preference) {
+  .care-header { transition: transform 150ms ease-out; }
+}

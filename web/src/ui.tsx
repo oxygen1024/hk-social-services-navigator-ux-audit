@@ -89,6 +89,27 @@ function SiteNav() {
   const header = useRef<HTMLElement>(null);
   const settings = useRef<HTMLDetailsElement>(null);
   useLayoutEffect(() => {
+    const bar = header.current!;
+    const root = document.documentElement;
+    const measure = () => root.style.setProperty('--care-header-height', bar.offsetHeight + 'px');
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(bar);
+    let last = Math.max(window.scrollY, 0);
+    const scroll = () => {
+      const y = Math.max(window.scrollY, 0);
+      if (y > bar.offsetHeight && Math.abs(y - last) < 8) return;
+      bar.toggleAttribute('data-away', y > bar.offsetHeight && y > last);
+      last = y;
+    };
+    window.addEventListener('scroll', scroll, {passive: true});
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', scroll);
+      root.style.removeProperty('--care-header-height');
+    };
+  }, []);
+  useLayoutEffect(() => {
     document.documentElement.style.fontSize = sizes[index][1];
   }, [index]);
   useEffect(() => {
