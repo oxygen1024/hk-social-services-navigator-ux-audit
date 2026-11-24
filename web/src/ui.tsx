@@ -121,7 +121,7 @@ function SiteNav() {
     if (open && e.relatedTarget && !open.contains(e.relatedTarget as Node)) open.removeAttribute('open');
   }}>
     <section className="care-tools" aria-label="網站工具">
-      <a href="index.html" className="care-name">香港社福導航</a>
+      <a href="index.html" className="care-name">社福懶人包</a>
       <nav className="wide-nav" aria-label="主選單">
         {GROUPS.map(group => <details key={group.label} name="header-options" className="care-group">
           <summary>{group.label}</summary>
@@ -149,7 +149,7 @@ function SiteNav() {
 }
 
 export function Page({current, title, children}: {current: string; title?: string; children: ReactNode}) {
-  if (title) document.title = `${title}｜香港社福導航`;
+  if (title) document.title = `${title}｜社福懶人包`;
   return (
     <>
     <SiteNav />

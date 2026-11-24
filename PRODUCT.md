@@ -42,7 +42,7 @@ Starts from the need, not the service name. Joins the three parts other sites ea
 
 ## Brand Commitments
 
-Name: 香港社福導航. Language: Hong Kong Traditional Chinese. Service facts in standard written Chinese; button and prompt copy may use plain spoken Cantonese ("搵"、"有冇").
+Name: 社福懶人包 (renamed from 香港社福導航 on 2026-11-24). Language: Hong Kong Traditional Chinese. Service facts in standard written Chinese; button and prompt copy may use plain spoken Cantonese ("搵"、"有冇").
 
 Visual standard: since 2026-11-24 the Astryx design system with the custom `hkcare` theme (Neutral base). Earlier (2026-11-23) the category standard played straight (GOV.UK / NHS / 社署長者資訊網 craft bar). Plain, familiar and trustworthy over distinctive. It must not copy any government's branding or crest. All copy in formal written Chinese.
 
