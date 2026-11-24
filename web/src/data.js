@@ -486,3 +486,5 @@ const TERMS = [
   ["高齡津貼", "Old Age Allowance"], ["長者生活津貼", "OALA"], ["公共福利金", "SSA"], ["綜援", "CSSA"],
   ["社署", "SWD"],
 ];
+
+export { CHECKED, CENTRE_LIST, NEEDS, CATEGORIES, ROUTES, SERVICES, TERMS };

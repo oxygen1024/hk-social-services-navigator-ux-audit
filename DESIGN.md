@@ -268,6 +268,8 @@ components:
     typography: "{typography.small}"
     padding: "1.5rem 1rem 2rem"
 ---
+> **Superseded on 2026-11-24.** The site was rebuilt with React and the Astryx design system; its visual system now lives in the `hkcare` theme (`web/src/themes/hkcare/`). This document describes the earlier static HTML/CSS version and is kept for reference.
+
 
 # Design System: 香港社福導航
 

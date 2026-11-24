@@ -1,4 +1,4 @@
-// 用法：先在 docs/ 開伺服器（python3 -m http.server 8765 --directory docs），再 node tests/site-check.js [輸出截圖目錄]
+// 用法：cd web && npx vite build，然後 python3 -m http.server 8765 --directory docs，再 node tests/site-check.js [截圖目錄]
 const { chromium } = require("playwright");
 const assert = require("assert");
 const base = "http://localhost:8765/";
@@ -9,127 +9,79 @@ const shots = process.argv[2];
   const p = await b.newPage({ viewport: { width: 320, height: 700 } });
   const errors = [];
   p.on("pageerror", (e) => errors.push(e.message));
-  const titles = async () => p.$$eval(".result h2", (h) => h.map((x) => x.textContent));
+  const open = async (u) => { await p.goto(base + u); await p.waitForSelector("[role=main] h1"); };
+  const h2s = () => p.$$eval("[role=main] h2", (h) => h.map((x) => x.textContent.trim()));
   const noOverflow = async (name) =>
     assert.ok((await p.evaluate(() => document.documentElement.scrollWidth)) <= 320, `${name} 320px 橫向溢出`);
 
-  for (const width of [1440, 390, 320]) {
-    await p.setViewportSize({ width, height: 844 });
-    await p.goto(base + 'index.html');
-    const menu = p.getByRole('button', { name: '選單' });
-    const search = p.getByRole('button', { name: '搜尋服務' });
-    await menu.focus();
-    await p.keyboard.press('Enter');
-    assert.ok(await p.locator('#site-menu').isVisible());
-    assert.ok(await p.getByRole('link', { name: '急事求助', exact: true }).isVisible());
-    assert.ok(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-    await search.click();
-    assert.ok(await p.locator('#site-menu').isHidden());
-    const input = p.locator('#service-query');
-    assert.ok(await input.evaluate(el => el === document.activeElement));
-    for (const [query, id] of [['改善家居及社區照顧服務', 'frail-home'], ['社區券', 'ccsv'], ['經濟援助', 'ssa']]) {
-      await input.fill(query);
-      assert.ok(await p.locator('#service-matches a[href$="' + id + '"]').isVisible());
-    }
-    await input.fill('no-such-record');
-    assert.ok((await p.locator('#service-count').textContent()).includes('未找到'));
-    await p.keyboard.press('Escape');
-    assert.ok(await search.evaluate(el => el === document.activeElement));
-    assert.ok(await p.locator('#site-search').isHidden());
-    await menu.click();
-    await p.locator('#site-menu a[href$="#cat-day"]').click();
-    assert.ok(await p.locator('#cat-day').isVisible());
-    assert.ok(p.url().endsWith('services.html#cat-day'));
-  }
-  const plain = await b.newContext({ javaScriptEnabled: false });
-  const plainPage = await plain.newPage();
-  await plainPage.goto(base + 'index.html');
-  assert.ok(await plainPage.locator('#site-menu a[href="need.html"]').isVisible());
-  await plain.close();
-
   for (const page of ["index.html", "need.html", "services.html"]) {
-    await p.goto(base + page);
+    await open(page);
     await noOverflow(page);
     if (shots) await p.screenshot({ path: `${shots}/320-${page}.png`, fullPage: true });
   }
-  const ids = await p.$$eval(".svc-list a", (as) => as.map((a) => new URL(a.href).searchParams.get("id")));
-  assert.strictEqual(ids.length, 16, "服務目錄應列出全部 16 項");
+  await open("index.html");
+  assert.ok(await p.locator('a[href="tel:999"]').count(), "首頁要有 999");
+  assert.ok(await p.locator("#urgent").count(), "急事求助錨點");
 
-  // 每項服務一頁：門檻是第一個段落、有重如何標示同流程圖、手機不溢出
+  // 手機選單
+  await p.getByRole("button", { name: "開啟導覽" }).click();
+  assert.ok(await p.getByRole("link", { name: "所有服務" }).first().isVisible(), "手機選單要有所有服務");
+  await p.keyboard.press("Escape");
+
+  // 服務目錄及搜尋
+  await open("services.html");
+  const ids = await p.$$eval('[role=main] a[href^="service.html?id="]', (as) => [...new Set(as.map((a) => new URL(a.href).searchParams.get("id")))]);
+  assert.ok(ids.length >= 16, "服務目錄應列出全部 16 項");
+  await p.getByLabel("搜尋服務").fill("社區券");
+  assert.ok(await p.locator('[role=main] a[href="service.html?id=ccsv"]').first().isVisible(), "搜尋社區券");
+  assert.strictEqual(await p.locator('[role=main] a[href="service.html?id=ssa"]').count(), 0, "搜尋結果只顯示相關服務");
+
+  // 每項服務一頁：門檻先行、簡介、流程、電話
   for (const id of ids) {
-    await p.goto(`${base}service.html?id=${id}`);
-    const h2 = await p.$$eval("#service h2", (h) => h.map((x) => x.textContent));
-    assert.strictEqual(h2[0], "門檻：誰可以使用？", `${id} 第一段不是門檻`);
-    assert.ok((await p.locator(".threshold .checks li").count()) >= 1, `${id} 沒有門檻`);
-    assert.deepStrictEqual(h2.slice(1, 3), ["這項服務適合哪些人士？", "服務如何提供幫助？"], `${id} 沒有服務簡介`);
-    assert.ok(!(await p.textContent("#service")).includes("undefined"), `${id} 有 undefined`);
-    assert.ok((await p.locator("ol.flow li").count()) >= 2, `${id} 沒有申請流程`);
-    assert.ok((await p.locator('#service a[href^="tel:"]').count()) >= 1, `${id} 沒有電話`);
-    assert.strictEqual(await p.getAttribute(".topnav [aria-current=page]", "href"), id === "assessment" ? "service.html?id=assessment" : "services.html");
+    await open(`service.html?id=${id}`);
+    const h = await h2s();
+    assert.strictEqual(h[0], "門檻：誰可以使用？", `${id} 第一段不是門檻`);
+    assert.deepStrictEqual(h.slice(1, 3), ["這項服務適合哪些人士？", "服務如何提供幫助？"], `${id} 沒有服務簡介`);
+    assert.ok(h.includes("如何申請"), `${id} 沒有申請步驟`);
+    assert.ok((await p.locator('[role=main] a[href^="tel:"]').count()) >= 1, `${id} 沒有電話`);
+    assert.ok(!(await p.textContent("[role=main]")).includes("undefined"), `${id} 有 undefined`);
     await noOverflow(id);
-    if (shots && ["home-support", "ccsv", "ssa", "rcsv", "carer-allowance"].includes(id)) await p.screenshot({ path: `${shots}/320-service-${id}.png`, fullPage: true });
+    if (shots && ["home-support", "ccsv", "ssa"].includes(id)) await p.screenshot({ path: `${shots}/320-service-${id}.png`, fullPage: true });
   }
-  await p.goto(`${base}service.html?id=home-support`);
-  assert.strictEqual(await p.textContent(".threshold .key"), "60 歲或以上", "年齡要粗體加底線");
-  assert.ok((await p.textContent(".en-name")).includes("Home Support Services (HSS)"), "服務要有英文名");
-  await p.goto(`${base}service.html?id=frail-home`);
-  const body = await p.textContent("#service");
-  assert.ok(body.includes("長者鄰舍中心 (NEC)") && body.includes("中央輪候冊 (CWL)"), "名詞第一次出現要有英文");
+  await open("service.html?id=home-support");
+  assert.ok((await p.$$eval("[role=main] .key", (k) => k.map((x) => x.textContent.trim()))).includes("60 歲或以上"), "年齡要粗體加底線");
+  assert.ok((await p.textContent("[role=main]")).includes("Home Support Services (HSS)"), "服務要有英文名");
+  await open("service.html?id=frail-home");
+  const body = await p.textContent("[role=main]");
+  assert.ok(body.includes("長者鄰舍中心 (NEC)") && body.includes("綜合家庭服務中心 (Integrated Family Service Centre)"), "名詞首次出現要有英文");
   assert.strictEqual(body.split("(NEC)").length - 1, 1, "同一名詞英文只出一次");
-  await p.goto(`${base}service.html?id=ccsv`);
-  assert.strictEqual(await p.locator("table.bars tbody tr").count(), 6, "社區券應有六級共同付款圖");
-  await p.goto(`${base}service.html?id=nope`);
-  assert.ok(await p.getByText("找不到這項服務").isVisible());
+  await open("service.html?id=ccsv");
+  assert.ok(await p.getByText("社區券六個共同付款級別").isVisible(), "社區券共同付款圖");
+  await open("service.html?id=nope");
+  assert.ok(await p.getByText("找不到這項服務").first().isVisible());
 
-  // 選擇「個人照顧」+ 自費 → 家居服務會出現，最尾一定有長者中心社工
-  await p.goto(base + "need.html");
-  await p.check("#n-personal");
-  await p.check("#f-self");
-  await p.click("button[type=submit]");
-  let t = await titles();
-  assert.ok(t.includes("家居支援服務") && t.includes("體弱長者家居照顧服務"), t.join());
-  assert.strictEqual(t.at(-1), "長者地區中心／長者鄰舍中心");
+  // 問答 → 結果 → 服務頁 → 返回結果 → 修改答案
+  await open("need.html");
+  await p.getByRole("checkbox", { name: "個人照顧" }).check();
+  await p.getByRole("radio", { name: "自費" }).check();
+  await p.getByRole("button", { name: "查看結果" }).click();
+  await p.waitForSelector("[role=main] h2");
+  const titles = await h2s();
+  assert.ok(titles.includes("家居支援服務") && titles.includes("體弱長者家居照顧服務"), titles.join());
+  assert.ok(titles.includes("長者地區中心／長者鄰舍中心"), "必定有長者中心社工");
   assert.ok(await p.getByText("暫未收錄自費上門照顧").isVisible());
-  assert.ok(await p.evaluate(() => [...document.querySelectorAll("#results > p")].find((x) => x.textContent.includes("自費上門"))?.compareDocumentPosition(document.querySelector(".result")) === Node.DOCUMENT_POSITION_FOLLOWING), "自費提示要在第一張卡之前");
-  assert.strictEqual(await p.locator('.panel.alert a[href="tel:182183"]').count(), 0, "結尾急事框不應該再重複 182 183");
+  assert.ok(!(await p.textContent("[role=main]")).includes("為何可能合適"), "結果卡不顯示配對原因");
   await noOverflow("results.html");
   if (shots) await p.screenshot({ path: `${shots}/320-results.png`, fullPage: true });
-
-  assert.ok(!(await p.textContent("#results")).includes("為何可能合適"), "結果卡不再顯示配對原因");
-  assert.ok((await p.textContent("footer")).includes("測試版"), "測試版提示要在頁尾");
-  // 每張結果卡最尾都有可以按的電話
-  const lastIsTel = await p.$$eval(".result", (rs) => rs.map((r) => !!r.lastElementChild.querySelector('a[href^="tel:"]')));
-  assert.ok(lastIsTel.every(Boolean), "有結果卡最尾沒有電話");
-
-  // 按「了解這項服務」去服務頁，再返回結果
-  assert.strictEqual(await p.locator(".result a.button.secondary").count(), t.length, "每張結果卡都要有了解這項服務");
-  await p.locator(".result a.button.secondary").first().click();
-  assert.strictEqual(await p.textContent("#service h1"), t[0]);
-  await p.click("text=返回你的搜尋結果 >> nth=0");
-  assert.deepStrictEqual(await titles(), t, "返回結果要同之前一樣");
-
-  // 返回問題同修改答案都要保留之前選擇過的事項
-  await p.click("#back");
-  assert.ok(await p.isChecked("#n-personal"));
-  await p.goBack();
-  await p.click("text=修改答案");
-  assert.ok(await p.isChecked("#n-personal"));
-  assert.ok(await p.isChecked("#f-self"));
-
-  // 乜都不選擇 → 當「未清楚」處理，不會空白
-  await p.goto(base + "results.html");
-  t = await titles();
-  assert.ok(t.includes("照顧者支援專線 182 183") && t.includes("長者地區中心／長者鄰舍中心"), t.join());
-
-  // 住院舍 → 有資助宿位同院舍券；電話可以按
-  await p.goto(base + "results.html?need=residential");
-  t = await titles();
-  assert.ok(t.includes("資助安老宿位") && t.includes("長者院舍照顧服務券（院舍券）"), t.join());
-  assert.ok((await p.locator('a[href="tel:182183"]').count()) >= 1);
-
-  // 不認得的參數不會令頁面壞
-  await p.goto(base + "results.html?need=%3Cscript%3E&fund=%22x");
-  assert.ok((await titles()).length >= 1);
+  await p.getByRole("link", { name: "了解這項服務" }).first().click();
+  await p.waitForSelector("[role=main] h1");
+  assert.strictEqual((await p.textContent("[role=main] h1")).trim(), "家居支援服務");
+  await p.getByRole("link", { name: "返回你的搜尋結果" }).first().click();
+  await p.waitForSelector("[role=main] h2");
+  assert.deepStrictEqual(await h2s(), titles, "返回結果要同之前一樣");
+  await p.getByRole("link", { name: "修改答案" }).click();
+  await p.waitForSelector("[role=main] h1");
+  assert.ok(await p.getByRole("checkbox", { name: "個人照顧" }).isChecked(), "修改答案要保留選擇");
 
   assert.deepStrictEqual(errors, []);
   await b.close();

@@ -1,0 +1,2 @@
+/* 重點資料：粗體加底線（用家要求）。底線用 success 色，與連結分開。 */
+.key { text-decoration: underline; text-decoration-color: var(--color-success); text-decoration-thickness: 0.15em; text-underline-offset: 0.22em; }

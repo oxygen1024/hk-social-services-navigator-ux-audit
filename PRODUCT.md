@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Static HTML/CSS (minimal vanilla JS only where filtering needs it), published with GitHub Pages from `main`. No build step, no framework, no server.
+React 19 + Astryx design system (@astryxdesign/core 0.7.17, user's choice 2026-11-24), built with Vite from `web/` into `docs/` and published with GitHub Pages from `main` `/docs`. Custom theme `hkcare` (based on Neutral, deep green accent, 18px base text on desktop). Service facts live in `web/src/data.js`.
 
 ## Users
 
@@ -44,7 +44,7 @@ Starts from the need, not the service name. Joins the three parts other sites ea
 
 Name: 香港社福導航. Language: Hong Kong Traditional Chinese. Service facts in standard written Chinese; button and prompt copy may use plain spoken Cantonese ("搵"、"有冇").
 
-Visual standard (user's choice, 2026-11-23): the category standard played straight, at the craft level of GOV.UK, the NHS website and 社署長者資訊網. Plain, familiar and trustworthy over distinctive. It must not copy any government's branding or crest.
+Visual standard: since 2026-11-24 the Astryx design system with the custom `hkcare` theme (Neutral base). Earlier (2026-11-23) the category standard played straight (GOV.UK / NHS / 社署長者資訊網 craft bar). Plain, familiar and trustworthy over distinctive. It must not copy any government's branding or crest. All copy in formal written Chinese.
 
 ## Evidence on Hand
 
