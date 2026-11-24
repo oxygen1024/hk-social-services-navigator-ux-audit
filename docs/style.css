@@ -82,6 +82,9 @@ a:focus-visible, button:focus-visible, input:focus-visible + label, summary:focu
 .button:hover { background: var(--go-dark); }
 .button:active { transform: translateY(2px); box-shadow: none; }
 .button:focus-visible { background: var(--focus); color: var(--ink); box-shadow: 0 2px 0 var(--ink); outline: 3px solid var(--focus); }
+.button.secondary { background: var(--panel); color: var(--ink); box-shadow: 0 2px 0 #929191; }
+.button.secondary:visited { color: var(--ink); }
+.button.secondary:hover { background: var(--rule); }
 @media (max-width: 40rem) { .button { width: 100%; text-align: center; } }
 
 .panel { border: 3px solid var(--rule); background: var(--panel); padding: 1rem 1.25rem; margin: 1.5rem 0; }

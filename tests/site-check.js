@@ -56,7 +56,7 @@ const shots = process.argv[2];
   assert.ok(t.includes("家居支援服務") && t.includes("體弱長者家居照顧服務"), t.join());
   assert.strictEqual(t.at(-1), "長者地區中心／長者鄰舍中心");
   assert.ok(await p.getByText("暫時未收錄自費上門照顧").isVisible());
-  assert.ok(await p.evaluate(() => document.querySelector("#results > p:nth-of-type(3)")?.textContent.includes("自費")), "自費提示要喺第一張卡之前");
+  assert.ok(await p.evaluate(() => [...document.querySelectorAll("#results > p")].find((x) => x.textContent.includes("自費上門"))?.compareDocumentPosition(document.querySelector(".result")) === Node.DOCUMENT_POSITION_FOLLOWING), "自費提示要喺第一張卡之前");
   assert.strictEqual(await p.locator('.panel.alert a[href="tel:182183"]').count(), 0, "結尾急事框唔應該再重複 182 183");
   await noOverflow("results.html");
   if (shots) await p.screenshot({ path: `${shots}/320-results.png`, fullPage: true });
@@ -64,6 +64,13 @@ const shots = process.argv[2];
   // 每張結果卡最尾都有可以撳嘅電話
   const lastIsTel = await p.$$eval(".result", (rs) => rs.map((r) => !!r.lastElementChild.querySelector('a[href^="tel:"]')));
   assert.ok(lastIsTel.every(Boolean), "有結果卡最尾冇電話");
+
+  // 撳「了解呢個服務」去服務頁，再返回結果
+  assert.strictEqual(await p.locator(".result a.button.secondary").count(), t.length, "每張結果卡都要有了解呢個服務");
+  await p.locator(".result a.button.secondary").first().click();
+  assert.strictEqual(await p.textContent("#service h1"), t[0]);
+  await p.click("text=返回你嘅搜尋結果 >> nth=0");
+  assert.deepStrictEqual(await titles(), t, "返回結果要同之前一樣");
 
   // 返回問題同改答案都要保留之前揀過嘅嘢
   await p.click("#back");

@@ -76,6 +76,8 @@ function renderResults(el) {
 
   const fundText = { both: "資助同自費都想睇", sub: "資助", self: "自費", unsure: "未清楚" }[fund] || "";
   const needsAssess = hits.some((h) => ["assess", "light", "invite"].includes(h.s.route));
+  // 服務頁記住返嚟邊個結果
+  const detail = (id) => `${pageOf(id)}&from=${encodeURIComponent(location.search)}`;
   const back = document.getElementById("back");
   if (back) back.href = "need.html" + location.search;
 
@@ -87,10 +89,11 @@ function renderResults(el) {
     <p class="lead">你揀咗：${needs.map((n) => NEEDS[n].label).join("、")}${fundText ? `；${fundText}` : ""}。
       <a href="need.html${location.search}">改答案</a></p>
     <p>以下係<strong>可能相關</strong>嘅服務，唔係資格判斷，要由社工或服務單位核實。</p>
+    <p>想知多啲？撳服務名稱或者「了解呢個服務」，可以睇門檻、適合邊啲人、點樣幫到你、申請步驟同收費。</p>
     ${fund === "self" ? `<p>本網站暫時未收錄自費上門照顧機構。想比較自費上門照顧，可以先問長者中心社工。</p>` : ""}
     ${hits.map(({ s, why }, i) => `
       <section class="result" aria-labelledby="r-${s.id}">
-        <h2 id="r-${s.id}">${esc(s.name)}</h2>
+        <h2 id="r-${s.id}"><a href="${detail(s.id)}">${esc(s.name)}</a></h2>
         ${enName(s)}
         ${tagsHtml(s)}
         <p><span class="why">${why.length ? `點解可能啱：你揀咗「${why.map((n) => NEEDS[n].label).join("」「")}」。` : "唔肯定揀邊樣？先問社工。"}</span>
@@ -99,7 +102,8 @@ function renderResults(el) {
         ${listHtml(s.who)}
         <h3>下一步</h3>
         <p>${fmt(s.how)}</p>
-        <p>${s.id === "centres" ? `<a href="${CENTRE_LIST}">搵就近中心電話（PDF）</a><br>` : ""}<a href="${pageOf(s.id)}">睇${esc(s.name)}詳細解釋</a></p>
+        <p><a class="button secondary" href="${detail(s.id)}">了解呢個服務<span class="vh">：${esc(s.name)}</span></a></p>
+        ${s.id === "centres" ? `<p><a href="${CENTRE_LIST}">搵就近中心電話（PDF）</a></p>` : ""}
         ${callsHtml(s.contacts.length ? s.contacts : FALLBACK)}
       </section>${i === 0 ? notes : ""}`).join("")}
     <div class="panel alert">
@@ -133,6 +137,8 @@ function renderService(el) {
     return;
   }
   document.title = `${s.name}｜香港社福導航`;
+  const rawFrom = new URLSearchParams(location.search).get("from");
+  const from = rawFrom === null || rawFrom === "" || rawFrom.startsWith("?") ? rawFrom : "";
   seen = new Set();
   markSeen(s.name);
   const costHead = s.cat === "money" ? "津貼金額" : "收費";
@@ -140,6 +146,7 @@ function renderService(el) {
   const others = SERVICES.filter((o) => o.cat === s.cat && o.id !== s.id);
 
   el.innerHTML = `
+    ${from !== null ? `<p><a class="back" href="results.html${esc(from)}">返回你嘅搜尋結果</a></p>` : ""}
     <nav class="crumbs" aria-label="你喺邊度"><ol>
       <li><a href="index.html">首頁</a></li>
       <li><a href="services.html">所有服務</a></li>
@@ -196,5 +203,5 @@ function renderService(el) {
 
     ${others.length ? `<h2>同類服務</h2>
       <ul class="links">${others.map((o) => `<li><a href="${pageOf(o.id)}">${esc(o.name)}</a></li>`).join("")}</ul>` : ""}
-    <p><a href="services.html">返回所有長者服務</a></p>`;
+    <p>${from !== null ? `<a href="results.html${esc(from)}">返回你嘅搜尋結果</a>｜` : ""}<a href="services.html">返回所有長者服務</a></p>`;
 }
