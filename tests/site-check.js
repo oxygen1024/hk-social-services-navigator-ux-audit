@@ -5,13 +5,47 @@ const base = "http://localhost:8765/";
 const shots = process.argv[2];
 
 (async () => {
-  const b = await chromium.launch();
+  const b = await chromium.launch({ channel: process.env.PLAYWRIGHT_CHANNEL || undefined });
   const p = await b.newPage({ viewport: { width: 320, height: 700 } });
   const errors = [];
   p.on("pageerror", (e) => errors.push(e.message));
   const titles = async () => p.$$eval(".result h2", (h) => h.map((x) => x.textContent));
   const noOverflow = async (name) =>
     assert.ok((await p.evaluate(() => document.documentElement.scrollWidth)) <= 320, `${name} 320px 橫向溢出`);
+
+  for (const width of [1440, 390, 320]) {
+    await p.setViewportSize({ width, height: 844 });
+    await p.goto(base + 'index.html');
+    const menu = p.getByRole('button', { name: '選單' });
+    const search = p.getByRole('button', { name: '搜尋服務' });
+    await menu.focus();
+    await p.keyboard.press('Enter');
+    assert.ok(await p.locator('#site-menu').isVisible());
+    assert.ok(await p.getByRole('link', { name: '急事求助', exact: true }).isVisible());
+    assert.ok(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    await search.click();
+    assert.ok(await p.locator('#site-menu').isHidden());
+    const input = p.locator('#service-query');
+    assert.ok(await input.evaluate(el => el === document.activeElement));
+    for (const [query, id] of [['改善家居及社區照顧服務', 'frail-home'], ['社區券', 'ccsv'], ['經濟援助', 'ssa']]) {
+      await input.fill(query);
+      assert.ok(await p.locator('#service-matches a[href$="' + id + '"]').isVisible());
+    }
+    await input.fill('no-such-record');
+    assert.ok((await p.locator('#service-count').textContent()).includes('未找到'));
+    await p.keyboard.press('Escape');
+    assert.ok(await search.evaluate(el => el === document.activeElement));
+    assert.ok(await p.locator('#site-search').isHidden());
+    await menu.click();
+    await p.locator('#site-menu a[href$="#cat-day"]').click();
+    assert.ok(await p.locator('#cat-day').isVisible());
+    assert.ok(p.url().endsWith('services.html#cat-day'));
+  }
+  const plain = await b.newContext({ javaScriptEnabled: false });
+  const plainPage = await plain.newPage();
+  await plainPage.goto(base + 'index.html');
+  assert.ok(await plainPage.locator('#site-menu a[href="need.html"]').isVisible());
+  await plain.close();
 
   for (const page of ["index.html", "need.html", "services.html"]) {
     await p.goto(base + page);

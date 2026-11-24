@@ -386,7 +386,7 @@ One centred column, 46rem (736px) wide at most, with 1rem (16px) side gutters at
 
 Vertical rhythm: paragraphs and lists leave 1rem below; H2s take 2.5rem above and 1rem below (services category H2s 3rem above); H3s take 1.25rem above and .25rem below; panels take 1.5rem above and below; results sit 2rem apart; fieldsets sit 2rem apart; flow steps sit 2rem apart, the gap carrying the arrow; tables and charts leave 1.5rem below. List items are .35rem apart.
 
-Responsive behaviour is two component-level breakpoints, not a grid change. At 40rem (640px) and below, the primary button goes full width with centred text, each calls-list row stacks its number under its label, and the top menu tightens its gap from 1.5rem to 1rem and drops to 16px type. At 26rem (416px) and below, the top menu becomes a three-column grid of auto-width cells, so its five items sit in two tidy rows instead of a ragged wrap. The services table of contents flows into two columns of at least 14rem and falls back to one. Data tables and the chart stay full column width. Everything holds at 320px and 200% zoom.
+At 40rem and below, the primary button goes full width, calls-list rows stack, and the expanded top menu becomes one column. The services table of contents flows into two columns of at least 14rem and falls back to one. Data tables and the chart stay full column width. Everything holds at 320px and 200% zoom.
 
 In print, the header band, top menu, phase banner, footer, buttons and skip link drop out and links print in ink.
 
@@ -426,13 +426,10 @@ A quiet name plate.
 - **Hover / Focus:** underline appears on hover at .2em offset; focus takes the yellow fill and black underline.
 
 ### Top Menu
-A plain text menu under the band.
-- **Style:** full-bleed Paper White strip with a 1px Rule Grey underline; items in a row, 1.5rem apart, each a Nav-type link at least 2.75rem (44px) tall with a reserved 4px bottom border.
-- **Items:** 首頁, 搵服務, 所有服務, 統一評估, 急事求助, in that order.
-- **Default / Hover:** Public Link Blue with no underline (visited stays blue); hover adds a 3px underline.
-- **Current:** marked with `aria-current="page"`; ink text and a 4px Deep Civic Green underbar. A service page marks 所有服務 (or 統一評估 on the assessment page).
-- **Focus:** the standard yellow fill and black underline.
-- **Mobile:** at 40rem and below, 1rem gap and 16px type; at 26rem and below, a three-column grid.
+The bar below the green wordmark keeps 選單, 搜尋服務 and a direct 急事求助 link visible. Menu and search expand below the bar, one at a time. Escape closes the panel and returns focus to its button. When scripting is disabled the directory links remain visible.
+- **Menu:** group site destinations and the six existing service categories. Keep current-page styling and the skip link.
+- **Search:** match the catalogue's Chinese and English names, former names and category names. Show a count, direct detail links and a route to all services.
+- **Mobile:** minimum 44px controls and a single-column expanded menu. Use normal page flow so the panel does not cover content.
 
 ### Breadcrumbs
 - **Style:** a Small-type row above the H1 on service pages (首頁 › 所有服務 › category), ink-coloured underlined links, 1.25rem below. Separators are the border-drawn Slate chevron, never a typed glyph.

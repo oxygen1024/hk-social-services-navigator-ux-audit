@@ -125,14 +125,27 @@ h1 + .en-name { margin-top: -.75rem; margin-bottom: 1rem; }
 
 /* 主選單 */
 .topnav { border-bottom: 1px solid var(--rule); background: var(--paper); }
-.topnav ul { display: flex; flex-wrap: wrap; gap: 0 1.5rem; list-style: none; margin: 0; padding: 0; }
-.topnav li { margin: 0; }
-.topnav a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 700; text-decoration: none; border-bottom: 4px solid transparent; }
-.topnav a, .topnav a:visited { color: var(--link); }
-.topnav a:hover { text-decoration: underline; text-decoration-thickness: 3px; }
-.topnav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--brand); }
-@media (max-width: 40rem) { .topnav ul { gap: 0 1rem; } .topnav a { font-size: 1rem; } }
-@media (max-width: 24rem) { .topnav ul { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; } }
+.topnav [hidden] { display: none; }
+.nav-actions { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0 .75rem; }
+.topnav a, .nav-tab { display: inline-flex; align-items: center; min-height: 44px; font: inherit; font-weight: 700; }
+.nav-tab { border: 0; border-bottom: 4px solid transparent; padding: .45rem .28rem .2rem; background: transparent; color: var(--brand); cursor: pointer; }
+.nav-tab[aria-expanded="true"] { border-bottom-color: var(--brand); }
+.chevron { margin: -.2em 0 0 .55em; width: .48em; height: .48em; border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.nav-tab[aria-expanded="true"] .chevron { transform: rotate(225deg); margin-top: .25em; }
+.nav-actions .urgent-link { margin-left: auto; color: var(--alert); }
+.nav-panel { border-top: 1px solid var(--rule); padding: 1rem 0; }
+#site-menu { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem 1.5rem; }
+#site-menu[hidden] { display: none; }
+.nav-panel h2, .nav-panel label { display: block; font-size: 1rem; color: var(--muted); margin: 0 0 .4rem; font-weight: 700; }
+.nav-panel ul { list-style: none; padding: 0; margin: 0; }
+.nav-panel li { margin: 0; }
+.nav-panel a[aria-current] { color: var(--ink); text-decoration-thickness: 4px; }
+#service-query { font: inherit; min-height: 44px; width: 100%; max-width: 30rem; border: 2px solid var(--ink); padding: .4rem .6rem; }
+#service-query:focus-visible { outline: 3px solid var(--focus); box-shadow: 0 0 0 5px var(--ink); }
+#service-count { margin: .6rem 0 0; }
+.nav-tab:hover { text-decoration: underline; }
+.nav-tab:focus-visible { color: var(--ink); background: var(--focus); outline: 3px solid var(--ink); outline-offset: -3px; }
+@media (max-width: 40rem) { #site-menu { grid-template-columns: 1fr; } .nav-actions { font-size: 1rem; } }
 
 /* 麵包屑 */
 .crumbs ol { display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: 0 0 1.25rem; font-size: 1rem; }
