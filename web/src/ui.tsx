@@ -1,7 +1,6 @@
 // 共用：頁面框架（頂部導航、頁尾）、重點文字、電話列表、表格。
-import {type ReactNode} from 'react';
+import {useEffect, useLayoutEffect, useRef, useState, type ReactNode} from 'react';
 import {AppShell} from '@astryxdesign/core/AppShell';
-import {TopNav, TopNavHeading, TopNavItem} from '@astryxdesign/core/TopNav';
 import {Layout, LayoutContent, VStack, HStack, Section} from '@astryxdesign/core/Layout';
 import {Text, Heading} from '@astryxdesign/core/Text';
 import {Link} from '@astryxdesign/core/Link';
@@ -79,22 +78,61 @@ export function DataTable({rows, rich}: {rows: string[][]; rich: (t: string) => 
   return <Table data={body.map((r, id) => ({...r, id}))} columns={columns} idKey="id" density="compact" />;
 }
 
-// AppShell 會在窄螢幕自動把 TopNav 項目收進手機選單
+const sizes = [['標準', '100%'], ['大', '115%'], ['特大', '130%']] as const;
+const sizeKey = 'hkcare-text-size';
 function SiteNav({current}: {current: string}) {
-  return (
-    <TopNav
-      label="主選單"
-      heading={<TopNavHeading heading="香港社福導航" headingHref="index.html" />}
-      startContent={NAV.map(([href, label]) => <TopNavItem key={href} label={label} href={href} isSelected={href === current} />)}
-      endContent={<Button label="急事求助" variant="destructive" size="sm" href="index.html#urgent" />}
-    />
-  );
+  const [size, setSize] = useState(() => {
+    try { return sizes.findIndex(([, value]) => value === localStorage.getItem(sizeKey)); }
+    catch { return 0; }
+  });
+  const index = Math.max(0, size);
+  const header = useRef<HTMLElement>(null);
+  const settings = useRef<HTMLDetailsElement>(null);
+  useLayoutEffect(() => {
+    document.documentElement.style.fontSize = sizes[index][1];
+  }, [index]);
+  useEffect(() => {
+    const observer = new ResizeObserver(() => {
+      document.documentElement.style.scrollPaddingTop = header.current!.offsetHeight + 8 + 'px';
+    });
+    observer.observe(header.current!);
+    const dismiss = (e: PointerEvent) => {
+      if (!settings.current?.contains(e.target as Node) && settings.current) settings.current.open = false;
+    };
+    document.addEventListener('pointerdown', dismiss);
+    return () => {observer.disconnect(); document.removeEventListener('pointerdown', dismiss);};
+  }, []);
+  function choose(i: number) {
+    setSize(i);
+    try { localStorage.setItem(sizeKey, sizes[i][1]); } catch { /* available for this page */ }
+    settings.current!.open = false;
+    settings.current!.querySelector('summary')!.focus();
+  }
+  return <header ref={header} className="care-header">
+    <section className="care-tools" aria-label="網站工具">
+      <a href="index.html" className="care-name">香港社福導航</a>
+      <details ref={settings} className="care-size" onKeyDown={e => {
+        if (e.key === 'Escape') { e.currentTarget.open = false; e.currentTarget.querySelector('summary')!.focus(); }
+      }}>
+        <summary aria-label={'更改字級，目前' + sizes[index][0]}>字級 ▾</summary>
+        <section aria-label="選擇字級">{sizes.map(([label], i) =>
+          <button key={label} type="button" aria-pressed={i === index} onClick={() => choose(i)}>{label}</button>
+        )}</section>
+      </details>
+      <a className="care-help" href="index.html#urgent">急事求助</a>
+    </section>
+    <nav className="care-links" aria-label="主選單">{NAV.map(([href, label]) =>
+      <a key={href} href={href} aria-current={href === current ? 'page' : undefined}>{label}</a>
+    )}</nav>
+  </header>;
 }
 
 export function Page({current, title, children}: {current: string; title?: string; children: ReactNode}) {
   if (title) document.title = `${title}｜香港社福導航`;
   return (
-    <AppShell height="auto" topNav={<SiteNav current={current} />}>
+    <>
+    <SiteNav current={current} />
+    <AppShell height="auto">
       <Layout height="auto" contentWidth={760}>
         <LayoutContent padding={4}>
           <VStack gap={6}>
@@ -111,5 +149,6 @@ export function Page({current, title, children}: {current: string; title?: strin
         </LayoutContent>
       </Layout>
     </AppShell>
+    </>
   );
 }

@@ -23,11 +23,26 @@ const shots = process.argv[2];
   assert.ok(await p.locator('a[href="tel:999"]').count(), "首頁要有 999");
   assert.ok(await p.locator("#urgent").count(), "急事求助錨點");
 
-  // 手機選單
-  await p.getByRole("button", { name: "開啟導覽" }).click();
-  assert.ok(await p.getByRole("link", { name: "所有服務" }).first().isVisible(), "手機選單要有所有服務");
-  await p.keyboard.press("Escape");
-
+  const nav = p.getByRole('navigation', { name: '主選單' });
+  const size = p.locator('.care-size summary');
+  for (const width of [320, 390, 1440]) {
+    await p.setViewportSize({width, height: 700});
+    await open('index.html');
+    assert.ok(await nav.getByRole('link', {name:'所有服務'}).isVisible());
+    const original = await p.locator('h1').evaluate(el => parseFloat(getComputedStyle(el).fontSize));
+    await size.click();
+    await p.getByRole('button', {name:'特大', exact:true}).click();
+    assert.ok(await p.locator('h1').evaluate(el => parseFloat(getComputedStyle(el).fontSize)) > original);
+    await nav.getByRole('link', {name:'所有服務'}).click();
+    await p.waitForSelector('h1');
+    assert.ok(await size.getAttribute('aria-label') === '更改字級，目前特大');
+    await p.evaluate(() => window.scrollTo(0, 600));
+    await p.waitForTimeout(220);
+    assert.ok(await nav.evaluate(el => el.getBoundingClientRect().top >= 0));
+    assert.ok(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    await size.click(); await p.getByRole('button', {name:'標準', exact:true}).click();
+  }
+  await p.setViewportSize({width:320,height:700});
   // 服務目錄及搜尋
   await open("services.html");
   const ids = await p.$$eval('[role=main] a[href^="service.html?id="]', (as) => [...new Set(as.map((a) => new URL(a.href).searchParams.get("id")))]);
