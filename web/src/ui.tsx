@@ -10,11 +10,10 @@ import {List, ListItem} from '@astryxdesign/core/List';
 import {Table} from '@astryxdesign/core/Table';
 import {CATEGORIES, ROUTES, TERMS} from './data.js';
 
-const NAV = [
-  ['index.html', '首頁'],
-  ['need.html', '尋找服務'],
-  ['services.html', '所有服務'],
-  ['service.html?id=assessment', '統一評估'],
+const GROUPS = [
+  {label: '尋找服務', links: [['need.html','按需要尋找'], ['services.html','所有服務']]},
+  {label: '長者照顧', links: [['service.html?id=home-support','家居支援'], ['service.html?id=daycare','日間護理'], ['service.html?id=subsidised-rc','院舍照顧']]},
+  {label: '評估及支援', links: [['service.html?id=assessment','統一評估'], ['service.html?id=centres','聯絡長者中心'], ['service.html?id=carer-line','照顧者支援專線']]},
 ];
 
 // 每頁首次出現的名詞於中文後加上英文；**文字** 為重點（粗體加底線）
@@ -80,21 +79,22 @@ export function DataTable({rows, rich}: {rows: string[][]; rich: (t: string) => 
 
 const sizes = [['標準', '100%'], ['大', '115%'], ['特大', '130%']] as const;
 const sizeKey = 'hkcare-text-size';
-function SiteNav({current}: {current: string}) {
+function SiteNav() {
   const [size, setSize] = useState(() => {
     try { return sizes.findIndex(([, value]) => value === localStorage.getItem(sizeKey)); }
     catch { return 0; }
   });
   const index = Math.max(0, size);
-  const menu = useRef<HTMLDetailsElement>(null);
+  const header = useRef<HTMLElement>(null);
   const settings = useRef<HTMLDetailsElement>(null);
   useLayoutEffect(() => {
     document.documentElement.style.fontSize = sizes[index][1];
   }, [index]);
   useEffect(() => {
     const dismiss = (e: PointerEvent) => {
-      if (menu.current && !menu.current.contains(e.target as Node)) menu.current.open = false;
-      if (!settings.current?.contains(e.target as Node) && settings.current) settings.current.open = false;
+      header.current?.querySelectorAll<HTMLDetailsElement>('details[open]').forEach(panel => {
+        if (!panel.contains(e.target as Node)) panel.open = false;
+      });
     };
     document.addEventListener('pointerdown', dismiss);
     return () => {document.removeEventListener('pointerdown', dismiss);};
@@ -105,16 +105,32 @@ function SiteNav({current}: {current: string}) {
     settings.current!.open = false;
     settings.current!.querySelector('summary')!.focus();
   }
-  return <header className="care-header">
+  const here = location.pathname.split('/').pop() || 'index.html';
+  const active = here === 'service.html' ? 'service.html?id=' + new URLSearchParams(location.search).get('id') : here;
+  function destinations(links: string[][]) {
+    return <ul>{links.map(([href,label]) => <li key={href}><a href={href}
+      aria-current={href === active ? 'page' : undefined}>{label}</a></li>)}</ul>;
+  }
+  return <header ref={header} className="care-header" onKeyDown={e => {
+    const open = (e.target as HTMLElement).closest<HTMLDetailsElement>('details[open]');
+    if (open && e.key === 'Escape') {open.open = false; open.querySelector('summary')?.focus();}
+  }} onBlur={e => {
+    const open = e.target.closest('details[open]');
+    if (open && !open.contains(e.relatedTarget as Node)) open.removeAttribute('open');
+  }}>
     <section className="care-tools" aria-label="網站工具">
       <a href="index.html" className="care-name">香港社福導航</a>
-      <details className="care-menu" ref={menu} name="header-options" onKeyDown={e => {
-        if (e.key === 'Escape') { e.currentTarget.open = false; e.currentTarget.querySelector('summary')!.focus(); }
-      }}>
+      <nav className="wide-nav" aria-label="主選單">
+        {GROUPS.map(group => <details key={group.label} name="header-options" className="care-group">
+          <summary>{group.label}</summary>
+          <section className="drop-list">{destinations(group.links)}</section>
+        </details>)}
+      </nav>
+      <details className="care-menu" name="header-options">
         <summary>選單</summary>
-    <nav className="care-links" aria-label="主選單"><ul>{NAV.map(([href, label]) =>
-      <li key={href}><a href={href} aria-current={href === current ? 'page' : undefined}>{label}</a></li>
-    )}</ul></nav>
+        <nav className="care-links" aria-label="主選單">
+          {GROUPS.map(group => <section key={group.label}><strong>{group.label}</strong>{destinations(group.links)}</section>)}
+        </nav>
       </details>
       <details name="header-options" ref={settings} className="care-size" onKeyDown={e => {
         if (e.key === 'Escape') { e.currentTarget.open = false; e.currentTarget.querySelector('summary')!.focus(); }
@@ -134,7 +150,7 @@ export function Page({current, title, children}: {current: string; title?: strin
   if (title) document.title = `${title}｜香港社福導航`;
   return (
     <>
-    <SiteNav current={current} />
+    <SiteNav />
     <AppShell height="auto">
       <Layout height="auto" contentWidth={760}>
         <LayoutContent padding={4}>

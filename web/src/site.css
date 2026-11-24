@@ -39,3 +39,27 @@
 .care-menu .care-links a { justify-content: flex-start; width: 100%; padding-inline: .4rem; }
 @media (prefers-reduced-motion:no-preference) { .care-menu[open] nav { animation: care-enter 140ms ease-out; } }
 @media (max-width:30rem) { .care-tools { position: relative; } .care-menu { position: static; } .care-menu .care-links { inset-inline: .5rem; width: auto; } }
+
+/* The college reference uses a left-aligned identity and a divided row of category disclosures. */
+.wide-nav { display:none; }
+.care-header { container-type:inline-size; }
+.care-menu .care-links { max-height:65dvh; overflow-y:auto; }
+.care-menu .care-links strong { display:block; color:var(--color-text-secondary); padding:.45rem .4rem 0; }
+@container (min-width:56rem) {
+  .care-menu { display:none; }
+  .care-tools { max-width:82rem; min-height:6rem; justify-content:space-between; flex-wrap:nowrap; gap:0; padding:0 clamp(1rem,3vw,3rem); }
+  .care-tools .care-name { margin:0; letter-spacing:.04em; font-size:1.35rem; }
+  .wide-nav { display:flex; align-items:center; justify-content:space-around; flex:1; margin-inline:1.5rem; }
+  .care-group,.care-tools>.care-size,.care-tools>.care-help { position:relative; border-inline-start:thin solid var(--color-border-emphasized); padding-inline:clamp(.75rem,1.6vw,1.6rem); }
+  .care-group { flex:1; }
+  .care-group summary { display:flex; flex-direction:column; align-items:flex-start; gap:.35rem; list-style:none; letter-spacing:.08em; color:var(--color-text-secondary); }
+  .care-group summary::-webkit-details-marker { display:none; }
+  .care-group summary::after { content:''; width:.4rem; height:.4rem; border:solid currentColor; border-width:0 .13rem .13rem 0; transform:rotate(45deg); }
+  .care-group[open] summary::after { transform:rotate(225deg); }
+  .care-group:is([open],:hover) summary { color:var(--color-accent); }
+  .drop-list { position:absolute; top:100%; inset-inline-start:0; width:max-content; min-width:100%; padding:.45rem; border:thin solid var(--color-border); border-top:.2rem solid var(--color-accent); background:var(--color-background-popover); box-shadow:0 .5rem 1.25rem var(--color-border); }
+  .drop-list ul { list-style:none; padding:0; margin:0; }
+  .drop-list a { width:100%; justify-content:flex-start; padding:.35rem .75rem; }
+  .drop-list a:is(:hover,:focus-visible,[aria-current]) { background:var(--color-accent-muted); }
+}
+@media(prefers-reduced-motion:no-preference) { .care-group summary::after { transition:transform 140ms ease-out; } .care-group[open] .drop-list { animation:care-enter 140ms ease-out; } }

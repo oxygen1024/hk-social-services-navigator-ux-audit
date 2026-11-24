@@ -28,11 +28,11 @@ const shots = process.argv[2];
   for (const width of [320, 390, 1440]) {
     await p.setViewportSize({width, height: 700});
     await open('index.html');
-    const menu = p.locator('.care-menu summary');
-    assert.ok(await nav.isHidden());
+    const menu = width === 1440 ? p.locator('.care-group summary').first() : p.locator('.care-menu summary');
+    assert.ok(await nav.getByRole('link', {name:'所有服務', exact:true}).isHidden());
     await menu.focus(); await p.keyboard.press('Enter');
-    assert.strictEqual(await nav.getByRole('link').count(),4);
-    await p.keyboard.press('Escape'); assert.ok(await nav.isHidden());
+    assert.ok(await nav.getByRole('link', {name:'所有服務', exact:true}).isVisible());
+    await p.keyboard.press('Escape'); assert.ok(await nav.getByRole('link', {name:'所有服務', exact:true}).isHidden());
     const original = await p.locator('h1').evaluate(el => parseFloat(getComputedStyle(el).fontSize));
     await size.click();
     await p.getByRole('button', {name:'特大', exact:true}).click();
