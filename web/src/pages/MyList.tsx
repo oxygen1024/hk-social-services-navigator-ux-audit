@@ -4,7 +4,6 @@ import {Text, Heading} from '@astryxdesign/core/Text';
 import {Button} from '@astryxdesign/core/Button';
 import {Link} from '@astryxdesign/core/Link';
 import {CheckboxList, CheckboxListItem} from '@astryxdesign/core/CheckboxList';
-import {Banner} from '@astryxdesign/core/Banner';
 import {Page, Tags} from '../ui';
 import {useMyList} from '../features';
 import {SERVICES, FIELD_BY_ID} from '../catalog.js';
@@ -18,11 +17,15 @@ export default function MyList() {
     <Page current="list.html" title="我的清單">
       <VStack gap={2}>
         <Heading level={1}>我的清單</Heading>
-        <Text>在服務頁按「收藏」即可加入清單，方便比較或列印給家人參考。</Text>
-        <Text type="supporting" color="secondary">清單只儲存在你這部裝置的瀏覽器內，不會傳送到任何伺服器；清除瀏覽器資料或使用私隱模式時會消失。</Text>
+        {saved.length > 0 && <Text>選擇已收藏的服務作比較，或列印清單給家人參考。</Text>}
+        <Text type="supporting" color="secondary">清單儲存在目前的瀏覽器。清除瀏覽資料或結束私隱瀏覽後，清單便會移除。</Text>
       </VStack>
       {!saved.length ? (
-        <Banner status="info" title="清單暫時沒有服務" description="可先瀏覽所有服務，再按「收藏」。" endContent={<Link href="services.html">瀏覽所有服務</Link>} collapsible={false} />
+        <section className="list-empty">
+          <Heading level={2}>清單暫時沒有服務</Heading>
+          <Text>在服務頁按「收藏」，就可以在這裏比較服務或列印清單。</Text>
+          <Button label="瀏覽所有服務" variant="primary" href="services.html" />
+        </section>
       ) : (
         <VStack gap={4}>
           {saved.map((s: any) => (

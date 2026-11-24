@@ -143,7 +143,7 @@ function SiteNav() {
           <button key={label} type="button" aria-pressed={i === index} onClick={() => choose(i)}>{label}</button>
         )}</section>
       </details>
-      <a href="list.html" aria-current={active === 'list.html' ? 'page' : undefined}><ListCount /></a>
+      <a className="care-list" href="list.html" aria-current={active === 'list.html' ? 'page' : undefined}><ListCount /></a>
       <a className="care-help" href="index.html#urgent">急事求助</a>
     </section>
 

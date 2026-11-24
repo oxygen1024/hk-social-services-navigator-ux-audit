@@ -6,6 +6,8 @@
 .care-tools { border-bottom: thin solid var(--color-border); }
 .care-header a, .care-header summary, .care-size button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.75rem; min-width: 2.75rem; font-size: 1rem; font-weight: 600; text-decoration: none; cursor: pointer; }
 .care-tools .care-name { margin-inline-end: auto; color: var(--color-accent); font-weight: 700; font-size: 1.13rem; }
+.care-list { white-space: nowrap; }
+.care-list:is(:hover,:focus-visible,[aria-current]) { text-decoration: underline; }
 .care-help { text-decoration: underline !important; }
 .care-size { position: relative; }
 .care-size summary { list-style: none; }
@@ -50,7 +52,7 @@
   .care-tools { max-width:82rem; min-height:6rem; justify-content:space-between; flex-wrap:nowrap; gap:0; padding:0 clamp(1rem,3vw,3rem); }
   .care-tools .care-name { margin:0; letter-spacing:.04em; font-size:1.35rem; }
   .wide-nav { display:flex; align-items:center; justify-content:space-around; flex:1; margin-inline:1.5rem; }
-  .care-group,.care-tools>.care-size,.care-tools>.care-help { position:relative; border-inline-start:thin solid var(--color-border-emphasized); padding-inline:clamp(.75rem,1.6vw,1.6rem); }
+  .care-group,.care-tools>.care-size,.care-tools>.care-list,.care-tools>.care-help { position:relative; border-inline-start:thin solid var(--color-border-emphasized); padding-inline:clamp(.75rem,1.6vw,1.6rem); }
   .care-group { flex:1; }
   .care-group summary { display:flex; flex-direction:column; align-items:flex-start; gap:.35rem; list-style:none; letter-spacing:.08em; color:var(--color-text-secondary); }
   .care-group summary::-webkit-details-marker { display:none; }
@@ -129,3 +131,14 @@ body:has(.suggestion-ball) { padding-bottom: calc(5rem + env(safe-area-inset-bot
   .suggestion-ball:hover { transform: translateY(-.12rem); }
 }
 @media print { .suggestion-ball, .suggestion-dialog { display: none; } }
+
+body[data-page="list"] [role="main"] { min-height: 100svh; }
+.list-empty {
+  display: grid;
+  justify-items: start;
+  gap: .85rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  border: thin solid var(--color-border);
+  border-radius: .75rem;
+  background: var(--color-background-surface);
+}
