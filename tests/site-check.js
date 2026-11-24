@@ -37,6 +37,11 @@ const shots = process.argv[2];
   }
   await p.goto(`${base}service.html?id=home-support`);
   assert.strictEqual(await p.textContent(".threshold .key"), "60 歲或以上", "年齡要粗體加底線");
+  assert.ok((await p.textContent(".en-name")).includes("Home Support Services (HSS)"), "服務要有英文名");
+  await p.goto(`${base}service.html?id=frail-home`);
+  const body = await p.textContent("#service");
+  assert.ok(body.includes("長者鄰舍中心 (NEC)") && body.includes("中央輪候冊 (CWL)"), "名詞第一次出現要有英文");
+  assert.strictEqual(body.split("(NEC)").length - 1, 1, "同一名詞英文只出一次");
   await p.goto(`${base}service.html?id=ccsv`);
   assert.strictEqual(await p.locator("table.bars tbody tr").count(), 6, "社區券應有六級共同付款圖");
   await p.goto(`${base}service.html?id=nope`);

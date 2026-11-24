@@ -442,3 +442,47 @@ const EXPLAIN = {
   },
 };
 SERVICES.forEach((s) => Object.assign(s, EXPLAIN[s.id]));
+
+// 英文名（社署英文網頁，2026-11-24 核實）。服務標題下顯示完整英文名。
+const EN_NAMES = {
+  assessment: "Standardised Care Need Assessment Mechanism for Elderly Services (SCNAMES) & Central Waiting List (CWL)",
+  centres: "District Elderly Community Centre (DECC) / Neighbourhood Elderly Centre (NEC)",
+  ste: "Support Teams for the Elderly (STE)",
+  "home-support": "Home Support Services (HSS)",
+  "frail-home": "Home Care Services (HCS) for Frail Elderly Persons",
+  ccsv: "Community Care Service Voucher Scheme for the Elderly (CCSV)",
+  daycare: "Day Care Centres / Units for the Elderly (DE / DCU)",
+  "day-respite": "Day Respite Service for the Elderly",
+  "res-respite": "Residential Respite Service for the Elderly",
+  "subsidised-rc": "Subsidised Place of Residential Care Home",
+  rcsv: "Residential Care Service Voucher Scheme for the Elderly (RCSV)",
+  "private-rc": "Non-subsidised Residential Care Places",
+  "emergency-rc": "Emergency Placement",
+  "carer-line": "Designated Hotline for Carer Support",
+  "carer-allowance": "Scheme on Living Allowance for Carers of Elderly Persons from Low-income Families",
+  ssa: "Old Age Allowance / Old Age Living Allowance (OALA)",
+};
+SERVICES.forEach((s) => (s.en = EN_NAMES[s.id]));
+
+// 內文名詞：每頁第一次出現時，喺中文後面加英文（有官方縮寫就用縮寫）。長嘅放前面。
+const TERMS = [
+  ["安老服務統一評估機制", "SCNAMES"], ["安老服務統一評估", "SCNAMES"], ["統一評估", "SCNAMES"],
+  ["中央輪候冊", "CWL"],
+  ["長者地區中心", "DECC"], ["長者鄰舍中心", "NEC"], ["長者活動中心", "SE"], ["長者支援服務隊", "STE"],
+  ["綜合家庭服務中心", "Integrated Family Service Centre"], ["綜合服務中心", "Integrated Services Centre"],
+  ["醫務社會服務部", "Medical Social Services Unit"],
+  ["簡易標準評估工具", "interRAI Check-Up"],
+  ["家居照顧及支援服務隊", "HCSST"], ["家居照顧服務隊", "HCST"],
+  ["家居支援服務", "HSS"], ["體弱長者家居照顧服務", "HCS for Frail Elderly Persons"],
+  ["長者社區照顧服務券", "CCSV"], ["社區券", "CCSV"],
+  ["長者院舍照顧服務券", "RCSV"], ["院舍券", "RCSV"],
+  ["長者服務券資訊系統", "VISE"],
+  ["長者日間護理中心", "DE / DCU"], ["日間護理中心", "DE / DCU"],
+  ["日間暫託", "Day Respite Service"], ["住宿暫託", "Residential Respite Service"],
+  ["緊急住宿服務", "Emergency Placement"],
+  ["護理安老院", "Care and Attention Home"], ["護養院", "Nursing Home"],
+  ["改善買位計劃", "Enhanced Bought Place Scheme"],
+  ["照顧者支援專線", "Designated Hotline for Carer Support"],
+  ["高齡津貼", "Old Age Allowance"], ["長者生活津貼", "OALA"], ["公共福利金", "SSA"], ["綜援", "CSSA"],
+  ["社署", "SWD"],
+];

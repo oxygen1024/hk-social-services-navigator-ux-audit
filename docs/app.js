@@ -1,7 +1,20 @@
 // 由 data.js 畫出結果頁、服務目錄同每項服務頁；需要問答頁用嚟保留上次嘅答案。
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+// 每頁第一次出現嘅名詞加英文；seen 每次畫頁面前清空
+let seen = new Set();
+const enTag = (en) => ` <span class="en" lang="en">(${en})</span>`;
+function annotate(html) {
+  const re = new RegExp(TERMS.map(([zh]) => zh).join("|"), "g");
+  const map = Object.fromEntries(TERMS);
+  return html.replace(re, (zh) => (seen.has(map[zh]) ? zh : (seen.add(map[zh]), zh + enTag(map[zh]))));
+}
+// 名稱入面已經有嘅名詞當見過，唔再重複
+const markSeen = (name) => TERMS.forEach(([zh, en]) => name.includes(zh) && seen.add(en));
+const enName = (s) => `<p class="en-name" lang="en">${esc(s.en)}</p>`;
 // **文字** → 粗體加底線（重要資料）
-const fmt = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong class="key">$1</strong>');
+const fmt = (s) =>
+  annotate(esc(s).replace(/\*\*(.+?)\*\*/g, '<strong class="key">$1</strong>'))
+    .replace(/(<span class="en" lang="en">\([^)]*\)<\/span>)<\/strong>/g, "</strong>$1"); // 英文唔好畫底線
 const telText = (n) => (n.length === 6 ? `${n.slice(0, 3)} ${n.slice(3)}` : n.length === 8 ? `${n.slice(0, 4)} ${n.slice(4)}` : n);
 const telLink = (n) => `<a class="tel" href="tel:${n}">${telText(n)}</a>`;
 const byId = Object.fromEntries(SERVICES.map((s) => [s.id, s]));
@@ -53,6 +66,7 @@ function prefillNeed() {
 }
 
 function renderResults(el) {
+  seen = new Set();
   const { needs, fund } = answers();
   const hits = SERVICES.map((s) => ({ s, why: s.needs.filter((n) => needs.includes(n)) }))
     .filter((h) => h.why.length)
@@ -77,13 +91,14 @@ function renderResults(el) {
     ${hits.map(({ s, why }, i) => `
       <section class="result" aria-labelledby="r-${s.id}">
         <h2 id="r-${s.id}">${esc(s.name)}</h2>
+        ${enName(s)}
         ${tagsHtml(s)}
         <p><span class="why">${why.length ? `點解可能啱：你揀咗「${why.map((n) => NEEDS[n].label).join("」「")}」。` : "唔肯定揀邊樣？先問社工。"}</span>
           ${fmt(s.what)}</p>
         <h3>門檻（要核實）</h3>
         ${listHtml(s.who)}
         <h3>下一步</h3>
-        <p>${esc(s.how)}</p>
+        <p>${fmt(s.how)}</p>
         <p>${s.id === "centres" ? `<a href="${CENTRE_LIST}">搵就近中心電話（PDF）</a><br>` : ""}<a href="${pageOf(s.id)}">睇${esc(s.name)}詳細解釋</a></p>
         ${callsHtml(s.contacts.length ? s.contacts : FALLBACK)}
       </section>${i === 0 ? notes : ""}`).join("")}
@@ -96,11 +111,13 @@ function renderResults(el) {
 }
 
 function renderServices(el) {
+  seen = new Set();
   el.innerHTML = CATEGORIES.map(([cat, title]) => `
     <h2 id="cat-${cat}">${esc(title)}</h2>
     <ul class="svc-list">${SERVICES.filter((s) => s.cat === cat).map((s) => `
       <li>
         <h3><a href="${pageOf(s.id)}">${esc(s.name)}</a></h3>
+        ${enName(s)}
         ${tagsHtml(s)}
         <p>${fmt(s.what)}</p>
       </li>`).join("")}
@@ -116,6 +133,8 @@ function renderService(el) {
     return;
   }
   document.title = `${s.name}｜香港社福導航`;
+  seen = new Set();
+  markSeen(s.name);
   const costHead = s.cat === "money" ? "津貼金額" : "收費";
   const hasCost = s.cost || s.costTable || s.chart;
   const others = SERVICES.filter((o) => o.cat === s.cat && o.id !== s.id);
@@ -127,6 +146,7 @@ function renderService(el) {
       <li><a href="services.html#cat-${s.cat}">${esc(catTitle[s.cat])}</a></li>
     </ol></nav>
     <h1>${esc(s.name)}</h1>
+    ${enName(s)}
     ${tagsHtml(s)}
     <p class="lead">${fmt(s.what)}</p>
 
@@ -152,7 +172,7 @@ function renderService(el) {
     ${listHtml(s.helps)}
 
     <h2>點樣申請</h2>
-    <ol class="flow">${s.steps.map(([t, d]) => `<li><strong>${esc(t)}</strong><span>${fmt(d)}</span></li>`).join("")}</ol>
+    <ol class="flow">${s.steps.map(([t, d]) => `<li><strong>${fmt(t)}</strong><span>${fmt(d)}</span></li>`).join("")}</ol>
 
     ${hasCost ? `<h2>${costHead}</h2>
       ${s.cost ? `<p>${fmt(s.cost)}</p>` : ""}

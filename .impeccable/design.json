@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-23T15:26:54Z",
+  "generatedAt": "2026-11-24T02:34:14+00:00",
   "title": "Design System: 香港社福導航",
   "extensions": {
     "colorMeta": {
@@ -339,6 +339,56 @@
           "#bcbebf",
           "#edeff0"
         ]
+      },
+      "threshold-bg": {
+        "role": "neutral",
+        "displayName": "Threshold Wash",
+        "canonical": "#f1f8f5",
+        "oklch": "oklch(97.3% 0.008 168.8)",
+        "tonalRamp": [
+          "#0a0c0b",
+          "#242726",
+          "#424644",
+          "#626865",
+          "#858b88",
+          "#abafad",
+          "#ced2d0",
+          "#ecefee"
+        ]
+      },
+      "chart-elder": {
+        "role": "chart",
+        "displayName": "Elder Share Green",
+        "canonical": "#0b8a62",
+        "oklch": "oklch(56.2% 0.117 163.9)",
+        "tonalRamp": [
+          "#001106",
+          "#00301d",
+          "#005338",
+          "#007955",
+          "#439d78",
+          "#7cbfa0",
+          "#addec6",
+          "#d4f9e6"
+        ],
+        "scope": "Chart figures and their legends only."
+      },
+      "chart-government": {
+        "role": "chart",
+        "displayName": "Government Share Blue",
+        "canonical": "#5b8fd6",
+        "oklch": "oklch(64.5% 0.121 256.5)",
+        "tonalRamp": [
+          "#010b1e",
+          "#0d2647",
+          "#224575",
+          "#3866a6",
+          "#5e8bc8",
+          "#8cb0e3",
+          "#b7d3fb",
+          "#dbf0ff"
+        ],
+        "scope": "Chart figures and their legends only."
       }
     },
     "typographyMeta": {
@@ -388,11 +438,19 @@
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Tags, facts-list terms, the phase tag."
+        "purpose": "Tags, the phase tag, table column heads, flow step numerals, the chart's column heads."
       },
       "small": {
         "displayName": "Small",
-        "purpose": "Choice hints, the phase banner sentence, source lines, the footer. The 16px floor."
+        "purpose": "Choice hints, the phase banner sentence, breadcrumbs, source lines, the footer. The 16px floor."
+      },
+      "nav": {
+        "displayName": "Nav",
+        "purpose": "Top menu items; 1rem at 40rem and below."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "Data-table cells and chart rows, with tabular figures."
       }
     },
     "shadows": [
@@ -415,11 +473,6 @@
         "name": "choice-focus-ring",
         "value": "outline: 3px solid #0b0c0c; outline-offset: 2px; box-shadow: 0 0 0 6px #ffdd00",
         "purpose": "A focused checkbox or radio."
-      },
-      {
-        "name": "target-bleed",
-        "value": "0 0 0 .25rem #ffdd00",
-        "purpose": "Extends the yellow behind a service heading reached by a link."
       }
     ],
     "motion": [],
@@ -427,12 +480,12 @@
       {
         "name": "stack",
         "value": "40rem",
-        "purpose": "At and below: primary button full width; calls-list rows stack the number under its label."
+        "purpose": "At and below: primary button full width; calls-list rows stack the number under its label; top menu gap 1rem and 16px type."
       },
       {
-        "name": "facts-single",
-        "value": "34rem",
-        "purpose": "At and below: the facts list drops its 8rem term column."
+        "name": "menu-grid",
+        "value": "26rem",
+        "purpose": "At and below: the top menu becomes a three-column grid."
       }
     ]
   },
@@ -444,6 +497,14 @@
       "description": "Full-bleed deep green name plate with the wordmark linked home and an 8px jade stripe beneath; no menu, logo or crest.",
       "html": "<header class=\"ds-header\"><a class=\"ds-header-name\" href=\"#\">香港社福導航</a></header>",
       "css": ".ds-header { display: flex; align-items: center; min-height: 3.75rem; padding: 0 1rem; background: var(--brand, #0b4a3f); border-bottom: .5rem solid #0f7a66; font-family: var(--font, system-ui, -apple-system, \"PingFang HK\", \"Noto Sans HK\", \"Microsoft JhengHei\", sans-serif); } .ds-header-name { color: #fff; font-weight: 700; font-size: 1.25rem; line-height: 1.6; text-decoration: none; } .ds-header-name:hover { text-decoration: underline; text-underline-offset: .2em; } .ds-header-name:focus-visible { outline: 3px solid transparent; background: var(--focus, #ffdd00); color: var(--ink, #0b0c0c); box-shadow: 0 -2px var(--focus, #ffdd00), 0 4px var(--ink, #0b0c0c); text-decoration: none; }"
+    },
+    {
+      "name": "Top Menu",
+      "kind": "nav",
+      "refersTo": "topnav-link",
+      "description": "Plain text menu under the header band: blue bold links, current page in ink with a 4px Deep Civic Green underbar; a three-column grid at 26rem and below.",
+      "html": "<nav class=\"ds-topnav\" aria-label=\"主選單\"><ul><li><a href=\"#\" aria-current=\"page\">首頁</a></li><li><a href=\"#\">搵服務</a></li><li><a href=\"#\">所有服務</a></li><li><a href=\"#\">統一評估</a></li><li><a href=\"#\">急事求助</a></li></ul></nav>",
+      "css": ".ds-topnav { border-bottom: 1px solid var(--rule, #b1b4b6); background: var(--paper, #fff); padding: 0 1rem; font: 400 1.1875rem/1.6 var(--font, system-ui, -apple-system, \"PingFang HK\", \"Noto Sans HK\", \"Microsoft JhengHei\", sans-serif); } .ds-topnav ul { display: flex; flex-wrap: wrap; gap: 0 1.5rem; list-style: none; margin: 0; padding: 0; } .ds-topnav li { margin: 0; } .ds-topnav a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 700; color: var(--link, #1458a8); text-decoration: none; border-bottom: 4px solid transparent; } .ds-topnav a:hover { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: .2em; } .ds-topnav a[aria-current=\"page\"] { color: var(--ink, #0b0c0c); border-bottom-color: var(--brand, #0b4a3f); } .ds-topnav a:focus-visible { outline: 3px solid transparent; background: var(--focus, #ffdd00); color: var(--ink, #0b0c0c); box-shadow: 0 -2px var(--focus, #ffdd00), 0 4px var(--ink, #0b0c0c); text-decoration: none; } @media (max-width: 40rem) { .ds-topnav ul { gap: 0 1rem; } .ds-topnav a { font-size: 1rem; } } @media (max-width: 26rem) { .ds-topnav ul { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; } }"
     },
     {
       "name": "Phase Banner",
@@ -502,44 +563,74 @@
       "css": ".ds-result { margin-top: 2rem; padding-top: 1rem; border-top: 3px solid var(--brand, #0b4a3f); color: var(--ink, #0b0c0c); font: 400 1.1875rem/1.6 var(--font, system-ui, -apple-system, \"PingFang HK\", \"Noto Sans HK\", \"Microsoft JhengHei\", sans-serif); } .ds-result h2 { margin: 0 0 1rem; font-size: 1.5rem; font-weight: 700; line-height: 1.3; } .ds-result h3 { margin: 1.25rem 0 .25rem; font-size: 1.1875rem; font-weight: 700; line-height: 1.3; } .ds-result p { margin: 0 0 1rem; } .ds-result-list { margin: 0 0 1rem; padding-left: 1.25rem; } .ds-result-list li { margin-bottom: .35rem; } .ds-result-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 .75rem; padding: 0; list-style: none; font-size: 1rem; font-weight: 700; } .ds-result-tags li { margin: 0; padding: .1rem .5rem; background: #e7e9ea; } .ds-result-tags li.ds-result-route { background: #dcefe8; color: var(--brand, #0b4a3f); } .ds-result-link { color: var(--link, #1458a8); text-decoration-thickness: max(1px, .0625rem); text-underline-offset: .2em; } .ds-result-link:visited { color: var(--link-visited, #4c2c92); } .ds-result-link:hover { text-decoration-thickness: 3px; } .ds-result-link:focus-visible { outline: 3px solid transparent; background: var(--focus, #ffdd00); color: var(--ink, #0b0c0c); box-shadow: 0 -2px var(--focus, #ffdd00), 0 4px var(--ink, #0b0c0c); text-decoration: none; } .ds-result-calls { list-style: none; margin: 0; padding: 0; } .ds-result-calls li { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .25rem 1rem; margin: 0; padding: .5rem 0; } .ds-result-calls li + li { border-top: 1px solid #e0c9c5; } .ds-result-calls a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 700; font-size: 1.3125rem; white-space: nowrap; font-variant-numeric: tabular-nums; } .ds-result-calls a { color: var(--link, #1458a8); text-decoration-thickness: max(1px, .0625rem); text-underline-offset: .2em; } .ds-result-calls a:visited { color: var(--link-visited, #4c2c92); } .ds-result-calls a:hover { text-decoration-thickness: 3px; } .ds-result-calls a:focus-visible { outline: 3px solid transparent; background: var(--focus, #ffdd00); color: var(--ink, #0b0c0c); box-shadow: 0 -2px var(--focus, #ffdd00), 0 4px var(--ink, #0b0c0c); text-decoration: none; } @media (max-width: 40rem) { .ds-result-calls li { flex-direction: column; align-items: flex-start; gap: 0; } }"
     },
     {
-      "name": "Facts List",
-      "kind": "custom",
-      "refersTo": "facts-term",
-      "description": "Two-column definition list with an 8rem slate term column and hairline rows; collapses to one column at 34rem; closes with a dated source line.",
-      "html": "<dl class=\"ds-facts\"><dt>可以幫咩</dt><dd>中心社工處理住喺社區嘅長者嘅長期護理服務需要同輔導，亦可以幫你申請統一評估同其他服務。</dd><dt>點樣申請</dt><dd>打去就近中心，講低長者住邊區、需要咩幫手。</dd><dt>收費</dt><dd>查詢免費</dd></dl><p class=\"ds-source\">來源：<a href=\"#\">社署網頁</a>，核實日期 2026-11-23</p>",
-      "css": ".ds-facts { display: grid; grid-template-columns: 8rem 1fr; margin: 0 0 1rem; border-top: 1px solid var(--rule, #b1b4b6); color: var(--ink, #0b0c0c); font: 400 1.1875rem/1.6 var(--font, system-ui, -apple-system, \"PingFang HK\", \"Noto Sans HK\", \"Microsoft JhengHei\", sans-serif); } .ds-facts dt, .ds-facts dd { margin: 0; padding: .6rem 0; border-bottom: 1px solid var(--rule, #b1b4b6); } .ds-facts dt { padding-right: 1rem; color: var(--muted, #484f53); font-size: 1rem; font-weight: 700; } @media (max-width: 34rem) { .ds-facts { grid-template-columns: 1fr; } .ds-facts dt { border-bottom: 0; padding-bottom: 0; } } .ds-source { margin: 0; color: var(--muted, #484f53); font: 400 1rem/1.6 var(--font, system-ui, -apple-system, \"PingFang HK\", \"Noto Sans HK\", \"Microsoft JhengHei\", sans-serif); } .ds-source a { color: var(--link, #1458a8); text-decoration-thickness: max(1px, .0625rem); text-underline-offset: .2em; } .ds-source a:visited { color: var(--link-visited, #4c2c92); } .ds-source a:hover { text-decoration-thickness: 3px; } .ds-source a:focus-visible { outline: 3px solid transparent; background: var(--focus, #ffdd00); color: var(--ink, #0b0c0c); box-shadow: 0 -2px var(--focus, #ffdd00), 0 4px var(--ink, #0b0c0c); text-decoration: none; }"
-    },
-    {
       "name": "Footer",
       "kind": "custom",
       "refersTo": "footer",
       "description": "Full-bleed grey footer: source attribution, check date, and the not-SWD, no-eligibility statement in 16px slate.",
       "html": "<footer class=\"ds-footer\"><p>服務資料來自<a href=\"#\">社會福利署網頁</a>，核實日期 2026-11-23。本網站唔屬於社署，亦唔會判斷資格；最終以社署及服務單位為準。</p></footer>",
       "css": ".ds-footer { padding: 1.5rem 1rem 2rem; border-top: 1px solid var(--rule, #b1b4b6); background: var(--panel, #f3f2f1); color: var(--muted, #484f53); font: 400 1rem/1.6 var(--font, system-ui, -apple-system, \"PingFang HK\", \"Noto Sans HK\", \"Microsoft JhengHei\", sans-serif); } .ds-footer p { margin: 0; } .ds-footer a { color: var(--link, #1458a8); text-decoration-thickness: max(1px, .0625rem); text-underline-offset: .2em; } .ds-footer a:visited { color: var(--link-visited, #4c2c92); } .ds-footer a:hover { text-decoration-thickness: 3px; } .ds-footer a:focus-visible { outline: 3px solid transparent; background: var(--focus, #ffdd00); color: var(--ink, #0b0c0c); box-shadow: 0 -2px var(--focus, #ffdd00), 0 4px var(--ink, #0b0c0c); text-decoration: none; }"
+    },
+    {
+      "name": "Threshold Panel",
+      "kind": "card",
+      "refersTo": "panel-threshold",
+      "description": "Eligibility first: 3px Deep Civic Green border on Threshold Wash, a ticked checklist, and a line saying who confirms; key facts bold with the Start Green underline.",
+      "html": "<section class=\"ds-threshold\"><h2>門檻：邊個可以用？</h2><ul><li>年滿 <strong class=\"ds-key\">65 歲</strong>或以上</li><li>經統一評估屬<strong class=\"ds-key\">中度或嚴重缺損</strong></li><li>住喺香港</li></ul><p class=\"ds-small\">以上係社署列明嘅條件，最終由社工或服務單位核實。</p></section>",
+      "css": ".ds-threshold { border: 3px solid var(--brand, #0b4a3f); background: #f1f8f5; padding: 1rem 1.25rem; margin: 1.5rem 0; color: var(--ink, #0b0c0c); font: 400 1.1875rem/1.6 var(--font, system-ui, -apple-system, \"PingFang HK\", \"Noto Sans HK\", \"Microsoft JhengHei\", sans-serif); } .ds-threshold h2 { margin: 0 0 1rem; font-size: 1.5rem; font-weight: 700; line-height: 1.3; } .ds-threshold ul { list-style: none; padding: 0; margin: 0 0 1rem; } .ds-threshold li { position: relative; margin: 0; padding: .6rem 0 .6rem 2.25rem; } .ds-threshold li + li { border-top: 1px solid var(--rule, #b1b4b6); } .ds-threshold li::before { content: \"\"; position: absolute; left: 0; top: .8rem; width: 1.5rem; height: 1.5rem; background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b4a3f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5 5L20 6.5'/%3E%3C/svg%3E\") center / contain no-repeat; } .ds-key { font-weight: 700; text-decoration: underline; text-decoration-color: var(--go, #00703c); text-decoration-thickness: .15em; text-underline-offset: .22em; text-decoration-skip-ink: none; } .ds-small { font-size: 1rem; margin: 0; }"
+    },
+    {
+      "name": "Application Flow",
+      "kind": "custom",
+      "refersTo": "flow-step",
+      "description": "Numbered square boxes with a 2px Deep Civic Green border, a 2rem circle numeral, and SVG arrows in the 2rem gap between steps.",
+      "html": "<ol class=\"ds-flow\"><li><strong>打去長者地區中心</strong><span>講低長者住邊區、需要咩幫手。</span></li><li><strong>做統一評估</strong><span>社工上門評估護理需要。</span></li><li><strong>等候配對服務</strong><span>評估後按需要排隊。</span></li></ol>",
+      "css": ".ds-flow { list-style: none; padding: 0; margin: 0 0 1.5rem; counter-reset: f; color: var(--ink, #0b0c0c); font: 400 1.1875rem/1.6 var(--font, system-ui, -apple-system, \"PingFang HK\", \"Noto Sans HK\", \"Microsoft JhengHei\", sans-serif); } .ds-flow > li { counter-increment: f; position: relative; margin: 0 0 2rem; padding: .75rem 1rem .75rem 3.5rem; border: 2px solid var(--brand, #0b4a3f); } .ds-flow > li:last-child { margin-bottom: 0; } .ds-flow > li::before { content: counter(f); position: absolute; left: .75rem; top: .75rem; width: 2rem; height: 2rem; display: grid; place-items: center; border-radius: 50%; background: var(--brand, #0b4a3f); color: #fff; font-size: 1rem; font-weight: 700; } .ds-flow > li:not(:last-child)::after { content: \"\"; position: absolute; left: 1.25rem; bottom: calc(-2rem - 2px); width: 1rem; height: 2rem; background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 32'%3E%3Cpath d='M8 0v22' stroke='%230b4a3f' stroke-width='2'/%3E%3Cpath d='M2 20l6 9 6-9z' fill='%230b4a3f'/%3E%3C/svg%3E\") center / contain no-repeat; } .ds-flow strong, .ds-flow span { display: block; }"
+    },
+    {
+      "name": "Co-payment Chart",
+      "kind": "custom",
+      "refersTo": "chart-bar-government",
+      "description": "A bar chart that is a real table: chart-only Elder Share Green and Government Share Blue, a 2px gap between series, 4px radius on the data end, 2px swatch radius, values printed in every row.",
+      "html": "<figure class=\"ds-chart\"><figcaption>社區券共同付款級別：長者付幾多、政府付幾多</figcaption><ul class=\"ds-legend\" aria-hidden=\"true\"><li><span class=\"ds-sw ds-me\"></span>長者付</li><li><span class=\"ds-sw ds-gov\"></span>政府付</li></ul><table class=\"ds-bars\"><thead><tr><th>長者付</th><th></th><th>政府付</th></tr></thead><tbody><tr><th>5%</th><td><div class=\"ds-bar\"><span class=\"ds-me\" style=\"flex:5\"></span><span class=\"ds-gov\" style=\"flex:95\"></span></div></td><td>95%</td></tr><tr><th>16%</th><td><div class=\"ds-bar\"><span class=\"ds-me\" style=\"flex:16\"></span><span class=\"ds-gov\" style=\"flex:84\"></span></div></td><td>84%</td></tr><tr><th>40%</th><td><div class=\"ds-bar\"><span class=\"ds-me\" style=\"flex:40\"></span><span class=\"ds-gov\" style=\"flex:60\"></span></div></td><td>60%</td></tr></tbody></table></figure>",
+      "css": ".ds-chart { margin: 1rem 0 1.5rem; color: var(--ink, #0b0c0c); font: 400 1.1875rem/1.6 var(--font, system-ui, -apple-system, \"PingFang HK\", \"Noto Sans HK\", \"Microsoft JhengHei\", sans-serif); } .ds-chart figcaption { font-weight: 700; margin-bottom: .5rem; } .ds-legend { display: flex; gap: 1.25rem; list-style: none; padding: 0; margin: 0 0 .5rem; font-size: 1rem; } .ds-legend li { display: inline-flex; align-items: center; gap: .4rem; margin: 0; } .ds-sw { width: .875rem; height: .875rem; border-radius: 2px; } .ds-me { background: #0b8a62; } .ds-gov { background: #5b8fd6; } .ds-bars { width: 100%; border-collapse: collapse; font-size: 1rem; font-variant-numeric: tabular-nums; } .ds-bars th, .ds-bars td { padding: .3rem 0; text-align: left; font-weight: 400; } .ds-bars thead th { font-weight: 700; color: var(--muted, #484f53); } .ds-bars tr > :first-child { width: 4rem; } .ds-bars tr > :last-child { width: 4rem; text-align: right; } .ds-bar { display: flex; gap: 2px; height: 1.25rem; } .ds-bar span { min-width: 2px; } .ds-bar .ds-gov { border-radius: 0 4px 4px 0; }"
+    },
+    {
+      "name": "Data Table",
+      "kind": "custom",
+      "refersTo": "table-data-cell",
+      "description": "Ruled, never boxed: 2px ink rule under the head, 1px Rule Grey under each row, 16px tabular figures.",
+      "html": "<table class=\"ds-data\"><thead><tr><th>項目</th><th>每月金額</th></tr></thead><tbody><tr><th>普通長者生活津貼</th><td>$4,195</td></tr><tr><th>高額長者生活津貼</th><td>$5,000</td></tr></tbody></table>",
+      "css": ".ds-data { width: 100%; border-collapse: collapse; margin: 0 0 1.5rem; color: var(--ink, #0b0c0c); font: 400 1rem/1.6 var(--font, system-ui, -apple-system, \"PingFang HK\", \"Noto Sans HK\", \"Microsoft JhengHei\", sans-serif); } .ds-data th, .ds-data td { text-align: left; vertical-align: top; padding: .6rem .75rem .6rem 0; border-bottom: 1px solid var(--rule, #b1b4b6); } .ds-data thead th { border-bottom: 2px solid var(--ink, #0b0c0c); font-weight: 700; } .ds-data tbody th { font-weight: 400; } .ds-data td { font-variant-numeric: tabular-nums; }"
     }
   ],
   "narrative": {
     "northStar": "The Plain Service Counter",
-    "overview": "This is the category standard played straight: a public-service website at the craft level of GOV.UK, the NHS website and 社署長者資訊網, written in Hong Kong Traditional Chinese for worried family carers, frontline social workers and older people reading on phones. The visitor walks up to a counter, says the need in everyday words, and leaves with a service that may fit, what still has to be confirmed, and a number to call. Nothing on the page competes with that handover.\n\nThe world is white paper and black ink, one deep civic green band across the top, blue underlined links, a single green start button, and yellow keyboard focus. Containers are square, flat and bordered; urgency and notices are told by full-border tinted panels, never by shadow or ornament. Type is the reader's own system CJK sans in two weights, with a large 19px body. Density is low: one column, one task per screen, more space above a heading than below it.\n\nFamiliar beats distinctive here, on purpose: the familiarity is the trust signal. The system borrows the canon's grammar (phase banner, yellow-and-black focus, the button's pressable base edge, bordered panels) but never any government's crest, wordmark or header colour. The deep green band is this site's own.",
+    "overview": "This is the category standard played straight: a public-service website at the craft level of GOV.UK, the NHS website and 社署長者資訊網, written in Hong Kong Traditional Chinese for worried family carers, frontline social workers and older people reading on phones. The visitor walks up to a counter, says the need in everyday words, and leaves with a service that may fit, what still has to be confirmed, and a number to call. Nothing on the page competes with that handover.\n\nThe world is white paper and black ink, one deep civic green band across the top with a plain text menu under it, blue underlined links, a single green start button, and yellow keyboard focus. Containers are square, flat and bordered; urgency, notices and eligibility are told by full-border tinted panels, never by shadow or ornament. Where a number matters, it is said as a table or a plain bar chart, never as an infographic. Type is the reader's own system CJK sans in two weights, with a large 19px body. Density is low: one column, one task per screen, more space above a heading than below it.\n\nFamiliar beats distinctive here, on purpose: the familiarity is the trust signal. The system borrows the canon's grammar (phase banner, yellow-and-black focus, the button's pressable base edge, bordered panels) but never any government's crest, wordmark or header colour. The deep green band is this site's own.",
     "keyCharacteristics": [
-      "White ground, black text, one deep green header band closed by a lighter jade stripe.",
+      "White ground, black text, one deep green header band closed by a lighter jade stripe, then a white text menu whose current page is ink with a green underbar.",
       "One primary action per screen: a square green button with a 2px base edge, full width on phones.",
       "Links are always blue and underlined; visited links turn violet.",
       "Every keyboard focus is a yellow fill with a black underline or ring.",
-      "Full-border tinted panels: red for 急事, blue for what must be confirmed or assessed.",
+      "Full-border tinted panels: red for 急事, blue for what must be confirmed or assessed, green for who qualifies.",
+      "Key facts are bold with a green underline, so they never read as blue links.",
       "Phone numbers are large, bold, tabular and always tappable.",
       "System CJK sans, weights 400 and 700 only, 19px body.",
-      "Flat and square: no radius, no depth shadows, no transitions."
+      "Flat and square: no radius on any container or control, no depth shadows, no transitions. The only curves are native radios, the numbered step marker, and the chart's data marks."
     ],
     "rules": [
       {
         "name": "The Yellow Means Focus Rule",
-        "body": "Focus Yellow appears only where the keyboard or a link has put the visitor: focus states and the targeted service heading. It is never decoration, a highlighter mark or a brand accent.",
+        "body": "Focus Yellow appears only where the keyboard has put the visitor. It is never decoration, a highlighter mark or a brand accent.",
         "section": "colors"
       },
       {
         "name": "The Two Greens Rule",
-        "body": "Deep Civic Green names the site; Start Green means \"press this\". Start Green fills the primary button and nothing else, and nothing that is not a button is filled with it.",
+        "body": "Deep Civic Green names the site; Start Green means \"press this\". Start Green fills the primary button and nothing else; its one other use is the underline of a key fact, never a fill.",
+        "section": "colors"
+      },
+      {
+        "name": "The Chart-Only Rule",
+        "body": "Elder Share Green and Government Share Blue live inside chart figures only. They never fill a panel, a tag, a button or text, and the chart's 2px and 4px radii never leave the chart either.",
         "section": "colors"
       },
       {
@@ -549,7 +640,12 @@
       },
       {
         "name": "The Two Weights Rule",
-        "body": "400 and 700 only. Emphasis is weight or size, never colour or letter-spacing.",
+        "body": "400 and 700 only. Emphasis is weight or size, or the key-fact underline; never text colour or letter-spacing.",
+        "section": "typography"
+      },
+      {
+        "name": "The Key Not Link Rule",
+        "body": "A key fact is bold ink with a green underline; a link is blue with a blue underline. Never colour a key fact blue, and never leave a link un-underlined, so the two can never be confused.",
         "section": "typography"
       },
       {
@@ -564,7 +660,7 @@
       },
       {
         "name": "The One Column Rule",
-        "body": "Every page is a single column at every width. No sidebars, no card grids, no multi-column content beyond the services table of contents.",
+        "body": "Every page is a single column at every width. No sidebars, no card grids, no multi-column content beyond the services table of contents, the narrow-screen menu grid, and data tables whose columns are the data.",
         "section": "layout"
       },
       {
@@ -581,6 +677,11 @@
         "name": "The Full Border Rule",
         "body": "A panel signals by its whole border plus a tint. A panel never carries a one-sided stripe.",
         "section": "shapes"
+      },
+      {
+        "name": "The Scoped Curve Rule",
+        "body": "Rounding belongs to data marks and markers, never to containers: a panel, button, tag, table or flow step is always square.",
+        "section": "shapes"
       }
     ],
     "dos": [
@@ -591,15 +692,19 @@
       "Do show urgency and notices as full-border tinted panels: 3px Urgent Brick Red on Urgent Wash, 3px Notice Blue on Notice Wash.",
       "Do keep links Public Link Blue and underlined, Visited Violet once visited.",
       "Do close every service fact with a Small Slate source line naming the official page and its check date.",
-      "Do use at most one Start Green button per screen, full width at 40rem and below."
+      "Do use at most one Start Green button per screen, full width at 40rem and below.",
+      "Do mark the current page in the top menu with `aria-current=\"page\"`, ink text and the 4px Deep Civic Green underbar.",
+      "Do mark a key fact with bold and the Start Green underline, keeping it visibly different from a blue link.",
+      "Do state eligibility in the green threshold panel as a ticked checklist, first on every service page.",
+      "Do print every charted value as a number in the chart's own table, and keep the 2px gap between series."
     ],
     "donts": [
-      "Don't round corners; the system radius is 0.",
+      "Don't round corners on any container or control; the system radius is 0. The 2px swatch and 4px bar-end radii belong to the chart, and the circle to the flow's step marker.",
       "Don't add soft drop shadows, glows or raised cards; the 2px base edge belongs to the primary button alone.",
-      "Don't use Focus Yellow or Start Green as decoration.",
+      "Don't use Focus Yellow or Start Green as decoration, or the chart colours outside a chart.",
       "Don't mark a panel with a one-sided stripe; its border goes all the way round.",
       "Don't add a third font weight or a second typeface.",
-      "Don't lay services out as an icon-tile or card grid; they read as one column of headed entries with full facts.",
+      "Don't lay services out as an icon-tile or card grid; they read as one column of headed entries, each linking to its own page.",
       "Don't put a kicker or eyebrow label above a heading; tags sit below the heading they describe.",
       "Don't signal with colour alone; every coloured state also carries words, an underline or a ring.",
       "Don't copy any government's crest, wordmark or header colour; borrow the canon's patterns, never its identity."

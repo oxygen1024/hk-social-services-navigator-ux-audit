@@ -115,6 +115,11 @@ legend { font-weight: 700; font-size: 1.3125rem; margin-bottom: .75rem; padding:
 /* 重要資料：粗體加綠色底線（連結係藍色，分得開） */
 .key { font-weight: 700; text-decoration: underline; text-decoration-color: var(--go); text-decoration-thickness: .15em; text-underline-offset: .22em; text-decoration-skip-ink: none; }
 
+/* 英文名 */
+.en { color: var(--muted); font-weight: 400; }
+.en-name { color: var(--muted); font-size: 1rem; margin: -.5rem 0 .75rem; }
+h1 + .en-name { margin-top: -.75rem; margin-bottom: 1rem; }
+
 /* 主選單 */
 .topnav { border-bottom: 1px solid var(--rule); background: var(--paper); }
 .topnav ul { display: flex; flex-wrap: wrap; gap: 0 1.5rem; list-style: none; margin: 0; padding: 0; }
