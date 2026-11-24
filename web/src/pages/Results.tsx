@@ -5,7 +5,7 @@ import {Link} from '@astryxdesign/core/Link';
 import {Banner} from '@astryxdesign/core/Banner';
 import {List, ListItem} from '@astryxdesign/core/List';
 import {Page, Calls, Tags, useTerms} from '../ui';
-import {NEEDS, NEEDS_BY_FIELD, SERVICES, CENTRE_LIST, ENTRY, FIELD_BY_ID} from '../catalog.js';
+import {CATEGORIES, NEEDS, NEEDS_BY_FIELD, SERVICES, CENTRE_LIST, ENTRY, FIELD_BY_ID} from '../catalog.js';
 
 // 沒有專屬電話的服務，以 182 183 作最後一步（社署頁面：提供資訊、諮詢及轉介）
 const FALLBACK = [['不知道應聯絡誰？照顧者支援專線，24 小時由社工接聽', '182183', '']];
@@ -15,7 +15,8 @@ export default function Results() {
   const q = new URLSearchParams(location.search);
   const field = FIELD_BY_ID[q.get('field') || ''] ? q.get('field')! : 'elderly';
   const entry = ENTRY[field];
-  const inField = SERVICES.filter((s: any) => s.field === field);
+  const fieldCats = CATEGORIES.filter((c: string[]) => c[2] === field).map((c: string[]) => c[0]);
+  const inField = SERVICES.filter((s: any) => s.field === field || (s.extraCats || []).some((c: string) => fieldCats.includes(c)));
   const picked = q.getAll('need').filter(n => NEEDS_BY_FIELD[field]?.[n]);
   const unsure = field === 'elderly' ? 'unsure' : `${field}-unsure`;
   const needs = picked.length ? picked : [unsure];

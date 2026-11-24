@@ -332,9 +332,9 @@ const SERVICES = [
     source2: [SWD + "/cat_careersupp/carersuppo/index.html", "津貼金額見護老者支援頁"],
   },
   {
-    id: "ssa", cat: "money", name: "高齡津貼／長者生活津貼", fund: "資助", route: "direct",
+    id: "ssa", cat: "money", extraCats: ["socsec-living"], name: "高齡津貼／長者生活津貼", fund: "資助", route: "direct",
     alias: ["生果金", "公共福利金"],
-    needs: ["money"],
+    needs: ["money", "socsec-living"],
     what: "公共福利金計劃每月發放現金津貼，以應付因年老而引致的特別需要。**高齡津貼毋須審查入息及資產**；長者生活津貼則須審查。",
     rule: "兩種津貼的門檻不同：",
     compareTable: [["", "高齡津貼", "長者生活津貼"], ["年齡", "**70 歲或以上**", "**65 歲或以上**"], ["入息及資產審查", "毋須", "**須審查**，不可超過限額"]],
