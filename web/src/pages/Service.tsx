@@ -63,7 +63,7 @@ export default function Service() {
         <Heading level={1}>{s.name}</Heading>
         <Text color="secondary" lang="en">{s.en}</Text>
         <Tags s={s} />
-        <Text size="xl">{rich(s.what)}</Text>
+        <Text type="large">{rich(s.what)}</Text>
       </VStack>
 
       <Card padding={5} variant="green">

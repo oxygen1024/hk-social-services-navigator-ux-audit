@@ -36,7 +36,7 @@ export default function Services() {
                 {items.map((s: any) => (
                   <ListItem key={s.id} align="start" href={`service.html?id=${s.id}`}
                     label={<Text weight="bold" size="lg">{s.name}</Text>}
-                    description={<VStack gap={1}><Text color="secondary" lang="en">{s.en}</Text><Tags s={s} /><Text size="xl">{s.what.replace(/\*\*/g, '')}</Text></VStack>} />
+                    description={<VStack gap={1}><Text color="secondary" lang="en">{s.en}</Text><Tags s={s} /><Text>{s.what.replace(/\*\*/g, '')}</Text></VStack>} />
                 ))}
               </List>
             </VStack>

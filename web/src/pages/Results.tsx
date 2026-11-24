@@ -46,7 +46,7 @@ export default function Results() {
                 <Text color="secondary" lang="en">{s.en}</Text>
               </VStack>
               <Tags s={s} />
-              <Text size="xl">{rich(s.what)}</Text>
+              <Text>{rich(s.what)}</Text>
               <Heading level={3}>門檻（須核實）</Heading>
               <List listStyle="disc">{s.who.map((w: string) => <ListItem key={w} label={<Text>{rich(w)}</Text>} />)}</List>
               <Heading level={3}>下一步</Heading>
