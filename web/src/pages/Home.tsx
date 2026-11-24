@@ -5,14 +5,14 @@ import {Link} from '@astryxdesign/core/Link';
 import {Banner} from '@astryxdesign/core/Banner';
 import {List, ListItem} from '@astryxdesign/core/List';
 import {Page, Calls} from '../ui';
-import {CENTRE_LIST, FIELDS, SERVICES} from '../catalog.js';
+import {CENTRE_LIST, FIELDS} from '../catalog.js';
 
 export default function Home() {
   return (
     <Page current="index.html" title="尋找社會福利服務">
       <VStack gap={3}>
         <Heading level={1}>尋找社會福利服務</Heading>
-        <Text type="large">從 {FIELDS.length} 個範疇、{SERVICES.length} 項服務中，查找服務對象、申請方法、收費及聯絡資料。</Text>
+        <Text type="large">社福懶人包是香港社會福利服務指南，幫你為自己或家人尋找支援。你可以輸入關鍵字或按生活需要找服務，再比較申請資格和收費，查閱申請方法。</Text>
         <form role="search" action="services.html" className="home-search">
           <label htmlFor="home-query">按名稱或關鍵字搜尋</label>
           <input id="home-query" name="q" type="search" placeholder="例如：社區券、綜援" />
