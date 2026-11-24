@@ -115,8 +115,10 @@ function SiteNav() {
     const open = (e.target as HTMLElement).closest<HTMLDetailsElement>('details[open]');
     if (open && e.key === 'Escape') {open.open = false; open.querySelector('summary')?.focus();}
   }} onBlur={e => {
+    // 只在鍵盤把焦點移到選單外時收起。Safari 按連結時不會轉移焦點（relatedTarget 為 null），
+    // 如在此收起選單，連結便會在按下前消失；按選單外的地方由 pointerdown 處理。
     const open = e.target.closest('details[open]');
-    if (open && !open.contains(e.relatedTarget as Node)) open.removeAttribute('open');
+    if (open && e.relatedTarget && !open.contains(e.relatedTarget as Node)) open.removeAttribute('open');
   }}>
     <section className="care-tools" aria-label="網站工具">
       <a href="index.html" className="care-name">香港社福導航</a>

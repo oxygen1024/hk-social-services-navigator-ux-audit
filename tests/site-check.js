@@ -33,6 +33,12 @@ const shots = process.argv[2];
     await menu.focus(); await p.keyboard.press('Enter');
     assert.ok(await nav.getByRole('link', {name:'所有服務', exact:true}).isVisible());
     await p.keyboard.press('Escape'); assert.ok(await nav.getByRole('link', {name:'所有服務', exact:true}).isHidden());
+    // Safari 按連結時焦點不轉移（relatedTarget 為 null），選單不可因此收起
+    await menu.click(); await menu.evaluate(el => el.blur());
+    assert.ok(await nav.getByRole('link', {name:'所有服務', exact:true}).isVisible(), 'Safari 式失焦後選單應保持開啟');
+    // 鍵盤把焦點移到選單外時仍要收起
+    await menu.focus(); await p.locator('.care-name').focus();
+    assert.ok(await nav.getByRole('link', {name:'所有服務', exact:true}).isHidden(), '焦點離開選單後應收起');
     const original = await p.locator('h1').evaluate(el => parseFloat(getComputedStyle(el).fontSize));
     await size.click();
     await p.getByRole('button', {name:'特大', exact:true}).click();
