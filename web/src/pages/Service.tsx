@@ -80,6 +80,16 @@ export default function Service() {
         <Tags s={s} />
         <Text type="large">{rich(s.what)}</Text>
         <HStack gap={2}><SaveButton id={s.id} name={s.name} /></HStack>
+        {s.video && (
+          <Card padding={3} maxWidth={380}>
+            <VStack gap={2}>
+              <Text weight="bold">短片：{s.video.length} 了解這項服務</Text>
+              <video src={s.video.src} poster={s.video.poster} controls playsInline preload="metadata" width="100%"
+                aria-label={`${s.name}介紹短片`} />
+              <Text type="supporting" color="secondary">影片附廣東話旁白及中文字幕。內容以下方文字及社署資料為準。</Text>
+            </VStack>
+          </Card>
+        )}
       </VStack>
 
       <Card padding={5} variant="green">
