@@ -49,6 +49,9 @@ const shots = process.argv[2];
     await p.evaluate(() => window.scrollTo(0, 600));
     await p.waitForTimeout(220);
     assert.ok(await p.locator('.care-header').evaluate(el => el.getBoundingClientRect().bottom < 0));
+    await p.evaluate(() => window.scrollBy(0, -80));
+    await p.waitForTimeout(220);
+    assert.ok(await p.locator('.care-header').evaluate(el => Math.abs(el.getBoundingClientRect().top) < 1));
     assert.ok(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     await size.click(); await p.getByRole('button', {name:'標準', exact:true}).click();
   }

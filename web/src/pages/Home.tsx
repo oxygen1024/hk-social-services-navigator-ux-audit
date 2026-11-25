@@ -3,14 +3,16 @@ import {Text, Heading} from '@astryxdesign/core/Text';
 import {Button} from '@astryxdesign/core/Button';
 import {Link} from '@astryxdesign/core/Link';
 import {Banner} from '@astryxdesign/core/Banner';
-import {List, ListItem} from '@astryxdesign/core/List';
+import {HomeModernIcon, HeartIcon, UserGroupIcon, WalletIcon, ArrowRightIcon} from '@heroicons/react/24/outline';
 import {Page, Calls} from '../ui';
 import {FIELDS} from '../catalog.js';
+
+const fieldIcons = {elderly: HomeModernIcon, rehab: HeartIcon, youth: UserGroupIcon, socsec: WalletIcon};
 
 export default function Home() {
   return (
     <Page current="index.html" title="尋找社會福利服務">
-      <VStack gap={3}>
+      <section className="directory-intro">
         <Heading level={1}>尋找社會福利服務</Heading>
         <Text type="large">社福懶人包是香港社會福利服務指南，方便你為自己或家人尋找支援。社署和機構網站提供官方服務詳情。在這裏，你可以按生活需要搜尋，把不同服務的資格和收費並排比較，再到原網站核實申請方法。</Text>
         <form role="search" action="services.html" className="home-search">
@@ -18,7 +20,7 @@ export default function Home() {
           <input id="home-query" name="q" type="search" placeholder="例如：社區券、綜援" />
           <button type="submit">搜尋</button>
         </form>
-      </VStack>
+      </section>
 
       <VStack gap={2}>
         <Heading level={2}>未清楚服務名稱？</Heading>
@@ -28,9 +30,16 @@ export default function Home() {
 
       <VStack gap={2}>
         <Heading level={2}>按服務範疇瀏覽</Heading>
-        <List hasDividers edge="flush">
-          {FIELDS.map((f: any) => <ListItem key={f.id} href={`services.html#field-${f.id}`} label={<Text weight="bold">{f.label}</Text>} description={<Text color="secondary">{f.intro}</Text>} />)}
-        </List>
+        <ul className="field-grid">
+          {FIELDS.map(field => {
+            const Icon = fieldIcons[field.id as keyof typeof fieldIcons] || UserGroupIcon;
+            return <li key={field.id}><a href={`services.html#field-${field.id}`}>
+              <Icon aria-hidden="true" className="field-symbol" />
+              <strong>{field.label}</strong><p>{field.intro}</p>
+              <ArrowRightIcon aria-hidden="true" className="field-arrow" />
+            </a></li>;
+          })}
+        </ul>
       </VStack>
 
       <VStack gap={2}>
