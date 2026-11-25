@@ -80,13 +80,15 @@ export default function Service() {
         <Tags s={s} />
         <Text type="large">{rich(s.what)}</Text>
         <HStack gap={2}><SaveButton id={s.id} name={s.name} /></HStack>
-        {s.video && (
+        {s.youtube && (
+          // YouTube 私隱加強模式：未按播放前不設追蹤 cookie
           <Card padding={3} maxWidth={380}>
             <VStack gap={2}>
-              <Text weight="bold">短片：{s.video.length} 了解這項服務</Text>
-              <video src={s.video.src} poster={s.video.poster} controls playsInline preload="metadata" width="100%"
-                aria-label={`${s.name}介紹短片`} />
-              <Text type="supporting" color="secondary">影片附廣東話旁白及中文字幕。內容以下方文字及社署資料為準。</Text>
+              <Text weight="bold">短片：了解這項服務</Text>
+              <iframe src={`https://www.youtube-nocookie.com/embed/${s.youtube}`} title={`${s.name}介紹短片`} loading="lazy"
+                allow="encrypted-media; picture-in-picture; fullscreen" allowFullScreen referrerPolicy="strict-origin-when-cross-origin"
+                style={{width: '100%', aspectRatio: '9 / 16', border: 0}} />
+              <Text type="supporting" color="secondary">影片由 YouTube 播放，播放時會連接 YouTube。內容以下方文字及社署資料為準。</Text>
             </VStack>
           </Card>
         )}

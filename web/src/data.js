@@ -167,7 +167,6 @@ const SERVICES = [
   },
   {
     id: "daycare", cat: "day", name: "長者日間護理中心／單位", fund: "資助", route: "assess",
-    video: { src: "videos/daycare.mp4", poster: "videos/daycare.jpg", length: "1 分 17 秒" },
     needs: ["day", "nursing", "personal"],
     what: "長者日間在中心接受照顧、復康運動及參與社交活動，晚上回家。照顧者日間可上班或休息。",
     rule: "須符合全部條件：",
