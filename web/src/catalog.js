@@ -3,6 +3,17 @@ import * as elderlyData from './data.js';
 import * as rehab from './fields/rehab.js';
 import * as youth from './fields/youth.js';
 import * as socsec from './fields/socsec.js';
+import * as moreRehab from './fields/more-rehab.js';
+import * as moreYouth from './fields/more-youth.js';
+import * as moreSocsec from './fields/more-socsec.js';
+
+// 補充服務：併入相應範疇
+const extend = (base, more) => ({
+  FIELD: base.FIELD,
+  CATEGORIES: [...base.CATEGORIES, ...(more.NEW_CATEGORIES || [])],
+  NEEDS: {...base.NEEDS, ...(more.NEW_NEEDS || {})},
+  SERVICES: [...base.SERVICES, ...more.MORE],
+});
 
 export {CHECKED, CENTRE_LIST, ROUTES} from './data.js';
 
@@ -12,7 +23,7 @@ const elderly = {
   NEEDS: elderlyData.NEEDS,
   SERVICES: elderlyData.SERVICES,
 };
-const parts = [elderly, rehab, youth, socsec].filter(p => p.SERVICES.length);
+const parts = [elderly, extend(rehab, moreRehab), extend(youth, moreYouth), extend(socsec, moreSocsec)].filter(p => p.SERVICES.length);
 
 // 服務頁「服務如何提供幫助？」的對象名稱
 const USER_LABEL = {elderly: '對長者', rehab: '對殘疾人士／精神復元人士', youth: '對兒童及青少年', socsec: '對申請人'};
