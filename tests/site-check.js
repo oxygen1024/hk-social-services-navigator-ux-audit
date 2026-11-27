@@ -10,6 +10,21 @@ const shots = process.argv[2];
   const errors = [];
   p.on("pageerror", (e) => errors.push(e.message));
   const open = async (u) => { await p.goto(base + u); await p.waitForSelector("[role=main] h1"); await p.waitForTimeout(250); };
+  // 首頁應直接進入相應範疇，而非完整目錄。
+  await open('index.html');
+  const fieldLinks = await p.locator('.field-grid a').evaluateAll(links =>
+    links.map(link => [link.getAttribute('href'), link.querySelector('strong').textContent]));
+  assert.ok(fieldLinks.length >= 10);
+  for (const [href, label] of fieldLinks) {
+    await p.locator(`.field-grid a[href="${href}"]`).click();
+    assert.strictEqual(await p.locator('h1').innerText(), label);
+    assert.ok(await p.locator('[role=main] a[href^="service.html?id="]').count());
+    assert.equal(await p.getByRole('combobox', {name: '中心類型'}).count(), 0);
+    await p.goBack();
+  }
+  await p.getByRole('link', {name: '按地區尋找綜合家庭服務中心及其他服務中心'}).click();
+  assert.equal(await p.locator('h1').innerText(), '尋找就近服務中心');
+  assert.ok(await p.getByRole('combobox', {name: '中心類型'}).isVisible());
   const h2s = () => p.$$eval("[role=main] h2", (h) => h.map((x) => x.textContent.trim()));
   const noOverflow = async (name) =>
     assert.ok((await p.evaluate(() => document.documentElement.scrollWidth)) <= 320, `${name} 320px 橫向溢出`);

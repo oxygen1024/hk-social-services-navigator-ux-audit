@@ -186,3 +186,6 @@ body[data-page="list"] [role="main"] { min-height: 100svh; }
 @media screen and (prefers-reduced-motion:no-preference) {
   .care-header { transition: transform 150ms ease-out; }
 }
+
+.field-filters > summary { cursor: pointer; padding: .65rem 0; color: var(--color-accent); font-weight: 700; }
+.field-filters[open] > summary { margin-bottom: .75rem; }

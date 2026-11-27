@@ -5,7 +5,7 @@ import {Link} from '@astryxdesign/core/Link';
 import {Banner} from '@astryxdesign/core/Banner';
 import {HomeModernIcon, HeartIcon, UserGroupIcon, WalletIcon, ArrowRightIcon, AcademicCapIcon, ShieldCheckIcon, BuildingOffice2Icon, BriefcaseIcon, PlusCircleIcon, LifebuoyIcon} from '@heroicons/react/24/outline';
 import {Page, Calls} from '../ui';
-import {FIELDS} from '../catalog.js';
+import {FIELDS, fieldUrl} from '../catalog.js';
 
 const fieldIcons = {elderly: HomeModernIcon, rehab: HeartIcon, youth: UserGroupIcon, socsec: WalletIcon, edu: AcademicCapIcon, family: ShieldCheckIcon, housing: BuildingOffice2Icon, health: PlusCircleIcon, work: BriefcaseIcon, support: LifebuoyIcon};
 
@@ -33,7 +33,7 @@ export default function Home() {
         <ul className="field-grid">
           {FIELDS.map(field => {
             const Icon = fieldIcons[field.id as keyof typeof fieldIcons] || UserGroupIcon;
-            return <li key={field.id}><a href={`services.html#field-${field.id}`}>
+            return <li key={field.id}><a href={fieldUrl(field.id)}>
               <Icon aria-hidden="true" className="field-symbol" />
               <strong>{field.label}</strong><p>{field.intro}</p>
               <ArrowRightIcon aria-hidden="true" className="field-arrow" />
@@ -46,7 +46,7 @@ export default function Home() {
         <VStack gap={2}>
           <Heading level={2}>不知從何開始？</Heading>
           <Text>任何個人或家庭，均可向居住地區的綜合家庭服務中心查詢或尋求協助，社工會按需要提供輔導或轉介服務。</Text>
-          <Link href="services.html" hasUnderline>按地區尋找綜合家庭服務中心及其他服務中心</Link>
+          <Link href="services.html?view=centres" hasUnderline>按地區尋找綜合家庭服務中心及其他服務中心</Link>
           <Text>長者亦可聯絡就近的長者地區中心 (DECC) 或長者鄰舍中心 (NEC)；兒童及青少年可聯絡綜合青少年服務中心；殘疾人士可聯絡殘疾人士地區支援中心。</Text>
           <Text>護老者、殘疾人士及精神復元人士的照顧者，可致電照顧者支援專線 182 183（24 小時）；其他查詢可致電社署熱線 2343 2255。</Text>
         </VStack>

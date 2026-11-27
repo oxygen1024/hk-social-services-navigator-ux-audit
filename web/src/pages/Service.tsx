@@ -10,7 +10,7 @@ import {Icon} from '@astryxdesign/core/Icon';
 import {CheckIcon} from '@heroicons/react/24/outline';
 import {Page, Calls, Tags, DataTable, useTerms, termsIn} from '../ui';
 import {SaveButton, useDistrict, DistrictSelector, UnitList} from '../features';
-import {CATEGORIES, SERVICES, CHECKED, FIELD_BY_ID} from '../catalog.js';
+import {CATEGORIES, SERVICES, CHECKED, FIELD_BY_ID, fieldUrl} from '../catalog.js';
 
 const FALLBACK = [['不知道應聯絡誰？照顧者支援專線，24 小時由社工接聽', '182183', '']];
 const FALLBACK_OTHER = [['不知道應聯絡誰？社署熱線，可查詢福利服務及轉介', '23432255', '']];
@@ -73,8 +73,8 @@ export default function Service() {
         <Breadcrumbs variant="supporting" label="目前位置">
           <BreadcrumbItem href="index.html">首頁</BreadcrumbItem>
           <BreadcrumbItem href="services.html">所有服務</BreadcrumbItem>
-          <BreadcrumbItem href={`services.html#field-${s.field}`}>{FIELD_BY_ID[s.field].label}</BreadcrumbItem>
-          <BreadcrumbItem href={`services.html#cat-${s.cat}`}>{cat}</BreadcrumbItem>
+          <BreadcrumbItem href={fieldUrl(s.field)}>{FIELD_BY_ID[s.field].label}</BreadcrumbItem>
+          <BreadcrumbItem href={`${fieldUrl(s.field)}#cat-${s.cat}`}>{cat}</BreadcrumbItem>
         </Breadcrumbs>
         <Heading level={1}>{s.name}</Heading>
         <Text color="secondary" lang="en">{s.en}</Text>

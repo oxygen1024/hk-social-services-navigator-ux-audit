@@ -8,12 +8,12 @@ import {Badge} from '@astryxdesign/core/Badge';
 import {Button} from '@astryxdesign/core/Button';
 import {List, ListItem} from '@astryxdesign/core/List';
 import {Table} from '@astryxdesign/core/Table';
-import {CATEGORIES, ROUTES, TERMS} from './catalog.js';
+import {CATEGORIES, ROUTES, TERMS, FIELDS, fieldUrl} from './catalog.js';
 import {ListCount, SuggestionButton} from './features';
 
 const GROUPS = [
   {label: '尋找服務', links: [['need.html','按需要尋找'], ['services.html','所有服務']]},
-  {label: '服務範疇', links: [['services.html#field-elderly','長者服務'], ['services.html#field-rehab','康復服務'], ['services.html#field-youth','青少年福利服務'], ['services.html#field-socsec','社會保障'], ['services.html#field-family','家庭、兒童及危機支援'], ['services.html#field-edu','教育及學生資助'], ['services.html#field-health','醫療及健康'], ['services.html#field-housing','房屋'], ['services.html#field-work','就業及培訓'], ['services.html#field-support','其他支援']]},
+  {label: '服務範疇', links: FIELDS.map(field => [fieldUrl(field.id), field.label])},
   {label: '評估及支援', links: [['service.html?id=assessment','統一評估'], ['service.html?id=centres','聯絡長者中心'], ['service.html?id=carer-line','照顧者支援專線']]},
 ];
 
@@ -129,9 +129,10 @@ function SiteNav() {
   }
   const here = location.pathname.split('/').pop() || 'index.html';
   const active = here === 'service.html' ? 'service.html?id=' + new URLSearchParams(location.search).get('id') : here;
+  const currentField = here === 'services.html' && FIELDS.find(f => f.id === new URLSearchParams(location.search).get('field'));
   function destinations(links: string[][]) {
     return <ul>{links.map(([href,label]) => <li key={href}><a href={href}
-      aria-current={href === active ? 'page' : undefined}>{label}</a></li>)}</ul>;
+      aria-current={href === (currentField ? fieldUrl(currentField.id) : active) ? 'page' : undefined}>{label}</a></li>)}</ul>;
   }
   return <header ref={header} className="care-header" onKeyDown={e => {
     const open = (e.target as HTMLElement).closest<HTMLDetailsElement>('details[open]');
