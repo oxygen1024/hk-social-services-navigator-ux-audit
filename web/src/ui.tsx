@@ -13,7 +13,7 @@ import {ListCount, SuggestionButton} from './features';
 
 const GROUPS = [
   {label: '尋找服務', links: [['need.html','按需要尋找'], ['services.html','所有服務']]},
-  {label: '服務範疇', links: [['services.html#field-elderly','長者服務'], ['services.html#field-rehab','康復服務'], ['services.html#field-youth','青少年福利服務'], ['services.html#field-socsec','社會保障']]},
+  {label: '服務範疇', links: [['services.html#field-elderly','長者服務'], ['services.html#field-rehab','康復服務'], ['services.html#field-youth','青少年福利服務'], ['services.html#field-socsec','社會保障'], ['services.html#field-family','家庭、兒童及危機支援'], ['services.html#field-edu','教育及學生資助'], ['services.html#field-health','醫療及健康'], ['services.html#field-housing','房屋'], ['services.html#field-work','就業及培訓'], ['services.html#field-support','其他支援']]},
   {label: '評估及支援', links: [['service.html?id=assessment','統一評估'], ['service.html?id=centres','聯絡長者中心'], ['service.html?id=carer-line','照顧者支援專線']]},
 ];
 
@@ -185,7 +185,7 @@ export function Page({current, title, children}: {current: string; title?: strin
               <VStack gap={2}>
                 <Text type="supporting" color="secondary"><Text type="supporting" weight="bold">測試版</Text>：資料於 2026 年 11 月 23 至 24 日核實，尚未進行用家測試。</Text>
                 <Text type="supporting" color="secondary">
-                  服務資料來自<Link href="https://www.swd.gov.hk/tc/pubsvc/elderly/" hasUnderline>社會福利署 (Social Welfare Department, SWD) 網頁</Link>，核實日期見各服務頁。本網站不屬於社署，亦不會判斷資格；最終以社署及服務單位為準。
+                  服務資料來自<Link href="https://www.swd.gov.hk/tc/pubsvc/elderly/" hasUnderline>社會福利署 (Social Welfare Department, SWD)</Link>及其他政府部門的官方網頁，來源及核實日期見各服務頁。本網站不屬於任何政府部門，亦不會判斷資格；最終以負責部門及服務單位為準。
                 </Text>
               </VStack>
             </Section>

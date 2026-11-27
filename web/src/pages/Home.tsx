@@ -3,11 +3,11 @@ import {Text, Heading} from '@astryxdesign/core/Text';
 import {Button} from '@astryxdesign/core/Button';
 import {Link} from '@astryxdesign/core/Link';
 import {Banner} from '@astryxdesign/core/Banner';
-import {HomeModernIcon, HeartIcon, UserGroupIcon, WalletIcon, ArrowRightIcon} from '@heroicons/react/24/outline';
+import {HomeModernIcon, HeartIcon, UserGroupIcon, WalletIcon, ArrowRightIcon, AcademicCapIcon, ShieldCheckIcon, BuildingOffice2Icon, BriefcaseIcon, PlusCircleIcon, LifebuoyIcon} from '@heroicons/react/24/outline';
 import {Page, Calls} from '../ui';
 import {FIELDS} from '../catalog.js';
 
-const fieldIcons = {elderly: HomeModernIcon, rehab: HeartIcon, youth: UserGroupIcon, socsec: WalletIcon};
+const fieldIcons = {elderly: HomeModernIcon, rehab: HeartIcon, youth: UserGroupIcon, socsec: WalletIcon, edu: AcademicCapIcon, family: ShieldCheckIcon, housing: BuildingOffice2Icon, health: PlusCircleIcon, work: BriefcaseIcon, support: LifebuoyIcon};
 
 export default function Home() {
   return (

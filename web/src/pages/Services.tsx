@@ -43,7 +43,7 @@ export default function Services() {
     <Page current="services.html" title="所有服務">
       <VStack gap={2}>
         <Heading level={1}>所有服務</Heading>
-        <Text type="large">按服務範疇及類別列出社署服務。按服務名稱即可查看門檻、申請步驟、收費及聯絡方法。</Text>
+        <Text type="large">按服務範疇及類別列出社署及其他政府部門的服務。按服務名稱即可查看門檻、申請步驟、收費及聯絡方法。</Text>
         {!q && <List listStyle="disc">
           {FIELDS.map((f: any) => <ListItem key={f.id} label={<Link href={`#field-${f.id}`} hasUnderline>{f.label}</Link>} />)}
         </List>}

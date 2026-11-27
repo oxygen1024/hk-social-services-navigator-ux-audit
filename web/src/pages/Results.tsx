@@ -10,6 +10,7 @@ import {CATEGORIES, NEEDS, NEEDS_BY_FIELD, SERVICES, CENTRE_LIST, ENTRY, FIELD_B
 
 // 沒有專屬電話的服務，以 182 183 作最後一步（社署頁面：提供資訊、諮詢及轉介）
 const FALLBACK = [['不知道應聯絡誰？照顧者支援專線，24 小時由社工接聽', '182183', '']];
+const FALLBACK_OTHER = [['不知道應聯絡誰？社署熱線，可查詢福利服務及轉介', '23432255', '']];
 const FUND = {both: '資助和自費都想查看', sub: '資助', self: '自費', unsure: '未清楚'} as Record<string, string>;
 
 export default function Results() {
@@ -72,7 +73,7 @@ export default function Results() {
                 <SaveButton id={s.id} name={s.name} />
                 {s.id === 'centres' && <Button label="就近中心電話（PDF）" variant="ghost" href={CENTRE_LIST} />}
               </HStack>
-              <Calls items={s.contacts.length ? s.contacts : FALLBACK} />
+              <Calls items={s.contacts.length ? s.contacts : (s.field === 'elderly' || s.field === 'rehab' ? FALLBACK : FALLBACK_OTHER)} />
             </VStack>
           </Card>
           {i === 0 && needsAssess && (

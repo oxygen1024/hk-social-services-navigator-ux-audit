@@ -13,6 +13,7 @@ import {SaveButton, useDistrict, DistrictSelector, UnitList} from '../features';
 import {CATEGORIES, SERVICES, CHECKED, FIELD_BY_ID} from '../catalog.js';
 
 const FALLBACK = [['不知道應聯絡誰？照顧者支援專線，24 小時由社工接聽', '182183', '']];
+const FALLBACK_OTHER = [['不知道應聯絡誰？社署熱線，可查詢福利服務及轉介', '23432255', '']];
 
 // 社區券共同付款：六級（社署頁面列明 5%、8%、12%、16%、25%、40%）
 function CopayChart() {
@@ -88,7 +89,7 @@ export default function Service() {
               <iframe src={`https://www.youtube-nocookie.com/embed/${s.youtube}`} title={`${s.name}介紹短片`} loading="lazy"
                 allow="encrypted-media; picture-in-picture; fullscreen" allowFullScreen referrerPolicy="strict-origin-when-cross-origin"
                 style={{width: '100%', aspectRatio: '9 / 16', border: 0}} />
-              <Text type="supporting" color="secondary">影片由 YouTube 播放，播放時會連接 YouTube。內容以下方文字及社署資料為準。</Text>
+              <Text type="supporting" color="secondary">影片由 YouTube 播放，播放時會連接 YouTube。內容以下方文字及{s.org || '社署'}資料為準。</Text>
             </VStack>
           </Card>
         )}
@@ -103,7 +104,7 @@ export default function Service() {
             {(s.whoBoth || s.who).map((w: string) => <ListItem key={w} startContent={<Icon icon={CheckIcon} color="success" />} label={<Text>{rich(w)}</Text>} />)}
           </List>
           {s.free && <><Heading level={3}>須留意</Heading>{bullets(s.free)}</>}
-          <Text type="supporting" color="secondary">以上是社署列明的條件，最終由社工或服務單位核實。</Text>
+          <Text type="supporting" color="secondary">以上是{s.org || '社署'}網頁列明的條件，最終由負責部門、社工或服務單位核實。</Text>
         </VStack>
       </Card>
 
@@ -142,7 +143,7 @@ export default function Service() {
       {UNIT_KINDS[s.id] && <NearbyUnits kinds={UNIT_KINDS[s.id]} />}
 
       <Block title="聯絡">
-        <Calls items={s.contacts.length ? s.contacts : FALLBACK} />
+        <Calls items={s.contacts.length ? s.contacts : (s.field === 'elderly' || s.field === 'rehab' ? FALLBACK : FALLBACK_OTHER)} />
         {s.links.length > 0 && <List listStyle="disc">{s.links.map(([t, u]: string[]) => <ListItem key={u} label={<Link href={u} hasUnderline>{t}</Link>} />)}</List>}
       </Block>
 
@@ -156,7 +157,7 @@ export default function Service() {
       )}
 
       <Text type="supporting" color="secondary">
-        來源：<Link href={s.source} hasUnderline>社署網頁</Link>
+        來源：<Link href={s.source} hasUnderline>{s.org || '社署'}網頁</Link>
         {s.source2 && <>；<Link href={s.source2[0]} hasUnderline>{s.source2[1]}</Link></>}，核實日期 {s.checked || CHECKED}
       </Text>
 

@@ -35,6 +35,7 @@ Starts from the need, not the service name. Joins the three parts other sites ea
 ## Capabilities and Constraints
 
 - Scope: four SWD fields at the level of service types, not individual units: elderly services (16), rehabilitation (10), youth welfare (9) and social security (5), added 2026-11-24. The needs questionnaire asks the field first.
+- Since 2026-11-27 also six non-SWD-only fields (115 services in total): 家庭、兒童及危機支援, 教育及學生資助 (WFSFAA, EDB), 醫療及健康 (HA, DH), 房屋 (HA, HB), 就業及培訓 (WFAO, ERB, LD) and 其他支援. Each service may carry `org` (the source department); pages name it instead of 社署.
 - Never states "你符合資格". Results say why a service may fit, what still needs confirming, and the next step.
 - Every service fact links to an official source and shows a "last checked" date. Unknown fees or waiting times are shown as "向機構查詢", never blank or $0.
 - Keep old service names searchable (SWD renamed some home care services).
