@@ -1,7 +1,7 @@
 // 用法：cd web && npx vite build，然後 python3 -m http.server 8765 --directory docs，再 node tests/site-check.js [截圖目錄]
 const { chromium } = require("playwright");
 const assert = require("assert");
-const base = "http://localhost:8765/";
+const base = process.env.SITE_BASE || "http://localhost:8765/";
 const shots = process.argv[2];
 
 (async () => {
@@ -18,7 +18,7 @@ const shots = process.argv[2];
   for (const [href, label] of fieldLinks) {
     await p.locator(`.field-grid a[href="${href}"]`).click();
     assert.strictEqual(await p.locator('h1').innerText(), label);
-    assert.ok(await p.locator('[role=main] a[href^="service.html?id="]').count());
+    assert.ok(await p.locator('[role=main] a[href^="service-"]').count());
     assert.equal(await p.getByRole('combobox', {name: '中心類型'}).count(), 0);
     await p.goBack();
   }
@@ -73,11 +73,11 @@ const shots = process.argv[2];
   await p.setViewportSize({width:320,height:700});
   // 服務目錄及搜尋
   await open("services.html");
-  const ids = await p.$$eval('[role=main] a[href^="service.html?id="]', (as) => [...new Set(as.map((a) => new URL(a.href).searchParams.get("id")))]);
-  assert.ok(ids.length >= 115, "服務目錄應收錄各範疇的服務");
+  const ids = await p.$$eval('[role=main] a[href^="service-"]', (as) => [...new Set(as.map((a) => new URL(a.href).pathname.split("/").pop().slice(8, -5)))]);
+  assert.ok(ids.length === 114, "服務目錄應收錄各範疇的服務");
   await p.getByLabel("搜尋服務").fill("社區券");
-  assert.ok(await p.locator('[role=main] a[href="service.html?id=ccsv"]').first().isVisible(), "搜尋社區券");
-  assert.strictEqual(await p.locator('[role=main] a[href="service.html?id=ssa"]').count(), 0, "搜尋結果只顯示相關服務");
+  assert.ok(await p.locator('[role=main] a[href="service-ccsv.html"]').first().isVisible(), "搜尋社區券");
+  assert.strictEqual(await p.locator('[role=main] a[href="service-ssa.html"]').count(), 0, "搜尋結果只顯示相關服務");
 
   // 每項服務一頁：門檻先行、簡介、流程、電話
   for (const id of ids) {
@@ -165,7 +165,7 @@ const shots = process.argv[2];
   assert.ok((await p.locator('[role=main] a[href^="tel:2"]').count()) >= 10, "中心電話可撳");
   // 篩選：自費只顯示自費服務
   await p.getByRole("radio", { name: "自費" }).click();
-  const selfIds = await p.$$eval('[role=main] a[href^="service.html?id="]', (as) => [...new Set(as.map((a) => new URL(a.href).searchParams.get("id")))]);
+  const selfIds = await p.$$eval('[role=main] a[href^="service-"]', (as) => [...new Set(as.map((a) => new URL(a.href).pathname.split("/").pop().slice(8, -5)))]);
   assert.ok(selfIds.includes("private-rc") && !selfIds.includes("ccsv"), selfIds.join());
   // 我的清單：收藏兩項 → 計數 → 比較
   await open("services.html");

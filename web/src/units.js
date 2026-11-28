@@ -6,40 +6,52 @@ export const UNIT_LISTS = [
   "kind": "長者地區中心",
   "source": "https://www.swd.gov.hk/storage/asset/section/1216/List_of_DECCs_NECs.xls",
   "asOf": "2026-11-09",
-  "field": "elderly"
+  "field": "elderly",
+  "phoneChecked": "2026-11-28",
+  "geoSource": "https://portal.csdi.gov.hk/geoportal/?datasetId=swd_rcd_1629267205235_1216&lang=tc"
  },
  {
   "kind": "長者鄰舍中心",
   "source": "https://www.swd.gov.hk/storage/asset/section/1216/List_of_DECCs_NECs.xls",
   "asOf": "2026-11-09",
-  "field": "elderly"
+  "field": "elderly",
+  "phoneChecked": "2026-11-28",
+  "geoSource": "https://portal.csdi.gov.hk/geoportal/?datasetId=swd_rcd_1629267205235_34036&lang=tc"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
   "source": "https://www.swd.gov.hk/storage/asset/section/260/tc/IFSC_ISC_address_list_tc_Sep%202026.xls",
   "asOf": "2026-09",
-  "field": "all"
+  "field": "all",
+  "phoneChecked": "2026-11-28",
+  "geoSource": "https://portal.csdi.gov.hk/geoportal/?datasetId=swd_rcd_1629267205216_83560&lang=tc"
  },
  {
   "kind": "綜合青少年服務中心",
   "source": "https://www.swd.gov.hk/storage/asset/section/747/tc/ICYSC_20251209_c.pdf",
   "asOf": "2025-12",
   "count": 139,
-  "field": "youth"
+  "field": "youth",
+  "phoneChecked": "2026-11-28",
+  "geoSource": "https://portal.csdi.gov.hk/geoportal/?datasetId=swd_rcd_1629267205216_34629&lang=tc"
  },
  {
   "kind": "殘疾人士地區支援中心",
   "source": "https://www.swd.gov.hk/storage/asset/section/690/tc/List-of_22_DSCs_20260928_TC%26E.pdf",
   "asOf": "2026-09",
   "count": 22,
-  "field": "rehab"
+  "field": "rehab",
+  "phoneChecked": "2026-11-28",
+  "geoSource": "https://portal.csdi.gov.hk/geoportal/?datasetId=swd_rcd_1629267205216_54706&lang=tc"
  },
  {
   "kind": "精神健康綜合社區中心",
   "source": "https://www.swd.gov.hk/storage/asset/section/695/tc/List_of_25_ICCMWs_Sept%202026_F.pdf",
   "asOf": "2026-09",
   "count": 25,
-  "field": "rehab"
+  "field": "rehab",
+  "phoneChecked": "2026-11-28",
+  "geoSource": "https://portal.csdi.gov.hk/geoportal/?datasetId=swd_rcd_1629267205216_42879&lang=tc"
  }
 ];
 export const UNITS = [
@@ -52,7 +64,12 @@ export const UNITS = [
    "香港皇后大道中345號上環市政大廈11樓"
   ],
   "tel": "28051250",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.286078,
+   114.14971
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "長者地區中心",
@@ -64,7 +81,12 @@ export const UNITS = [
    "香港西環山道38-40號佳景閣地下4-6室"
   ],
   "tel": "28183717",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.285487,
+   114.134882
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "長者地區中心",
@@ -77,7 +99,12 @@ export const UNITS = [
    "香港大嶼山愉景灣海澄湖畔路99號愉景灣北綜合服務中心一樓",
    "大嶼山大澳龍田邨龍田商場2號1樓及3-6號地下及1樓"
   ],
-  "tel": "31406365"
+  "tel": "31406365",
+  "point": [
+   22.280982,
+   113.938464
+  ],
+  "siteDistrict": "離島區"
  },
  {
   "kind": "長者地區中心",
@@ -88,7 +115,12 @@ export const UNITS = [
    "香港柴灣漁灣邨漁豐樓地下11-18號及漁安樓地下32號"
   ],
   "tel": "25580187",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.265785,
+   114.240893
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者地區中心",
@@ -99,7 +131,12 @@ export const UNITS = [
    "香港北角和富道53號和富中心第二期商場地下"
   ],
   "tel": "25630187",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.292427,
+   114.197503
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者地區中心",
@@ -110,7 +147,12 @@ export const UNITS = [
    "香港筲箕灣寶文街6號方樹泉社會服務大樓一樓及九樓(部份)"
   ],
   "tel": "29679211",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.278436,
+   114.229211
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者地區中心",
@@ -121,7 +163,12 @@ export const UNITS = [
    "香港西灣河鯉景道康東邨康瑞樓地下"
   ],
   "tel": "26767067",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.284554,
+   114.222772
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者地區中心",
@@ -132,7 +179,12 @@ export const UNITS = [
    "香港灣仔石水渠街85號一樓及三樓"
   ],
   "tel": "28354324",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.273491,
+   114.173687
+  ],
+  "siteDistrict": "灣仔區"
  },
  {
   "kind": "長者地區中心",
@@ -143,7 +195,12 @@ export const UNITS = [
    "香港灣仔莊士敦道211號地下D室及1-2樓"
   ],
   "tel": "25274107",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.277463,
+   114.175865
+  ],
+  "siteDistrict": "灣仔區"
  },
  {
   "kind": "長者地區中心",
@@ -155,7 +212,12 @@ export const UNITS = [
    "香港薄扶林華富邨華美樓地下419-420 及 428-432號"
   ],
   "tel": "35505520",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.249355,
+   114.156393
+  ],
+  "siteDistrict": "南區"
  },
  {
   "kind": "長者地區中心",
@@ -167,7 +229,12 @@ export const UNITS = [
    "香港華富邨華美樓地下421-427號"
   ],
   "tel": "25536333",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.244859,
+   114.165954
+  ],
+  "siteDistrict": "南區"
  },
  {
   "kind": "長者地區中心",
@@ -178,7 +245,12 @@ export const UNITS = [
    "九龍觀塘翠屏道3號4字樓"
   ],
   "tel": "23579963",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.311698,
+   114.228886
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者地區中心",
@@ -189,7 +261,12 @@ export const UNITS = [
    "九龍觀塘順安邨安逸樓地下13-14號"
   ],
   "tel": "27271234",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.327659,
+   114.226256
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者地區中心",
@@ -200,7 +277,12 @@ export const UNITS = [
    "香港九龍觀塘彩福邨彩樂樓地下"
   ],
   "tel": "27170822",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.328823,
+   114.216895
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者地區中心",
@@ -212,7 +294,12 @@ export const UNITS = [
    "藍田社區綜合大樓一樓"
   ],
   "tel": "21776299",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.30875,
+   114.239706
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者地區中心",
@@ -220,11 +307,17 @@ export const UNITS = [
   "agency": "香港聖公會福利協會有限公司",
   "district": "黃大仙區",
   "address": [
-   "Unit No. PG. Podium Floor. Temple Mall South, 103 Ching Tak Street,Wong Tai Sin and G/F, Lung Tat House, Lower Wong Tai Sin Estate, Kowloon",
+   "九龍黃大仙正德街103號黃大仙中心南館平台及黃大仙下邨龍達樓地下",
    "九龍黃大仙正德街103號黃大仙中心南館平臺PG號及黃大仙下龍達樓地下"
   ],
   "tel": "23523082",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.34132,
+   114.19417
+  ],
+  "siteDistrict": "黃大仙區",
+  "pointSource": "als"
  },
  {
   "kind": "長者地區中心",
@@ -236,7 +329,12 @@ export const UNITS = [
    "九龍黃大仙竹園北邨榕園樓地下"
   ],
   "tel": "23230632",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.345915,
+   114.193042
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者地區中心",
@@ -248,7 +346,12 @@ export const UNITS = [
    "九龍牛池灣瓊東街 8號嘉峰臺地下"
   ],
   "tel": "23296008",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.336227,
+   114.206046
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者地區中心",
@@ -259,7 +362,12 @@ export const UNITS = [
    "九龍慈雲山慈樂邨樂滿樓地下C翼"
   ],
   "tel": "23218813",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.346917,
+   114.200613
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者地區中心",
@@ -270,7 +378,12 @@ export const UNITS = [
    "九龍將軍澳寶林北路101號\n香港聖公會將軍澳安老服務大樓地下"
   ],
   "tel": "27029897",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.325008,
+   114.260108
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "長者地區中心",
@@ -282,7 +395,12 @@ export const UNITS = [
    "九龍將軍澳尚德邨尚真樓第一座C翼地下",
    "九龍將軍澳厚德邨德康樓地下"
   ],
-  "tel": "27021113"
+  "tel": "27021113",
+  "point": [
+   22.307222,
+   114.250419
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "長者地區中心",
@@ -293,7 +411,12 @@ export const UNITS = [
    "九龍紅磡戴亞街1號地下(部份)及地庫"
   ],
   "tel": "39604306",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.307254,
+   114.187715
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "長者地區中心",
@@ -307,7 +430,12 @@ export const UNITS = [
    "九龍土瓜灣樂民新B座3字樓39號及I座34號"
   ],
   "tel": "23331854",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.31521,
+   114.186425
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "長者地區中心",
@@ -319,7 +447,12 @@ export const UNITS = [
    "九龍何文田常盛街何文田邨景文樓C翼地下16至20室"
   ],
   "tel": "21946566",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.320104,
+   114.181883
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "長者地區中心",
@@ -330,7 +463,12 @@ export const UNITS = [
    "九龍深水埗保安道383號麗寶花園商場上層"
   ],
   "tel": "27291211",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.340449,
+   114.155091
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者地區中心",
@@ -341,7 +479,12 @@ export const UNITS = [
    "九龍深水埗榮昌邨榮傑樓地下"
   ],
   "tel": "27254875",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.329495,
+   114.155228
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者地區中心",
@@ -352,7 +495,12 @@ export const UNITS = [
    "九龍深水埗石硤尾邨服務設施大樓一樓"
   ],
   "tel": "27847440",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.333162,
+   114.167129
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者地區中心",
@@ -364,7 +512,12 @@ export const UNITS = [
    "九龍油麻地眾坊街3號駿發花園地下D舖"
   ],
   "tel": "23320005",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.311191,
+   114.171546
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "長者地區中心",
@@ -375,7 +528,12 @@ export const UNITS = [
    "九龍大角咀福全街45號地下及一樓"
   ],
   "tel": "23953107",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.321504,
+   114.163567
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "長者地區中心",
@@ -388,7 +546,12 @@ export const UNITS = [
    "新界沙田沙角邨雲雀樓地下38-39號"
   ],
   "tel": "26472711",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.377764,
+   114.193205
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者地區中心",
@@ -400,7 +563,12 @@ export const UNITS = [
    "新界沙田秦石邨石玉樓3樓341-360號(部份)"
   ],
   "tel": "26917163",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.384823,
+   114.190625
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者地區中心",
@@ -412,7 +580,12 @@ export const UNITS = [
    "新界沙田馬鞍山恒安邨恒海樓1-6號"
   ],
   "tel": "31247633",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.408907,
+   114.221883
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者地區中心",
@@ -423,7 +596,12 @@ export const UNITS = [
    "新界大埔鄉事會街2號大埔社區中心2-3樓"
   ],
   "tel": "26536811",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.44657,
+   114.165857
+  ],
+  "siteDistrict": "大埔區"
  },
  {
   "kind": "長者地區中心",
@@ -434,7 +612,12 @@ export const UNITS = [
    "新界粉嶺和鳴里7號粉嶺南政府綜合大樓1-2樓"
   ],
   "tel": "26762525",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.485065,
+   114.142572
+  ],
+  "siteDistrict": "北區"
  },
  {
   "kind": "長者地區中心",
@@ -446,7 +629,12 @@ export const UNITS = [
    "新界元朗天水圍天澤邨服務設施大樓6字樓602室"
   ],
   "tel": "24797383",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.445533,
+   114.019145
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "長者地區中心",
@@ -458,7 +646,12 @@ export const UNITS = [
    "新界元朗西菁街富達廣場K-plus地下50A"
   ],
   "tel": "24762227",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.443998,
+   114.032948
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "長者地區中心",
@@ -470,7 +663,12 @@ export const UNITS = [
    "新界荃灣象山邨翠山樓平臺411-412號室"
   ],
   "tel": "24123651",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.369402,
+   114.113409
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "長者地區中心",
@@ -483,7 +681,12 @@ export const UNITS = [
    "新界青衣長康邨康華樓地下8, 11-13號室"
   ],
   "tel": "24251281",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.368572,
+   114.124968
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者地區中心",
@@ -494,7 +697,12 @@ export const UNITS = [
    "新界葵涌和宜合道22號地下至2樓(部份)"
   ],
   "tel": "24235489",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.365288,
+   114.136445
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者地區中心",
@@ -505,7 +713,12 @@ export const UNITS = [
    "新界屯門啟民徑18號仁愛堂賽馬會社區及體育中心4樓南翼及北翼(部份)"
   ],
   "tel": "26557688",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.396497,
+   113.97596
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "長者地區中心",
@@ -516,7 +729,12 @@ export const UNITS = [
    "新界屯門山景邨社康大樓三樓四號"
   ],
   "tel": "24666591",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.398602,
+   113.966783
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -526,7 +744,12 @@ export const UNITS = [
   "address": [
    "香港中環堅道2號明愛大廈231室"
   ],
-  "tel": "35892501"
+  "tel": "35892501",
+  "point": [
+   22.278944,
+   114.154243
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -536,7 +759,12 @@ export const UNITS = [
   "address": [
    "香港堅尼地城龍華街20號觀龍樓二座地下B室"
   ],
-  "tel": "28172981"
+  "tel": "28172981",
+  "point": [
+   22.280662,
+   114.127118
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -546,7 +774,12 @@ export const UNITS = [
   "address": [
    "香港上環德輔道西38號2字樓B室"
   ],
-  "tel": "25482555"
+  "tel": "25482555",
+  "point": [
+   22.287227,
+   114.14742
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -556,7 +789,12 @@ export const UNITS = [
   "address": [
    "香港堅尼地城海旁26號龍翔花園1字樓"
   ],
-  "tel": "28198727"
+  "tel": "28198727",
+  "point": [
+   22.285025,
+   114.13152
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -567,7 +805,12 @@ export const UNITS = [
    "香港上環必列者士街60號三樓"
   ],
   "tel": "25465471",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.283576,
+   114.149714
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -578,7 +821,12 @@ export const UNITS = [
    "香港西營盤第一街82號西園地下",
    "香港西營盤西源里10號源輝閣地下"
   ],
-  "tel": "25464212"
+  "tel": "25464212",
+  "point": [
+   22.286506,
+   114.141087
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -588,7 +836,12 @@ export const UNITS = [
   "address": [
    "香港西營盤第三街206號毓明閣第一座地下高層"
   ],
-  "tel": "28572405"
+  "tel": "28572405",
+  "point": [
+   22.285749,
+   114.137707
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -599,7 +852,12 @@ export const UNITS = [
    "香港中環擺花街46號中晶商業大廈2字樓",
    "香港皇后大道中99號中環中心地下二室"
   ],
-  "tel": "25433890"
+  "tel": "25433890",
+  "point": [
+   22.282448,
+   114.153656
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -610,7 +868,12 @@ export const UNITS = [
    "香港長洲北社新村138號"
   ],
   "tel": "29818555",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.212728,
+   114.027567
+  ],
+  "siteDistrict": "離島區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -620,7 +883,12 @@ export const UNITS = [
   "address": [
    "香港大嶼山梅窩涌盛街8號銀礦廣場地下G02及G04-G10號"
   ],
-  "tel": "29848018"
+  "tel": "29848018",
+  "point": [
+   22.267054,
+   113.997587
+  ],
+  "siteDistrict": "離島區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -631,7 +899,12 @@ export const UNITS = [
    "香港坪洲寶坪街坪洲街市1樓"
   ],
   "tel": "29839000",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.286994,
+   114.036739
+  ],
+  "siteDistrict": "離島區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -642,7 +915,12 @@ export const UNITS = [
    "香港大嶼山東涌富東邨富東廣場3樓KG03室",
    "香港大嶼山東涌迎東邨綜合服務中心地下 (迎東分址)"
   ],
-  "tel": "25251929"
+  "tel": "25251929",
+  "point": [
+   22.288885,
+   113.942551
+  ],
+  "siteDistrict": "離島區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -654,7 +932,12 @@ export const UNITS = [
    "香港柴灣興華邨二期安興樓 503-504室"
   ],
   "tel": "25583338",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.263863,
+   114.233418
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -665,7 +948,12 @@ export const UNITS = [
    "香港筲箕灣阿公岩道6號1樓"
   ],
   "tel": "25685201",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.275631,
+   114.231316
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -677,7 +965,12 @@ export const UNITS = [
    "香港柴灣道388號蝶翠苑地下"
   ],
   "tel": "29045647",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.265108,
+   114.248129
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -688,7 +981,12 @@ export const UNITS = [
    "香港柴灣柴灣道100號5樓513室"
   ],
   "tel": "28975171",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.268525,
+   114.233281
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -699,7 +997,12 @@ export const UNITS = [
    "香港小西灣邨瑞隆樓地下6-9號"
   ],
   "tel": "25057428",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.262104,
+   114.250126
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -711,7 +1014,12 @@ export const UNITS = [
    "香港筲箕灣耀東邨耀輝樓地下"
   ],
   "tel": "25354387",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.278988,
+   114.222594
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -723,7 +1031,12 @@ export const UNITS = [
    "香港柴灣悅翠苑B翼地下"
   ],
   "tel": "28980752",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.263424,
+   114.239993
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -733,7 +1046,12 @@ export const UNITS = [
   "address": [
    "香港鰂魚涌康怡花園康安街18號二樓"
   ],
-  "tel": "25680601"
+  "tel": "25680601",
+  "point": [
+   22.2843,
+   114.218504
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -743,7 +1061,12 @@ export const UNITS = [
   "address": [
    "香港北角電氣道233號城市中心二樓5-7號舖"
   ],
-  "tel": "25789950"
+  "tel": "25789950",
+  "point": [
+   22.290957,
+   114.194736
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -755,7 +1078,12 @@ export const UNITS = [
    "香港筲箕灣興東邨興東商場一樓108號"
   ],
   "tel": "25698065",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.281253,
+   114.219814
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -766,7 +1094,12 @@ export const UNITS = [
    "香港筲箕灣海晏街38號雁亭大廈地下(入口)及一樓"
   ],
   "tel": "25356512",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.280298,
+   114.223664
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -776,7 +1109,12 @@ export const UNITS = [
   "address": [
    "香港北角丹拿道53號港運城2字樓"
   ],
-  "tel": "28800461"
+  "tel": "28800461",
+  "point": [
+   22.291232,
+   114.202518
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -787,7 +1125,12 @@ export const UNITS = [
    "香港銅鑼灣勵德邨道36號勵德邨德全樓112-118室"
   ],
   "tel": "25661448",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.278821,
+   114.193923
+  ],
+  "siteDistrict": "灣仔區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -797,7 +1140,12 @@ export const UNITS = [
   "address": [
    "銅鑼灣謝斐道468號永倫銅鑼灣中心2樓"
   ],
-  "tel": "28310819"
+  "tel": "28310819",
+  "point": [
+   22.280687,
+   114.181949
+  ],
+  "siteDistrict": "灣仔區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -808,7 +1156,12 @@ export const UNITS = [
    "香港跑馬地桂成里16號誠和閣地下"
   ],
   "tel": "25732270",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.267452,
+   114.186612
+  ],
+  "siteDistrict": "灣仔區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -818,7 +1171,12 @@ export const UNITS = [
   "address": [
    "香港香港仔石排灣邨碧輝樓平臺4室及地下1室"
   ],
-  "tel": "25538318"
+  "tel": "25538318",
+  "point": [
+   22.250476,
+   114.157521
+  ],
+  "siteDistrict": "南區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -829,7 +1187,12 @@ export const UNITS = [
    "香港香港仔田灣邨田澤樓地下6-10號"
   ],
   "tel": "25387777",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.252371,
+   114.15092
+  ],
+  "siteDistrict": "南區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -839,7 +1202,12 @@ export const UNITS = [
   "address": [
    "香港華富邨華建樓301-310室"
   ],
-  "tel": "25509971"
+  "tel": "25509971",
+  "point": [
+   22.25245,
+   114.135468
+  ],
+  "siteDistrict": "南區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -849,7 +1217,12 @@ export const UNITS = [
   "address": [
    "香港香港仔鴨脷洲邨利寧樓地下"
   ],
-  "tel": "25521115"
+  "tel": "25521115",
+  "point": [
+   22.245017,
+   114.149079
+  ],
+  "siteDistrict": "南區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -860,7 +1233,12 @@ export const UNITS = [
    "香港鴨脷洲利東邨東升樓309-316室"
   ],
   "tel": "28746311",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.241524,
+   114.15661
+  ],
+  "siteDistrict": "南區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -872,7 +1250,12 @@ export const UNITS = [
    "香港香港仔華富二邨華泰樓1樓125-128室"
   ],
   "tel": "35505390",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.250347,
+   114.13813
+  ],
+  "siteDistrict": "南區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -883,7 +1266,12 @@ export const UNITS = [
    "香港赤柱黃麻角道10至12號綠怡居地下A舖及一樓A及B舖",
    "香港赤柱馬坑邨觀馬樓地下"
   ],
-  "tel": "28130648"
+  "tel": "28130648",
+  "point": [
+   22.217916,
+   114.213435
+  ],
+  "siteDistrict": "南區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -894,7 +1282,12 @@ export const UNITS = [
    "香港鴨脷洲悅海街一號悅海華庭地下"
   ],
   "tel": "28703970",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.24398,
+   114.153778
+  ],
+  "siteDistrict": "南區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -905,7 +1298,12 @@ export const UNITS = [
    "九龍觀塘翠屏邨翠榕樓地下11-14A室"
   ],
   "tel": "27273189",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.31493,
+   114.230731
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -916,7 +1314,12 @@ export const UNITS = [
    "九龍牛頭角彩盈邨盈康樓地下B及C翼6-15號室"
   ],
   "tel": "21170707",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.328056,
+   114.215837
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -928,7 +1331,12 @@ export const UNITS = [
    "九龍觀塘順天邨天琴樓地庫L202-209號"
   ],
   "tel": "27901578",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.326428,
+   114.225737
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -939,7 +1347,12 @@ export const UNITS = [
    "九龍觀塘啟業邨啟盛樓地下1-3, 12-13及20室",
    "九龍觀塘啟業邨啟裕樓地下12-17室"
   ],
-  "tel": "21161553"
+  "tel": "21161553",
+  "point": [
+   22.329719,
+   114.209013
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -949,7 +1362,12 @@ export const UNITS = [
   "address": [
    "九龍觀塘順利邨順利社區中心二樓"
   ],
-  "tel": "23458323"
+  "tel": "23458323",
+  "point": [
+   22.331575,
+   114.227262
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -959,7 +1377,12 @@ export const UNITS = [
   "address": [
    "九龍觀塘坪石邨紅石樓地下128-129A及129-132號室"
   ],
-  "tel": "23214536"
+  "tel": "23214536",
+  "point": [
+   22.333304,
+   114.208529
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -970,7 +1393,12 @@ export const UNITS = [
    "九龍油塘油麗邨翠麗樓地下"
   ],
   "tel": "23463231",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.299648,
+   114.236393
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -982,7 +1410,12 @@ export const UNITS = [
    "九龍觀塘樂華北邨立華樓地下101-102及105-108室"
   ],
   "tel": "27961129",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.320027,
+   114.219319
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -993,7 +1426,12 @@ export const UNITS = [
    "九龍觀塘藍田興田邨彩田樓地下101及103室"
   ],
   "tel": "27727789",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.313265,
+   114.23933
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1003,7 +1441,12 @@ export const UNITS = [
   "address": [
    "九龍觀塘秀茂坪邨秀明樓地下128-134號室"
   ],
-  "tel": "27726174"
+  "tel": "27726174",
+  "point": [
+   22.315697,
+   114.233662
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1013,7 +1456,12 @@ export const UNITS = [
   "address": [
    "九龍觀塘牛頭角上邨常盛樓及常富樓地下"
   ],
-  "tel": "23053520"
+  "tel": "23053520",
+  "point": [
+   22.318754,
+   114.216212
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1023,7 +1471,12 @@ export const UNITS = [
   "address": [
    "九龍觀塘和樂邨新安樓底層3號室"
   ],
-  "tel": "23894642"
+  "tel": "23894642",
+  "point": [
+   22.316719,
+   114.227733
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1034,7 +1487,12 @@ export const UNITS = [
    "九龍觀塘茶果嶺道81號茜草灣鄰里社區中心一字樓",
    "九龍藍田匯景道8號匯景花園幼稚園大樓6及7樓"
   ],
-  "tel": "23480829"
+  "tel": "23480829",
+  "point": [
+   22.307182,
+   114.228787
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1044,7 +1502,12 @@ export const UNITS = [
   "address": [
    "九龍觀塘秀茂坪寶達邨達怡樓C翼地下"
   ],
-  "tel": "27090622"
+  "tel": "27090622",
+  "point": [
+   22.317735,
+   114.239662
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1055,7 +1518,12 @@ export const UNITS = [
    "九龍觀塘藍田廣田邨廣逸樓地下二號及三號"
   ],
   "tel": "27725181",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.302916,
+   114.2408
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1065,7 +1533,12 @@ export const UNITS = [
   "address": [
    "九龍觀塘彩霞邨彩日樓地下一號"
   ],
-  "tel": "27582737"
+  "tel": "27582737",
+  "point": [
+   22.326385,
+   114.216875
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1076,7 +1549,12 @@ export const UNITS = [
    "九龍觀塘藍田德田邨德禮樓地下2號"
   ],
   "tel": "27178000",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.310222,
+   114.238377
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1087,7 +1565,13 @@ export const UNITS = [
    "九龍油塘欣榮街131號鯉魚門服務設施大樓4樓402室"
   ],
   "tel": "27177491",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.29358,
+   114.23859
+  ],
+  "siteDistrict": "觀塘區",
+  "pointSource": "als"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1097,7 +1581,12 @@ export const UNITS = [
   "address": [
    "九龍九龍灣宏開道16號德福大廈604-605室"
   ],
-  "tel": "23181939"
+  "tel": "23181939",
+  "point": [
+   22.322566,
+   114.211089
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1108,7 +1597,12 @@ export const UNITS = [
    "九龍藍田平田邨平仁樓地下5號室"
   ],
   "tel": "23466775",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.306096,
+   114.23625
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1119,7 +1613,12 @@ export const UNITS = [
    "觀塘安達邨仁達樓平臺1-4號"
   ],
   "tel": "28110055",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.319326,
+   114.235896
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1129,7 +1628,12 @@ export const UNITS = [
   "address": [
    "九龍新蒲崗采頤花園十二座地下"
   ],
-  "tel": "23275514"
+  "tel": "23275514",
+  "point": [
+   22.336465,
+   114.202605
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1142,7 +1646,12 @@ export const UNITS = [
    "九龍黃大仙東頭邨裕東樓地下7號"
   ],
   "tel": "27161098",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.335867,
+   114.192025
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1152,7 +1661,12 @@ export const UNITS = [
   "address": [
    "九龍橫頭磡邨宏耀樓地下2號"
   ],
-  "tel": "23487472"
+  "tel": "23487472",
+  "point": [
+   22.341946,
+   114.186249
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1162,7 +1676,12 @@ export const UNITS = [
   "address": [
    "黃大仙竹園南邨社區中心一樓"
   ],
-  "tel": "23208032"
+  "tel": "23208032",
+  "point": [
+   22.344938,
+   114.193859
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1172,7 +1691,12 @@ export const UNITS = [
   "address": [
    "九龍東頭邨盛東樓地下11-14號"
   ],
-  "tel": "27187171"
+  "tel": "27187171",
+  "point": [
+   22.333231,
+   114.191771
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1182,7 +1706,12 @@ export const UNITS = [
   "address": [
    "九龍慈雲山蒲崗村道167號地下及3樓"
   ],
-  "tel": "23516896"
+  "tel": "23516896",
+  "point": [
+   22.346684,
+   114.203488
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1193,7 +1722,12 @@ export const UNITS = [
    "九龍富山邨富禮樓地下一層L102號",
    "九龍富山邨富信樓地下一層13-14號"
   ],
-  "tel": "23270922"
+  "tel": "23270922",
+  "point": [
+   22.342267,
+   114.208803
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1205,7 +1739,12 @@ export const UNITS = [
    "九龍慈雲山慈正邨正暉樓地下2號"
   ],
   "tel": "23252122",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.349251,
+   114.20437
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1215,7 +1754,12 @@ export const UNITS = [
   "address": [
    "九龍彩雲邨明麗樓地下29-33號及瓊宮樓地下116號"
   ],
-  "tel": "27580505"
+  "tel": "27580505",
+  "point": [
+   22.33389,
+   114.216592
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1226,7 +1770,12 @@ export const UNITS = [
    "九龍鳳德邨碧鳳樓地下17-18及23-24號"
   ],
   "tel": "23201020",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.344851,
+   114.201389
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1237,7 +1786,12 @@ export const UNITS = [
    "九龍新蒲崗崇齡街33號新蒲崗廣場一樓B57a-B63及B75-B85舖"
   ],
   "tel": "22423713",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.334848,
+   114.196014
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1249,7 +1803,12 @@ export const UNITS = [
    "九龍黃大仙上邨耀善樓C翼地下"
   ],
   "tel": "23046343",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.337163,
+   114.186432
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1260,7 +1819,12 @@ export const UNITS = [
    "九龍黃大仙彩雲邨彩雲社區中心二樓107-9室"
   ],
   "tel": "27554846",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.335174,
+   114.213909
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1271,7 +1835,12 @@ export const UNITS = [
    "九龍竹園南邨華園樓地下107-112號",
    "東頭(二)邨泰東樓地下10-14號及富東樓地下10-11號"
   ],
-  "tel": "23265271"
+  "tel": "23265271",
+  "point": [
+   22.34475,
+   114.191436
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1281,7 +1850,12 @@ export const UNITS = [
   "address": [
    "九龍西貢萬年街69, 71, 73 號及75 號地下"
   ],
-  "tel": "27926205"
+  "tel": "27926205",
+  "point": [
+   22.381072,
+   114.272823
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1292,7 +1866,12 @@ export const UNITS = [
    "將軍澳翠林邨欣林樓地下A翼109至116室"
   ],
   "tel": "27023434",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.32339,
+   114.248283
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1302,7 +1881,12 @@ export const UNITS = [
   "address": [
    "新界西貢將軍澳景林邨景林鄰里社區中心地下及一樓"
   ],
-  "tel": "27035123"
+  "tel": "27035123",
+  "point": [
+   22.319679,
+   114.261035
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1313,7 +1897,12 @@ export const UNITS = [
    "九龍將軍澳貿泰路8號茵怡花園第一座平臺一樓"
   ],
   "tel": "29970206",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.32206,
+   114.255783
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1325,7 +1914,12 @@ export const UNITS = [
    "九龍將軍澳寶林邨寶泰樓B翼地下G002室",
    "九龍將軍澳寶林邨寶寧樓2樓204B室"
   ],
-  "tel": "27010131"
+  "tel": "27010131",
+  "point": [
+   22.325869,
+   114.253744
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1336,7 +1930,12 @@ export const UNITS = [
    "九龍將軍澳至善街5號將軍澳南服務設施大樓一樓"
   ],
   "tel": "27438466",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.304747,
+   114.263425
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1347,7 +1946,12 @@ export const UNITS = [
    "九龍尖沙咀柯士甸道西1號1樓103室"
   ],
   "tel": "31494123",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.304056,
+   114.16157
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1357,7 +1961,12 @@ export const UNITS = [
   "address": [
    "九龍油麻地眾坊街60號梁顯利油麻地社區中心4樓"
   ],
-  "tel": "23848465"
+  "tel": "23848465",
+  "point": [
+   22.309873,
+   114.169702
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1368,7 +1977,12 @@ export const UNITS = [
    "九龍荔枝角道168號萬盛閣1字樓A室"
   ],
   "tel": "23906574",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.325667,
+   114.164625
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1379,7 +1993,12 @@ export const UNITS = [
    "九龍旺角登打士街23-29號嘉興商業中心1字樓"
   ],
   "tel": "26251212",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.315029,
+   114.167683
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1390,7 +2009,12 @@ export const UNITS = [
    "九龍油麻地彌敦道570-572號基利商業大廈3樓"
   ],
   "tel": "27820220",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.315092,
+   114.170517
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1401,7 +2025,12 @@ export const UNITS = [
    "九龍旺角新世紀廣場三樓商場399室"
   ],
   "tel": "22643131",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.322805,
+   114.172545
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1413,7 +2042,12 @@ export const UNITS = [
    "九龍旺角西海庭道2號海富苑海泰閣地下HT1"
   ],
   "tel": "21481481",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.315054,
+   114.164869
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1423,7 +2057,12 @@ export const UNITS = [
   "address": [
    "九龍油麻地渡船街28號寶時商業中心2字樓及609-610室"
   ],
-  "tel": "27822237"
+  "tel": "27822237",
+  "point": [
+   22.307308,
+   114.167577
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1433,7 +2072,12 @@ export const UNITS = [
   "address": [
    "九龍上海街28號恒邦商業中心地下5-7號鋪"
   ],
-  "tel": "23020727"
+  "tel": "23020727",
+  "point": [
+   22.303903,
+   114.169392
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1443,7 +2087,12 @@ export const UNITS = [
   "address": [
    "九龍大角咀海輝道11號奧海城第一期高層地下"
   ],
-  "tel": "29284008"
+  "tel": "29284008",
+  "point": [
+   22.320363,
+   114.157736
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1454,7 +2103,12 @@ export const UNITS = [
    "九龍何文田愛民邨嘉民樓401-404及509-511室"
   ],
   "tel": "27158677",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.312221,
+   114.179883
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1465,7 +2119,12 @@ export const UNITS = [
    "九龍土瓜灣譚公道115號運通大廈地下"
   ],
   "tel": "27138380",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.323906,
+   114.18892
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1475,7 +2134,12 @@ export const UNITS = [
   "address": [
    "九龍九龍城侯王道55號地下"
   ],
-  "tel": "27188331"
+  "tel": "27188331",
+  "point": [
+   22.329496,
+   114.18859
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1486,7 +2150,12 @@ export const UNITS = [
    "九龍紅磡榮光街52號榮輝大廈地下商舖9-13及27號"
   ],
   "tel": "23330773",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.313349,
+   114.189453
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1497,7 +2166,12 @@ export const UNITS = [
    "九龍土瓜灣九龍城道55-61號同興花園2座1字樓"
   ],
   "tel": "27112488",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.319418,
+   114.189327
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1508,7 +2182,12 @@ export const UNITS = [
    "九龍九龍城沐虹街12號晴朗商場2樓A206單位"
   ],
   "tel": "28976608",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.331508,
+   114.203102
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1518,7 +2197,12 @@ export const UNITS = [
   "address": [
    "九龍何文田邨景文樓地下11號"
   ],
-  "tel": "27607111"
+  "tel": "27607111",
+  "point": [
+   22.318199,
+   114.181038
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1529,7 +2213,12 @@ export const UNITS = [
    "九龍紅磡黃埔花園8期黃埔廣場閣樓"
   ],
   "tel": "23309682",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.305005,
+   114.190762
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1539,7 +2228,12 @@ export const UNITS = [
   "address": [
    "九龍紅磡寶其利街53號寶利閣一樓"
   ],
-  "tel": "23337877"
+  "tel": "23337877",
+  "point": [
+   22.306558,
+   114.186434
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1550,7 +2244,12 @@ export const UNITS = [
    "九龍深水埗元州邨元樂樓地下C翼及元雅樓地下C翼"
   ],
   "tel": "27203105",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.336647,
+   114.155655
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1562,7 +2261,12 @@ export const UNITS = [
    "九龍深水埗麗閣邨麗蘭樓3樓313-315室"
   ],
   "tel": "27295858",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.333649,
+   114.157684
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1573,7 +2277,12 @@ export const UNITS = [
    "九龍石峽尾南山邨南泰樓地下17-28號"
   ],
   "tel": "27795983",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.334463,
+   114.171972
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1584,7 +2293,12 @@ export const UNITS = [
    "九龍深水埗澤安邨榮澤樓地下1-2室及16-20室"
   ],
   "tel": "27796998",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.340549,
+   114.163789
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1595,7 +2309,12 @@ export const UNITS = [
    "九龍深水埗大埔道70號太子中心二樓A室"
   ],
   "tel": "27799517",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.328548,
+   114.167187
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1606,7 +2325,12 @@ export const UNITS = [
    "九龍長沙灣幸福邨福日樓地下"
   ],
   "tel": "23879951",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.335897,
+   114.153713
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1617,7 +2341,12 @@ export const UNITS = [
    "九龍深水埗海麗邨海麗商場地下22號"
   ],
   "tel": "35146402",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.3326,
+   114.146802
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1627,7 +2356,12 @@ export const UNITS = [
   "address": [
    "九龍深水埗石硤尾邨第21座地下129-134號"
   ],
-  "tel": "27792557"
+  "tel": "27792557",
+  "point": [
+   22.332936,
+   114.164731
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1639,7 +2373,12 @@ export const UNITS = [
    "九龍深水埗海壇街 218 號愛海頌一座二樓"
   ],
   "tel": "27206364",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.332006,
+   114.163324
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1650,7 +2389,12 @@ export const UNITS = [
    "九龍美孚新邨第二期百老匯街39A平臺148號舖",
    "深水埗荔枝角道888號南商金融創新中心地下"
   ],
-  "tel": "27458839"
+  "tel": "27458839",
+  "point": [
+   22.336165,
+   114.139017
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1661,7 +2405,12 @@ export const UNITS = [
    "九龍大坑東邨東怡樓地下"
   ],
   "tel": "27783618",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.330345,
+   114.170992
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1672,7 +2421,12 @@ export const UNITS = [
    "九龍深水埗汝洲街88號地下",
    "深水埗大南街228號, AVA 228 地下 2, 3, 6, 8 及9 號舖"
   ],
-  "tel": "23813120"
+  "tel": "23813120",
+  "point": [
+   22.32741,
+   114.164994
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1683,7 +2437,12 @@ export const UNITS = [
    "九龍深水埗蘇屋邨劍蘭樓2樓"
   ],
   "tel": "23632110",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.340801,
+   114.15544
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1693,7 +2452,12 @@ export const UNITS = [
   "address": [
    "新界大圍美田路1號大圍社會服務樓 1樓(停車場層 )"
   ],
-  "tel": "26911580"
+  "tel": "26911580",
+  "point": [
+   22.370114,
+   114.17479
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1703,7 +2467,12 @@ export const UNITS = [
   "address": [
    "新界沙田新翠邨新偉樓地下19-22號及123-125號"
   ],
-  "tel": "26996283"
+  "tel": "26996283",
+  "point": [
+   22.371418,
+   114.180825
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1713,7 +2482,12 @@ export const UNITS = [
   "address": [
    "新界沙田顯徑邨顯慶樓地下A翼"
   ],
-  "tel": "26934121"
+  "tel": "26934121",
+  "point": [
+   22.363976,
+   114.173241
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1723,7 +2497,12 @@ export const UNITS = [
   "address": [
    "新界沙田水泉澳邨明泉樓平臺1室"
   ],
-  "tel": "26376121"
+  "tel": "26376121",
+  "point": [
+   22.374258,
+   114.198597
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1733,7 +2512,12 @@ export const UNITS = [
   "address": [
    "新界沙田美田邨美全樓B翼地下"
   ],
-  "tel": "26950363"
+  "tel": "26950363",
+  "point": [
+   22.376794,
+   114.172835
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1743,7 +2527,12 @@ export const UNITS = [
   "address": [
    "新界沙田廣源邨廣棉樓B翼地下"
   ],
-  "tel": "26469398"
+  "tel": "26469398",
+  "point": [
+   22.381848,
+   114.214892
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1753,7 +2542,12 @@ export const UNITS = [
   "address": [
    "新界沙田穗禾苑商場平臺G39及地庫13B"
   ],
-  "tel": "26812234"
+  "tel": "26812234",
+  "point": [
+   22.39199,
+   114.194355
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1763,7 +2557,12 @@ export const UNITS = [
   "address": [
    "新界沙田馬鞍山沙安街23號利安社區服務大樓地下及1樓"
   ],
-  "tel": "26835522"
+  "tel": "26835522",
+  "point": [
+   22.427376,
+   114.241048
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1774,7 +2573,12 @@ export const UNITS = [
    "新界沙田馬鞍山頌安邨頌智樓地下"
   ],
   "tel": "21443199",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.422749,
+   114.225994
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1786,7 +2590,12 @@ export const UNITS = [
    "新界沙田第一城42座地下"
   ],
   "tel": "26307070",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.380443,
+   114.205116
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1796,7 +2605,12 @@ export const UNITS = [
   "address": [
    "新界沙田新田圍邨豐圍樓114-117號地下"
   ],
-  "tel": "26046524"
+  "tel": "26046524",
+  "point": [
+   22.370544,
+   114.186623
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1806,7 +2620,12 @@ export const UNITS = [
   "address": [
    "新界沙田隆亨邨隆亨社區中心二樓201-204室及206室"
   ],
-  "tel": "26983289"
+  "tel": "26983289",
+  "point": [
+   22.367724,
+   114.179677
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1816,7 +2635,12 @@ export const UNITS = [
   "address": [
    "新界沙田馬鞍山耀安邨耀頌樓地下108-111號"
   ],
-  "tel": "26417787"
+  "tel": "26417787",
+  "point": [
+   22.420218,
+   114.23177
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1827,7 +2651,12 @@ export const UNITS = [
    "新界大埔大元邨泰欣樓地下22-29室"
   ],
   "tel": "26652236",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.455425,
+   114.170689
+  ],
+  "siteDistrict": "大埔區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1840,7 +2669,12 @@ export const UNITS = [
    "新界大埔太和鄰里社區中心4樓部份"
   ],
   "tel": "26533299",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.451682,
+   114.161407
+  ],
+  "siteDistrict": "大埔區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1851,7 +2685,12 @@ export const UNITS = [
    "新界大埔富亨邨富亨鄰里社區中心地下",
    "新界大埔頌雅苑頌真閣地下B翼 (部份)"
   ],
-  "tel": "26660761"
+  "tel": "26660761",
+  "point": [
+   22.459847,
+   114.172064
+  ],
+  "siteDistrict": "大埔區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1862,7 +2701,12 @@ export const UNITS = [
    "新界大埔運頭塘邨運頭塘鄰里社區中心地下",
    "新界大埔德雅苑B翼地下1-3號及6-8號"
   ],
-  "tel": "26586313"
+  "tel": "26586313",
+  "point": [
+   22.442169,
+   114.166066
+  ],
+  "siteDistrict": "大埔區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1872,7 +2716,12 @@ export const UNITS = [
   "address": [
    "新界大埔彩蝶街 11 號富蝶邨(第二期)喜蝶樓(第6座)地下"
   ],
-  "tel": "21868266"
+  "tel": "21868266",
+  "point": [
+   22.463689,
+   114.175556
+  ],
+  "siteDistrict": "大埔區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1882,7 +2731,12 @@ export const UNITS = [
   "address": [
    "新界大埔廣福邨廣仁樓207-209室"
   ],
-  "tel": "26514082"
+  "tel": "26514082",
+  "point": [
+   22.448981,
+   114.175145
+  ],
+  "siteDistrict": "大埔區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1892,7 +2746,12 @@ export const UNITS = [
   "address": [
    "新界大埔富善邨善雅樓地下104-105室"
   ],
-  "tel": "26608501"
+  "tel": "26608501",
+  "point": [
+   22.453931,
+   114.175557
+  ],
+  "siteDistrict": "大埔區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1902,7 +2761,12 @@ export const UNITS = [
   "address": [
    "新界大埔翠樂街11號美豐花園一樓商場207-213室"
   ],
-  "tel": "26609990"
+  "tel": "26609990",
+  "point": [
+   22.454082,
+   114.164388
+  ],
+  "siteDistrict": "大埔區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1912,7 +2776,12 @@ export const UNITS = [
   "address": [
    "新界上水彩園路23號寶石湖邨服務設施大樓1樓1號舖"
   ],
-  "tel": "26711802"
+  "tel": "26711802",
+  "point": [
+   22.502728,
+   114.125577
+  ],
+  "siteDistrict": "北區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1923,7 +2792,12 @@ export const UNITS = [
    "新界上水天平路22號鳯溪社會服務綜合大樓地下"
   ],
   "tel": "26839870",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.507719,
+   114.130373
+  ],
+  "siteDistrict": "北區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1933,7 +2807,12 @@ export const UNITS = [
   "address": [
    "新界上水彩園邨彩華樓地下 139-144室"
   ],
-  "tel": "26720630"
+  "tel": "26720630",
+  "point": [
+   22.499982,
+   114.126371
+  ],
+  "siteDistrict": "北區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1944,7 +2823,12 @@ export const UNITS = [
    "新界粉嶺祥華邨祥智樓地下9-10室",
    "新界粉嶺祥華邨祥禮樓2樓217至222室"
   ],
-  "tel": "26690252"
+  "tel": "26690252",
+  "point": [
+   22.494027,
+   114.140852
+  ],
+  "siteDistrict": "北區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1954,7 +2838,12 @@ export const UNITS = [
   "address": [
    "新界粉嶺聯和墟和睦路9號海聯廣場一樓130號舖"
   ],
-  "tel": "26774111"
+  "tel": "26774111",
+  "point": [
+   22.500007,
+   114.141692
+  ],
+  "siteDistrict": "北區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1965,7 +2854,12 @@ export const UNITS = [
    "新界粉嶺龍峻路6號皇后山社區綜合大樓1樓"
   ],
   "tel": "25550890",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.504823,
+   114.156607
+  ],
+  "siteDistrict": "北區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1976,7 +2870,12 @@ export const UNITS = [
    "新界元朗朗屏邨賀屏樓平臺227-229號",
    "新界元朗朗屏邨悅屏樓平臺228號"
   ],
-  "tel": "24735113"
+  "tel": "24735113",
+  "point": [
+   22.448379,
+   114.02358
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1986,7 +2885,12 @@ export const UNITS = [
   "address": [
    "新界元朗天水圍天華邨服務設施大樓三字樓"
   ],
-  "tel": "24781930"
+  "tel": "24781930",
+  "point": [
+   22.461215,
+   113.996402
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -1997,7 +2901,12 @@ export const UNITS = [
    "新界元朗天水圍天瑞邨天瑞社區服務中心地下及3字樓"
   ],
   "tel": "24487433",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.455155,
+   113.999302
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2008,7 +2917,12 @@ export const UNITS = [
    "新界元朗天水圍天悅邨服務設施大樓1字樓"
   ],
   "tel": "31604100",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.462377,
+   114.001181
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2018,7 +2932,12 @@ export const UNITS = [
   "address": [
    "新界元朗天水圍第五區天耀邨天耀社區中心一樓A室及B室"
   ],
-  "tel": "24452555"
+  "tel": "24452555",
+  "point": [
+   22.450194,
+   114.004416
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2028,7 +2947,12 @@ export const UNITS = [
   "address": [
    "新界元朗體育路四號一樓"
   ],
-  "tel": "24766036"
+  "tel": "24766036",
+  "point": [
+   22.443573,
+   114.021874
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2038,7 +2962,12 @@ export const UNITS = [
   "address": [
    "新界元朗洪水橋洪元路洪福邨洪盛樓地下"
   ],
-  "tel": "24431533"
+  "tel": "24431533",
+  "point": [
+   22.437939,
+   113.996919
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2049,7 +2978,12 @@ export const UNITS = [
    "新界元朗天水圍天慈邨慈輝樓地下C翼",
    "新界元朗天水圍天慈邨慈輝樓地下B翼 (部份)"
   ],
-  "tel": "24450013"
+  "tel": "24450013",
+  "point": [
+   22.453541,
+   114.008026
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2060,7 +2994,12 @@ export const UNITS = [
    "新界荃灣梨木樹邨1座203B-205室",
    "新界荃灣梨木樹邨康樹樓地下"
   ],
-  "tel": "24277188"
+  "tel": "24277188",
+  "point": [
+   22.377985,
+   114.134412
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2070,7 +3009,12 @@ export const UNITS = [
   "address": [
    "新界荃灣石圍角邨石蓮樓地下31-38號"
   ],
-  "tel": "24162034"
+  "tel": "24162034",
+  "point": [
+   22.375501,
+   114.123325
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2081,7 +3025,12 @@ export const UNITS = [
    "新界荃灣福來邨永樂樓11至16號地下"
   ],
   "tel": "24127844",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.37369,
+   114.114579
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2091,7 +3040,12 @@ export const UNITS = [
   "address": [
    "新界荃灣青山公路荃灣段620號麗城薈二期地下13號舖"
   ],
-  "tel": "24051883"
+  "tel": "24051883",
+  "point": [
+   22.371686,
+   114.100545
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2102,7 +3056,12 @@ export const UNITS = [
    "新界荃灣仁濟街18號仁濟醫院綜合服務大樓地下",
    "新界荃灣青山道99-113號荃灣浸信會大樓5樓"
   ],
-  "tel": "24396776"
+  "tel": "24396776",
+  "point": [
+   22.369399,
+   114.118707
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2113,7 +3072,12 @@ export const UNITS = [
    "新界青山公路 - 深井段 38號海韻花園商場地下H2號"
   ],
   "tel": "24911909",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.368192,
+   114.061241
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2123,7 +3087,12 @@ export const UNITS = [
   "address": [
    "新界荃灣荃景圍76-84號荃景花園10座地下"
   ],
-  "tel": "24983335"
+  "tel": "24983335",
+  "point": [
+   22.378281,
+   114.11005
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2133,7 +3102,12 @@ export const UNITS = [
   "address": [
    "新界葵涌葵興邨興福樓地下1-1A號"
   ],
-  "tel": "24281011"
+  "tel": "24281011",
+  "point": [
+   22.36638,
+   114.132058
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2144,7 +3118,12 @@ export const UNITS = [
    "新界葵涌大窩口邨富安樓地下9-10號及17-20號"
   ],
   "tel": "24288563",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.368171,
+   114.124448
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2154,7 +3133,12 @@ export const UNITS = [
   "address": [
    "長青邨青荷樓平臺一樓"
   ],
-  "tel": "24331666"
+  "tel": "24331666",
+  "point": [
+   22.349282,
+   114.107393
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2164,7 +3148,12 @@ export const UNITS = [
   "address": [
    "新界青衣長安邨安泊樓地下123-132號"
   ],
-  "tel": "24973333"
+  "tel": "24973333",
+  "point": [
+   22.359915,
+   114.105224
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2174,7 +3163,12 @@ export const UNITS = [
   "address": [
    "新界葵涌石蔭邨石蔭商場平臺A單位"
   ],
-  "tel": "24201906"
+  "tel": "24201906",
+  "point": [
+   22.371456,
+   114.138634
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2185,7 +3179,12 @@ export const UNITS = [
    "新界青衣青衣邨宜偉樓B翼地下"
   ],
   "tel": "24336414",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.355358,
+   114.103555
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2197,7 +3196,12 @@ export const UNITS = [
    "新界青衣長發邨敬發樓地下102室"
   ],
   "tel": "24335822",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.363118,
+   114.103057
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2208,7 +3212,12 @@ export const UNITS = [
    "新界青衣長亨邨長亨商場一樓101室",
    "新界青衣長亨邨亨俊樓B翼地下11、13及14號室"
   ],
-  "tel": "24327232"
+  "tel": "24327232",
+  "point": [
+   22.354555,
+   114.097751
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2218,7 +3227,12 @@ export const UNITS = [
   "address": [
    "新界葵涌葵盛東邨盛豐樓地下G1及G3室"
   ],
-  "tel": "24803483"
+  "tel": "24803483",
+  "point": [
+   22.363713,
+   114.129266
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2229,7 +3243,12 @@ export const UNITS = [
    "新界葵涌安蔭邨祥蔭樓地下及G02室"
   ],
   "tel": "24947866",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.371926,
+   114.142223
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2240,7 +3259,12 @@ export const UNITS = [
    "新界葵涌麗瑤邨樂瑤樓地下102-106室",
    "新界葵涌祖堯邨啟光樓地下3-9室(部份)"
   ],
-  "tel": "27449308"
+  "tel": "27449308",
+  "point": [
+   22.353113,
+   114.130691
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2250,7 +3274,12 @@ export const UNITS = [
   "address": [
    "新界青衣長康邨康順樓地下C翼7-12號"
   ],
-  "tel": "24311321"
+  "tel": "24311321",
+  "point": [
+   22.350126,
+   114.099849
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2262,7 +3291,12 @@ export const UNITS = [
    "新界葵涌葵涌邨曉葵樓地下13-15號"
   ],
   "tel": "24201073",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.367368,
+   114.126021
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2272,7 +3306,12 @@ export const UNITS = [
   "address": [
    "新界葵涌荔景邨恒景樓一號鋪"
   ],
-  "tel": "27438723"
+  "tel": "27438723",
+  "point": [
+   22.345916,
+   114.125961
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2282,7 +3321,12 @@ export const UNITS = [
   "address": [
    "青衣青衣路18號青富苑青隆閣LG 3/F"
   ],
-  "tel": "21201688"
+  "tel": "21201688",
+  "point": [
+   22.342412,
+   114.10808
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2294,7 +3338,12 @@ export const UNITS = [
    "新界葵涌葵芳邨葵喜樓地下104號、108-110號"
   ],
   "tel": "24228526",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.358537,
+   114.129668
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2304,7 +3353,12 @@ export const UNITS = [
   "address": [
    "新界屯門安定邨安定/友愛社區中心地下及1字樓"
   ],
-  "tel": "24519759"
+  "tel": "24519759",
+  "point": [
+   22.387555,
+   113.976589
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2315,7 +3369,12 @@ export const UNITS = [
    "新界屯門蝴蝶邨蝶影樓地下131-134室",
    "新界屯門湖景邨湖翠樓2-6室"
   ],
-  "tel": "24561922"
+  "tel": "24561922",
+  "point": [
+   22.376621,
+   113.962389
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2327,7 +3386,12 @@ export const UNITS = [
    "新界屯門三聖邨滿漁樓地下1, 2及3B室"
   ],
   "tel": "24522790",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.381474,
+   113.977532
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2338,7 +3402,12 @@ export const UNITS = [
    "新界屯門富泰邨服務設施大樓1字樓"
   ],
   "tel": "24537737",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.413074,
+   113.982589
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2349,7 +3418,12 @@ export const UNITS = [
    "新界屯門大興邨興耀樓地下15-17 及 19-21號"
   ],
   "tel": "24657163",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.404476,
+   113.970864
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2360,7 +3434,12 @@ export const UNITS = [
    "新界屯門蝴蝶邨蝴蝶灣社區中心地下"
   ],
   "tel": "24681109",
-  "meal": true
+  "meal": true,
+  "point": [
+   22.374826,
+   113.962007
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2371,7 +3450,12 @@ export const UNITS = [
    "新界屯門建生邨樂生樓地下B翼",
    "新界屯門寶田邨5座地下2-9室"
   ],
-  "tel": "24670188"
+  "tel": "24670188",
+  "point": [
+   22.406005,
+   113.96925
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2381,7 +3465,12 @@ export const UNITS = [
   "address": [
    "新界屯門田景邨田裕樓地下14-15室"
   ],
-  "tel": "24547188"
+  "tel": "24547188",
+  "point": [
+   22.405821,
+   113.964755
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "長者鄰舍中心",
@@ -2391,7 +3480,12 @@ export const UNITS = [
   "address": [
    "屯門興貴街35號和田邨和善樓1樓"
   ],
-  "tel": "28896280"
+  "tel": "28896280",
+  "point": [
+   22.414867,
+   113.968584
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2413,7 +3507,12 @@ export const UNITS = [
    "南區",
    "離島區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.286608,
+   114.155012
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2435,7 +3534,12 @@ export const UNITS = [
    "南區",
    "離島區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.284828,
+   114.144076
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2456,7 +3560,12 @@ export const UNITS = [
    "南區",
    "離島區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.248445,
+   114.157171
+  ],
+  "siteDistrict": "南區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2478,7 +3587,12 @@ export const UNITS = [
    "南區",
    "離島區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.283099,
+   114.128823
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2500,7 +3614,12 @@ export const UNITS = [
    "南區",
    "離島區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.249681,
+   114.149449
+  ],
+  "siteDistrict": "南區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2520,7 +3639,12 @@ export const UNITS = [
    "南區",
    "離島區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.280935,
+   113.938387
+  ],
+  "siteDistrict": "離島區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2545,7 +3669,12 @@ export const UNITS = [
    "南區",
    "離島區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.288861,
+   113.942449
+  ],
+  "siteDistrict": "離島區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2565,7 +3694,12 @@ export const UNITS = [
    "東區",
    "灣仔區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.288343,
+   114.191246
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2585,7 +3719,12 @@ export const UNITS = [
    "東區",
    "灣仔區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.290309,
+   114.208034
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2605,7 +3744,12 @@ export const UNITS = [
    "東區",
    "灣仔區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.263703,
+   114.236339
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2625,7 +3769,12 @@ export const UNITS = [
    "東區",
    "灣仔區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.263326,
+   114.239977
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2646,7 +3795,12 @@ export const UNITS = [
    "東區",
    "灣仔區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.292707,
+   114.200755
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2667,7 +3821,12 @@ export const UNITS = [
    "東區",
    "灣仔區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.280082,
+   114.227234
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2688,7 +3847,12 @@ export const UNITS = [
    "東區",
    "灣仔區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.273362,
+   114.173653
+  ],
+  "siteDistrict": "灣仔區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2707,7 +3871,12 @@ export const UNITS = [
   "districts": [
    "觀塘區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.329123,
+   114.210401
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2726,7 +3895,12 @@ export const UNITS = [
   "districts": [
    "觀塘區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.315697,
+   114.233662
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2745,7 +3919,12 @@ export const UNITS = [
   "districts": [
    "觀塘區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.302744,
+   114.239965
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2764,7 +3943,12 @@ export const UNITS = [
   "districts": [
    "觀塘區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.318564,
+   114.217435
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2784,7 +3968,12 @@ export const UNITS = [
   "districts": [
    "觀塘區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.311698,
+   114.228886
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2804,7 +3993,12 @@ export const UNITS = [
   "districts": [
    "觀塘區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.331575,
+   114.227262
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2823,7 +4017,12 @@ export const UNITS = [
   "districts": [
    "觀塘區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.302831,
+   114.236448
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2844,7 +4043,12 @@ export const UNITS = [
    "黃大仙區",
    "西貢區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.382044,
+   114.272417
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2864,7 +4068,12 @@ export const UNITS = [
    "黃大仙區",
    "西貢區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.304777,
+   114.263418
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2884,7 +4093,12 @@ export const UNITS = [
    "黃大仙區",
    "西貢區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.320975,
+   114.26006
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2904,7 +4118,12 @@ export const UNITS = [
    "黃大仙區",
    "西貢區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.345124,
+   114.197365
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2924,7 +4143,12 @@ export const UNITS = [
    "黃大仙區",
    "西貢區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.341055,
+   114.194324
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2945,7 +4169,12 @@ export const UNITS = [
    "黃大仙區",
    "西貢區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.305938,
+   114.250898
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2966,7 +4195,12 @@ export const UNITS = [
    "黃大仙區",
    "西貢區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.331991,
+   114.193476
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -2986,7 +4220,12 @@ export const UNITS = [
    "九龍城區",
    "油尖旺區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.323107,
+   114.189166
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3006,7 +4245,12 @@ export const UNITS = [
    "九龍城區",
    "油尖旺區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.320249,
+   114.188434
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3026,7 +4270,12 @@ export const UNITS = [
    "九龍城區",
    "油尖旺區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.317142,
+   114.187988
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3046,7 +4295,12 @@ export const UNITS = [
    "九龍城區",
    "油尖旺區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.309873,
+   114.169702
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3070,7 +4324,12 @@ export const UNITS = [
    "九龍城區",
    "油尖旺區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.307497,
+   114.189045
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3089,7 +4348,13 @@ export const UNITS = [
    "九龍城區",
    "油尖旺區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.32154,
+   114.16913
+  ],
+  "siteDistrict": "油尖旺區",
+  "pointSource": "als"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3110,7 +4375,12 @@ export const UNITS = [
    "九龍城區",
    "油尖旺區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.300246,
+   114.174186
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3129,7 +4399,12 @@ export const UNITS = [
   "districts": [
    "深水埗區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.339971,
+   114.158809
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3148,7 +4423,12 @@ export const UNITS = [
   "districts": [
    "深水埗區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.330499,
+   114.170264
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3168,7 +4448,12 @@ export const UNITS = [
   "districts": [
    "深水埗區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.335257,
+   114.157266
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3187,7 +4472,12 @@ export const UNITS = [
   "districts": [
    "深水埗區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.327012,
+   114.1575
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3206,7 +4496,12 @@ export const UNITS = [
   "districts": [
    "深水埗區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.333686,
+   114.165148
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3225,7 +4520,12 @@ export const UNITS = [
   "districts": [
    "沙田區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.388158,
+   114.194606
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3244,7 +4544,12 @@ export const UNITS = [
   "districts": [
    "沙田區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.385549,
+   114.186905
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3263,7 +4568,12 @@ export const UNITS = [
   "districts": [
    "沙田區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.420759,
+   114.231452
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3282,7 +4592,12 @@ export const UNITS = [
   "districts": [
    "沙田區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.417356,
+   114.226798
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3302,7 +4617,12 @@ export const UNITS = [
   "districts": [
    "沙田區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.378938,
+   114.193916
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3322,7 +4642,12 @@ export const UNITS = [
    "大埔區",
    "北區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.44654,
+   114.165936
+  ],
+  "siteDistrict": "大埔區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3342,7 +4667,12 @@ export const UNITS = [
    "大埔區",
    "北區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.450911,
+   114.164206
+  ],
+  "siteDistrict": "大埔區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3362,7 +4692,12 @@ export const UNITS = [
    "大埔區",
    "北區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.501637,
+   114.128835
+  ],
+  "siteDistrict": "北區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3382,14 +4717,19 @@ export const UNITS = [
    "大埔區",
    "北區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.494705,
+   114.138206
+  ],
+  "siteDistrict": "北區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
   "name": "明愛粉嶺綜合家庭服務中心",
   "agency": "香港明愛",
   "address": [
-   "新界粉嶺和鳴里7號粉嶺南政府綜合大樓3樓及4樓 \n分處︰新界粉嶺皇后山邨皇順樓M層"
+   "新界粉嶺和鳴里7號粉嶺南政府綜合大樓3樓及4樓\n分處︰新界粉嶺皇后山邨皇順樓M層"
   ],
   "tel": "26692316",
   "hours": [
@@ -3403,7 +4743,12 @@ export const UNITS = [
    "大埔區",
    "北區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.485043,
+   114.142572
+  ],
+  "siteDistrict": "北區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3422,7 +4767,12 @@ export const UNITS = [
   "districts": [
    "元朗區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.445251,
+   114.026922
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3441,7 +4791,12 @@ export const UNITS = [
   "districts": [
    "元朗區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.444359,
+   114.02504
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3460,7 +4815,12 @@ export const UNITS = [
   "districts": [
    "元朗區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.45256,
+   114.003477
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3479,7 +4839,12 @@ export const UNITS = [
   "districts": [
    "元朗區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.46248,
+   114.00064
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3499,7 +4864,12 @@ export const UNITS = [
   "districts": [
    "元朗區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.457167,
+   113.995654
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3521,7 +4891,12 @@ export const UNITS = [
   "districts": [
    "元朗區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.444017,
+   114.029455
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3541,7 +4916,12 @@ export const UNITS = [
    "荃灣區",
    "葵青區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.371522,
+   114.114762
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3561,7 +4941,12 @@ export const UNITS = [
    "荃灣區",
    "葵青區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.365063,
+   114.138339
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3581,7 +4966,12 @@ export const UNITS = [
    "荃灣區",
    "葵青區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.363129,
+   114.131543
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3601,7 +4991,12 @@ export const UNITS = [
    "荃灣區",
    "葵青區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.361013,
+   114.101233
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3621,7 +5016,12 @@ export const UNITS = [
    "荃灣區",
    "葵青區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.350402,
+   114.099268
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3642,7 +5042,12 @@ export const UNITS = [
    "荃灣區",
    "葵青區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.375118,
+   114.121985
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3663,7 +5068,12 @@ export const UNITS = [
    "荃灣區",
    "葵青區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.356111,
+   114.129235
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3682,7 +5092,12 @@ export const UNITS = [
   "districts": [
    "屯門區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.373953,
+   113.964265
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3701,7 +5116,12 @@ export const UNITS = [
   "districts": [
    "屯門區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.387468,
+   113.976462
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3720,7 +5140,12 @@ export const UNITS = [
   "districts": [
    "屯門區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.399833,
+   113.973586
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "綜合家庭服務中心／綜合服務中心",
@@ -3740,7 +5165,12 @@ export const UNITS = [
   "districts": [
    "屯門區"
   ],
-  "note": "服務範圍按社署行政區劃分"
+  "note": "服務範圍按社署行政區劃分",
+  "point": [
+   22.405507,
+   113.960997
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3750,7 +5180,19 @@ export const UNITS = [
   "address": [
    "上環皇后大道中 345 號上環市政大廈 11 字樓"
   ],
-  "tel": "28507237"
+  "tel": "28507237",
+  "point": [
+   22.286003,
+   114.149626
+  ],
+  "siteDistrict": "中西區",
+  "hours": [
+   "星期一 (2:00pm - 6:00 pm)",
+   "星期二 至 五 (2:00pm - 10:00 pm)",
+   "星期六 (10:00am - 10:00 pm)",
+   "星期日 (9:00am - 1:00 pm)",
+   "特定公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3760,7 +5202,18 @@ export const UNITS = [
   "address": [
    "西營盤第三街 208 號毓明閣地下高層"
   ],
-  "tel": "25461053"
+  "tel": "25461053",
+  "point": [
+   22.285666,
+   114.137701
+  ],
+  "siteDistrict": "中西區",
+  "hours": [
+   "星期一 (2:00pm-6:00pm )",
+   "星期二至五 (2:00pm-10:00pm)",
+   "星期日 (10:00am-2:00pm)",
+   "除『復活節』、『清明節』、『勞動節』及『佛誕』外(開放時間與星期日相同),其餘公眾假期均不開放。"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3771,7 +5224,17 @@ export const UNITS = [
    "西環域多利道 9-15 號百年大樓 1 座 1 樓前座",
    "香港堅尼地城西環邨北苑台附翼二樓"
   ],
-  "tel": "28188356"
+  "tel": "28188356",
+  "point": [
+   22.281967,
+   114.125775
+  ],
+  "siteDistrict": "中西區",
+  "hours": [
+   "星期一、日及公眾假期休息",
+   "星期二、四至六 (10:00 am –10:00 pm)",
+   "星期三 (10:00 am - 1:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3781,7 +5244,16 @@ export const UNITS = [
   "address": [
    "香港仔石排灣邨碧銀樓平台 1 號"
   ],
-  "tel": "25505827"
+  "tel": "25505827",
+  "point": [
+   22.249412,
+   114.157327
+  ],
+  "siteDistrict": "南區",
+  "hours": [
+   "星期二至五 (2:00pm - 10:00pm)",
+   "星期六 (9:00am-1:00pm 及 2:00pm-10:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3792,7 +5264,18 @@ export const UNITS = [
    "香港仔鴨脷洲海怡半島海怡東商場海怡社區中心二樓",
    "香港仔鴨脷洲邨利福樓低座地下 9-13 室 (分處)"
   ],
-  "tel": "25522111"
+  "tel": "25522111",
+  "point": [
+   22.243269,
+   114.148257
+  ],
+  "siteDistrict": "南區",
+  "hours": [
+   "星期一 (2:00pm - 5:45 pm)",
+   "星期二 至 五 (2:00pm - 9:45 pm)",
+   "星期六 (10:00am - 9:45 pm)",
+   "星期日及特定公眾假期 (9:00am - 12:45 pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3803,7 +5286,19 @@ export const UNITS = [
    "香港仔華貴邨華貴社區中心一樓及三樓",
    "香港仔華富(II)邨華泰樓 120-124 室 (分處)"
   ],
-  "tel": "25503622"
+  "tel": "25503622",
+  "point": [
+   22.250167,
+   114.138031
+  ],
+  "siteDistrict": "南區",
+  "hours": [
+   "星期一 (2:00pm - 6:00 pm)",
+   "星期二至五 ( 2:00pm - 10:00 pm)",
+   "星期六 (10:00am - 10:00pm)",
+   "星期日 (10:00am - 2:00pm)",
+   "特定公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3813,7 +5308,19 @@ export const UNITS = [
   "address": [
    "香港赤柱佳美道赤柱廣場 5 樓 L5"
   ],
-  "tel": "25235187"
+  "tel": "25235187",
+  "point": [
+   22.219689,
+   114.209618
+  ],
+  "siteDistrict": "南區",
+  "hours": [
+   "星期一 (休息)",
+   "星期二至五 ( 2:00pm-10:00pm )",
+   "星期六 (10:00am-10:00pm )",
+   "星期日 (10:00am-2:00pm )",
+   "指定公眾假期：耶穌受難節、耶穌受難節翌日、復活節、清明節、勞動節、佛誕 (2:00pm-6:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3823,7 +5330,16 @@ export const UNITS = [
   "address": [
    "香港鴨脷洲利東邨東平樓地下 101-116 號"
   ],
-  "tel": "28748121"
+  "tel": "28748121",
+  "point": [
+   22.241754,
+   114.157522
+  ],
+  "siteDistrict": "南區",
+  "hours": [
+   "星期一及日 (2:00pm - 5:45pm)",
+   "星期二至六 (2:00pm - 9:45pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3833,7 +5349,18 @@ export const UNITS = [
   "address": [
    "長洲雅寧苑豪澤閣地下"
   ],
-  "tel": "29811441"
+  "tel": "29811441",
+  "point": [
+   22.203386,
+   114.02674
+  ],
+  "siteDistrict": "離島區",
+  "hours": [
+   "星期一及公眾假期休息",
+   "星期二至五 ( 2:00pm-10:00pm )",
+   "星期六 (10:00am-10:00pm )",
+   "星期日 (10:00am-6:00pm )"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3845,7 +5372,19 @@ export const UNITS = [
    "大嶼山愉景灣海澄湖畔路 99 號 (分處)",
    "大嶼山大澳龍田邨龍田商場一樓(分處)"
   ],
-  "tel": "31417107"
+  "tel": "31417107",
+  "point": [
+   22.281021,
+   113.935524
+  ],
+  "siteDistrict": "離島區",
+  "hours": [
+   "星期一、二、四、五及六 (8:00am-10:00pm)",
+   "星期三 (2:00pm-10:00pm)",
+   "星期日 (2:00pm-6:00pm)",
+   "公眾假期 (10:00am-6:00pm)",
+   "[年初一、年初二、年初三及清明節休息]"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3856,7 +5395,17 @@ export const UNITS = [
    "柴灣小西灣邨瑞樂樓地下 1-10 號",
    "柴灣小西灣邨瑞福樓地下 11-13 號(分處)"
   ],
-  "tel": "25573748"
+  "tel": "25573748",
+  "point": [
+   22.261344,
+   114.248455
+  ],
+  "siteDistrict": "東區",
+  "hours": [
+   "星期一至五 (2:00.m. - 10:00 pm)",
+   "星期六 (10:00am - 10:00pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3866,7 +5415,16 @@ export const UNITS = [
   "address": [
    "鰂魚涌康安街 18 號康怡花園 1 字樓"
   ],
-  "tel": "28862751"
+  "tel": "28862751",
+  "point": [
+   22.283628,
+   114.217028
+  ],
+  "siteDistrict": "東區",
+  "hours": [
+   "星期一至五 (2:00pm – 10:00 pm)",
+   "星期六 (10:00 am – 10:00 pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3876,7 +5434,17 @@ export const UNITS = [
   "address": [
    "北角和富道 51-53 號地下"
   ],
-  "tel": "25610251"
+  "tel": "25610251",
+  "point": [
+   22.292305,
+   114.197348
+  ],
+  "siteDistrict": "東區",
+  "hours": [
+   "星期二至五 (2:00pm–6:00 pm, 7:00 pm - 9:45 pm)",
+   "星期六及日 (10:00 am – 1:00 pm, 2:00 pm – 6:00 pm)",
+   "星期一及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3886,7 +5454,15 @@ export const UNITS = [
   "address": [
    "筲箕灣寶文街一號峻峰花園一至二樓"
   ],
-  "tel": "28859353"
+  "tel": "28859353",
+  "point": [
+   22.278972,
+   114.229385
+  ],
+  "siteDistrict": "東區",
+  "hours": [
+   "星期一、日 ( 2:00pm-6:00pm )星期二至六 ( 2:00pm-10:00pm )"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3897,7 +5473,17 @@ export const UNITS = [
    "北角丹拿道 53 號港運城 2 樓",
    "北角七姊妹道 186 號健康邨一期平台第 1 及第 2 層 (分處)"
   ],
-  "tel": "25723545"
+  "tel": "25723545",
+  "point": [
+   22.290826,
+   114.202132
+  ],
+  "siteDistrict": "東區",
+  "hours": [
+   "星期一至五 (2:00 pm – 5:30pm, 6:30 pm - 10:00 pm)",
+   "星期六 (10:00 am – 1:00 pm, 2:00 pm – 5:30pm, 6:30 pm - 10:00 pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3907,7 +5493,18 @@ export const UNITS = [
   "address": [
    "筲箕灣愛秩序灣道 15 號愛秩序灣綜合服務大樓一樓"
   ],
-  "tel": "25273451"
+  "tel": "25273451",
+  "point": [
+   22.280082,
+   114.227234
+  ],
+  "siteDistrict": "東區",
+  "hours": [
+   "星期一及公眾假期休息",
+   "星期二至五 (2:00pm-5:45pm, 7:00pm-9:45pm)",
+   "星期六 (10:00am-12:45pm, 2:00pm- 5:45pm, 7:00pm-9:45pm)",
+   "星期日 (2:00pm-5:45pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3918,7 +5515,17 @@ export const UNITS = [
    "筲箕灣耀東邨耀華樓地下 B 翼及 C 翼 及 1 樓 B 翼",
    "柴灣柴灣道 100 號四樓及五樓 (部份) (分處)"
   ],
-  "tel": "28859844"
+  "tel": "28859844",
+  "point": [
+   22.278901,
+   114.22116
+  ],
+  "siteDistrict": "東區",
+  "hours": [
+   "星期一及公眾假期休息",
+   "星期二至六 (2:00pm-6:00pm, 7:00pm-10:00pm)",
+   "星期日 (2:00pm-6:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3929,7 +5536,18 @@ export const UNITS = [
    "柴灣環翠邨環翠商場二樓 201 號舖",
    "柴灣環翠邨怡翠樓 104 室 (分處)"
   ],
-  "tel": "28989750"
+  "tel": "28989750",
+  "point": [
+   22.262884,
+   114.23825
+  ],
+  "siteDistrict": "東區",
+  "hours": [
+   "星期一及公眾假期休息",
+   "星期二至五 (2:00pm-10:00pm)",
+   "星期六 (10:00am-10:00pm)",
+   "星期日 (2:00pm-6:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3940,7 +5558,18 @@ export const UNITS = [
    "柴灣興華邨二期商場",
    "柴灣興華邨二期樂興樓地下 2-5 號 (分處)"
   ],
-  "tel": "34285753"
+  "tel": "34285753",
+  "point": [
+   22.263185,
+   114.233401
+  ],
+  "siteDistrict": "東區",
+  "hours": [
+   "星期一、三、六 (10:00am-6:00pm)",
+   "星期二 (10:00am-10:00pm)",
+   "星期四、五 (2:00pm-6:00pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3950,7 +5579,18 @@ export const UNITS = [
   "address": [
    "香港灣仔愛群道 36 號 1 樓及 3 樓"
   ],
-  "tel": "34131556"
+  "tel": "34131556",
+  "point": [
+   22.277417,
+   114.179281
+  ],
+  "siteDistrict": "灣仔區",
+  "hours": [
+   "星期日及一 (9:30pm- 1pm, 2:00 pm - 6:00 pm)",
+   "星期二至四及六 (9:30pm- 1pm, 2:00pm - 6:00pm, 7:30 pm - 9:30 pm)",
+   "星期五 (2:00pm - 6pm, 7:30 pm - 9:30 pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3961,7 +5601,17 @@ export const UNITS = [
    "香港大坑勵德邨邨榮樓 5 座 1 樓 (中心)",
    "香港大坑勵德邨邨榮樓 5 座 2 樓及 8 座 1 樓(分處)"
   ],
-  "tel": "25713117"
+  "tel": "25713117",
+  "point": [
+   22.277822,
+   114.194495
+  ],
+  "siteDistrict": "灣仔區",
+  "hours": [
+   "星期一、三、五 (2:00pm-10:00pm)",
+   "星期二、四、六 (10:00am-6:00pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3971,7 +5621,18 @@ export const UNITS = [
   "address": [
    "紅磡黃埔花園第八期螢幕圈 1 字樓"
   ],
-  "tel": "23633719"
+  "tel": "23633719",
+  "point": [
+   22.305227,
+   114.190894
+  ],
+  "siteDistrict": "九龍城區",
+  "hours": [
+   "星期一至星期五︰下午2時至晚上10時",
+   "星期六︰上午10時至下午6時",
+   "星期日︰下午2時至下午6時",
+   "公眾假期 : 休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3981,7 +5642,17 @@ export const UNITS = [
   "address": [
    "紅磡黃埔花園第二期 18 座地下及一樓"
   ],
-  "tel": "23562133"
+  "tel": "23562133",
+  "point": [
+   22.303912,
+   114.189277
+  ],
+  "siteDistrict": "九龍城區",
+  "hours": [
+   "星期二至五︰下午2時至晚上10時",
+   "星期六︰上午10時至晚上10時",
+   "星期日及公眾假期 : 上午10時至下午6時"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -3992,7 +5663,16 @@ export const UNITS = [
    "土瓜灣農圃道 11 號地下",
    "九龍城馬頭圍邨玫瑰樓地下 107 室(分處)"
   ],
-  "tel": "27150424"
+  "tel": "27150424",
+  "point": [
+   22.321206,
+   114.187046
+  ],
+  "siteDistrict": "九龍城區",
+  "hours": [
+   "星期一及星期日︰下午2時至6時",
+   "星期二至星期六︰下午2時至晚上10時"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4002,7 +5682,16 @@ export const UNITS = [
   "address": [
    "紅磡馬頭圍道 48 號家維邨家興樓 3 至 5 樓"
   ],
-  "tel": "27745300"
+  "tel": "27745300",
+  "point": [
+   22.308446,
+   114.187414
+  ],
+  "siteDistrict": "九龍城區",
+  "hours": [
+   "星期一及星期日: 下午2時至下午6時",
+   "星期二至星期六︰下午2時至晚上10時"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4012,7 +5701,18 @@ export const UNITS = [
   "address": [
    "九龍城啟晴邨晴朗商場二樓A205舖"
   ],
-  "tel": "27119229"
+  "tel": "27119229",
+  "point": [
+   22.331678,
+   114.202768
+  ],
+  "siteDistrict": "九龍城區",
+  "hours": [
+   "星期二至五 (2:00pm - 10:00pm)",
+   "星期六(10:00am - 10:00pm)",
+   "星期日(9:00am - 5:00pm)",
+   "*  1:00pm - 2:00pm 及 6:00pm - 7:00pm 為午/晚膳時間"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4023,7 +5723,18 @@ export const UNITS = [
    "何文田何文田邨恬文樓地下",
    "何文田愛民邨嘉民樓 501-505 室 (分處)"
   ],
-  "tel": "27181330"
+  "tel": "27181330",
+  "point": [
+   22.315526,
+   114.182183
+  ],
+  "siteDistrict": "九龍城區",
+  "hours": [
+   "星期一及星期二︰上午10時15分至下午1時;下午2時15分至下午5時45分",
+   "星期四至星期六︰下2時15分至下午5時45分;下午6時45分至晚上9時45分",
+   "星期日︰下午2時15分至5時45分",
+   "星期三及公眾假期︰暫停偶到服務"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4033,7 +5744,17 @@ export const UNITS = [
   "address": [
    "尖沙咀柯士甸道西 1 號 1 樓 101 室"
   ],
-  "tel": "27811411"
+  "tel": "27811411",
+  "point": [
+   22.304958,
+   114.161522
+  ],
+  "siteDistrict": "油尖旺區",
+  "hours": [
+   "星期一至星期四 :下午2時至晚上10時",
+   "星期五及星期六︰上午10時至晚上10時",
+   "星期日及公眾假期︰休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4043,7 +5764,17 @@ export const UNITS = [
   "address": [
    "旺角上海街 557 號旺角綜合大樓三樓"
   ],
-  "tel": "23881991"
+  "tel": "23881991",
+  "point": [
+   22.318666,
+   114.167956
+  ],
+  "siteDistrict": "油尖旺區",
+  "hours": [
+   "星期一至五︰下午2時至晚上10時",
+   "星期六︰上午10時至下午1時;下午2時至晚上10時",
+   "星期日及公眾假期︰休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4053,7 +5784,18 @@ export const UNITS = [
   "address": [
    "油麻地眾坊街 3 號駿發花園 4 座平台"
   ],
-  "tel": "27708933"
+  "tel": "27708933",
+  "point": [
+   22.310848,
+   114.168334
+  ],
+  "siteDistrict": "油尖旺區",
+  "hours": [
+   "星期二至星期五︰下午2時至晚上10時",
+   "星期六︰上午10時至晚上10時",
+   "星期日︰下午2時至下午6時",
+   "星期一及公眾假期︰休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4063,7 +5805,18 @@ export const UNITS = [
   "address": [
    "大角咀通洲街 28 號頌賢花園商場地下 2 號及 9 號舖"
   ],
-  "tel": "23922133"
+  "tel": "23922133",
+  "point": [
+   22.323834,
+   114.164179
+  ],
+  "siteDistrict": "油尖旺區",
+  "hours": [
+   "星期一及星期日︰下午2時至下午6時",
+   "星期二、星期四、星期五及星期六︰上午10時至晚上10時",
+   "星期三︰上午10時至下午6時",
+   "公眾假期︰休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4073,7 +5826,18 @@ export const UNITS = [
   "address": [
    "旺角海泓道海富苑海欣閣二樓"
   ],
-  "tel": "23320969"
+  "tel": "23320969",
+  "point": [
+   22.316013,
+   114.164907
+  ],
+  "siteDistrict": "油尖旺區",
+  "hours": [
+   "星期一及星期二︰上午10時15分至下午12時45分;下午2時15分至5時45分",
+   "星期四至星期六︰下午2時15分至下午5時45分;下午7時至晚上9時30分",
+   "星期日︰下午2時15分至5時45分",
+   "中秋節、冬至及農曆新年除夕晚上︰暫停開放"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4084,7 +5848,18 @@ export const UNITS = [
    "長沙灣麗閣邨麗荷樓地下 101-120 室",
    "長沙灣麗閣邨麗閣商場 3 樓 311-314 室 (分處)"
   ],
-  "tel": "27292294"
+  "tel": "27292294",
+  "point": [
+   22.333649,
+   114.157684
+  ],
+  "siteDistrict": "深水埗區",
+  "hours": [
+   "星期二至星期六：下午2時至下午6時",
+   "星期二及星期六：上午10時至下午2時",
+   "星期三至期六日：下午6時至下午10時",
+   "星期日及公眾假期：休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4094,7 +5869,19 @@ export const UNITS = [
   "address": [
    "美孚美荔道 33 號美孚政府綜合大樓 4 樓及 5 樓"
   ],
-  "tel": "27416294"
+  "tel": "27416294",
+  "point": [
+   22.337633,
+   114.14133
+  ],
+  "siteDistrict": "深水埗區",
+  "hours": [
+   "星期三至星期六：下午6時至下午10時",
+   "星期二至星期六：下午2時至下午6時",
+   "星期二及星期六：上午10時至下午2時",
+   "星期日 ：上午9時至下午1時",
+   "星期一及公眾假期：休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4104,7 +5891,17 @@ export const UNITS = [
   "address": [
    "石硤尾窩仔街 100 號石硤尾邨第二期服務設施大樓6樓A"
   ],
-  "tel": "27782727"
+  "tel": "27782727",
+  "point": [
+   22.333162,
+   114.167129
+  ],
+  "siteDistrict": "深水埗區",
+  "hours": [
+   "星期 一至星期五：下午2時至下午10時",
+   "星期六：上午10時至下午1時 ; 下午2時至下午10時",
+   "星期日及公眾假期：休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4115,7 +5912,17 @@ export const UNITS = [
    "深水埗李鄭屋邨仁愛樓 101 號地下",
    "深水埗李鄭屋邨和平樓 314 室 (分處)"
   ],
-  "tel": "27298216"
+  "tel": "27298216",
+  "point": [
+   22.338761,
+   114.159159
+  ],
+  "siteDistrict": "深水埗區",
+  "hours": [
+   "星期一及六：下午2時至下午6時",
+   "星期二至五：下午7時至下午10分",
+   "星期六：上午10時至下午1時"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4125,7 +5932,18 @@ export const UNITS = [
   "address": [
    "香港九龍深水埗深旺道 38 號海達邨服務設施大樓七樓"
   ],
-  "tel": "27799556"
+  "tel": "27799556",
+  "point": [
+   22.330769,
+   114.148761
+  ],
+  "siteDistrict": "深水埗區",
+  "hours": [
+   "星期一至星期六 ：下午2時至下午6時",
+   "星期二至五：下午7時至下午10時",
+   "星期二及星期五及星期六：上午10時至下午1時",
+   "星期日及公眾假期：休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4135,7 +5953,17 @@ export const UNITS = [
   "address": [
    "深水埗元州街 59-63 號元州街市政大廈五至六樓"
   ],
-  "tel": "27204318"
+  "tel": "27204318",
+  "point": [
+   22.332006,
+   114.163324
+  ],
+  "siteDistrict": "深水埗區",
+  "hours": [
+   "星期二、四及六：上午10時至下午1時;下午2時至下午6時;下午7時至下午9時30分",
+   "星期三及五 ：下午2時30分至下午6時;下午7時至下午9時30分",
+   "星期一及星期日 ：休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4145,7 +5973,17 @@ export const UNITS = [
   "address": [
    "深水埗富昌邨富潤樓服務設施大樓五字樓"
   ],
-  "tel": "21424628"
+  "tel": "21424628",
+  "point": [
+   22.327246,
+   114.155161
+  ],
+  "siteDistrict": "深水埗區",
+  "hours": [
+   "星期二及日：下午2時至下午6時",
+   "星期二至六：下午6時至下午10時",
+   "星期六 ：上午10時至下午2時"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4156,7 +5994,17 @@ export const UNITS = [
    "觀塘秀茂坪邨第三期秀樂樓地下",
    "觀塘秀茂坪邨秀旺樓地下"
   ],
-  "tel": "23480636"
+  "tel": "23480636",
+  "point": [
+   22.321441,
+   114.231326
+  ],
+  "siteDistrict": "觀塘區",
+  "hours": [
+   "星期一及日: 下午2時至下午6時",
+   "星期二 至 五: 下午2時至晚上10時",
+   "星期六: 上午10時至晚上10時"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4166,7 +6014,18 @@ export const UNITS = [
   "address": [
    "油塘高翔苑停車場大樓三樓一號"
   ],
-  "tel": "23433554"
+  "tel": "23433554",
+  "point": [
+   22.296889,
+   114.239837
+  ],
+  "siteDistrict": "觀塘區",
+  "hours": [
+   "星期一及特定公眾假期: 下午2時至下午6時",
+   "星期二至五: 下午2時至晚上10時",
+   "星期六: 上午10時至晚上10時",
+   "星期日: 上午10時至下午6時"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4176,7 +6035,18 @@ export const UNITS = [
   "address": [
    "藍田德田邨德敬樓一樓"
   ],
-  "tel": "27723198"
+  "tel": "27723198",
+  "point": [
+   22.310809,
+   114.238096
+  ],
+  "siteDistrict": "觀塘區",
+  "hours": [
+   "星期二至五:  下午2時至下午10時",
+   "星期日/ * 部份公眾假期： 下午2時至下午6時",
+   "星期六： 上午10時至下午1時; 下午2時至下午6時",
+   "* 耶穌受難節、耶穌受難節翌日、復活節星期一、清明節、勞動節、佛誔"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4186,7 +6056,17 @@ export const UNITS = [
   "address": [
    "觀塘翠屏北邨翠桃樓平台 1-20 號"
   ],
-  "tel": "27275445"
+  "tel": "27275445",
+  "point": [
+   22.315752,
+   114.229751
+  ],
+  "siteDistrict": "觀塘區",
+  "hours": [
+   "星期一至五:下午2時至晚上9時45分",
+   "星期六: 上午10時至晚上9時45分",
+   "星期日及公眾假期: 休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4197,7 +6077,17 @@ export const UNITS = [
    "藍田平田邨平信樓地下一號及平仁樓地下二號",
    "藍田廣田邨廣靖樓地下十號(分處)"
   ],
-  "tel": "27756033"
+  "tel": "27756033",
+  "point": [
+   22.306521,
+   114.235901
+  ],
+  "siteDistrict": "觀塘區",
+  "hours": [
+   "星期一至五: 下午2時至晚上9時45分",
+   "星期六: 上午10時至下午12時45分 ; 下午2時至晚上9時45分",
+   "星期日及公眾假期: 休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4207,7 +6097,17 @@ export const UNITS = [
   "address": [
    "香港九龍觀塘安達邨孝達樓地下"
   ],
-  "tel": "23426156"
+  "tel": "23426156",
+  "point": [
+   22.321039,
+   114.236175
+  ],
+  "siteDistrict": "觀塘區",
+  "hours": [
+   "星期二至五: 下午2時至下午6時 ; 晚上7時至晚上10時",
+   "星期六及日: 上午10時至下午1時 ; 下午2時至下午6時",
+   "星期一及公眾假期: 休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4218,7 +6118,17 @@ export const UNITS = [
    "九龍觀塘順天邨天柱樓地下",
    "觀塘翠屏道 3 號 8 樓 (分處)"
   ],
-  "tel": "29522192"
+  "tel": "29522192",
+  "point": [
+   22.325136,
+   114.227571
+  ],
+  "siteDistrict": "觀塘區",
+  "hours": [
+   "星期一: 下午2時至下午6時",
+   "星期二至六: 下午2時至下午6時 ; 晚上7時至晚上10時",
+   "星期日及公眾假期: 休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4229,7 +6139,16 @@ export const UNITS = [
    "觀塘坪石邨坪石酒樓地庫",
    "觀塘坪石邨翠石樓地下 121-122, 125-132 室(分處)"
   ],
-  "tel": "23252383"
+  "tel": "23252383",
+  "point": [
+   22.33306,
+   114.209072
+  ],
+  "siteDistrict": "觀塘區",
+  "hours": [
+   "星期一、日: 下午2時至下午6時",
+   "星期二至六: 下午2時至晚上10時"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4239,7 +6158,17 @@ export const UNITS = [
   "address": [
    "牛頭角彩德邨彩仁樓地下"
   ],
-  "tel": "27599821"
+  "tel": "27599821",
+  "point": [
+   22.330256,
+   114.212241
+  ],
+  "siteDistrict": "觀塘區",
+  "hours": [
+   "星期一至五(下午二時至下午十時)",
+   "星期六(上午十時至下午一時, 下午二時至下午十時)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4249,7 +6178,18 @@ export const UNITS = [
   "address": [
    "牛頭角道 189 號牛頭角上邨中央廣場"
   ],
-  "tel": "23422245"
+  "tel": "23422245",
+  "point": [
+   22.319757,
+   114.215562
+  ],
+  "siteDistrict": "觀塘區",
+  "hours": [
+   "星期一、二、四: 下午2時至晚上10時",
+   "星期三: 下午2時至下午6時",
+   "星期五: 上午10時至晚上10時",
+   "星期六: 上午10時至下午6時"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4259,7 +6199,17 @@ export const UNITS = [
   "address": [
    "九龍灣啟業邨啟祥樓地下 1-4, 10-13, 14-27 室"
   ],
-  "tel": "27549561"
+  "tel": "27549561",
+  "point": [
+   22.329999,
+   114.209353
+  ],
+  "siteDistrict": "觀塘區",
+  "hours": [
+   "星期二、四及五: 下午1時30分至下午5時15分 ; 晚上6時30分至晚上9時15分",
+   "星期三及六: 上午9時30分至下午12時15分 ; 下午1時30分至下午5時15分 ; 晚上6時30分至晚上9時15分",
+   "星期日上午9時30分至下午12時15分"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4269,7 +6219,17 @@ export const UNITS = [
   "address": [
    "牛頭角樂華邨樂華社區中心地下及三至五樓"
   ],
-  "tel": "27502521"
+  "tel": "27502521",
+  "point": [
+   22.320522,
+   114.222532
+  ],
+  "siteDistrict": "觀塘區",
+  "hours": [
+   "星期一、日: 休息",
+   "星期二、四及六: 上午10時至下午12時30分 ; 下午2時30分至下午5時30分 ; 晚上7時至晚上9時30分",
+   "星期三及五: 下午2時30分至下午6時 ; 晚上7時至晚上9時30分"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4279,7 +6239,16 @@ export const UNITS = [
   "address": [
    "觀塘馬蹄徑 1 號寶恩大廈一至二樓"
   ],
-  "tel": "23448989"
+  "tel": "23448989",
+  "point": [
+   22.314656,
+   114.222047
+  ],
+  "siteDistrict": "觀塘區",
+  "hours": [
+   "星期一至六: 上午10時至晚上9時45分",
+   "星期日及公眾假期: 休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4289,7 +6258,17 @@ export const UNITS = [
   "address": [
    "鑽石山鳳德邨社區中心 2 至 4 樓"
   ],
-  "tel": "23220993"
+  "tel": "23220993",
+  "point": [
+   22.343029,
+   114.201647
+  ],
+  "siteDistrict": "黃大仙區",
+  "hours": [
+   "星期一及公眾假期休息",
+   "星期二至五 (2:00pm - 9:30pm)",
+   "星期六及日 (9:30am - 5:30pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4300,7 +6279,18 @@ export const UNITS = [
    "鑽石山龍蟠苑商場 2 樓 203 室",
    "慈雲山慈樂邨樂仁樓地下 B 翼"
   ],
-  "tel": "23204005"
+  "tel": "23204005",
+  "point": [
+   22.341695,
+   114.200315
+  ],
+  "siteDistrict": "黃大仙區",
+  "hours": [
+   "星期一至三 (2:00pm - 6:00 pm)",
+   "星期四至五 ( 2:00pm - 10:00 pm)",
+   "星期六 (10:00am - 10:00pm)",
+   "星期日 (9:00am - 1:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4311,7 +6301,18 @@ export const UNITS = [
    "黃大仙東頭邨耀東樓地下",
    "黃大仙東頭邨裕東樓 1-6 室(分處)"
   ],
-  "tel": "23820265"
+  "tel": "23820265",
+  "point": [
+   22.33568,
+   114.193491
+  ],
+  "siteDistrict": "黃大仙區",
+  "hours": [
+   "星期一至五 ( 2:00pm-10:00pm )",
+   "星期六 (10:00am - 6:00pm)",
+   "星期日 (10:00am - 2:00pm)",
+   "特定公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4322,7 +6323,17 @@ export const UNITS = [
    "九龍彩雲邨彩鳳徑 38 號彩雲社區中心 3 至 4 樓",
    "九龍彩雲邨瓊宮樓地下 108-115 室 (分處)"
   ],
-  "tel": "27547840"
+  "tel": "27547840",
+  "point": [
+   22.335157,
+   114.213904
+  ],
+  "siteDistrict": "黃大仙區",
+  "hours": [
+   "星期一至五 (2:00pm - 10:00 pm)",
+   "星期六 (10:00am - 1:00 pm - 2:00 pm - 10:00pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4333,7 +6344,20 @@ export const UNITS = [
    "慈雲山慈民邨民健樓地下",
    "慈雲山慈正邨正輝樓地下 1 號 (分處)"
   ],
-  "tel": "23240111"
+  "tel": "23240111",
+  "point": [
+   22.348276,
+   114.202374
+  ],
+  "siteDistrict": "黃大仙區",
+  "hours": [
+   "星期一、二 (3:00pm-7:00pm)",
+   "星期三 (2:00pm-10:00pm)",
+   "星期四、五 (10:00am-10:00pm)",
+   "星期六 (10:00am-6:00pm)",
+   "星期日 (2:00pm-6:00pm)",
+   "星期一至六 下午1:00-2:00為午膳時間,中心暫停開放,查詢及報名暫停。晚上6:00-7:00為晚膳時間,中心照常開放。"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4344,7 +6368,17 @@ export const UNITS = [
    "橫頭磡邨宏光樓 101-105 及 110-112 室",
    "橫頭磡邨宏興樓地下(分處)"
   ],
-  "tel": "23377189"
+  "tel": "23377189",
+  "point": [
+   22.340001,
+   114.186452
+  ],
+  "siteDistrict": "黃大仙區",
+  "hours": [
+   "星期一 ( 2:00pm-6:00pm )",
+   "星期二至六 ( 2:00pm-10:00pm )",
+   "星期日 - 休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4355,7 +6389,17 @@ export const UNITS = [
    "黃大仙竹園南邨貴園樓地下 119-132 號",
    "黃大仙竹園北邨柏園樓地下 101-102 及 107-108 號 (分處)"
   ],
-  "tel": "27264103"
+  "tel": "27264103",
+  "point": [
+   22.344114,
+   114.190732
+  ],
+  "siteDistrict": "黃大仙區",
+  "hours": [
+   "星期一至五 (2:00 pm – 10:00 pm)",
+   "星期六 (10:00 am – 1:00 pm, 2:00 pm – 10:00 pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4366,7 +6410,17 @@ export const UNITS = [
    "黃大仙富山邨富信樓地庫一層 7-12 號",
    "慈雲山慈正邨正遠樓地下(分處)"
   ],
-  "tel": "23512655"
+  "tel": "23512655",
+  "point": [
+   22.342807,
+   114.209102
+  ],
+  "siteDistrict": "黃大仙區",
+  "hours": [
+   "星期一至五 (2:00 pm – 5:30 pm, 6:30 pm - 10:00 pm)",
+   "星期六 (10:00 am – 1:00 pm, 2:00 pm – 10:00 pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4377,7 +6431,12 @@ export const UNITS = [
    "黃大仙下邨黃大仙中心平台 2 樓",
    "黃大仙上邨啓善樓地下 (分處)"
   ],
-  "tel": "23260192"
+  "tel": "23260192",
+  "point": [
+   22.341351,
+   114.194189
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4387,7 +6446,18 @@ export const UNITS = [
   "address": [
    "將軍澳寶林邨寶勤樓東座二樓"
   ],
-  "tel": "27014388"
+  "tel": "27014388",
+  "point": [
+   22.324897,
+   114.256253
+  ],
+  "siteDistrict": "西貢區",
+  "hours": [
+   "星期一 (2:00pm - 6:00 pm)",
+   "星期二至五 ( 2:00pm - 10:00 pm)",
+   "星期六 (10:00am - 10:00pm)",
+   "星期日 (10:00am -2:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4397,7 +6467,17 @@ export const UNITS = [
   "address": [
    "將軍澳尚德邨尚智樓 4 樓平台"
   ],
-  "tel": "21783118"
+  "tel": "21783118",
+  "point": [
+   22.311634,
+   114.26053
+  ],
+  "siteDistrict": "西貢區",
+  "hours": [
+   "星期二、四及五 (2:15pm - 5:45 pm, 7:00pm – 9:45 pm)",
+   "星期三及星期六 (10:15 pm – 12:45 pm, 2:15pm - 5:45 pm, 7:00pm – 9:45 pm)",
+   "星期日 - 休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4407,7 +6487,20 @@ export const UNITS = [
   "address": [
    "將軍澳唐明苑停車場大樓地下"
   ],
-  "tel": "21774567"
+  "tel": "21774567",
+  "point": [
+   22.308683,
+   114.25618
+  ],
+  "siteDistrict": "西貢區",
+  "hours": [
+   "星期一及日 (2:00 pm- 6:00pm)",
+   "星期二 (9:30am - 9:30pm)",
+   "星期三 (2:00pm - 9:30pm)",
+   "星期四及六 (9:30am - 6:00pm)",
+   "星期五 (9:30am - 9:30pm)",
+   "特定公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4417,7 +6510,17 @@ export const UNITS = [
   "address": [
    "將軍澳康城路 1 號日出康城首都"
   ],
-  "tel": "27022202"
+  "tel": "27022202",
+  "point": [
+   22.295042,
+   114.271617
+  ],
+  "siteDistrict": "西貢區",
+  "hours": [
+   "星期一 ( 2:00pm-6:00pm )",
+   "星期二至六 ( 2:00pm-10:00pm )",
+   "星期日 - 休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4427,7 +6530,17 @@ export const UNITS = [
   "address": [
    "將軍澳明德邨明覺樓地下"
   ],
-  "tel": "26233121"
+  "tel": "26233121",
+  "point": [
+   22.31615,
+   114.269038
+  ],
+  "siteDistrict": "西貢區",
+  "hours": [
+   "星期一 ( 2:00pm-6:00pm )",
+   "星期二至六 ( 2:00pm-10:00pm )",
+   "星期日 - 休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4437,7 +6550,17 @@ export const UNITS = [
   "address": [
    "將軍澳貿泰路 8 號茵怡花園第二座平台一至二樓"
   ],
-  "tel": "29970321"
+  "tel": "29970321",
+  "point": [
+   22.322135,
+   114.256015
+  ],
+  "siteDistrict": "西貢區",
+  "hours": [
+   "星期一 ( 2:00pm-6:00pm )",
+   "星期二至六 ( 2:00pm-10:00pm )",
+   "星期日 - 休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4447,7 +6570,17 @@ export const UNITS = [
   "address": [
    "將軍澳調景嶺澳景路 88 號維景灣畔第十七座地庫第三層"
   ],
-  "tel": "27093388"
+  "tel": "27093388",
+  "point": [
+   22.303741,
+   114.25277
+  ],
+  "siteDistrict": "西貢區",
+  "hours": [
+   "星期一、日休息",
+   "星期二、四及六 (10:15 am – 1 :00 pm, 2:15pm-9:30 pm)",
+   "星期三及五 (2:15pm-9:30 pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4457,7 +6590,19 @@ export const UNITS = [
   "address": [
    "西貢美源街 8 號"
   ],
-  "tel": "27921762"
+  "tel": "27921762",
+  "point": [
+   22.384356,
+   114.27378
+  ],
+  "siteDistrict": "西貢區",
+  "hours": [
+   "星期一至星期三 (10:00am-12:45pm, 2:15pm-6:15pm)",
+   "星期四、五 (10:00am-12:45pm, 2:15pm-8:45pm)",
+   "星期六 (10:00am-8:45pm)",
+   "星期日 (10:00am-1:45pm)",
+   "公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4468,7 +6613,19 @@ export const UNITS = [
    "馬鞍山錦泰苑商場 1 字樓",
    "馬鞍山富安花園商場 1 字樓 (分處)"
   ],
-  "tel": "26417999"
+  "tel": "26417999",
+  "point": [
+   22.408868,
+   114.22189
+  ],
+  "siteDistrict": "沙田區",
+  "hours": [
+   "星期一 (2:00pm - 6:00 pm)",
+   "星期二至五 ( 2:00pm - 10:00 pm)",
+   "星期六 (10:00am - 10:00pm)",
+   "星期日 (9:00am - 1:00pm)",
+   "特定公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4478,7 +6635,19 @@ export const UNITS = [
   "address": [
    "沙田大圍美田路 1 號大圍社會服務大樓一樓(停車場層)"
   ],
-  "tel": "26949322"
+  "tel": "26949322",
+  "point": [
+   22.371377,
+   114.177674
+  ],
+  "siteDistrict": "沙田區",
+  "hours": [
+   "星期一 (2:00pm - 6:00 pm)",
+   "星期二至五 (2:00pm - 10:00pm)",
+   "星期六 (10:00am - 1:00 pm - 2:00 p. - 10:00 pm)",
+   "星期日 (9:00 am - 1:00 pm)",
+   "特定公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4488,7 +6657,19 @@ export const UNITS = [
   "address": [
    "馬鞍山利安社區服務大樓一樓及二樓(部分)"
   ],
-  "tel": "35250440"
+  "tel": "35250440",
+  "point": [
+   22.426462,
+   114.241012
+  ],
+  "siteDistrict": "沙田區",
+  "hours": [
+   "星期一 (2:00pm - 6:00 pm)",
+   "星期二至五 ( 2:00pm - 10:00 pm)",
+   "星期六 (10:00am - 10:00pm)",
+   "星期日 (10:00am - 2:00pm)",
+   "特定公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4498,7 +6679,17 @@ export const UNITS = [
   "address": [
    "大圍顯徑邨顯運樓地下"
   ],
-  "tel": "26922035"
+  "tel": "26922035",
+  "point": [
+   22.361356,
+   114.170981
+  ],
+  "siteDistrict": "沙田區",
+  "hours": [
+   "星期一至五 (2:00pm - 10:00 pm)",
+   "星期六 (10:00am - 10:00pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4508,7 +6699,17 @@ export const UNITS = [
   "address": [
    "馬鞍山恆安邨恆安社區中心 2-4 樓"
   ],
-  "tel": "26421555"
+  "tel": "26421555",
+  "point": [
+   22.417356,
+   114.226798
+  ],
+  "siteDistrict": "沙田區",
+  "hours": [
+   "星期二至五 (2:00pm–10:00 pm)",
+   "星期六 (10:00 am – 10:00 pm)",
+   "星期日及指定公眾假期 (10:00am–6:00 pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4518,7 +6719,16 @@ export const UNITS = [
   "address": [
    "沙田乙明邨乙明街 13 號地下及 1 樓"
   ],
-  "tel": "26470744"
+  "tel": "26470744",
+  "point": [
+   22.376987,
+   114.192507
+  ],
+  "siteDistrict": "沙田區",
+  "hours": [
+   "星期一、日 ( 2:00pm-6:00pm )",
+   "星期二至六 ( 2:00pm-10:00pm )"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4529,7 +6739,17 @@ export const UNITS = [
    "沙田第一城恆城街 2 號 34 座地下",
    "沙田駿洋邨駿洋商場 AF1 室 (分處)"
   ],
-  "tel": "26372266"
+  "tel": "26372266",
+  "point": [
+   22.385592,
+   114.204841
+  ],
+  "siteDistrict": "沙田區",
+  "hours": [
+   "星期一至五 (2:00 pm – 6:00pm, 7:00 pm - 10:00 pm)",
+   "星期六及日 (10:00 am – 1:00 pm – 2:00 pm - 6:00 pm)",
+   "公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4540,7 +6760,18 @@ export const UNITS = [
    "馬鞍山頌安邨頌群樓地下",
    "馬鞍山欣安邨欣安商場（二期）一樓 (分處)"
   ],
-  "tel": "26332231"
+  "tel": "26332231",
+  "point": [
+   22.42411,
+   114.226752
+  ],
+  "siteDistrict": "沙田區",
+  "hours": [
+   "星期一及公眾假期休息",
+   "星期二至五 (2:00 pm –6:00 pm, 7:00pm- 10:00 pm)",
+   "星期六 (10:00 am - 1:00 pm, 2:00 pm –6:00 pm, 7:00pm- 10:00 pm)",
+   "星期日 (10:00 am - 1:00 pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4551,7 +6782,18 @@ export const UNITS = [
    "馬鞍山耀安邨耀和樓地下",
    "馬鞍山恆安邨恆峰樓地下 4-5 室 (分處)"
   ],
-  "tel": "26416812"
+  "tel": "26416812",
+  "point": [
+   22.419784,
+   114.230665
+  ],
+  "siteDistrict": "沙田區",
+  "hours": [
+   "星期一 (2:00 pm - 6:00pm)",
+   "星期二至五 (2:00 pm –6:00 pm, 7:00pm- 10:00 pm)",
+   "星期六 (10:00 am - 1:00 pm, 2:00 pm –6:00 pm, 7:00pm- 10:00 pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4562,7 +6804,17 @@ export const UNITS = [
    "沙田新田圍邨富圍樓地下",
    "大圍新翠邨新月樓地下 3-7 & 14 號室 (分處)"
   ],
-  "tel": "26983341"
+  "tel": "26983341",
+  "point": [
+   22.369998,
+   114.187147
+  ],
+  "siteDistrict": "沙田區",
+  "hours": [
+   "星期一 (2:00 pm - 6:00 pm)",
+   "星期二至六 (2:00 pm – 10:00 pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4573,7 +6825,18 @@ export const UNITS = [
    "沙田廣源邨廣橡樓地下",
    "沙田碩門邨健碩樓地下 B 翼 1 室(分處)"
   ],
-  "tel": "26371866"
+  "tel": "26371866",
+  "point": [
+   22.380316,
+   114.215113
+  ],
+  "siteDistrict": "沙田區",
+  "hours": [
+   "星期一及公眾假期休息星期二、四、五 (2:00pm-5:45pm, 7:00pm-9:30pm)",
+   "星期三 (10:00am-12:45pm, 2:00pm- 5:45pm, 7:00pm-9:30pm)",
+   "星期六 (10:00am-12:45pm, 2:00pm- 5:45pm)",
+   "星期日 (2:00pm-5:45pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4584,7 +6847,13 @@ export const UNITS = [
    "沙田禾輋邨協和樓二樓平台",
    "沙田正街 21-27 號沙田廣場四樓平台 (分處)"
   ],
-  "tel": "26983008"
+  "tel": "26983008",
+  "point": [
+   22.38819,
+   114.19607
+  ],
+  "siteDistrict": "沙田區",
+  "pointSource": "als"
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4596,7 +6865,18 @@ export const UNITS = [
    "沙田沙角邨雲雀樓地下 33 號室(分處)",
    "沙田水泉澳邨崇泉樓地下(分處)"
   ],
-  "tel": "26477337"
+  "tel": "26477337",
+  "point": [
+   22.374576,
+   114.193527
+  ],
+  "siteDistrict": "沙田區",
+  "hours": [
+   "星期一及公眾假期休息",
+   "星期二至五 (2:30pm-9:30pm)",
+   "星期六 (10:00am-9:30pm)",
+   "星期日 (2:30pm-6:30pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4607,7 +6887,17 @@ export const UNITS = [
    "沙田銀禧花園第三至四座平台",
    "沙田穗禾苑商場 1 樓 F18 室 (分處)"
   ],
-  "tel": "26994100"
+  "tel": "26994100",
+  "point": [
+   22.397766,
+   114.200114
+  ],
+  "siteDistrict": "沙田區",
+  "hours": [
+   "星期一及日 (2:00pm-6:00pm)",
+   "星期二至五 (2:00pm-10:00pm)",
+   "星期六 (10:00am-10:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4617,7 +6907,18 @@ export const UNITS = [
   "address": [
    "沙田愉翠苑服務設施大樓 2 樓"
   ],
-  "tel": "26091855"
+  "tel": "26091855",
+  "point": [
+   22.380399,
+   114.205082
+  ],
+  "siteDistrict": "沙田區",
+  "hours": [
+   "星期一至三 (10:00pm-1:00pm, 2:00pm-5:30pm)",
+   "星期四至五 (2:00pm-9:30pm)",
+   "星期六 (10:00am-9:30pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4627,7 +6928,19 @@ export const UNITS = [
   "address": [
    "大埔太和邨太和鄰里社區中心一、二樓"
   ],
-  "tel": "26514987"
+  "tel": "26514987",
+  "point": [
+   22.452681,
+   114.161447
+  ],
+  "siteDistrict": "大埔區",
+  "hours": [
+   "星期一 (2:00pm-6:00pm)",
+   "星期二及三 (10:00am-6:00pm)",
+   "星期四及五 (2:00pm-10:00pm)",
+   "星期六 (10:00am-10:00pm)",
+   "星期日及特定公眾假期 (10:00am-2:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4638,7 +6951,16 @@ export const UNITS = [
    "大埔廣福邨廣仁樓 220-229 室",
    "大埔廣福邨廣崇樓 A101-108 室 (分處)"
   ],
-  "tel": "26538514"
+  "tel": "26538514",
+  "point": [
+   22.448961,
+   114.175145
+  ],
+  "siteDistrict": "大埔區",
+  "hours": [
+   "星期二至六 (2:00pm–6:00pm, 7:00pm–10:00pm)",
+   "星期日及指定公眾假期 (2:00pm–6:00 pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4649,7 +6971,17 @@ export const UNITS = [
    "大埔太和邨麗和樓地下",
    "沙田禾輋邨禾輋廣場平台 R13-R16 號(分處)"
   ],
-  "tel": "26508807"
+  "tel": "26508807",
+  "point": [
+   22.449836,
+   114.160553
+  ],
+  "siteDistrict": "大埔區",
+  "hours": [
+   "星期日、一、公眾假期  休息",
+   "星期二、三、四   2:00pm-9:30pm",
+   "星期五、六       10:00am-1:00pm，2:00pm-9:30pm"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4659,7 +6991,19 @@ export const UNITS = [
   "address": [
    "大埔富亨邨富亨鄰里社區中心一、二及四樓"
   ],
-  "tel": "26621666"
+  "tel": "26621666",
+  "point": [
+   22.459861,
+   114.171919
+  ],
+  "siteDistrict": "大埔區",
+  "hours": [
+   "星期一(9:30am-9:30pm)(#9:30am-1:30pm只可繳費及查詢)",
+   "星期二至五 (1:30pm-9:30pm)",
+   "星期六 (9:30am-9:30pm)",
+   "星期日 (1:30pm-5:30pm)(#有社工當值、查詢及偶到服務)",
+   "公眾假期: 休息 [部分的公眾假期局部開放]"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4670,7 +7014,17 @@ export const UNITS = [
    "大埔富善邨善群樓地下",
    "大埔富善邨富善商場二樓平台 P2 (分處)"
   ],
-  "tel": "26613880"
+  "tel": "26613880",
+  "point": [
+   22.452961,
+   114.174747
+  ],
+  "siteDistrict": "大埔區",
+  "hours": [
+   "星期一 (2:00 pm – 5:15 pm)",
+   "星期二至五 (2:00pm–9:15 pm)",
+   "星期六 (9:45 am – 9:15 pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4681,7 +7035,18 @@ export const UNITS = [
    "大埔大元邨泰民樓 3 字樓 301-316 室",
    "大埔大元邨泰榮樓 9-10 室 (分處)"
   ],
-  "tel": "26672913"
+  "tel": "26672913",
+  "point": [
+   22.454858,
+   114.169131
+  ],
+  "siteDistrict": "大埔區",
+  "hours": [
+   "星期一及公眾假期休息",
+   "星期二至五 (2:00pm-10:00pm)",
+   "星期六 (10:00am-10:00pm)",
+   "星期日 (2:00pm-6:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4691,7 +7056,18 @@ export const UNITS = [
   "address": [
    "大埔運頭塘邨鄰里社區中心一、二及四樓"
   ],
-  "tel": "26546188"
+  "tel": "26546188",
+  "point": [
+   22.442179,
+   114.166072
+  ],
+  "siteDistrict": "大埔區",
+  "hours": [
+   "星期一、三、四、五 (1:45pm-9:15pm)",
+   "星期二休息",
+   "星期六、日 (9:45am-5:15pm)",
+   "公眾假期 (1:45pm-5:15pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4702,7 +7078,19 @@ export const UNITS = [
    "粉嶺嘉福邨福泰樓地下",
    "粉嶺清河邨清朗樓地下 19 號室 (分處)"
   ],
-  "tel": "26762392"
+  "tel": "26762392",
+  "point": [
+   22.492636,
+   114.134815
+  ],
+  "siteDistrict": "北區",
+  "hours": [
+   "星期一 (10:00am-2:00pm)",
+   "星期二至五 (2:00pm-10:00pm)",
+   "星期六 (10:00am-6:00pm)",
+   "星期日(2:00pm-6:00pm)",
+   "特定公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4713,7 +7101,17 @@ export const UNITS = [
    "粉嶺聯和墟和滿街九號御庭軒政府大樓二樓",
    "粉嶺聯和墟和滿街八號帝庭軒第一期商場一樓 36 號 (分處)"
   ],
-  "tel": "26682138"
+  "tel": "26682138",
+  "point": [
+   22.5003,
+   114.145345
+  ],
+  "siteDistrict": "北區",
+  "hours": [
+   "星期二至五 (2:00pm–10:00pm)",
+   "星期六 (10:00am–10:00pm)",
+   "星期日及指定公眾假期 (10:00am–6:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4724,7 +7122,18 @@ export const UNITS = [
    "上水彩園邨彩麗樓 101-116 地下",
    "上水彩園邨彩玉樓 329-336 室 3 樓平台 (分處)"
   ],
-  "tel": "26732120"
+  "tel": "26732120",
+  "point": [
+   22.500092,
+   114.12525
+  ],
+  "siteDistrict": "北區",
+  "hours": [
+   "星期二及三(10:15am–12:45pm, 2:30pm–5:45pm, 6:45pm–9:45pm)",
+   "星期四及五 (2:30pm–5:45pm, 6:45 pm–9:45pm)",
+   "星期六 (10:15am–12:45pm, 2:30pm–5:45pm)",
+   "星期日 (2:30pm–5:45pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4735,7 +7144,16 @@ export const UNITS = [
    "上水天平邨天明樓 105-113 室地下",
    "上水天平邨天平商場 2 樓 203 室(分處)"
   ],
-  "tel": "26797557"
+  "tel": "26797557",
+  "point": [
+   22.502948,
+   114.133344
+  ],
+  "siteDistrict": "北區",
+  "hours": [
+   "星期二至五(2:00pm–10:00pm)",
+   "星期六、日及指定公眾假期 (10:00am–6:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4746,7 +7164,16 @@ export const UNITS = [
    "粉嶺祥華邨祥禮樓 317-332 室",
    "粉嶺祥華邨祥樂樓 102-107 室(分處)"
   ],
-  "tel": "26699111"
+  "tel": "26699111",
+  "point": [
+   22.493685,
+   114.140461
+  ],
+  "siteDistrict": "北區",
+  "hours": [
+   "星期一、日 (2:00pm-6:00pm)",
+   "星期二至六 (2:00pm-10:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4756,7 +7183,19 @@ export const UNITS = [
   "address": [
    "新界粉嶺皇后山社區綜合大樓 5 樓"
   ],
-  "tel": "26770650"
+  "tel": "26770650",
+  "point": [
+   22.504822,
+   114.156614
+  ],
+  "siteDistrict": "北區",
+  "hours": [
+   "星期一 (2:00 pm – 5:15 pm)",
+   "星期二至五 (2:00 pm - 9:15 pm)",
+   "星期六 (9:45 am – 9:15 pm)",
+   "星期日 (2:00 pm – 5:15 pm)",
+   "公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4766,7 +7205,19 @@ export const UNITS = [
   "address": [
    "粉嶺雍盛苑雍盛商場 2 樓"
   ],
-  "tel": "26972098"
+  "tel": "26972098",
+  "point": [
+   22.482739,
+   114.138734
+  ],
+  "siteDistrict": "北區",
+  "hours": [
+   "星期一 (2:00pm–5:15pm)",
+   "星期二至五 (2:00pm-9:15pm)",
+   "星期六 (9:45am–9:15pm)",
+   "星期日 (9:45pm–12:45pm)",
+   "特定公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4776,7 +7227,12 @@ export const UNITS = [
   "address": [
    "深井青山公路深井段 33 號灣畔碧堤半島碧堤坊 5樓"
   ],
-  "tel": "24960116"
+  "tel": "24960116",
+  "point": [
+   22.367221,
+   114.061839
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4786,7 +7242,12 @@ export const UNITS = [
   "address": [
    "荃灣梨木樹邨健樹樓地下 B 及 C 翼"
   ],
-  "tel": "24259348"
+  "tel": "24259348",
+  "point": [
+   22.378816,
+   114.136374
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4797,7 +7258,12 @@ export const UNITS = [
    "荃灣綠楊新村 G 座平台",
    "荃灣石圍角邨一號停車場大廈 201 室(分處)"
   ],
-  "tel": "24133111"
+  "tel": "24133111",
+  "point": [
+   22.37379,
+   114.119247
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4807,7 +7273,12 @@ export const UNITS = [
   "address": [
    "荃灣麗城花園一期 3 座平台"
   ],
-  "tel": "24148283"
+  "tel": "24148283",
+  "point": [
+   22.372636,
+   114.101906
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4818,7 +7289,12 @@ export const UNITS = [
    "荃灣海盛路祈德尊新邨商場 2 樓",
    "新界荃灣福來邨永樂樓地下 7, 9-10 號 (分處)"
   ],
-  "tel": "24136669"
+  "tel": "24136669",
+  "point": [
+   22.370084,
+   114.111034
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4828,7 +7304,12 @@ export const UNITS = [
   "address": [
    "荃灣荃景圍 76-84 號荃景花園 10 座地下及 1 樓"
   ],
-  "tel": "24983333"
+  "tel": "24983333",
+  "point": [
+   22.378401,
+   114.110059
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4838,7 +7319,12 @@ export const UNITS = [
   "address": [
    "荃灣海濱花園怡樂徑 2-12 號 2 樓平台 D 室"
   ],
-  "tel": "24060407"
+  "tel": "24060407",
+  "point": [
+   22.361813,
+   114.113495
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4849,7 +7335,18 @@ export const UNITS = [
    "葵涌葵盛東邨商場平台盛強樓 D 翼",
    "葵涌葵盛西邨第六座五樓平台 (分處)"
   ],
-  "tel": "27854798"
+  "tel": "27854798",
+  "point": [
+   22.364329,
+   114.127077
+  ],
+  "siteDistrict": "葵青區",
+  "hours": [
+   "星期日及一 (1:30pm - 5:30pm)",
+   "星期二至五 (1:30pm - 9:30pm)",
+   "星期六 (9:30am - 5:30pm)",
+   "公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4861,7 +7358,12 @@ export const UNITS = [
    "葵涌葵涌邨逸葵樓地下 B, C 翼及 28 室(分處)",
    "葵涌大窩口邨富安樓地下 13-16 號"
   ],
-  "tel": "24201073"
+  "tel": "24201073",
+  "point": [
+   22.367335,
+   114.126105
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4871,7 +7373,19 @@ export const UNITS = [
   "address": [
    "青衣長亨邨亨怡樓地下"
   ],
-  "tel": "24352113"
+  "tel": "24352113",
+  "point": [
+   22.3574,
+   114.098788
+  ],
+  "siteDistrict": "葵青區",
+  "hours": [
+   "星 期 一 (2:00pm - 6:00pm)",
+   "星 期 二至五 (2:00pm - 10:00pm)",
+   "星期六 (10:00am - 10:00pm)",
+   "星 期 日 (10:00am - 2:00pm)",
+   "特定公 眾 假 期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4882,7 +7396,19 @@ export const UNITS = [
    "葵涌敬祖路 6 號祖堯坊 C 及 D 座 3 樓、D 座 2 樓(部分)",
    "葵涌麗景邨仰景樓地下 3 至 5 號 (分處)"
   ],
-  "tel": "27442123"
+  "tel": "27442123",
+  "point": [
+   22.345789,
+   114.128685
+  ],
+  "siteDistrict": "葵青區",
+  "hours": [
+   "星 期一 (2:00pm - 6:00pm)",
+   "星 期二至五 (2:00pm - 10:00pm)",
+   "星期六 (10:00am - 10:00pm)",
+   "星 期 日 (10:00am - 1:00pm)",
+   "特定公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4892,7 +7418,19 @@ export const UNITS = [
   "address": [
    "葵涌石蔭東邨蔭裕樓地下及 106-110 樓 B 及 C 翼"
   ],
-  "tel": "24813222"
+  "tel": "24813222",
+  "point": [
+   22.373272,
+   114.139172
+  ],
+  "siteDistrict": "葵青區",
+  "hours": [
+   "星期一 (2:00pm - 6:00pm)",
+   "星期二至五 (2:00pm - 10:00pm)",
+   "星期六 (10:00am - 10:00pm)",
+   "星期日 (10:00am - 1:00pm)",
+   "公眾假期 (9:00am - 1:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4902,7 +7440,19 @@ export const UNITS = [
   "address": [
    "青衣邨宜居樓地下及一樓"
   ],
-  "tel": "24332319"
+  "tel": "24332319",
+  "point": [
+   22.35351,
+   114.10312
+  ],
+  "siteDistrict": "葵青區",
+  "hours": [
+   "星 期一 (2:00pm - 5:45pm)",
+   "星 期二至五 (2:00pm - 9:45pm)",
+   "星期六 (10:00am - 9:45pm)",
+   "星 期 日 (10:00am - 1:45pm)",
+   "特定公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4912,7 +7462,16 @@ export const UNITS = [
   "address": [
    "葵涌葵芳邨葵正樓地下"
   ],
-  "tel": "24231366"
+  "tel": "24231366",
+  "point": [
+   22.358044,
+   114.129224
+  ],
+  "siteDistrict": "葵青區",
+  "hours": [
+   "星期一、日 (2:00pm-6:00pm)",
+   "星期二至六 (2:00pm-10:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4922,7 +7481,17 @@ export const UNITS = [
   "address": [
    "青衣長發邨長發社區中心 2-4 樓"
   ],
-  "tel": "24335277"
+  "tel": "24335277",
+  "point": [
+   22.363118,
+   114.103057
+  ],
+  "siteDistrict": "葵青區",
+  "hours": [
+   "星期一至五 (2:00pm – 10:00pm)",
+   "星期六 (10:00am – 1:00pm, 2:00pm – 10:00pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4932,7 +7501,17 @@ export const UNITS = [
   "address": [
    "葵涌石籬(一)邨石俊樓低座地下一號"
   ],
-  "tel": "24243043"
+  "tel": "24243043",
+  "point": [
+   22.362905,
+   114.137805
+  ],
+  "siteDistrict": "葵青區",
+  "hours": [
+   "星期一至五 (2:00pm – 10:00pm)",
+   "星期六 (10:00am – 1:00pm, 2:00pm – 10:00pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4942,7 +7521,17 @@ export const UNITS = [
   "address": [
    "新界青衣長青邨青荷樓平台二樓二號"
   ],
-  "tel": "24973030"
+  "tel": "24973030",
+  "point": [
+   22.348816,
+   114.106889
+  ],
+  "siteDistrict": "葵青區",
+  "hours": [
+   "星期一、日休息",
+   "星期二、四及六 (10:00am – 12 :30pm, 2:30pm-5:30pm, 7:00pm - 10:00pm)",
+   "星期三及五 (2:30pm-6:00pm, 7:00pm - 10:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4952,7 +7541,15 @@ export const UNITS = [
   "address": [
    "屯門大興花園 2 期 1 座地下"
   ],
-  "tel": "24623161"
+  "tel": "24623161",
+  "point": [
+   22.400243,
+   113.971521
+  ],
+  "siteDistrict": "屯門區",
+  "hours": [
+   "星 期一及日 (10:00am - 2:00 pm)星 期二至五 ( 2:00pm - 10:00 pm)星期六 (10:00am - 10:00pm)特定公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4963,7 +7560,15 @@ export const UNITS = [
    "屯門兆禧苑商場 2 樓",
    "屯門湖景邨湖翠樓地下 28-34 室"
   ],
-  "tel": "24412225"
+  "tel": "24412225",
+  "point": [
+   22.373817,
+   113.965998
+  ],
+  "siteDistrict": "屯門區",
+  "hours": [
+   "星期一至五 ( 2:00pm-9:45pm )星期六及日 (2:00pm-5:45pm )特定公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4973,7 +7578,15 @@ export const UNITS = [
   "address": [
    "屯門田景邨田翠樓地下"
   ],
-  "tel": "24632381"
+  "tel": "24632381",
+  "point": [
+   22.405756,
+   113.963896
+  ],
+  "siteDistrict": "屯門區",
+  "hours": [
+   "星期一 至五 (2:00 pm - 9:30pm)星期六 (10:00am - 6:00 pm)星期日 (2:00 pm - 6:00pm)公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4983,7 +7596,15 @@ export const UNITS = [
   "address": [
    "屯門良景邨良景社區中心 2 至 4 樓"
   ],
-  "tel": "24638876"
+  "tel": "24638876",
+  "point": [
+   22.407679,
+   113.963814
+  ],
+  "siteDistrict": "屯門區",
+  "hours": [
+   "星期一 (10:00 am – 12:30 pm)星期二及六 (10:00 am – 12:30 pm, 1:30pm–5:30 pm, 7:00 pm – 9:30 pm)星期三及五 (1:30pm–5:30 pm, 7:00 pm – 9:30 p.m)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -4994,7 +7615,18 @@ export const UNITS = [
    "屯門寶田邨寶田商場 3 樓 301 室",
    "屯門兆康苑商場 2 樓 227 號 (分處)"
   ],
-  "tel": "24621700"
+  "tel": "24621700",
+  "point": [
+   22.409559,
+   113.966576
+  ],
+  "siteDistrict": "屯門區",
+  "hours": [
+   "星期一, 星期日：關閉",
+   "星期二至星期三, 星期五：下午02:00 - 下午05:30, 下午06:30 - 晚上09:45",
+   "星期四, 星期六：上午09:30 - 下午12:30, 下午02:00 - 下午05:30, 下午06:30 - 晚上09:45",
+   "公眾假期：關閉"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5005,7 +7637,15 @@ export const UNITS = [
    "屯門兆軒苑順生閣地下",
    "屯門蝴蝶邨蝴蝶灣社區中心三樓(分處)"
   ],
-  "tel": "24677933"
+  "tel": "24677933",
+  "point": [
+   22.407298,
+   113.970623
+  ],
+  "siteDistrict": "屯門區",
+  "hours": [
+   "星期一、日 ( 2:00pm-6:00pm )星期二至六 ( 2:00pm-10:00pm )"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5016,7 +7656,15 @@ export const UNITS = [
    "屯門山景邨景榮樓 21-30 地下",
    "屯門山景邨景美樓地下 A 翼 (分處)"
   ],
-  "tel": "24626122"
+  "tel": "24626122",
+  "point": [
+   22.396071,
+   113.965198
+  ],
+  "siteDistrict": "屯門區",
+  "hours": [
+   "星期一至四 (9:30am - 9:30 pm)星期五及日 (9:00 am – 5:00 pm)星期六及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5026,7 +7674,15 @@ export const UNITS = [
   "address": [
    "屯門友愛邨愛樂樓 120-130 號地下"
   ],
-  "tel": "24512345"
+  "tel": "24512345",
+  "point": [
+   22.387539,
+   113.973289
+  ],
+  "siteDistrict": "屯門區",
+  "hours": [
+   "星期一、三 (2:00 pm – 10:00 pm)星期二及公眾假期休息星期四、五及六(10:00 am – 10:00 pm)星期日 (10:00 am - 2:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5036,7 +7692,15 @@ export const UNITS = [
   "address": [
    "屯門蝴蝶邨蝶聚樓地下"
   ],
-  "tel": "24660136"
+  "tel": "24660136",
+  "point": [
+   22.376169,
+   113.963092
+  ],
+  "siteDistrict": "屯門區",
+  "hours": [
+   "星期一、日休息星期二、四及六 (10:00 am – 1 :00 pm, 2:00pm-6:00pm, 7:00 pm - 9:30 pm)星期三及五 (2:30pm-6:00 pm, 7:00 pm - 9:30pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5047,7 +7711,15 @@ export const UNITS = [
    "新界屯門友愛邨愛廉樓地下",
    "屯門安定邨定龍樓地下 119-121 室 (分處)"
   ],
-  "tel": "24510311"
+  "tel": "24510311",
+  "point": [
+   22.386126,
+   113.974977
+  ],
+  "siteDistrict": "屯門區",
+  "hours": [
+   "星期一、日休息星期二、四及六 (10:00 am – 1 :00 pm, 2:00pm-6:00pm, 7:00 pm - 9:30 pm)星期三及五 (2:30pm-6:00 pm, 7:00 pm - 9:30pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5057,7 +7729,15 @@ export const UNITS = [
   "address": [
    "屯門大興邨興平樓 13-24, 37, 38, 47-48 號地下"
   ],
-  "tel": "24614741"
+  "tel": "24614741",
+  "point": [
+   22.404339,
+   113.97185
+  ],
+  "siteDistrict": "屯門區",
+  "hours": [
+   "星期一及公眾假期休息星期二至五 (2:00pm-9:45pm)星期六 (10:00am-9:45pm)星期日 (2:00pm-5:45pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5067,7 +7747,15 @@ export const UNITS = [
   "address": [
    "屯門屯貴路 9 號富泰邨服務設施大樓 5 樓"
   ],
-  "tel": "24677200"
+  "tel": "24677200",
+  "point": [
+   22.413106,
+   113.982801
+  ],
+  "siteDistrict": "屯門區",
+  "hours": [
+   "星期一及公眾假期休息星期二至五 (2:00pm-10:00pm)星期六 (10:00am-10:00pm)星期日 (2:00pm-6:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5077,7 +7765,15 @@ export const UNITS = [
   "address": [
    "屯門井財街 27 號井財街政府服務大樓二樓至三樓"
   ],
-  "tel": "24412042"
+  "tel": "24412042",
+  "point": [
+   22.400006,
+   113.977289
+  ],
+  "siteDistrict": "屯門區",
+  "hours": [
+   "星期一及日 (2:00pm-6:00pm)星期二至五 (2:00pm-10:00pm)星期六 (10:00am-10:00pm)"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5087,7 +7783,19 @@ export const UNITS = [
   "address": [
    "元朗朗屏邨賀屏樓平台 216-225 室"
   ],
-  "tel": "24755441"
+  "tel": "24755441",
+  "point": [
+   22.448437,
+   114.023748
+  ],
+  "siteDistrict": "元朗區",
+  "hours": [
+   "星期一 (9:30am-12:15pm, 1:30pm - 5:15 pm)(只限預約服務)",
+   "星期二、三及六 (9:30am - 12:15pm, 1:30pm - 5:15 pm, 6:30 pm - 9:15 pm)",
+   "星期四及五 (9:30am – 12:15 pm(只限預約服務), 1:30pm - 5:15 pm, 6:30 pm - 9:15 pm)",
+   "星期日 (9:30am – 12:15 pm)(只限預約服務)",
+   "公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5098,7 +7806,17 @@ export const UNITS = [
    "元朗朗屏邨石屏樓 2 樓",
    "元朗水邊圍邨盈水樓 204-205 室 (分處)"
   ],
-  "tel": "24754722"
+  "tel": "24754722",
+  "point": [
+   22.450523,
+   114.023823
+  ],
+  "siteDistrict": "元朗區",
+  "hours": [
+   "星期一、二、六及日 (10:00am - 1:00pm, 2:00pm - 6:00pm)",
+   "星期三至五 (10:00am - 1:00pm, 2:00pm - 6:00pm, 7:00pm - 9:30pm)",
+   "公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5108,7 +7826,18 @@ export const UNITS = [
   "address": [
    "元朗天澤商場 3 樓 311 號"
   ],
-  "tel": "31522798"
+  "tel": "31522798",
+  "point": [
+   22.468423,
+   113.998668
+  ],
+  "siteDistrict": "元朗區",
+  "hours": [
+   "星期一至五 (2:00 pm - 9:45pm)",
+   "星期六 (10:00am - 1:00pm, 2:00pm - 9:45 pm)",
+   "星期日 (10:00am - 1:00pm)",
+   "公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5118,7 +7847,18 @@ export const UNITS = [
   "address": [
    "元朗天晴服務設施大樓一樓 101 號"
   ],
-  "tel": "26177233"
+  "tel": "26177233",
+  "point": [
+   22.462385,
+   114.002173
+  ],
+  "siteDistrict": "元朗區",
+  "hours": [
+   "星期一至五 (2:00pm - 9:45 pm)",
+   "星期六 (10:00am - 9:45pm)",
+   "星期日及公眾假期休息",
+   "息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5129,7 +7869,18 @@ export const UNITS = [
    "元朗天耀邨耀華樓地下",
    "元朗天慈邨慈屏樓 C 翼地下 (分處)"
   ],
-  "tel": "24462023"
+  "tel": "24462023",
+  "point": [
+   22.452274,
+   114.005159
+  ],
+  "siteDistrict": "元朗區",
+  "hours": [
+   "星期二( 10:00am - 9:45pm)",
+   "星期三至五 (2:00pm - 9:45pm)",
+   "星期六 (10:00am - 9:45 pm)",
+   "星期日、一及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5139,7 +7890,17 @@ export const UNITS = [
   "address": [
    "元朗洪水橋洪福邨洪溢樓地下一號舖"
   ],
-  "tel": "24487474"
+  "tel": "24487474",
+  "point": [
+   22.438333,
+   113.997696
+  ],
+  "siteDistrict": "元朗區",
+  "hours": [
+   "星期一 ( 2:00pm - 6:00pm)",
+   "星期二至六 ( 2:00pm - 10:00pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5149,7 +7910,17 @@ export const UNITS = [
   "address": [
    "元朗天悅邨服務設施大樓 2 樓"
   ],
-  "tel": "24455777"
+  "tel": "24455777",
+  "point": [
+   22.462411,
+   114.000716
+  ],
+  "siteDistrict": "元朗區",
+  "hours": [
+   "星期一 ( 2:00pm - 6:00pm)",
+   "星期二至六 ( 2:00pm - 10:00pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5159,7 +7930,17 @@ export const UNITS = [
   "address": [
    "元朗天耀邨天耀社區中心 2-4 樓"
   ],
-  "tel": "24454868"
+  "tel": "24454868",
+  "point": [
+   22.450187,
+   114.004423
+  ],
+  "siteDistrict": "元朗區",
+  "hours": [
+   "星期一 ( 2:00pm - 6:00pm)",
+   "星期二至六 ( 2:00pm - 10:00pm)",
+   "星期日及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5169,7 +7950,18 @@ export const UNITS = [
   "address": [
    "元朗天龍路 4 號"
   ],
-  "tel": "24460738"
+  "tel": "24460738",
+  "point": [
+   22.460286,
+   114.006859
+  ],
+  "siteDistrict": "元朗區",
+  "hours": [
+   "星期二至五 (2:00pm - 10:00pm)",
+   "星期六 (10:00am - 10:00pm)",
+   "星期日 (10:00am - 2:00pm)",
+   "星期一及公眾假期休息"
+  ]
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5179,7 +7971,12 @@ export const UNITS = [
   "address": [
    "元朗天瑞社區中心一樓"
   ],
-  "tel": "24479228"
+  "tel": "24479228",
+  "point": [
+   22.45513,
+   113.999316
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "綜合青少年服務中心",
@@ -5189,7 +7986,12 @@ export const UNITS = [
   "address": [
    "元朗天恆邨停車場大樓六樓 2 號單位"
   ],
-  "tel": "31658824"
+  "tel": "31658824",
+  "point": [
+   22.469218,
+   113.999123
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5199,7 +8001,12 @@ export const UNITS = [
   "address": [
    "香港皇后大道西 398-400 號富滿大樓地下"
   ],
-  "tel": "25463739"
+  "tel": "25463739",
+  "point": [
+   22.286533,
+   114.139418
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5209,7 +8016,12 @@ export const UNITS = [
   "address": [
    "香港鴨脷洲利東邨道 5 號利東商場一期 4 樓 401A"
   ],
-  "tel": "39050465"
+  "tel": "39050465",
+  "point": [
+   22.241074,
+   114.155844
+  ],
+  "siteDistrict": "南區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5219,7 +8031,12 @@ export const UNITS = [
   "address": [
    "新界東涌富東邨東馬樓地下 4號"
   ],
-  "tel": "25480060"
+  "tel": "25480060",
+  "point": [
+   22.28784,
+   113.941966
+  ],
+  "siteDistrict": "離島區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5229,7 +8046,12 @@ export const UNITS = [
   "address": [
    "香港北角渣華道 123 號北角福利服務設施大樓 5 樓"
   ],
-  "tel": "26351500"
+  "tel": "26351500",
+  "point": [
+   22.292906,
+   114.200265
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5239,7 +8061,12 @@ export const UNITS = [
   "address": [
    "香港灣仔皇后大道東 258 號灣仔街市地下低層"
   ],
-  "tel": "25643338"
+  "tel": "25643338",
+  "point": [
+   22.274656,
+   114.173688
+  ],
+  "siteDistrict": "灣仔區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5249,7 +8076,12 @@ export const UNITS = [
   "address": [
    "九龍觀塘福塘道 4 號啟能綜合康復服務大樓 8 樓"
   ],
-  "tel": "21913138"
+  "tel": "21913138",
+  "point": [
+   22.31192,
+   114.228731
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5259,7 +8091,12 @@ export const UNITS = [
   "address": [
    "九龍觀塘順利邨利富樓 116-123 室"
   ],
-  "tel": "23449724"
+  "tel": "23449724",
+  "point": [
+   22.330319,
+   114.227048
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5269,7 +8106,12 @@ export const UNITS = [
   "address": [
    "九龍黃大仙鳳德邨硃鳳樓地下 A 翼"
   ],
-  "tel": "23207834"
+  "tel": "23207834",
+  "point": [
+   22.345488,
+   114.200755
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5279,7 +8121,12 @@ export const UNITS = [
   "address": [
    "新界將軍澳尚德邨尚仁樓地下 B 及Ｃ翼"
   ],
-  "tel": "27026002"
+  "tel": "27026002",
+  "point": [
+   22.311343,
+   114.257924
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5289,7 +8136,12 @@ export const UNITS = [
   "address": [
    "九龍土瓜灣九龍城道 68 號 U PLACE 2 樓 201 及 203 號舖"
   ],
-  "tel": "28712200"
+  "tel": "28712200",
+  "point": [
+   22.318051,
+   114.189049
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5299,7 +8151,12 @@ export const UNITS = [
   "address": [
    "九龍大角咀道 38 號新九龍廣場 802 及 810 室"
   ],
-  "tel": "37096188"
+  "tel": "37096188",
+  "point": [
+   22.319694,
+   114.16257
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5309,7 +8166,12 @@ export const UNITS = [
   "address": [
    "九龍深水埗長沙灣道 391 號長沙灣邨服務設施大樓二樓 201 室"
   ],
-  "tel": "27108070"
+  "tel": "27108070",
+  "point": [
+   22.334832,
+   114.156616
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5319,7 +8181,12 @@ export const UNITS = [
   "address": [
    "新界沙田馬鞍山恆安邨恆海樓地下 C 翼 17-24 號"
   ],
-  "tel": "37499311"
+  "tel": "37499311",
+  "point": [
+   22.415802,
+   114.227766
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5329,7 +8196,12 @@ export const UNITS = [
   "address": [
    "新界火炭山尾街 18-24 號沙田商業中心 15 樓 1506A&7-8，1512 室及 18 樓 1801&15-1610 室"
   ],
-  "tel": "39564500"
+  "tel": "39564500",
+  "point": [
+   22.397391,
+   114.19331
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5339,7 +8211,12 @@ export const UNITS = [
   "address": [
    "新界大埔太和邨福和樓地下 101, 108 及 117-124 室"
   ],
-  "tel": "26573331"
+  "tel": "26573331",
+  "point": [
+   22.452338,
+   114.160854
+  ],
+  "siteDistrict": "大埔區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5349,7 +8226,12 @@ export const UNITS = [
   "address": [
    "新界火炭山尾街 18-24 號沙田商業中心 9 樓 909 室 (暫址)"
   ],
-  "tel": "31608110"
+  "tel": "31608110",
+  "point": [
+   22.397413,
+   114.19328
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5359,7 +8241,12 @@ export const UNITS = [
   "address": [
    "新界上水祥龍圍邨服務設施大樓 2 樓"
   ],
-  "tel": "26760669"
+  "tel": "26760669",
+  "point": [
+   22.494575,
+   114.124248
+  ],
+  "siteDistrict": "北區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5370,7 +8257,15 @@ export const UNITS = [
    "新界荃灣城門道 9 號明愛賽馬會荃灣服務樓一樓",
    "新界青衣長安邨二期安泊樓地下 101-111 號 (附屬單位)"
   ],
-  "tel": "31060288"
+  "tel": "31060288",
+  "point": [
+   22.371376,
+   114.121945
+  ],
+  "siteDistrict": "荃灣區",
+  "hours": [
+   "星期一至六：9:00 am - 6:00 pm"
+  ]
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5380,7 +8275,16 @@ export const UNITS = [
   "address": [
    "新界葵涌葵盛圍 323 號葵聯邨聯悅樓 1 樓"
   ],
-  "tel": "35869466"
+  "tel": "35869466",
+  "point": [
+   22.362125,
+   114.126446
+  ],
+  "siteDistrict": "葵青區",
+  "hours": [
+   "星期一至六：9:00am - 6:00pm",
+   "星期日及公眾假期：按服務需要"
+  ]
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5390,7 +8294,12 @@ export const UNITS = [
   "address": [
    "新界屯門良景邨良賢樓地下"
   ],
-  "tel": "35496897"
+  "tel": "35496897",
+  "point": [
+   22.408164,
+   113.963737
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5400,7 +8309,12 @@ export const UNITS = [
   "address": [
    "新界元朗朗屏邨繡屏樓地下"
   ],
-  "tel": "24423225"
+  "tel": "24423225",
+  "point": [
+   22.452094,
+   114.024045
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "殘疾人士地區支援中心",
@@ -5410,7 +8324,12 @@ export const UNITS = [
   "address": [
    "新界天水圍天澤邨服務設施大樓 5 樓 501 至 502 室"
   ],
-  "tel": "24863030"
+  "tel": "24863030",
+  "point": [
+   22.466787,
+   113.997319
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5420,7 +8339,12 @@ export const UNITS = [
   "address": [
    "香港華富邨華美樓地下 404 至 412 室"
   ],
-  "tel": "25183880"
+  "tel": "25183880",
+  "point": [
+   22.249581,
+   114.13681
+  ],
+  "siteDistrict": "南區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5431,7 +8355,12 @@ export const UNITS = [
    "香港德輔道西 418 號太平洋廣場 29 字樓 2903-08 室",
    "香港黃竹坑黃竹坑徑 2 號東華三院黃竹坑服務綜合大樓地下"
   ],
-  "tel": "34606060"
+  "tel": "34606060",
+  "point": [
+   22.286613,
+   114.135641
+  ],
+  "siteDistrict": "中西區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5441,7 +8370,12 @@ export const UNITS = [
   "address": [
    "新界大嶼山東涌逸東(一)邨祿逸樓地下"
   ],
-  "tel": "23635718"
+  "tel": "23635718",
+  "point": [
+   22.280081,
+   113.934604
+  ],
+  "siteDistrict": "離島區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5451,7 +8385,12 @@ export const UNITS = [
   "address": [
    "新界大嶼山東涌逸東街 8 號逸東商場 1 樓 113 號舖"
   ],
-  "tel": "59318691"
+  "tel": "59318691",
+  "point": [
+   22.281577,
+   113.934844
+  ],
+  "siteDistrict": "離島區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5461,7 +8400,12 @@ export const UNITS = [
   "address": [
    "香港筲箕灣筲箕灣道 361 號利嘉中心 15 樓 1506 及 1507 室"
   ],
-  "tel": "29670902"
+  "tel": "29670902",
+  "point": [
+   22.277444,
+   114.227569
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5472,7 +8416,12 @@ export const UNITS = [
    "香港柴灣環翠邨澤翠樓低層地下 1-8 室",
    "香港柴灣柴灣道 238 號青年廣場 3 樓商舖 335 及 336"
   ],
-  "tel": "25054287"
+  "tel": "25054287",
+  "point": [
+   22.262541,
+   114.237076
+  ],
+  "siteDistrict": "東區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5482,7 +8431,12 @@ export const UNITS = [
   "address": [
    "香港灣仔愛群道 36 號 8 樓"
   ],
-  "tel": "34131641"
+  "tel": "34131641",
+  "point": [
+   22.277417,
+   114.179281
+  ],
+  "siteDistrict": "灣仔區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5493,7 +8447,12 @@ export const UNITS = [
    "九龍慈雲山慈樂邨樂天樓地下 1-12 號",
    "九龍黃大仙上邨耀善樓地下 1 號室"
   ],
-  "tel": "23223794"
+  "tel": "23223794",
+  "point": [
+   22.349218,
+   114.197795
+  ],
+  "siteDistrict": "黃大仙區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5505,7 +8464,12 @@ export const UNITS = [
    "九龍觀塘樂華北邨欣華樓地下 101-108 室",
    "九龍觀塘茶果嶺道 81 號茜草灣鄰里社區中心 4樓"
   ],
-  "tel": "23463798"
+  "tel": "23463798",
+  "point": [
+   22.311835,
+   114.228779
+  ],
+  "siteDistrict": "觀塘區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5515,7 +8479,12 @@ export const UNITS = [
   "address": [
    "新界將軍澳翠嶺路 48 號翠嶺峰 2 樓"
   ],
-  "tel": "35211611"
+  "tel": "35211611",
+  "point": [
+   22.307731,
+   114.251494
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5525,7 +8494,12 @@ export const UNITS = [
   "address": [
    "新界將軍澳翠林邨秀林樓 216-217, 218B, 223, 223A 及 224A 室"
   ],
-  "tel": "26333117"
+  "tel": "26333117",
+  "point": [
+   22.321967,
+   114.248612
+  ],
+  "siteDistrict": "西貢區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5535,7 +8509,12 @@ export const UNITS = [
   "address": [
    "九龍紅磡馬頭圍道 37 號紅磡商業中心 B 座 9 樓 11B 室"
   ],
-  "tel": "23325332"
+  "tel": "23325332",
+  "point": [
+   22.309723,
+   114.187829
+  ],
+  "siteDistrict": "九龍城區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5545,7 +8524,12 @@ export const UNITS = [
   "address": [
    "九龍旺角長旺道 9 號長旺雅苑地下至一樓"
   ],
-  "tel": "29778900"
+  "tel": "29778900",
+  "point": [
+   22.319911,
+   114.166542
+  ],
+  "siteDistrict": "油尖旺區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5555,7 +8539,12 @@ export const UNITS = [
   "address": [
    "九龍南昌街 332 號新生會大樓二樓"
   ],
-  "tel": "23192103"
+  "tel": "23192103",
+  "point": [
+   22.338743,
+   114.168351
+  ],
+  "siteDistrict": "深水埗區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5565,7 +8554,12 @@ export const UNITS = [
   "address": [
    "新界荃灣西樓角路 1-17 號新領域廣場 13 樓 1302 室"
   ],
-  "tel": "31055337"
+  "tel": "31055337",
+  "point": [
+   22.374855,
+   114.114308
+  ],
+  "siteDistrict": "荃灣區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5575,7 +8569,12 @@ export const UNITS = [
   "address": [
    "新界青衣長亨邨亨緻樓地下 7-14 號"
   ],
-  "tel": "24344569"
+  "tel": "24344569",
+  "point": [
+   22.356488,
+   114.098721
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5585,7 +8584,12 @@ export const UNITS = [
   "address": [
    "新界葵涌大窩口邨富安樓地下 21-22 號"
   ],
-  "tel": "26521868"
+  "tel": "26521868",
+  "point": [
+   22.368075,
+   114.124405
+  ],
+  "siteDistrict": "葵青區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5596,7 +8600,12 @@ export const UNITS = [
    "新界沙田沙角邨美雁樓 1-18 號地下",
    "新界馬鞍山耀安邨耀平樓地下 1-12 號 A 翼"
   ],
-  "tel": "26451263"
+  "tel": "26451263",
+  "point": [
+   22.378956,
+   114.195032
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5606,7 +8615,12 @@ export const UNITS = [
   "address": [
    "新界沙田美林邨美槐樓地下 1-8 室"
   ],
-  "tel": "35525460"
+  "tel": "35525460",
+  "point": [
+   22.379435,
+   114.176117
+  ],
+  "siteDistrict": "沙田區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5616,7 +8630,12 @@ export const UNITS = [
   "address": [
    "新界大埔廣福邨廣智樓 A 翼地下 101-108 室"
   ],
-  "tel": "26518132"
+  "tel": "26518132",
+  "point": [
+   22.448889,
+   114.173154
+  ],
+  "siteDistrict": "大埔區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5626,7 +8645,12 @@ export const UNITS = [
   "address": [
    "新界上水衛和街 3 號北區社區健康中心大樓 8樓"
   ],
-  "tel": "22781016"
+  "tel": "22781016",
+  "point": [
+   22.481755,
+   114.13683
+  ],
+  "siteDistrict": "北區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5636,7 +8660,12 @@ export const UNITS = [
   "address": [
    "新界天水圍天業路 3 號天水圍(天業路)家庭醫學綜合中心 5 樓"
   ],
-  "tel": "31632873"
+  "tel": "31632873",
+  "point": [
+   22.465513,
+   114.005735
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5646,7 +8675,12 @@ export const UNITS = [
   "address": [
    "新界天水圍天澤邨服務設施大樓 5 樓 503-504 室"
   ],
-  "tel": "24514369"
+  "tel": "24514369",
+  "point": [
+   22.466787,
+   113.997319
+  ],
+  "siteDistrict": "元朗區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5657,7 +8691,12 @@ export const UNITS = [
    "新界屯門湖景邨湖翠樓地下 9-15 室",
    "新界屯門安定邨安定友愛社區中心地下"
   ],
-  "tel": "24502172"
+  "tel": "24502172",
+  "point": [
+   22.376691,
+   113.965829
+  ],
+  "siteDistrict": "屯門區"
  },
  {
   "kind": "精神健康綜合社區中心",
@@ -5667,6 +8706,11 @@ export const UNITS = [
   "address": [
    "屯門良景邨良景綜合社會服務大樓低座地下"
   ],
-  "tel": "24653210"
+  "tel": "24653210",
+  "point": [
+   22.405278,
+   113.960239
+  ],
+  "siteDistrict": "屯門區"
  }
 ];

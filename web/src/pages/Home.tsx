@@ -49,7 +49,7 @@ export default function Home() {
         <VStack gap={2}>
           <Heading level={2}>不知從何開始？</Heading>
           <Text>任何個人或家庭，均可向居住地區的綜合家庭服務中心查詢或尋求協助，社工會按需要提供輔導或轉介服務。</Text>
-          <Link href="services.html?view=centres" hasUnderline>按地區尋找綜合家庭服務中心及其他服務中心</Link>
+          <Link href="centres.html" hasUnderline>按地區尋找綜合家庭服務中心及其他服務中心</Link>
           <Text>長者亦可聯絡就近的長者地區中心 (DECC) 或長者鄰舍中心 (NEC)；兒童及青少年可聯絡綜合青少年服務中心；殘疾人士可聯絡殘疾人士地區支援中心。</Text>
           <Text>護老者、殘疾人士及精神復元人士的照顧者，可致電照顧者支援專線 182 183（24 小時）；其他查詢可致電社署熱線 2343 2255。</Text>
         </VStack>

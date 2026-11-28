@@ -9,7 +9,7 @@ import {List, ListItem} from '@astryxdesign/core/List';
 import {Banner} from '@astryxdesign/core/Banner';
 import {Page, Calls, Tags, VideoCard} from '../ui';
 import {SaveButton, useDistrict, DistrictSelector, UnitList, KindSelector} from '../features';
-import {CATEGORIES, SERVICES, FIELDS, ROUTES, fieldUrl} from '../catalog.js';
+import {CATEGORIES, SERVICES, FIELDS, ROUTES, fieldUrl, serviceUrl} from '../catalog.js';
 import {VIDEOS} from '../videos.js';
 
 const norm = (v: string) => v.normalize('NFKC').trim().toLowerCase();
@@ -18,7 +18,7 @@ const isSelfPay = (s: any) => s.fund.startsWith('自費');
 
 function ServiceRow({s}: {s: any}) {
   return (
-    <ListItem align="start" href={`service.html?id=${s.id}`}
+    <ListItem align="start" href={serviceUrl(s.id)}
       label={<Text weight="bold" size="lg">{s.name}</Text>}
       description={<VStack gap={1}><Text color="secondary" lang="en">{s.en}</Text><Tags s={s} /><Text>{s.what.replace(/\*\*/g, '')}</Text></VStack>}
       endContent={<SaveButton id={s.id} name={s.name} />} />
@@ -27,8 +27,8 @@ function ServiceRow({s}: {s: any}) {
 
 export default function Services() {
   const params = new URLSearchParams(location.search);
-  const field = FIELDS.find(f => f.id === (params.get('field') || location.hash.replace(/^#field-/, '')));
-  const centresOnly = params.get('view') === 'centres';
+  const field = FIELDS.find(f => f.id === (document.body.dataset.field || params.get('field') || location.hash.replace(/^#field-/, '')));
+  const centresOnly = document.body.dataset.view === 'centres' || params.get('view') === 'centres';
   const title = centresOnly ? '尋找就近服務中心' : field?.label || '所有服務';
   const fieldCats = CATEGORIES.filter(([, , fid]) => fid === field?.id).map(([id]) => id);
   useLayoutEffect(() => {
@@ -111,14 +111,17 @@ export default function Services() {
         </List>
       ) : (field ? [field] : FIELDS).map((f: any) => {
         const fieldCats = CATEGORIES.filter(([, , fid]: string[]) => fid === f.id);
-        const inCat = (cat: string) => shown.filter((s: any) => s.cat === cat || (s.extraCats || []).includes(cat));
+        const inCat = (cat: string) => shown.filter((s: any) => {
+          if (s.cat === cat) return true;
+          return field && !fieldCats.some(([id]) => id === s.cat) && s.extraCats?.includes(cat);
+        });
         if (!fieldCats.some(([cat]: string[]) => inCat(cat).length)) return null;
         return (
           <VStack key={f.id} gap={4}>
             <VStack gap={1}>
               {!field && <><Heading level={2} id={`field-${f.id}`}>{f.label}</Heading>
               <Text color="secondary">{f.intro}</Text></>}
-              {f.id === 'elderly' && <Text>不少資助長者服務均須先接受<Link href="service.html?id=assessment" hasUnderline>安老服務統一評估</Link> (SCNAMES)。</Text>}
+              {f.id === 'elderly' && <Text>不少資助長者服務均須先接受<Link href={serviceUrl('assessment')} hasUnderline>安老服務統一評估</Link> (SCNAMES)。</Text>}
             </VStack>
             {fieldCats.map(([cat, title]: string[]) => {
               const items = inCat(cat);

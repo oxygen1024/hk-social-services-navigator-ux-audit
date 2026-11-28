@@ -5,26 +5,27 @@ import {List, ListItem} from '@astryxdesign/core/List';
 import {Breadcrumbs, BreadcrumbItem} from '@astryxdesign/core/Breadcrumbs';
 import {Stepper, Step} from '@astryxdesign/core/Stepper';
 import {Table} from '@astryxdesign/core/Table';
-import {ProgressBar} from '@astryxdesign/core/ProgressBar';
+import {canonicalId, contentLink, serviceUrl} from '../paths.js';
+import {serviceChecked} from '../reviews.js';
 import {Icon} from '@astryxdesign/core/Icon';
 import {CheckIcon} from '@heroicons/react/24/outline';
 import {Page, Calls, Tags, DataTable, useTerms, termsIn, VideoCard} from '../ui';
 import {SaveButton, useDistrict, DistrictSelector, UnitList} from '../features';
-import {CATEGORIES, SERVICES, CHECKED, FIELD_BY_ID, fieldUrl} from '../catalog.js';
+import {CATEGORIES, SERVICES, TERMS, FIELD_BY_ID, fieldUrl} from '../catalog.js';
 
 const FALLBACK = [['不知道應聯絡誰？照顧者支援專線，24 小時由社工接聽', '182183', '']];
 const FALLBACK_OTHER = [['不知道應聯絡誰？社署熱線，可查詢福利服務及轉介', '23432255', '']];
 
 // 社區券共同付款：六級（社署頁面列明 5%、8%、12%、16%、25%、40%）
 function CopayChart() {
-  const rows = [5, 8, 12, 16, 25, 40].map(p => ({id: p, p}));
+  const rows = [5, 8, 12, 16, 25, 40].map((p, i) => ({id: p, level: i + 1, p}));
   return (
     <VStack gap={1}>
       <Text weight="bold">社區券六個共同付款級別：長者及政府分別支付的比例</Text>
       <Table data={rows} idKey="id" density="compact" columns={[
-        {key: 'me', header: '長者支付', width: 90, renderCell: (r: any) => <Text hasTabularNumbers>{r.p}%</Text>},
-        {key: 'bar', header: '比例', renderCell: (r: any) => <ProgressBar label={`長者支付 ${r.p}%`} isLabelHidden value={r.p} />},
-        {key: 'gov', header: '政府支付', width: 90, align: 'end', renderCell: (r: any) => <Text hasTabularNumbers>{100 - r.p}%</Text>},
+        {key: 'level', header: '級別', renderCell: (r: any) => r.level},
+        {key: 'me', header: '長者支付', align: 'end', renderCell: (r: any) => <Text hasTabularNumbers>{r.p}%</Text>},
+        {key: 'gov', header: '政府支付', align: 'end', renderCell: (r: any) => <Text hasTabularNumbers>{100 - r.p}%</Text>},
       ]} />
     </VStack>
   );
@@ -43,14 +44,18 @@ function NearbyUnits({kinds}: {kinds: string[]}) {
   );
 }
 
-const Block = ({title, children}: any) => (
-  <VStack gap={2}><Heading level={2}>{title}</Heading>{children}</VStack>
+const Block = ({title, id, children}: any) => (
+  <VStack gap={2}><Heading level={2} id={id}>{title}</Heading>{children}</VStack>
 );
 
 export default function Service() {
   const q = new URLSearchParams(location.search);
-  const s: any = SERVICES.find((x: any) => x.id === q.get('id'));
+  const s: any = SERVICES.find((x: any) => x.id === canonicalId(document.body.dataset.service || q.get('id')));
   const current = s?.id === 'assessment' ? 'service.html?id=assessment' : 'services.html';
+  if (!s && !q.has('id') && !document.body.dataset.service) {
+    return <Page current="services.html" title="服務詳情"><Heading level={1}>服務詳情</Heading>
+      <Text>先選一項服務，即可查看資格、申請步驟、收費及聯絡方法。</Text><Link href="services.html" hasUnderline>瀏覽所有服務</Link></Page>;
+  }
   if (!s) {
     return (
       <Page current={current} title="找不到這項服務">
@@ -61,9 +66,11 @@ export default function Service() {
   }
   const rawFrom = q.get('from');
   const from = rawFrom === null ? null : rawFrom.startsWith('?') ? rawFrom : '';
-  const rich = useTerms(termsIn(s.name));
+  const rich = useTerms(s.id === 'ccsv' ? TERMS.map(([, en]) => en) : termsIn(s.name));
   const cat = Object.fromEntries(CATEGORIES)[s.cat];
   const others = SERVICES.filter((o: any) => o.cat === s.cat && o.id !== s.id);
+  const sections = ['資格','適合人士','服務內容','申請步驟',...((s.cost || s.costTable || s.chart) ? [s.costTitle || '收費或資助'] : []),'聯絡'];
+  const anchors = ['eligibility','examples','help','apply',...((s.cost || s.costTable || s.chart) ? ['cost'] : []),'service-contacts'];
   const bullets = (items: string[]) => <List listStyle="disc">{items.map(t => <ListItem key={t} label={<Text>{rich(t)}</Text>} />)}</List>;
 
   return (
@@ -82,12 +89,13 @@ export default function Service() {
         <Text type="large">{rich(s.what)}</Text>
         {s.contactJump && <Link href="#service-contacts" hasUnderline>{s.contactJump}</Link>}
         <HStack gap={2}><SaveButton id={s.id} name={s.name} /></HStack>
+        <nav className="section-index" aria-label="本頁目錄">{sections.map((label, i) => <a key={label} href={'#'+anchors[i]}>{label}</a>)}</nav>
         <VideoCard id={s.youtube} heading="短片：了解這項服務" title={`${s.name}介紹短片`} note={`內容以下方文字及${s.org || '社署'}資料為準。`} />
       </VStack>
 
       <Card padding={5} variant="green">
         <VStack gap={3}>
-          <Heading level={2}>門檻：誰可以使用？</Heading>
+          <Heading level={2} id="eligibility">門檻：誰可以使用？</Heading>
           <Text>{s.rule}</Text>
           {s.compareTable && <><DataTable rows={s.compareTable} rich={rich} /><Text>兩種津貼均須符合：</Text></>}
           <List hasDividers edge="flush">
@@ -99,29 +107,30 @@ export default function Service() {
         </VStack>
       </Card>
 
-      <Block title="這項服務適合哪些人士？">
+      <Block id="examples" title="這項服務適合哪些人士？">
         <Text>例如以下情況：</Text>
         <Text type="supporting" color="secondary">（僅供參考，並非資格判斷）</Text>
         {bullets(s.forWhom)}
       </Block>
 
-      <Block title="服務如何提供幫助？">
-        <Heading level={3}>{FIELD_BY_ID[s.field].userLabel}</Heading>
-        <Text>{rich(s.elder)}</Text>
-        <Heading level={3}>對家人／照顧者</Heading>
-        <Text>{rich(s.carer)}</Text>
-        <Heading level={3}>具體服務內容</Heading>
-        {bullets(s.helps)}
+      <Block id="help" title="服務如何提供幫助？">
+        <section className="service-help-grid">
+          <section><Heading level={3}>{FIELD_BY_ID[s.field].userLabel}</Heading>
+            {s.elderPoints ? bullets(s.elderPoints) : <Text>{rich(s.elder)}</Text>}
+          </section>
+          <section><Heading level={3}>對家人／照顧者</Heading><Text>{rich(s.carer)}</Text></section>
+          <section><Heading level={3}>具體服務內容</Heading>{bullets(s.helps)}</section>
+        </section>
       </Block>
 
-      <Block title="如何申請">
+      <Block id="apply" title="如何申請">
         <Stepper activeStep={-1} orientation="vertical" label="申請步驟">
           {s.steps.map(([t, d]: string[], i: number) => <Step key={i} step={i} label={t} indicator="number"><Text>{rich(d)}</Text></Step>)}
         </Stepper>
       </Block>
 
       {(s.cost || s.costTable || s.chart) && (
-        <Block title={s.costTitle || (s.cat === 'money' ? '津貼金額' : '收費')}>
+        <Block id="cost" title={s.costTitle || (s.cat === 'money' ? '津貼金額' : '收費')}>
           {s.cost && <Text>{rich(s.cost)}</Text>}
           {s.chart === 'copay' && <CopayChart />}
           {s.example && <Text type="supporting" color="secondary">{s.example}</Text>}
@@ -135,7 +144,7 @@ export default function Service() {
 
       <section id="service-contacts" tabIndex={-1} aria-label="聯絡"><Block title="聯絡">
         <Calls items={s.contacts.length ? s.contacts : (s.field === 'elderly' || s.field === 'rehab' ? FALLBACK : FALLBACK_OTHER)} />
-        {s.links.length > 0 && <List listStyle="disc">{s.links.map(([t, u]: string[]) => <ListItem key={u} label={<Link href={u} hasUnderline>{t}</Link>} />)}</List>}
+        {s.links.length > 0 && <List listStyle="disc">{s.links.map(([t, u]: string[]) => <ListItem key={u} label={<Link href={contentLink(u)} target={/^https?:/.test(u) ? '_blank' : undefined} rel={/^https?:/.test(u) ? 'noopener noreferrer' : undefined} hasUnderline>{t}{/^https?:/.test(u) && '（外部網站，另開分頁）'}</Link>} />)}</List>}
       </Block></section>
 
       {s.ask && <Block title="致電時可查詢的問題">{bullets(s.ask)}<Text type="supporting" color="secondary">以上為建議問題，可按實際情況修改。</Text></Block>}
@@ -149,12 +158,12 @@ export default function Service() {
 
       <Text type="supporting" color="secondary">
         來源：<Link href={s.source} hasUnderline>{s.sourceLabel || (s.org || '社署') + '網頁'}</Link>
-        {s.source2 && <>；<Link href={s.source2[0]} hasUnderline>{s.source2[1]}</Link></>}，最近核對日期 {s.checked || CHECKED}
+        {s.source2 && <>；<Link href={s.source2[0]} hasUnderline>{s.source2[1]}</Link></>}，最近核對日期 <time dateTime={serviceChecked(s)}>{serviceChecked(s)}</time>
       </Text>
 
       {others.length > 0 && (
         <Block title="同類服務">
-          <List listStyle="disc">{others.map((o: any) => <ListItem key={o.id} label={<Link href={`service.html?id=${o.id}`} hasUnderline>{o.name}</Link>} />)}</List>
+          <List listStyle="disc">{others.map((o: any) => <ListItem key={o.id} label={<Link href={serviceUrl(o.id)} hasUnderline>{o.name}</Link>} />)}</List>
         </Block>
       )}
       <HStack gap={2}>

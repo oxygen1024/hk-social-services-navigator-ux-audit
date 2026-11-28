@@ -35,13 +35,20 @@ const parts = [elderly, extend(rehab, moreRehab), extend(youth, moreYouth), exte
 const USER_LABEL = {elderly: '對長者', rehab: '對殘疾人士／精神復元人士', youth: '對兒童及青少年', socsec: '對申請人', edu: '對學生', family: '對求助者', housing: '對申請住戶', health: '對病人', work: '對求職者及在職人士', support: '對求助者'};
 
 export const FIELDS = parts.map(p => ({...p.FIELD, userLabel: USER_LABEL[p.FIELD.id] || '對服務使用者'}));
-export const fieldUrl = id => `services.html?field=${encodeURIComponent(id)}`;
+export {fieldUrl, serviceUrl, canonicalId, centreUrl} from './paths.js';
 export const FIELD_BY_ID = Object.fromEntries(FIELDS.map(f => [f.id, f]));
 export const CATEGORIES = parts.flatMap(p => p.CATEGORIES.map(([id, label]) => [id, label, p.FIELD.id]));
 export const NEEDS_BY_FIELD = Object.fromEntries(parts.map(p => [p.FIELD.id, p.NEEDS]));
 export const NEEDS = Object.assign({}, ...parts.map(p => p.NEEDS));
 // extraCats：同一服務亦列於其他類別（例如高齡津貼亦屬社會保障）
-export const SERVICES = parts.flatMap(p => p.SERVICES.map(s => ({...s, field: p.FIELD.id})));
+const allServices = parts.flatMap(p => p.SERVICES.map(s => ({...s, field: p.FIELD.id})));
+const carerSupport = allServices.find(s => s.id === 'rehab-carer-hotline');
+export const SERVICES = allServices.filter(s => s !== carerSupport).map(s => s.id === 'carer-line' ? {
+  ...s, extraCats: [carerSupport.cat], needs: [...s.needs, ...carerSupport.needs],
+  who: carerSupport.who, fund: carerSupport.fund, cost: carerSupport.cost, helps: carerSupport.helps,
+  source2: [carerSupport.source, '社署：照顧者支援專線'], contacts: carerSupport.contacts, note: carerSupport.note, links: [...s.links, ...carerSupport.links],
+  forWhom: [...s.forWhom, ...carerSupport.forWhom], checked: carerSupport.checked,
+} : s);
 const isUnsure = n => n === 'unsure' || n.endsWith('-unsure');
 // 每個範疇必定保留的真人聯絡途徑：標有「未清楚」需要的第一項服務
 export const ENTRY = Object.fromEntries(FIELDS.map(f => [f.id, SERVICES.find(s => s.field === f.id && s.needs.some(isUnsure))?.id]));

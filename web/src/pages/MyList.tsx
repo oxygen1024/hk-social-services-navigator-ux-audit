@@ -6,7 +6,7 @@ import {Link} from '@astryxdesign/core/Link';
 import {CheckboxList, CheckboxListItem} from '@astryxdesign/core/CheckboxList';
 import {Page, Tags} from '../ui';
 import {useMyList} from '../features';
-import {SERVICES, FIELD_BY_ID} from '../catalog.js';
+import {serviceUrl, SERVICES, FIELD_BY_ID} from '../catalog.js';
 
 export default function MyList() {
   const {list, remove, clear} = useMyList();
@@ -30,7 +30,7 @@ export default function MyList() {
         <VStack gap={4}>
           {saved.map((s: any) => (
             <VStack key={s.id} gap={1}>
-              <Heading level={2}><Link href={`service.html?id=${s.id}`} hasUnderline type="inherit">{s.name}</Link></Heading>
+              <Heading level={2}><Link href={serviceUrl(s.id)} hasUnderline type="inherit">{s.name}</Link></Heading>
               <Text color="secondary">{FIELD_BY_ID[s.field].label}</Text>
               <Tags s={s} />
               <Text>{s.what.replace(/\*\*/g, '')}</Text>

@@ -1,19 +1,12 @@
 // 我的清單（localStorage）、地區單位、意見回饋。
-import {Fragment, useEffect, useRef, useState} from 'react';
-import {VStack, HStack} from '@astryxdesign/core/Layout';
-import {Text} from '@astryxdesign/core/Text';
-import {Link} from '@astryxdesign/core/Link';
-import {Badge} from '@astryxdesign/core/Badge';
+import {useEffect, useRef, useState} from 'react';
 import {ToggleButton} from '@astryxdesign/core/ToggleButton';
 import {Selector} from '@astryxdesign/core/Selector';
-import {List, ListItem} from '@astryxdesign/core/List';
 import {Icon} from '@astryxdesign/core/Icon';
 import {ChatBubbleLeftEllipsisIcon, HeartIcon} from '@heroicons/react/24/outline';
 import {HeartIcon as HeartSolid} from '@heroicons/react/24/solid';
-import {UNITS, DISTRICTS, UNIT_LISTS} from './units.js';
-
-// 綜合家庭服務中心排先（任何人可求助），其後按名單次序
-const KIND_ORDER = (k: string) => { const i = UNIT_LISTS.findIndex((l: any) => l.kind === k); return k.startsWith('綜合家庭') ? -1 : i; };
+import {canonicalId} from './paths.js';
+import {DISTRICTS, UNIT_LISTS} from './units.js';
 
 // ── 儲存：只存在使用者自己的瀏覽器，私隱瀏覽或已清除資料時會是空的 ──
 const LIST_KEY = 'hkcare-my-list';
@@ -23,7 +16,7 @@ const write = (k: string, v: string | null) => {
   try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch { /* 只在本頁有效 */ }
   window.dispatchEvent(new Event('hkcare-store'));
 };
-const readList = (): string[] => { try { return JSON.parse(read(LIST_KEY) || '[]'); } catch { return []; } };
+const readList = (): string[] => { try { return [...new Set<string>((JSON.parse(read(LIST_KEY) || '[]') as string[]).map(canonicalId))]; } catch { return []; } };
 
 export function useMyList() {
   const [list, setList] = useState<string[]>(readList);
@@ -68,7 +61,7 @@ export function useDistrict() {
 
 export function DistrictSelector({value, onChange}: {value: string | null; onChange: (d: string | null) => void}) {
   return (
-    <Selector label="地區（18 區）" description="選擇居住地區，查看該區的服務中心。" placeholder="選擇地區"
+    <Selector label="地區（18 區）" description="選擇地區，查看地址位於該區的服務中心。" placeholder="選擇地區"
       options={DISTRICTS.map((d: string) => ({value: d, label: d}))} value={value} onChange={onChange} hasClear />
   );
 }
@@ -82,39 +75,7 @@ export function KindSelector({value, onChange}: {value: string; onChange: (k: st
   );
 }
 
-export function UnitList({district, kinds}: {district: string | null; kinds?: string[]}) {
-  if (!district) return null;
-  const units = UNITS.filter((u: any) => (u.district === district || (u.districts || []).includes(district)) && (!kinds || kinds.includes(u.kind)))
-    .sort((a: any, b: any) => KIND_ORDER(a.kind) - KIND_ORDER(b.kind) || a.name.localeCompare(b.name, 'zh-HK'));
-  const lists = UNIT_LISTS
-    .filter((list: any) => units.some((unit: any) => unit.kind === list.kind))
-    .filter((list: any, index: number, matches: any[]) => matches.findIndex(other => other.source === list.source) === index);
-  return (
-    <VStack gap={2}>
-      <Text weight="bold">{district}：{units.length} 間中心</Text>
-      {units.some((u: any) => u.districts) && <Text type="supporting" color="secondary">綜合家庭服務中心名單按社署行政區劃分，以下列出涵蓋{district}的社署行政區內所有中心，請致電確認服務範圍。</Text>}
-      <List hasDividers edge="flush">
-        {units.map((u: any) => (
-          <ListItem key={u.kind + u.name + u.tel} align="start"
-            label={<Text weight="bold">{u.name}</Text>}
-            description={
-              <VStack gap={1}>
-                <HStack gap={1}><Badge label={u.kind} variant="green" />{u.meal && <Badge label="提供膳食服務" variant="neutral" />}</HStack>
-                <Text color="secondary">{u.agency}</Text>
-                {u.address.map((a: string) => <Text key={a}>{a}</Text>)}
-                {u.hours?.length > 0 && <Text type="supporting" color="secondary">開放時間：{u.hours.join('；')}</Text>}
-              </VStack>
-            }
-            endContent={u.tel && <Link href={`tel:${u.tel}`} hasUnderline type="large"><Text weight="bold" hasTabularNumbers>{u.tel.slice(0, 4)} {u.tel.slice(4)}</Text></Link>}
-          />
-        ))}
-      </List>
-      {lists.length > 0 && <Text type="supporting" color="secondary">
-        來源：{lists.map((l: any, i: number) => <Fragment key={l.source}>{i > 0 && '；'}<Link href={l.source} hasUnderline>社署{l.kind}名單</Link>{l.asOf && `（${l.asOf}）`}</Fragment>)}。開放時間或有不同，請先致電查詢。
-      </Text>}
-    </VStack>
-  );
-}
+export {UnitList} from './CentreDirectory';
 
 const FEEDBACK_URL = 'https://tasqqzeyemgqqunmuiyd.supabase.co/rest/v1/website_feedback';
 const FEEDBACK_KEY = 'sb_publishable_nxyZjArz2WI5K--RV8bL8A_k1Sg-zJQ';
@@ -124,6 +85,17 @@ export function SuggestionButton() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [message, setMessage] = useState('');
   const requestId = useRef('');
+  const [centre, setCentre] = useState<any>(null);
+  useEffect(() => {
+    const report = (event: Event) => {
+      const unit = (event as CustomEvent).detail;
+      setCentre(unit); setMessage(''); requestId.current = ''; setStatus('idle');
+      dialog.current?.showModal();
+    };
+    window.addEventListener('report-centre', report);
+    return () => window.removeEventListener('report-centre', report);
+  }, []);
+  const context = centre ? `【中心資料回報】${centre.kind}｜${centre.name}｜${centre.siteDistrict}｜${centre.tel}\n` : '';
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!message.trim() || status === 'sending' || status === 'sent') return;
@@ -133,7 +105,7 @@ export function SuggestionButton() {
       const response = await fetch(FEEDBACK_URL, {
         method: 'POST',
         headers: {apikey: FEEDBACK_KEY, 'Content-Type': 'application/json', Prefer: 'return=minimal'},
-        body: JSON.stringify({id: requestId.current, page: document.body.dataset.page, message: message.trim()}),
+        body: JSON.stringify({id: requestId.current, page: document.body.dataset.page, message: context + message.trim()}),
         signal: AbortSignal.timeout(15000),
       });
       if (!response.ok && !(response.status === 409 && (await response.json()).code === '23505')) throw Error();
@@ -148,21 +120,23 @@ export function SuggestionButton() {
     <>
       <button type="button" className="suggestion-ball" aria-haspopup="dialog"
         aria-label="提供網站意見" onClick={() => {
-          if (status === 'sent') setStatus('idle');
+          if (centre) {setCentre(null); setMessage(''); requestId.current = '';setStatus('idle');}
+          else if (status === 'sent') setStatus('idle');
           dialog.current?.showModal();
         }}>
         <ChatBubbleLeftEllipsisIcon aria-hidden="true" width="22" height="22" />
         意見
       </button>
-      <dialog ref={dialog} className="suggestion-dialog" aria-labelledby="suggestion-title">
+      <dialog ref={dialog} onCancel={e => { if (status === 'sending') e.preventDefault(); }} className="suggestion-dialog" aria-labelledby="suggestion-title">
         <form onSubmit={submit}>
           <header>
-            <h2 id="suggestion-title">提供網站意見</h2>
-            <button type="button" onClick={() => dialog.current?.close()}>關閉</button>
+            <h2 id="suggestion-title">{centre ? '回報中心資料有誤' : '提供網站意見'}</h2>
+            <button type="button" disabled={status === 'sending'} onClick={() => dialog.current?.close()}>關閉</button>
           </header>
           {status !== 'sent' && <>
-            <label htmlFor="suggestion-body">你希望這個網站怎樣改善？</label>
-            <textarea id="suggestion-body" rows={4} required maxLength={1000} value={message}
+            {centre && <p>{centre.name} · {centre.kind} · {centre.tel}</p>}
+            <label htmlFor="suggestion-body">{centre ? '哪項資料需要更新？請寫明正確資料或提供來源。' : '你希望這個網站怎樣改善？'}</label>
+            <textarea id="suggestion-body" rows={4} required maxLength={1000 - context.length} value={message}
               readOnly={status === 'sending'} aria-describedby="suggestion-note" onChange={event => {
                 setMessage(event.target.value);
                 requestId.current = '';

@@ -34,3 +34,7 @@ RULES:
   upgrade --from <old version> --apply   run after a dependency bump
 To remove this block, run `astryx init --remove-agents`, which removes it from the agent files at the project root and in the folder you run it in; from any other file it leaves, delete everything from ASTRYX:START to ASTRYX:END.
 <!-- ASTRYX:END -->
+
+## Service and directory fact checks
+
+After checking a service or centre against its official source, record the reviewed item with `npm run review:data -- service:<id>` or `centre:<telephone>` from this directory, including when its information is correct and unchanged. The command records the Hong Kong date and rebuilds the public pages. Use `directory:<kind>` after checking a whole directory. For a check limited to a particular field such as phone numbers, update the corresponding scoped date instead. Publish the rebuilt pages with the content changes. Layout edits alone do not count as data reviews.

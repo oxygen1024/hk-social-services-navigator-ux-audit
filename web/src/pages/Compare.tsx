@@ -5,11 +5,11 @@ import {Button} from '@astryxdesign/core/Button';
 import {Table} from '@astryxdesign/core/Table';
 import {Page, telText} from '../ui';
 import {List, ListItem} from '@astryxdesign/core/List';
-import {SERVICES, ROUTES, FIELD_BY_ID} from '../catalog.js';
+import {serviceUrl, canonicalId, SERVICES, ROUTES, FIELD_BY_ID} from '../catalog.js';
 
 // 2 至 3 項服務並排比較：門檻、收費、服務內容、申請途徑、聯絡
 export default function Compare() {
-  const ids = (new URLSearchParams(location.search).get('ids') || '').split(',').filter(Boolean).slice(0, 3);
+  const ids = [...new Set((new URLSearchParams(location.search).get('ids') || '').split(',').filter(Boolean).map(canonicalId))].slice(0, 3);
   const list: any[] = ids.map(id => SERVICES.find((s: any) => s.id === id)).filter(Boolean);
   const plain = (t = '') => t.replace(/\*\*/g, '');
   const bullets = (items: string[] = []) => <List listStyle="disc" density="compact">{items.map(t => <ListItem key={t} label={<Text>{plain(t)}</Text>} />)}</List>;
@@ -43,7 +43,7 @@ export default function Compare() {
             ]} />
           <Text type="supporting" color="secondary">比較表只列出摘要，詳細條件請按服務名稱查看各服務頁；最終以社署及服務單位為準。</Text>
           <HStack gap={2}>
-            {list.map(s => <Link key={s.id} href={`service.html?id=${s.id}`} hasUnderline>{s.name}</Link>)}
+            {list.map(s => <Link key={s.id} href={serviceUrl(s.id)} hasUnderline>{s.name}</Link>)}
           </HStack>
           <Button label="列印比較表" onClick={() => window.print()} />
         </VStack>

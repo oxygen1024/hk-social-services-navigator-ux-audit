@@ -34,7 +34,7 @@ export default function Need() {
           status={missing ? {type: 'error', message: '請先選擇服務對象'} : undefined}>
           {FIELDS.map((f: any) => <RadioListItem key={f.id} value={f.id} label={f.label} description={f.intro} />)}
         </RadioList></section>
-        {field && <section className="question-panel"><CheckboxList label="需要的協助" description="可選擇多於一項。" value={chosen} onChange={setNeeds} hasDividers>
+        {field && <section className="question-panel"><CheckboxList label="需要的協助" description="可選多項。略過此題會顯示整個範疇；選「未清楚」會先列出可協助你的服務。" value={chosen} onChange={setNeeds} hasDividers>
           {Object.entries(needsHere).map(([k, v]: any) => <CheckboxListItem key={k} value={k} label={v.label} description={v.eg} />)}
         </CheckboxList></section>}
         <section className="question-panel"><RadioList label="想查看資助還是自費服務？" value={fund} onChange={setFund}>

@@ -1,20 +1,21 @@
 // 共用：頁面框架（頂部導航、頁尾）、重點文字、電話列表、表格。
 import {useEffect, useLayoutEffect, useRef, useState, type ReactNode} from 'react';
 import {AppShell} from '@astryxdesign/core/AppShell';
-import {Layout, LayoutContent, VStack, HStack, Section, Card} from '@astryxdesign/core/Layout';
+import {Layout, LayoutContent, VStack, HStack, Card} from '@astryxdesign/core/Layout';
 import {Text, Heading} from '@astryxdesign/core/Text';
 import {Link} from '@astryxdesign/core/Link';
 import {Badge} from '@astryxdesign/core/Badge';
 import {Button} from '@astryxdesign/core/Button';
 import {List, ListItem} from '@astryxdesign/core/List';
 import {Table} from '@astryxdesign/core/Table';
-import {CATEGORIES, ROUTES, TERMS, FIELDS, fieldUrl} from './catalog.js';
+import {ROUTES, TERMS, FIELDS, fieldUrl} from './catalog.js';
+import {latestReview} from './reviews.js';
 import {ListCount, SuggestionButton} from './features';
 
 const GROUPS = [
-  {label: '尋找服務', links: [['need.html','按需要尋找'], ['services.html','所有服務']]},
+  {label: '搜尋及配對', links: [['need.html','按需要尋找'], ['services.html','所有服務']]},
   {label: '服務範疇', links: FIELDS.map(field => [fieldUrl(field.id), field.label])},
-  {label: '評估及支援', links: [['service.html?id=assessment','統一評估'], ['service.html?id=centres','聯絡長者中心'], ['service.html?id=carer-line','照顧者支援專線']]},
+  {label: '地區中心', links: [['centres.html','按地區找中心']]},
 ];
 
 // 每頁首次出現的名詞於中文後加上英文；**文字** 為重點（粗體加底線）
@@ -134,7 +135,7 @@ function SiteNav() {
     return <ul>{links.map(([href,label]) => <li key={href}><a href={href}
       aria-current={href === (currentField ? fieldUrl(currentField.id) : active) ? 'page' : undefined}>{label}</a></li>)}</ul>;
   }
-  return <header ref={header} className="care-header" onKeyDown={e => {
+  return <header id="page-top" tabIndex={-1} ref={header} className="care-header" onKeyDown={e => {
     const open = (e.target as HTMLElement).closest<HTMLDetailsElement>('details[open]');
     if (open && e.key === 'Escape') {open.open = false; open.querySelector('summary')?.focus();}
   }} onBlur={e => {
@@ -146,7 +147,8 @@ function SiteNav() {
     <section className="care-tools" aria-label="網站工具">
       <a href="index.html" className="care-name">社福懶人包</a>
       <nav className="wide-nav" aria-label="主選單">
-        {GROUPS.map(group => <details key={group.label} name="header-options" className="care-group">
+        {GROUPS.map(group => group.links.length === 1 ? <a className="care-group" key={group.label}
+          href={group.links[0][0]} aria-current={active === group.links[0][0] ? 'page' : undefined}>{group.label}</a> : <details key={group.label} name="header-options" className="care-group">
           <summary>{group.label}</summary>
           <section className="drop-list">{destinations(group.links)}</section>
         </details>)}
@@ -173,27 +175,35 @@ function SiteNav() {
 }
 
 export function Page({current, title, children}: {current: string; title?: string; children: ReactNode}) {
-  if (title) document.title = `${title}｜社福懶人包`;
+  useEffect(() => {
+    if (title && document.body.dataset.page !== 'home') document.title = `${title}｜社福懶人包`;
+  }, [title]);
+  const backToTop = () => {
+    window.scrollTo({top: 0, behavior: 'instant'});
+    document.querySelector<HTMLAnchorElement>('.care-name')?.focus({preventScroll: true});
+  };
   return (
     <>
     <SiteNav />
     <AppShell height="auto">
-      <Layout height="auto" contentWidth={760}>
-        <LayoutContent padding={4}>
+      <Layout height="auto" contentWidth={1180}>
+        <LayoutContent padding={4} className="page-content">
           <VStack gap={6}>
             {children}
-            <Section variant="muted" padding={4} dividers={['top']}>
-              <VStack gap={2}>
-                <Text type="supporting" color="secondary"><Text type="supporting" weight="bold">測試版</Text>：各服務的資料來源及核實日期見該服務頁。尚未進行用家測試。</Text>
-                <Text type="supporting" color="secondary">
-                  服務資料來自<Link href="https://www.swd.gov.hk/tc/pubsvc/elderly/" hasUnderline>社會福利署 (Social Welfare Department, SWD)</Link>、其他政府部門及營辦機構。本網站不屬於任何政府部門，亦不會判斷資格；最終以負責部門及服務單位為準。
-                </Text>
-              </VStack>
-            </Section>
+
           </VStack>
         </LayoutContent>
       </Layout>
     </AppShell>
+    <footer className="site-footer" aria-label="網站頁尾"><section>
+      <nav aria-label="頁底導航">
+        <a href="index.html">首頁</a><a href="need.html">按需要找服務</a>
+        <a href="services.html">所有服務</a><a href="centres.html">中心目錄</a><a href="list.html">我的清單</a>
+        <button type="button" onClick={backToTop}>↑ 返回頂部</button>
+      </nav>
+      <p>資料來自政府部門及服務機構。社福懶人包為獨立網站，申請資格及服務安排以負責單位為準。</p>
+      <p>資料最新更新日期　<time dateTime={latestReview}>{latestReview}</time>　·　各服務及中心另列核實日期。</p>
+    </section></footer>
     <SuggestionButton />
     </>
   );
