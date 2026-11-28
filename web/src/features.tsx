@@ -86,7 +86,9 @@ export function UnitList({district, kinds}: {district: string | null; kinds?: st
   if (!district) return null;
   const units = UNITS.filter((u: any) => (u.district === district || (u.districts || []).includes(district)) && (!kinds || kinds.includes(u.kind)))
     .sort((a: any, b: any) => KIND_ORDER(a.kind) - KIND_ORDER(b.kind) || a.name.localeCompare(b.name, 'zh-HK'));
-  const lists = UNIT_LISTS.filter((l: any, i: number, a: any[]) => units.some((u: any) => u.kind === l.kind) && a.findIndex((x: any) => x.source === l.source) === i);
+  const lists = UNIT_LISTS
+    .filter((list: any) => units.some((unit: any) => unit.kind === list.kind))
+    .filter((list: any, index: number, matches: any[]) => matches.findIndex(other => other.source === list.source) === index);
   return (
     <VStack gap={2}>
       <Text weight="bold">{district}：{units.length} 間中心</Text>
@@ -107,9 +109,9 @@ export function UnitList({district, kinds}: {district: string | null; kinds?: st
           />
         ))}
       </List>
-      <Text type="supporting" color="secondary">
+      {lists.length > 0 && <Text type="supporting" color="secondary">
         來源：{lists.map((l: any, i: number) => <Fragment key={l.source}>{i > 0 && '；'}<Link href={l.source} hasUnderline>社署{l.kind}名單</Link>{l.asOf && `（${l.asOf}）`}</Fragment>)}。開放時間或有不同，請先致電查詢。
-      </Text>
+      </Text>}
     </VStack>
   );
 }
