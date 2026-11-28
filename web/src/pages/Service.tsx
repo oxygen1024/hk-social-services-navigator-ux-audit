@@ -8,7 +8,7 @@ import {Table} from '@astryxdesign/core/Table';
 import {ProgressBar} from '@astryxdesign/core/ProgressBar';
 import {Icon} from '@astryxdesign/core/Icon';
 import {CheckIcon} from '@heroicons/react/24/outline';
-import {Page, Calls, Tags, DataTable, useTerms, termsIn} from '../ui';
+import {Page, Calls, Tags, DataTable, useTerms, termsIn, VideoCard} from '../ui';
 import {SaveButton, useDistrict, DistrictSelector, UnitList} from '../features';
 import {CATEGORIES, SERVICES, CHECKED, FIELD_BY_ID} from '../catalog.js';
 
@@ -81,18 +81,7 @@ export default function Service() {
         <Tags s={s} />
         <Text type="large">{rich(s.what)}</Text>
         <HStack gap={2}><SaveButton id={s.id} name={s.name} /></HStack>
-        {s.youtube && (
-          // YouTube 私隱加強模式：未按播放前不設追蹤 cookie
-          <Card padding={3} maxWidth={380}>
-            <VStack gap={2}>
-              <Text weight="bold">短片：了解這項服務</Text>
-              <iframe src={`https://www.youtube-nocookie.com/embed/${s.youtube}`} title={`${s.name}介紹短片`} loading="lazy"
-                allow="encrypted-media; picture-in-picture; fullscreen" allowFullScreen referrerPolicy="strict-origin-when-cross-origin"
-                style={{width: '100%', aspectRatio: '9 / 16', border: 0}} />
-              <Text type="supporting" color="secondary">影片由 YouTube 播放，播放時會連接 YouTube。內容以下方文字及{s.org || '社署'}資料為準。</Text>
-            </VStack>
-          </Card>
-        )}
+        <VideoCard id={s.youtube} heading="短片：了解這項服務" title={`${s.name}介紹短片`} note={`內容以下方文字及${s.org || '社署'}資料為準。`} />
       </VStack>
 
       <Card padding={5} variant="green">

@@ -4,8 +4,9 @@ import {Button} from '@astryxdesign/core/Button';
 import {Link} from '@astryxdesign/core/Link';
 import {Banner} from '@astryxdesign/core/Banner';
 import {HomeModernIcon, HeartIcon, UserGroupIcon, WalletIcon, ArrowRightIcon, AcademicCapIcon, ShieldCheckIcon, BuildingOffice2Icon, BriefcaseIcon, PlusCircleIcon, LifebuoyIcon} from '@heroicons/react/24/outline';
-import {Page, Calls} from '../ui';
+import {Page, Calls, VideoCard} from '../ui';
 import {FIELDS} from '../catalog.js';
+import {VIDEOS} from '../videos.js';
 
 const fieldIcons = {elderly: HomeModernIcon, rehab: HeartIcon, youth: UserGroupIcon, socsec: WalletIcon, edu: AcademicCapIcon, family: ShieldCheckIcon, housing: BuildingOffice2Icon, health: PlusCircleIcon, work: BriefcaseIcon, support: LifebuoyIcon};
 
@@ -21,6 +22,8 @@ export default function Home() {
           <button type="submit">搜尋</button>
         </form>
       </section>
+
+      <VideoCard id={VIDEOS.home} heading="短片：一分鐘認識社福懶人包" title="社福懶人包介紹短片" note="服務資料以網站文字及官方網頁為準。" />
 
       <VStack gap={2}>
         <Heading level={2}>未清楚服務名稱？</Heading>

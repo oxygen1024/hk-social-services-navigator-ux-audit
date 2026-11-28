@@ -1,7 +1,7 @@
 // 共用：頁面框架（頂部導航、頁尾）、重點文字、電話列表、表格。
 import {useEffect, useLayoutEffect, useRef, useState, type ReactNode} from 'react';
 import {AppShell} from '@astryxdesign/core/AppShell';
-import {Layout, LayoutContent, VStack, HStack, Section} from '@astryxdesign/core/Layout';
+import {Layout, LayoutContent, VStack, HStack, Section, Card} from '@astryxdesign/core/Layout';
 import {Text, Heading} from '@astryxdesign/core/Text';
 import {Link} from '@astryxdesign/core/Link';
 import {Badge} from '@astryxdesign/core/Badge';
@@ -195,5 +195,21 @@ export function Page({current, title, children}: {current: string; title?: strin
     </AppShell>
     <SuggestionButton />
     </>
+  );
+}
+
+// YouTube 短片（私隱加強模式：未按播放前不設追蹤 cookie）。直屏 9:16。
+export function VideoCard({id, heading, title, note}: {id?: string; heading: string; title: string; note: string}) {
+  if (!id) return null;
+  return (
+    <Card padding={3} maxWidth={380}>
+      <VStack gap={2}>
+        <Text weight="bold">{heading}</Text>
+        <iframe src={`https://www.youtube-nocookie.com/embed/${id}`} title={title} loading="lazy"
+          allow="encrypted-media; picture-in-picture; fullscreen" allowFullScreen referrerPolicy="strict-origin-when-cross-origin"
+          style={{width: '100%', aspectRatio: '9 / 16', border: 0}} />
+        <Text type="supporting" color="secondary">影片由 YouTube 播放，播放時會連接 YouTube。{note}</Text>
+      </VStack>
+    </Card>
   );
 }

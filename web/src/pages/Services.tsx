@@ -7,9 +7,10 @@ import {Selector} from '@astryxdesign/core/Selector';
 import {SegmentedControl, SegmentedControlItem} from '@astryxdesign/core/SegmentedControl';
 import {List, ListItem} from '@astryxdesign/core/List';
 import {Banner} from '@astryxdesign/core/Banner';
-import {Page, Calls, Tags} from '../ui';
+import {Page, Calls, Tags, VideoCard} from '../ui';
 import {SaveButton, useDistrict, DistrictSelector, UnitList, KindSelector} from '../features';
 import {CATEGORIES, SERVICES, FIELDS, ROUTES} from '../catalog.js';
+import {VIDEOS} from '../videos.js';
 
 const norm = (v: string) => v.normalize('NFKC').trim().toLowerCase();
 const isSubsidised = (s: any) => s.fund.startsWith('資助') || s.fund === '免費' || s.fund === '毋須供款';
@@ -93,6 +94,7 @@ export default function Services() {
             <VStack gap={1}>
               <Heading level={2} id={`field-${f.id}`}>{f.label}</Heading>
               <Text color="secondary">{f.intro}</Text>
+              <VideoCard id={(VIDEOS as Record<string, string>)[f.id]} heading={`短片：認識${f.label}`} title={`${f.label}介紹短片`} note="服務資料以網站文字及官方網頁為準。" />
               {f.id === 'elderly' && <Text>不少資助長者服務均須先接受<Link href="service.html?id=assessment" hasUnderline>安老服務統一評估</Link> (SCNAMES)。</Text>}
             </VStack>
             {fieldCats.map(([cat, title]: string[]) => {
