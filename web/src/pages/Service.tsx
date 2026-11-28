@@ -80,6 +80,7 @@ export default function Service() {
         <Text color="secondary" lang="en">{s.en}</Text>
         <Tags s={s} />
         <Text type="large">{rich(s.what)}</Text>
+        {s.contactJump && <Link href="#service-contacts" hasUnderline>{s.contactJump}</Link>}
         <HStack gap={2}><SaveButton id={s.id} name={s.name} /></HStack>
         <VideoCard id={s.youtube} heading="短片：了解這項服務" title={`${s.name}介紹短片`} note={`內容以下方文字及${s.org || '社署'}資料為準。`} />
       </VStack>
@@ -92,6 +93,7 @@ export default function Service() {
           <List hasDividers edge="flush">
             {(s.whoBoth || s.who).map((w: string) => <ListItem key={w} startContent={<Icon icon={CheckIcon} color="success" />} label={<Text>{rich(w)}</Text>} />)}
           </List>
+          {s.eligibilityTable && <DataTable rows={s.eligibilityTable} rich={rich} />}
           {s.free && <><Heading level={3}>須留意</Heading>{bullets(s.free)}</>}
           <Text type="supporting" color="secondary">以上是{s.org || '社署'}網頁列明的條件，最終由負責部門、社工或服務單位核實。</Text>
         </VStack>
@@ -119,7 +121,7 @@ export default function Service() {
       </Block>
 
       {(s.cost || s.costTable || s.chart) && (
-        <Block title={s.cat === 'money' ? '津貼金額' : '收費'}>
+        <Block title={s.costTitle || (s.cat === 'money' ? '津貼金額' : '收費')}>
           {s.cost && <Text>{rich(s.cost)}</Text>}
           {s.chart === 'copay' && <CopayChart />}
           {s.example && <Text type="supporting" color="secondary">{s.example}</Text>}
@@ -131,10 +133,10 @@ export default function Service() {
 
       {UNIT_KINDS[s.id] && <NearbyUnits kinds={UNIT_KINDS[s.id]} />}
 
-      <Block title="聯絡">
+      <section id="service-contacts" tabIndex={-1} aria-label="聯絡"><Block title="聯絡">
         <Calls items={s.contacts.length ? s.contacts : (s.field === 'elderly' || s.field === 'rehab' ? FALLBACK : FALLBACK_OTHER)} />
         {s.links.length > 0 && <List listStyle="disc">{s.links.map(([t, u]: string[]) => <ListItem key={u} label={<Link href={u} hasUnderline>{t}</Link>} />)}</List>}
-      </Block>
+      </Block></section>
 
       {s.ask && <Block title="致電時可查詢的問題">{bullets(s.ask)}<Text type="supporting" color="secondary">以上為建議問題，可按實際情況修改。</Text></Block>}
 
@@ -146,8 +148,8 @@ export default function Service() {
       )}
 
       <Text type="supporting" color="secondary">
-        來源：<Link href={s.source} hasUnderline>{s.org || '社署'}網頁</Link>
-        {s.source2 && <>；<Link href={s.source2[0]} hasUnderline>{s.source2[1]}</Link></>}，核實日期 {s.checked || CHECKED}
+        來源：<Link href={s.source} hasUnderline>{s.sourceLabel || (s.org || '社署') + '網頁'}</Link>
+        {s.source2 && <>；<Link href={s.source2[0]} hasUnderline>{s.source2[1]}</Link></>}，最近核對日期 {s.checked || CHECKED}
       </Text>
 
       {others.length > 0 && (

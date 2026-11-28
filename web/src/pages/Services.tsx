@@ -13,7 +13,7 @@ import {CATEGORIES, SERVICES, FIELDS, ROUTES, fieldUrl} from '../catalog.js';
 import {VIDEOS} from '../videos.js';
 
 const norm = (v: string) => v.normalize('NFKC').trim().toLowerCase();
-const isSubsidised = (s: any) => s.fund.startsWith('資助') || s.fund === '免費' || s.fund === '毋須供款';
+const isSubsidised = (s: any) => s.fund.startsWith('資助') || s.fund.startsWith('免費') || s.fund === '合資格人士免費' || s.fund === '毋須供款';
 const isSelfPay = (s: any) => s.fund.startsWith('自費');
 
 function ServiceRow({s}: {s: any}) {
@@ -47,7 +47,7 @@ export default function Services() {
     (!field || [s.cat, ...(s.extraCats || [])].some(cat => fieldCats.includes(cat))) &&
     (!q || [s.name, s.en, ...(s.alias || []), cats[s.cat]].some((v: string) => norm(v || '').includes(q))) &&
     (fund === 'all' || (fund === 'sub' ? isSubsidised(s) : isSelfPay(s))) &&
-    (!route || s.route === route));
+    (!route || s.route === route || s.alsoRoutes?.includes(route)));
   const filtered = q || fund !== 'all' || route;
 
   const centreFinder = (

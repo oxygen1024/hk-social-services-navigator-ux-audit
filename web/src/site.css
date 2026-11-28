@@ -189,3 +189,5 @@ body[data-page="list"] [role="main"] { min-height: 100svh; }
 
 .field-filters > summary { cursor: pointer; padding: .65rem 0; color: var(--color-accent); font-weight: 700; }
 .field-filters[open] > summary { margin-bottom: .75rem; }
+
+#service-contacts { scroll-margin-top: calc(var(--care-header-height, 4rem) + 1rem); }

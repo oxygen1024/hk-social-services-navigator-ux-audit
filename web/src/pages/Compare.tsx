@@ -13,16 +13,19 @@ export default function Compare() {
   const list: any[] = ids.map(id => SERVICES.find((s: any) => s.id === id)).filter(Boolean);
   const plain = (t = '') => t.replace(/\*\*/g, '');
   const bullets = (items: string[] = []) => <List listStyle="disc" density="compact">{items.map(t => <ListItem key={t} label={<Text>{plain(t)}</Text>} />)}</List>;
+  const tableSummary = (rows: string[][]) => rows.slice(1).map(([label, ...values]) => (
+    <Text key={label}>{plain(label)}：{values.map((value, i) => values.length === 1 ? plain(value) : plain(rows[0][i + 1]) + ' ' + plain(value)).join('／')}</Text>
+  ));
   const cost = (s: any) => s.costTable
-    ? <VStack gap={1}>{s.cost && <Text>{plain(s.cost)}</Text>}{s.costTable.slice(1).map((r: string[]) => <Text key={r.join()}>{plain(r[0])}：{plain(r.slice(1).join('／'))}</Text>)}</VStack>
+    ? <VStack gap={1}>{s.cost && <Text>{plain(s.cost)}</Text>}{tableSummary(s.costTable)}</VStack>
     : <Text>{plain(s.cost) || '頁面未列明，請向服務單位查詢'}</Text>;
   const rows = [
     ['範疇', (s: any) => <Text>{FIELD_BY_ID[s.field].label}</Text>],
-    ['門檻', (s: any) => bullets(s.whoBoth || s.who)],
-    ['申請途徑', (s: any) => <VStack gap={1}><Text weight="bold">{ROUTES[s.route]}</Text><Text>{plain(s.how)}</Text></VStack>],
-    ['收費', cost],
+    ['門檻', (s: any) => <VStack gap={1}>{bullets(s.whoBoth || s.who)}{s.eligibilityTable && tableSummary(s.eligibilityTable)}</VStack>],
+    ['申請途徑', (s: any) => <VStack gap={1}><Text weight="bold">{s.routeLabel || ROUTES[s.route]}</Text><Text>{plain(s.how)}</Text></VStack>],
+    ['收費或資助', cost],
     ['服務內容', (s: any) => bullets(s.helps)],
-    ['聯絡', (s: any) => s.contacts.length ? <VStack gap={1}>{s.contacts.map(([w, n]: string[]) => <Text key={w + n}>{w}：<Link href={`tel:${n}`} hasUnderline>{telText(n)}</Link></Text>)}</VStack> : <Text>請參閱服務頁的單位名單</Text>],
+    ['聯絡', (s: any) => s.contacts.length ? <VStack gap={1}>{s.contacts.map(([w, n, hours]: string[]) => <Text key={w + n}>{w}：<Link href={`tel:${n}`} hasUnderline>{telText(n)}</Link>{hours && `（${hours}）`}</Text>)}</VStack> : <Text>請參閱服務頁的單位名單</Text>],
   ] as const;
   return (
     <Page current="list.html" title="比較服務">

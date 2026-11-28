@@ -67,7 +67,7 @@ export function Tags({s}: {s: any}) {
   return (
     <HStack gap={1}>
       <Badge label={s.fund} variant="neutral" />
-      <Badge label={ROUTES[s.route]} variant="green" />
+      <Badge label={s.routeLabel || ROUTES[s.route]} variant="green" />
     </HStack>
   );
 }
@@ -184,9 +184,9 @@ export function Page({current, title, children}: {current: string; title?: strin
             {children}
             <Section variant="muted" padding={4} dividers={['top']}>
               <VStack gap={2}>
-                <Text type="supporting" color="secondary"><Text type="supporting" weight="bold">測試版</Text>：資料於 2026 年 11 月 23 至 24 日核實，尚未進行用家測試。</Text>
+                <Text type="supporting" color="secondary"><Text type="supporting" weight="bold">測試版</Text>：各服務的資料來源及核實日期見該服務頁。尚未進行用家測試。</Text>
                 <Text type="supporting" color="secondary">
-                  服務資料來自<Link href="https://www.swd.gov.hk/tc/pubsvc/elderly/" hasUnderline>社會福利署 (Social Welfare Department, SWD)</Link>及其他政府部門的官方網頁，來源及核實日期見各服務頁。本網站不屬於任何政府部門，亦不會判斷資格；最終以負責部門及服務單位為準。
+                  服務資料來自<Link href="https://www.swd.gov.hk/tc/pubsvc/elderly/" hasUnderline>社會福利署 (Social Welfare Department, SWD)</Link>、其他政府部門及營辦機構。本網站不屬於任何政府部門，亦不會判斷資格；最終以負責部門及服務單位為準。
                 </Text>
               </VStack>
             </Section>
