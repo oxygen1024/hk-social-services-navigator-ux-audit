@@ -74,7 +74,7 @@ const shots = process.argv[2];
   // 服務目錄及搜尋
   await open("services.html");
   const ids = await p.$$eval('[role=main] a[href^="service.html?id="]', (as) => [...new Set(as.map((a) => new URL(a.href).searchParams.get("id")))]);
-  assert.ok(ids.length >= 16, "服務目錄應列出全部 16 項");
+  assert.ok(ids.length >= 115, "服務目錄應收錄各範疇的服務");
   await p.getByLabel("搜尋服務").fill("社區券");
   assert.ok(await p.locator('[role=main] a[href="service.html?id=ccsv"]').first().isVisible(), "搜尋社區券");
   assert.strictEqual(await p.locator('[role=main] a[href="service.html?id=ssa"]').count(), 0, "搜尋結果只顯示相關服務");
@@ -90,6 +90,13 @@ const shots = process.argv[2];
     assert.ok(!(await p.textContent("[role=main]")).includes("undefined"), `${id} 有 undefined`);
     await noOverflow(id);
     if (shots && ["home-support", "ccsv", "ssa"].includes(id)) await p.screenshot({ path: `${shots}/320-service-${id}.png`, fullPage: true });
+  }
+  // 辦事處的服務時間在詳細資料和比較表都要與電話一同顯示。
+  for (const url of ["service.html?id=crisis-suicide", "compare.html?ids=crisis-suicide,fam-victim"]) {
+    await open(url);
+    const office = p.locator('[role=main] a[href="tel:23417227"]');
+    assert.equal(await office.count(), 1);
+    assert.ok((await p.locator('[role=main]').innerText()).includes("星期日及公眾假期休息"));
   }
   await open("service.html?id=home-support");
   assert.ok((await p.$$eval("[role=main] .key", (k) => k.map((x) => x.textContent.trim()))).includes("60 歲或以上"), "年齡要粗體加底線");

@@ -93,7 +93,7 @@
 
 | 項 | 網站服務頁 | 覆核及處理 | 來源 |
 |---:|---|---|---|
-| 1 | [防止自殺服務及熱線](https://socialservicelazypack.com/service.html?id=crisis-suicide) | 原頁已列三條 24 小時熱線。區分辦公電話、緊急危險和夜間求助，加入直達聯絡欄。 | [依據1](https://www.swd.gov.hk/tc/pubsvc/family/cat_support/suicidepre/) |
+| 1 | [防止自殺服務及熱線](https://socialservicelazypack.com/service.html?id=crisis-suicide) | 原頁已列三條 24 小時熱線。區分辦公電話、緊急危險和夜間求助，列清辦事處午膳、晚膳及假日休息時段，加入直達聯絡欄。 | [依據1](https://www.swd.gov.hk/tc/pubsvc/family/cat_support/suicidepre/) |
 | 2 | [保護兒童支援服務 (ChildPRO)](https://socialservicelazypack.com/service.html?id=fam-childpro) | 由家長角度說明由指定服務單位轉介。 | [依據1](https://www.swd.gov.hk/vs/index_c.html) |
 | 3 | [家庭暴力受害人支援計劃及施虐者輔導](https://socialservicelazypack.com/service.html?id=fam-victim) | 按營辦機構修正時間。和諧之家亦支援男性受害人，沒有將 MAN 定義為只服務施虐者。 | [依據1](https://www.swd.gov.hk/vs/index_c.html) · [依據2](https://harmonyhousehk.org/chi/services/1/) |
 | 4 | [兒童住宿照顧服務](https://socialservicelazypack.com/service.html?id=fam-rcc) | 分開一般／緊急兒童之家，補足男／女童院及其他服務，並將年齡表移入資格欄。 | [依據1](https://www.swd.gov.hk/tc/pubsvc/family/cat_childcareservice/residchildcare/index.html) |
